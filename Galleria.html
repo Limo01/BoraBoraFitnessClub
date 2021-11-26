@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC>
+<!DOCTYPE html>
 <html lang="it">
 	<head>
 		<meta charset="utf-8" />
@@ -6,22 +6,179 @@
 		<meta name="keywords" content="" />
 		<meta name="description" content="" />
 		<meta name="author" content="Adnan Latif Gazi, Alberto Lazari, Marco Andrea Limongelli, Francesco Protopapa" />
+
+		<style>
+			.gallery{
+				display: grid;
+				grid-gap: 0.5em;
+				width: 100%;
+				height: 100%;
+			}
+
+			.gallery_img {
+			    width: 100%;
+			    height: 100%;
+			    object-fit: cover;
+			}
+
+			.gridQuadrata{			
+				grid-template-areas: 
+					'x y'
+					'z w';
+			}
+
+			/*CSS Gallery sala pesi*/
+			#gallerySalaPesi{
+				width: 50%;
+				grid-template-areas: 
+					'a a b b c c'
+					'a a b b c c'
+					'a a b b c c'
+					'd d d e e e'
+					'd d d e e e'
+					'd d d e e e'
+			}
+
+			#gallerySalaPesi #pesi1{
+				grid-area: a;
+			}
+
+			#gallerySalaPesi #pesi2{
+				grid-area: b;
+			}
+
+			#gallerySalaPesi #pesi3{
+				grid-area: c;
+			}
+
+			#gallerySalaPesi #pesi4{
+				grid-area: d;
+			}
+
+			#gallerySalaPesi #gallerySalaPesiQuadrato{
+				grid-area: e;
+			}
+
+			#gallerySalaPesiQuadrato #pesi5{
+				grid-area: x;
+			}
+
+			#gallerySalaPesiQuadrato #pesi6{
+				grid-area: y;
+			}
+
+			#gallerySalaPesiQuadrato #pesi7{
+				grid-area: z;
+			}
+
+			#gallerySalaPesiQuadrato #pesi8{
+				grid-area: w;
+			}
+
+			/*CSS Gallery Sala Cardio*/
+			#gallerySalaCardio{
+				width: 50%;
+				grid-template-areas: 
+					'a a a a'
+					'a a a a'
+					'b b c d'
+					'b b e f'
+			}
+
+			#gallerySalaCardio #cardio1{
+				grid-area: a;
+			}
+
+			#gallerySalaCardio #cardio2{
+				grid-area: b;
+			}
+
+			#gallerySalaCardio #cardio3{
+				grid-area: c;
+			}
+
+			#gallerySalaCardio #cardio4{
+				grid-area: d;
+			}
+
+			#gallerySalaCardio #cardio5{
+				grid-area: e;
+			}
+
+			#gallerySalaCardio #cardio6{
+				grid-area: f;
+			}
+
+			/*CSS Gallery Sala Fitness*/
+			#gallerySalaFitness{
+				width: 50%;
+			}
+
+			#gallerySalaFitness #fitness1{
+				grid-area: x;
+			}
+
+			#gallerySalaFitness #fitness2{
+				grid-area: y;
+			}
+
+			#gallerySalaFitness #fitness3{
+				grid-area: z;
+			}
+
+			#gallerySalaFitness #fitness4{
+				grid-area: w;
+			}
+
+			/*CSS Gallery Spogliatoio*/
+			#gallerySpogliatoio{
+				width: 50%;
+				grid-template-areas: 
+					'a a b b'
+					'a a b b'
+					'a a c d'
+					'a a e f'
+			}
+
+			#gallerySpogliatoio #spogliatoio1{
+				grid-area: a;
+			}
+
+			#gallerySpogliatoio #spogliatoio2{
+				grid-area: b;
+			}
+
+			#gallerySpogliatoio #spogliatoio3{
+				grid-area: c;
+			}
+
+			#gallerySpogliatoio #spogliatoio4{
+				grid-area: d;
+			}
+
+			#gallerySpogliatoio #spogliatoio5{
+				grid-area: e;
+			}
+
+			#gallerySpogliatoio #spogliatoio6{
+				grid-area: f;
+			}
+		</style>
+
 	</head>
 	<body>
 		<header>
 			<h1>Progetto TecWeb</h1>
 		</header>
-		<nav id="menu">
-		</nav>
 		<nav id="breadcrump">
-			<p>Ti trovi in: <span lang="en">Home</span></p>
+			<p>Ti trovi in: <a href="Home.html" lang="en">Home</a> >> Galleria</p>
 		</nav>
 		<nav id="menu">
 			<ul>
-				<li lang="en">Home</li>
+				<li><a lang="en" href="Home.html">Home</a></li>
 				<li><a href="Galleria.html">Galleria</a></li>
 				<li><a href="Storia.html">Storia</a></li>
-				<li><a href="PeronalTrainer.html">Personal trainer</a></li>
+				<li><a lang="en" href="PeronalTrainer.html">Personal trainer</a></li>
 				<li><a href="Abbonamenti.html">Abbonamenti</a></li>
 				<li><a href="SchedeAllenamento.html">Schede allenamento</a></li>
 				<li><a href="AreaPersonale.html">Area personale</a></li>
@@ -29,7 +186,51 @@
 		</nav>
 
 		<div id="content">
-			
+			<h1>Gallery</h1>
+
+			<h2>La nostra sala pesi</h2>
+			<div class="gallery" id="gallerySalaPesi">
+				<img id="pesi1" class="gallery_img" src="immagini/salaPesi/pesi1.jpg" alt="Una nostra Chest Press: una macchina usata per allenare i pettorali" />
+				<img id="pesi2" class="gallery_img" src="immagini/salaPesi/pesi2.jpg" alt="Una nostra Leg Extension: una macchina usata per allenare i quadricipiti" />
+				<img id="pesi3" class="gallery_img" src="immagini/salaPesi/pesi3.jpg" alt="Una nostra Leg Press: una macchina usata per allenare i quadricipiti" />
+
+				<img id="pesi4" class="gallery_img" src="immagini/salaPesi/pesi4.jpg" alt="Il nostro set di manubri composto da coppie di pesi di varie dimensioni" />
+
+				<div id="gallerySalaPesiQuadrato" class="gallery gridQuadrata">
+					<img id="pesi5" class="gallery_img" src="immagini/salaPesi/pesi5.jpg" alt="Una nostra Panca Piana: uno strumento di supporto per gli esercizi con il bilanciere" />
+					<img id="pesi6" class="gallery_img" src="immagini/salaPesi/pesi6.jpg" alt="Le nostra panche per addominali: uno strumento di supporto per allenare l'addome" />
+					<img id="pesi7" class="gallery_img" src="immagini/salaPesi/pesi7.jpg" alt="Le nostra panche piane: uno strumento di supporto per gli esercizi con i manubri" />
+					<img id="pesi8" class="gallery_img" src="immagini/salaPesi/pesi8.jpg" alt="La nostra sala pesi vista nel complesso" />
+				</div>
+			</div>
+
+			<h2>La nostra sala cardio</h2>
+			<div class="gallery" id="gallerySalaCardio">
+				<img id="cardio1" class="gallery_img" src="immagini/salaCardio/cardio1.jpg" alt="I nostri tapis roulant: le macchine per bruciare calorie camminando o correndo" />
+				<img id="cardio2" class="gallery_img" src="immagini/salaCardio/cardio2.jpg" alt="Le nostre cyclette: le macchine per bruciare calorie pedalando" />
+				<img id="cardio3" class="gallery_img" src="immagini/salaCardio/cardio3.jpg" alt="Immagine dei dettagli dei tapis roulant" />
+				<img id="cardio4" class="gallery_img" src="immagini/salaCardio/cardio4.jpg" alt="I nostri numerosi tapis roulant" />
+				<img id="cardio5" class="gallery_img" src="immagini/salaCardio/cardio5.jpg" alt="Immagine dei dettagli dei tapis roulant" />
+				<img id="cardio6" class="gallery_img" src="immagini/salaCardio/cardio6.jpg" alt="I nostri tapis roulant messi in sicurezza dal contagio di coronavirus inserendo dei pannelli di plexiglas tra una macchina e l'altra" />
+			</div>
+
+			<h2>La nostra sala <span lang="en">fitness</span></h2>
+			<div class="gallery gridQuadrata" id="gallerySalaFitness">
+				<img id="fitness1" class="gallery_img" src="immagini/salaFitness/fitness1.jpg" alt="Il nostro set di kettlebell: pesi a forma sferica con una maniglia" />
+				<img id="fitness2" class="gallery_img" src="immagini/salaFitness/fitness2.jpg" alt="La nostra sala fitness dotata di uno specchio lungo come tutta la parete" />
+				<img id="fitness3" class="gallery_img" src="immagini/salaFitness/fitness3.jpg" alt="La nostra sala fitness è dotata di sacchi da boxe e altre attrezzature per l'allenamento a corpo libero" />
+				<img id="fitness4" class="gallery_img" src="immagini/salaFitness/fitness4.jpg" alt="Il nostro set di palle mediche: ideali per esercizi di riabilitazione e potenziamento muscolare" />
+			</div>
+
+			<h2>Il nostri spogliatoi</h2>
+			<div class="gallery" id="gallerySpogliatoio">
+				<img id="spogliatoio1" class="gallery_img" src="immagini/spogliatoio/spogliatoio1.jpg" alt="I nostri spogliatoi sono dotati di armadietti sicuri" />
+				<img id="spogliatoio2" class="gallery_img" src="immagini/spogliatoio/spogliatoio2.jpg"  alt="I nostri spogliatoi sono dotati di numerose panche e armadietti" />
+				<img id="spogliatoio3" class="gallery_img" src="immagini/spogliatoio/spogliatoio3.jpg" alt="I nostri spogliatoi sono dotati di docce moderne e sempre pulite" />
+				<img id="spogliatoio4" class="gallery_img" src="immagini/spogliatoio/spogliatoio4.jpg" alt="I nostri spogliatoi hanno uno specchio molto ampio sulla parete dei lavandini" />
+				<img id="spogliatoio5" class="gallery_img" src="immagini/spogliatoio/spogliatoio5.jpg" alt="I nostri spogliatoi sono dotati di tutti i sanitari necessari" />
+				<img id="spogliatoio6" class="gallery_img" src="immagini/spogliatoio/spogliatoio6.jpg" alt="Davanti alle docce è presente una panca dove appoggiare gli asciugamani" />
+			</div>
 		</div>
 
 		<footer>
