@@ -26,7 +26,7 @@
 			<li><a href="galleria.html">Galleria</a></li>
 			<li><a href="abbonamenti.html">Abbonamenti</a></li>
 			<li><a href="storia.html">Storia</a></li>
-			<li lang="en"><a href="personal-trainers.html">Personal trainers</a></li>
+			<li lang="en"><a href="personal-trainer.html">Personal trainer</a></li>
 			<li><a href="area-personale.html">Area personale</a></li>
 		</ul>
 	</nav>
@@ -35,17 +35,17 @@
 		<h1>Autenticazione</h1>
 
 		<label>Accedi</label>
-		<input type="radio" value="Accedi" id="Accedi">
+		<input type="radio" value="Accedi" id="Accedi" name="autenticazione">
 		<label>Registrati</label>
-		<input type="radio" value="Registrati" id="Registrati">
+		<input type="radio" value="Registrati" id="Registrati" name="autenticazione">
 
-		<form id="accesso" action=”” method=post target=”_self” autocomplete="on">
+		<form id="accesso" action="" method="post" autocomplete="on">
 			<fieldset>
 				<legend>Accesso</legend>
 
 				<label>Nome utente</label>
 				<input type="text" id="nomeUtenteAccesso" name="nomeUtenteAccesso" required
-					placeholder="es: mariorossi@gmail.com | MarioRossi">
+					placeholder="es: mariorossi@gmail.com">
 
 				<label lang="en">Password</label>
 				<input type="password" id="passwordAccesso" minlength="5" maxlength="16" name="passwordAccesso"
@@ -55,7 +55,7 @@
 			</fieldset>
 		</form>
 
-		<form id="registrazione" action=”” method=post target=”_self” autocomplete="on">
+		<form id="registrazione" action="" method="post" autocomplete="on">
 			<fieldset>
 				<legend>Regitrazione</legend>
 
@@ -68,7 +68,7 @@
 
 				<label>Nome utente</label>
 				<input type="text" id="nomeUtenteRegistrazione" name="nomeUtenteRegistrazione" required
-					placeholder="es: mariorossi@gmail.com | MarioRossi">
+					placeholder="es: mariorossi@gmail.com">
 
 				<label lang="en">Password</label>
 				<input type="password" id="passwordRegistrazione" minlength="5" maxlength="16"
