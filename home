@@ -20,7 +20,7 @@
 
 	<nav id="menu">
 		<ul>
-			<li lang="en" id="">Home</li>
+			<li lang="en" id="currentLink">Home</li>
 			<li><a href="schede-allenamento.html">Schede allenamento</a></li>
 			<li><a href="attrezzature.html">Attrezzature</a></li>
 			<li><a href="galleria.html">Galleria</a></li>

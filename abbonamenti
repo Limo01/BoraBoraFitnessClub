@@ -21,11 +21,11 @@
 
 	<nav id="menu">
 		<ul>
-			<li lang="en" id="currentLink">Home</li>
+			<li lang="en"><a href="home.html">Home</a></li>
 			<li><a href="schede-allenamento.html">Schede allenamento</a></li>
 			<li><a href="attrezzature.html">Attrezzature</a></li>
 			<li><a href="galleria.html">Galleria</a></li>
-			<li><a href="abbonamenti.html">Abbonamenti</a></li>
+			<li id="currentLink">Abbonamenti</li>
 			<li><a href="storia.html">Storia</a></li>
 			<li lang="en"><a href="personal-trainers.html">Personal trainers</a></li>
 			<li><a href="area-personale.html">Area personale</a></li>
@@ -38,7 +38,8 @@
 			Entra nell’esclusivo <strong lang="en">Bora Bora Fitness Club</strong>, scegliendo uno degli abbonamenti
 			proposti
 		</h3>
-		<img src="Images/outdoor-workout.jpg" alt="allenati sulla spiaggia con i nostri allenamenti esclusivi">
+		<img src="immagini/abbonamenti/outdoor-workout.jpg"
+			alt="allenati sulla spiaggia con i nostri allenamenti esclusivi">
 		<table title="Abbonamenti acquistabili">
 			<caption>Abbonamenti</caption>
 
@@ -174,9 +175,9 @@
 				boraborafitnessclub@gmail.com</a>
 		</p>
 		<!--DIMENSIONI IMMAGINI DA FARE POI SU CSS E TOGLIERE-->
-		<a href="https://www.instagram.com/" target="_blank"><img src="Images/logos/instagram.png" alt="logo instagram"
-				width="50" height="50" /></a>
-		<a href="https://www.facebook.com/" target="_blank"><img src="Images/logos/facebook.png" alt="logo facebook"
+		<a href="https://www.instagram.com/" target="_blank"><img src="immagini/logos/instagram.png"
+				alt="logo instagram" width="50" height="50" /></a>
+		<a href="https://www.facebook.com/" target="_blank"><img src="immagini/logos/facebook.png" alt="logo facebook"
 				width="50" height="50" /></a>
 	</footer>
 </body>
