@@ -1,0 +1,115 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	font-size: 100%;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	margin: auto;
+	max-width: 1024px;
+}
+
+header {
+	color: #F3C428;
+	background-color: #A80022;
+	text-align: center;
+	background-image: url('images/sfondo.png');
+	background-position: right bottom;
+	background-repeat: no-repeat;
+	padding: 1em;
+	padding-top: 0.7em;
+	background-size: contain;
+}
+
+header h1 {
+	background-image: url('images/angry-birds-logo-nero.png');
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	text-indent: -999999em;
+	font-size: 3em;
+}
+
+header h2 {
+	font-size: 2em;
+	margin-top: 0.3em;
+}
+
+#breadcrumb {
+	background-color: #0E1E38;
+	color: #F3C428;
+	font-size: 1.1em;
+	padding: 0.5em 0em 0.5em 1em;
+}
+
+#breadcrumb a:link {
+	color:  #D8D8D8;
+}
+
+#breadbrumb a:visited {
+	color:  #F2F5A9;
+}
+
+#menu {
+	float: left;
+	width:  20%;
+	font-size: 1.3em;
+	padding: 0.8em;
+	border: 1px solid black;
+}
+
+#menu ul {
+	list-style-type: none;
+}
+
+#menu ul li {
+	margin-top:  0.5em;
+}
+
+#currentLink {
+	background-image: url('images/red.png');
+	background-position: left center;
+	background-size: 1.4em;
+	background-repeat: no-repeat;
+	padding-left: 1.5em;
+}
+
+#content{
+	float:left;
+	border-left: 1px solid;
+	padding-left: 7em;
+	margin-left:1em;
+	width:60%;
+	padding-bottom:1em;
+}
+
+#content h1{
+	margin-bottom:1.2em;
+}
+
+#content p{
+	border:1px solid;
+	padding:1em;
+	margin-top:0px;
+	padding-bottom:5em;
+}
+
+#content h2{
+	color:#FFF;
+	border:1px solid;
+	font-size:1.5em;
+	padding-left:0.5em;
+	background-color:#a82022;
+	margin-bottom:0px;
+	line-height:2em;
+}
+
+#footer {
+	clear:  both;
+	text-align: center;
+	font-size: 0.8em;
+	border-top: 1px solid black;
+	padding: 0.5em;
+}
+
