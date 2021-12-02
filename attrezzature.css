@@ -1,0 +1,151 @@
+* {
+	padding: 0;
+	margin: 0 auto;
+}
+
+html,
+body {
+	font-size: 100%;
+	font-family: sans-serif;
+	max-width: 1200px;
+	background-image: url("immagini/provasfondo.jpg");
+	background-repeat: none;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+header,
+#breadcrumb {
+	background-color: #f7f9fb;
+	text-align: center;
+}
+
+/*==================== MENU ====================*/
+#menu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	font-size: 1.2em;
+	color: #f7f9fb;
+	z-index: 2;
+}
+
+#menu ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #31708e;
+}
+#menu li {
+	float: left;
+}
+
+#menu li a,
+#currentLink {
+	display: block;
+	color: #f7f9fb;
+	text-align: center;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	text-decoration: none;
+	border-radius: 10px;
+}
+
+#currentLink {
+	background-color: #687864;
+	border-radius: 10px;
+}
+
+#menu li a:hover {
+	background-color: #5085a5;
+}
+
+/*==================== CONTENT ====================*/
+#content {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1200px;
+}
+
+#content > div {
+	background-color: #f7f9fb;
+	padding: 2em;
+	border-radius: 2em;
+	margin-top: 3em;
+	margin-bottom: 3em;
+}
+
+#content .titolo {
+	border-top-left-radius: 0%;
+	border-top-right-radius: 0%;
+	margin-top: 0;
+	padding-top: 0;
+	text-align: center;
+}
+
+#content h1 {
+	text-align: center;
+	padding-top: 0.5em;
+	color: #687864;
+	font-size: 4em;
+	background-color: #f7f9fb;
+}
+
+#content p {
+	color: #687864;
+	clear: left;
+	font-size: 1.3em;
+	margin-top: 1em;
+}
+
+/*==================== STILE ATTREZZATURE ====================*/
+
+article {
+	margin-bottom: 4em;
+}
+
+article h3 {
+	background-color: #5085a5;
+	color: #f7f9fb;
+	padding: 0.5em;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+article div img {
+	float: left;
+	width: 30%;
+	margin-right: 1em;
+}
+
+#content article div p {
+	clear: right;
+	margin-left: 30%;
+	margin-bottom: 1.0em;
+	min-height: 500px;
+}
+
+#content h2{
+	text-align: center;
+	margin-bottom: 1em;
+	font-size: 2.5em;
+	color: #687864;
+}
+
+/*==================== FOOTER ====================*/
+footer {
+	padding: 1em 2em;
+	text-align: center;
+	max-width: 1200px;
+	background-color: rgba(0, 0, 0, 0.3);
+	border-top-left-radius: 2em;
+	border-top-right-radius: 2em;
+	color: #f7f9fb;
+}
+footer img {
+	margin-top: 1em;
+}
