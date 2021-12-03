@@ -72,7 +72,7 @@ header,
 }
 
 #content > div {
-	background-color: #f7f9fb;
+	background-color: rgba(247,249,251,0.93);
 	padding: 2em;
 	border-radius: 2em;
 	margin-top: 3em;
@@ -92,7 +92,6 @@ header,
 	padding-top: 0.5em;
 	color: #687864;
 	font-size: 4em;
-	background-color: #f7f9fb;
 }
 
 #content p {
@@ -109,24 +108,33 @@ article {
 }
 
 article h3 {
-	background-color: #5085a5;
+	background-color: #687864;
 	color: #f7f9fb;
 	padding: 0.5em;
 	font-size: 1.5em;
 	text-align: center;
+	border-radius: 2em;
 }
 
 article div img {
 	float: left;
 	width: 30%;
 	margin-right: 1em;
+	border-radius: 2em;
+}
+
+article div{
+	min-height: 500px;
 }
 
 #content article div p {
 	clear: right;
-	margin-left: 30%;
+	margin-left: 35%;
 	margin-bottom: 1.0em;
-	min-height: 500px;
+	color: #f7f9fb;
+	background-color: #5085a5;
+	padding: 1.2em;
+	border-radius: 2em;
 }
 
 #content h2{
