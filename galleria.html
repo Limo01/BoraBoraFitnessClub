@@ -8,218 +8,7 @@
 	<meta name="description" content="Visualizza le foto del nostro meraviglioso fitness club!" />
 	<meta name="author" content="Adnan Latif Gazi, Alberto Lazari, Marco Andrea Limongelli, Francesco Protopapa" />
 
-	<style>
-		.gallery {
-			display: grid;
-			grid-gap: 0.5em;
-			width: 100%;
-			height: 100%;
-		}
-
-		.gallery_img {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-		}
-
-		.gridQuadrata {
-			grid-template-areas:
-				'x y'
-				'z w';
-		}
-
-		/*CSS Gallery sala pesi*/
-		#gallerySalaPesi {
-			width: 50%;
-			grid-template-areas:
-				'a a b b c c'
-				'a a b b c c'
-				'a a b b c c'
-				'd d d e e e'
-				'd d d e e e'
-				'd d d e e e'
-		}
-
-		#gallerySalaPesi #pesi1 {
-			grid-area: a;
-		}
-
-		#gallerySalaPesi #pesi2 {
-			grid-area: b;
-		}
-
-		#gallerySalaPesi #pesi3 {
-			grid-area: c;
-		}
-
-		#gallerySalaPesi #pesi4 {
-			grid-area: d;
-		}
-
-		#gallerySalaPesi #gallerySalaPesiQuadrato {
-			grid-area: e;
-		}
-
-		#gallerySalaPesiQuadrato #pesi5 {
-			grid-area: x;
-		}
-
-		#gallerySalaPesiQuadrato #pesi6 {
-			grid-area: y;
-		}
-
-		#gallerySalaPesiQuadrato #pesi7 {
-			grid-area: z;
-		}
-
-		#gallerySalaPesiQuadrato #pesi8 {
-			grid-area: w;
-		}
-
-		/*CSS Gallery Sala Cardio*/
-		#gallerySalaCardio {
-			width: 50%;
-			grid-template-areas:
-				'a a a a'
-				'a a a a'
-				'b b c d'
-				'b b e f'
-		}
-
-		#gallerySalaCardio #cardio1 {
-			grid-area: a;
-		}
-
-		#gallerySalaCardio #cardio2 {
-			grid-area: b;
-		}
-
-		#gallerySalaCardio #cardio3 {
-			grid-area: c;
-		}
-
-		#gallerySalaCardio #cardio4 {
-			grid-area: d;
-		}
-
-		#gallerySalaCardio #cardio5 {
-			grid-area: e;
-		}
-
-		#gallerySalaCardio #cardio6 {
-			grid-area: f;
-		}
-
-		/*CSS Gallery Sala Fitness*/
-		#gallerySalaFitness {
-			width: 50%;
-		}
-
-		#gallerySalaFitness #fitness1 {
-			grid-area: x;
-		}
-
-		#gallerySalaFitness #fitness2 {
-			grid-area: y;
-		}
-
-		#gallerySalaFitness #fitness3 {
-			grid-area: z;
-		}
-
-		#gallerySalaFitness #fitness4 {
-			grid-area: w;
-		}
-
-		/*CSS Gallery Piscina*/
-		#galleryPiscina {
-			width: 50%;
-		}
-
-		#galleryPiscina #piscina1 {
-			grid-area: x;
-		}
-
-		#galleryPiscina #piscina2 {
-			grid-area: y;
-		}
-
-		#galleryPiscina #piscina3 {
-			grid-area: z;
-		}
-
-		#galleryPiscina #piscina4 {
-			grid-area: w;
-		}
-
-		/*CSS Gallery Outdoor*/
-		#galleryOutdoor {
-			width: 50%;
-			grid-template-areas:
-				'a a b c'
-				'a a d e'
-				'f f f f'
-				'f f f f'	
-		}
-
-		#galleryOutdoor #outdoor1 {
-			grid-area: a;
-		}
-
-		#galleryOutdoor #outdoor2 {
-			grid-area: b;
-		}
-
-		#galleryOutdoor #outdoor3 {
-			grid-area: c;
-		}
-
-		#galleryOutdoor #outdoor4 {
-			grid-area: d;
-		}
-
-		#galleryOutdoor #outdoor5 {
-			grid-area: e;
-		}
-
-		#galleryOutdoor #outdoor6 {
-			grid-area: f;
-		}
-
-		/*CSS Gallery Spogliatoio*/
-		#gallerySpogliatoio {
-			width: 50%;
-			grid-template-areas:
-				'a a b b'
-				'a a b b'
-				'a a c d'
-				'a a e f'
-		}
-
-		#gallerySpogliatoio #spogliatoio1 {
-			grid-area: a;
-		}
-
-		#gallerySpogliatoio #spogliatoio2 {
-			grid-area: b;
-		}
-
-		#gallerySpogliatoio #spogliatoio3 {
-			grid-area: c;
-		}
-
-		#gallerySpogliatoio #spogliatoio4 {
-			grid-area: d;
-		}
-
-		#gallerySpogliatoio #spogliatoio5 {
-			grid-area: e;
-		}
-
-		#gallerySpogliatoio #spogliatoio6 {
-			grid-area: f;
-		}
-	</style>
+	<link rel="stylesheet" media="screen" href="galleria.css" />
 
 </head>
 
@@ -243,103 +32,120 @@
 		</ul>
 	</nav>
 
-	<div id="content">
-		<h1>Gallery</h1>
+	<div id="content">	
+		<div class="titolo">
+			<h1>Gallery</h1>
+			<p>
+				Scopria la meravigliosa struttura di <strong lang="en">Bora Bora Fitness Club</strong>!
+			<p>
+		</div>
 
-		<h2>La nostra sala pesi</h2>
-		<div class="gallery" id="gallerySalaPesi">
-			<img id="pesi1" class="gallery_img" src="immagini/sala-pesi/pesi1.jpg"
-				alt="Una nostra Chest Press: una macchina usata per allenare i pettorali" />
-			<img id="pesi2" class="gallery_img" src="immagini/sala-pesi/pesi2.jpg"
-				alt="Una nostra Leg Extension: una macchina usata per allenare i quadricipiti" />
-			<img id="pesi3" class="gallery_img" src="immagini/sala-pesi/pesi3.jpg"
-				alt="Una nostra Leg Press: una macchina usata per allenare le gambe" />
+		<div>
+			<h2>La nostra sala pesi</h2>
+			<div class="gallery" id="gallerySalaPesi">
+				<img id="pesi1" class="gallery_img" src="immagini/sala-pesi/pesi1.jpg"
+					alt="Una nostra Chest Press: una macchina usata per allenare i pettorali" />
+				<img id="pesi2" class="gallery_img" src="immagini/sala-pesi/pesi2.jpg"
+					alt="Una nostra Leg Extension: una macchina usata per allenare i quadricipiti" />
+				<img id="pesi3" class="gallery_img" src="immagini/sala-pesi/pesi3.jpg"
+					alt="Una nostra Leg Press: una macchina usata per allenare le gambe" />
 
-			<img id="pesi4" class="gallery_img" src="immagini/sala-pesi/pesi4.jpg"
-				alt="Il nostro set di manubri composto da coppie di pesi di varie dimensioni" />
+				<img id="pesi4" class="gallery_img" src="immagini/sala-pesi/pesi4.jpg"
+					alt="Il nostro set di manubri composto da coppie di pesi di varie dimensioni" />
 
-			<div id="gallerySalaPesiQuadrato" class="gallery gridQuadrata">
-				<img id="pesi5" class="gallery_img" src="immagini/sala-pesi/pesi5.jpg"
-					alt="Una nostra Panca Piana: uno strumento di supporto per gli esercizi con il bilanciere" />
-				<img id="pesi6" class="gallery_img" src="immagini/sala-pesi/pesi6.jpg"
-					alt="Le nostra panche per addominali: un attrezzo di supporto per allenare l'addome" />
-				<img id="pesi7" class="gallery_img" src="immagini/sala-pesi/pesi7.jpg"
-					alt="Le nostre panche piane: uno strumento di supporto per gli esercizi con i manubri" />
-				<img id="pesi8" class="gallery_img" src="immagini/sala-pesi/pesi8.jpg"
-					alt="La nostra sala pesi nel complesso" />
+				<div id="gallerySalaPesiQuadrato" class="gallery gridQuadrata">
+					<img id="pesi5" class="gallery_img gallery_img_zoom" src="immagini/sala-pesi/pesi5.jpg"
+						alt="Una nostra Panca Piana: uno strumento di supporto per gli esercizi con il bilanciere" />
+					<img id="pesi6" class="gallery_img gallery_img_zoom" src="immagini/sala-pesi/pesi6.jpg"
+						alt="Le nostra panche per addominali: un attrezzo di supporto per allenare l'addome" />
+					<img id="pesi7" class="gallery_img gallery_img_zoom" src="immagini/sala-pesi/pesi7.jpg"
+						alt="Le nostre panche piane: uno strumento di supporto per gli esercizi con i manubri" />
+					<img id="pesi8" class="gallery_img gallery_img_zoom" src="immagini/sala-pesi/pesi8.jpg"
+						alt="La nostra sala pesi nel complesso" />
+				</div>
 			</div>
 		</div>
 
-		<h2>La nostra sala cardio</h2>
-		<div class="gallery" id="gallerySalaCardio">
-			<img id="cardio1" class="gallery_img" src="immagini/sala-cardio/cardio1.jpg"
-				alt="I nostri tapis roulant: le macchine per bruciare calorie camminando o correndo" />
-			<img id="cardio2" class="gallery_img" src="immagini/sala-cardio/cardio2.jpg"
-				alt="Le nostre cyclette: le macchine per bruciare calorie pedalando" />
-			<img id="cardio3" class="gallery_img" src="immagini/sala-cardio/cardio3.jpg"
-				alt="I nostri tapis roulant sono moderni e dotati di uno scalino per salire" />
-			<img id="cardio4" class="gallery_img" src="immagini/sala-cardio/cardio4.jpg"
-				alt="I nostri numerosi tapis roulant" />
-			<img id="cardio5" class="gallery_img" src="immagini/sala-cardio/cardio5.jpg"
-				alt="I nostri tapis roulant sono dotati di schermo digitale accessibile" />
-			<img id="cardio6" class="gallery_img" src="immagini/sala-cardio/cardio6.jpg"
-				alt="I nostri tapis roulant messi in sicurezza dal contagio di coronavirus inserendo dei pannelli di plexiglas tra una macchina e l'altra" />
+		<div>
+			<h2>La nostra sala cardio</h2>
+			<div class="gallery" id="gallerySalaCardio">
+				<img id="cardio1" class="gallery_img" src="immagini/sala-cardio/cardio1.jpg"
+					alt="I nostri tapis roulant: le macchine per bruciare calorie camminando o correndo" />
+				<img id="cardio2" class="gallery_img" src="immagini/sala-cardio/cardio2.jpg"
+					alt="Le nostre cyclette: le macchine per bruciare calorie pedalando" />
+				<img id="cardio3" class="gallery_img gallery_img_zoom" src="immagini/sala-cardio/cardio3.jpg"
+					alt="I nostri tapis roulant sono moderni e dotati di uno scalino per salire" />
+				<img id="cardio4" class="gallery_img gallery_img_zoom" src="immagini/sala-cardio/cardio4.jpg"
+					alt="I nostri numerosi tapis roulant" />
+				<img id="cardio5" class="gallery_img gallery_img_zoom" src="immagini/sala-cardio/cardio5.jpg"
+					alt="I nostri tapis roulant sono dotati di schermo digitale accessibile" />
+				<img id="cardio6" class="gallery_img gallery_img_zoom" src="immagini/sala-cardio/cardio6.jpg"
+					alt="I nostri tapis roulant messi in sicurezza dal contagio di coronavirus inserendo dei pannelli di plexiglas tra una macchina e l'altra" />
+			</div>
 		</div>
 
-		<h2>La nostra sala <span lang="en">fitness</span></h2>
-		<div class="gallery gridQuadrata" id="gallerySalaFitness">
-			<img id="fitness1" class="gallery_img" src="immagini/sala-fitness/fitness1.jpg"
-				alt="Il nostro set di kettlebell: pesi a forma sferica con una maniglia" />
-			<img id="fitness2" class="gallery_img" src="immagini/sala-fitness/fitness2.jpg"
-				alt="La nostra sala fitness è dotata di uno specchio lungo come tutta la parete" />
-			<img id="fitness3" class="gallery_img" src="immagini/sala-fitness/fitness3.jpg"
-				alt="La nostra sala fitness è dotata di sacchi da boxe e altre attrezzature per l'allenamento a corpo libero" />
-			<img id="fitness4" class="gallery_img" src="immagini/sala-fitness/fitness4.jpg"
-				alt="Il nostro set di palle mediche: ideali per esercizi di riabilitazione e potenziamento muscolare" />
+		<div>
+			<h2>La nostra sala <span lang="en">fitness</span></h2>
+			<div class="gallery gridQuadrata" id="gallerySalaFitness">
+				<img id="fitness1" class="gallery_img" src="immagini/sala-fitness/fitness1.jpg"
+					alt="Il nostro set di kettlebell: pesi a forma sferica con una maniglia" />
+				<img id="fitness2" class="gallery_img" src="immagini/sala-fitness/fitness2.jpg"
+					alt="La nostra sala fitness è dotata di uno specchio lungo come tutta la parete" />
+				<img id="fitness3" class="gallery_img" src="immagini/sala-fitness/fitness3.jpg"
+					alt="La nostra sala fitness è dotata di sacchi da boxe e altre attrezzature per l'allenamento a corpo libero" />
+				<img id="fitness4" class="gallery_img" src="immagini/sala-fitness/fitness4.jpg"
+					alt="Il nostro set di palle mediche: ideali per esercizi di riabilitazione e potenziamento muscolare" />
+			</div>
 		</div>
 
-		<h2>La nostra piscine</h2>
-		<div class="gallery gridQuadrata" id="galleryPiscina">
-			<img id="piscina1" class="gallery_img" src="immagini/piscina/piscina1.jpg"
-				alt="La nostra piscina grande è dotata di più blocchi di partenza" />
-			<img id="piscina2" class="gallery_img" src="immagini/piscina/piscina2.jpg"
-				alt="La nostra piscina grande è affiancata da un'altra piscina per i più piccoli" />
-			<img id="piscina3" class="gallery_img" src="immagini/piscina/piscina3.jpg"
-				alt="La nostra piscina grande ha sei corsie" />
-			<img id="piscina4" class="gallery_img" src="immagini/piscina/piscina4.jpg"
-				alt="La nostra piscina è dotata di blocchi di partenza sicuri ed antiscivolo" />
+		<div>
+			<h2>La nostra piscine</h2>
+			<div class="gallery gridQuadrata" id="galleryPiscina">
+				<img id="piscina1" class="gallery_img" src="immagini/piscina/piscina1.jpg"
+					alt="La nostra piscina grande è dotata di più blocchi di partenza" />
+				<img id="piscina2" class="gallery_img" src="immagini/piscina/piscina2.jpg"
+					alt="La nostra piscina grande è affiancata da un'altra piscina per i più piccoli" />
+				<img id="piscina3" class="gallery_img" src="immagini/piscina/piscina3.jpg"
+					alt="La nostra piscina grande ha sei corsie" />
+				<img id="piscina4" class="gallery_img" src="immagini/piscina/piscina4.jpg"
+					alt="La nostra piscina è dotata di blocchi di partenza sicuri ed antiscivolo" />
+			</div>
 		</div>
 
-		<h2>Il nostro paradisiaco spazio <span lang="en">outdoor</span></h2>
-		<div class="gallery" id="galleryOutdoor">
-			<img id="outdoor1" class="gallery_img" src="immagini/outdoor/outdoor1.jpg"
-				alt="Nel nostro spazio outdoor abbiamo una selezione di bilancieri in legno con pesi diversi" />
-			<img id="outdoor2" class="gallery_img" src="immagini/outdoor/outdoor2.jpg"
-				alt="Nel nostro spazio outdoor abbiamo diverse panche per fare esercizi" />
-			<img id="outdoor3" class="gallery_img" src="immagini/outdoor/outdoor3.jpg"
-				alt="Nel nostro spazio outdoor abbiamo una selezione di manubri in legno con pesi diversi" />
-			<img id="outdoor4" class="gallery_img" src="immagini/outdoor/outdoor4.jpg"
-				alt="Nel nostro spazio outdoor è presente una panca piana con un sostegno per il bilanciere" />
-			<img id="outdoor5" class="gallery_img" src="immagini/outdoor/outdoor5.jpg"
-				alt="Nel nostro spazio outdoor abbiamo numerose attrezzature in legno" />
-			<img id="outdoor6" class="gallery_img" src="immagini/outdoor/outdoor6.jpg"
-				alt="Il nostro spazio outdoor è vicinissimo al bagnasciuga e ha una vista su un panorama fantastico" />
+		<div>
+			<h2>Il nostro paradisiaco spazio <span lang="en">outdoor</span></h2>
+			<div class="gallery" id="galleryOutdoor">
+				<img id="outdoor1" class="gallery_img" src="immagini/outdoor/outdoor1.jpg"
+					alt="Nel nostro spazio outdoor è presente una panca piana con un sostegno per il bilanciere" />
+				<img id="outdoor2" class="gallery_img gallery_img_zoom" src="immagini/outdoor/outdoor2.jpg"
+					alt="Nel nostro spazio outdoor abbiamo diverse panche per fare esercizi" />
+				<img id="outdoor3" class="gallery_img gallery_img_zoom" src="immagini/outdoor/outdoor3.jpg"
+					alt="Nel nostro spazio outdoor abbiamo una selezione di manubri in legno con pesi diversi" />
+				<img id="outdoor4" class="gallery_img gallery_img_zoom" src="immagini/outdoor/outdoor4.jpg"
+					alt="Nel nostro spazio outdoor è presente una postazione per fare squat con sostegno per il bilanciere" />
+				<img id="outdoor5" class="gallery_img gallery_img_zoom" src="immagini/outdoor/outdoor5.jpg"
+					alt="Nel nostro spazio outdoor abbiamo numerose attrezzature in legno" />
+				<img id="outdoor6" class="gallery_img" src="immagini/outdoor/outdoor6.jpg"
+					alt="Il nostro spazio outdoor è vicinissimo al bagnasciuga e ha una vista su un panorama fantastico" />
+			</div>
 		</div>
 
-		<h2>Il nostri spogliatoi</h2>
-		<div class="gallery" id="gallerySpogliatoio">
-			<img id="spogliatoio1" class="gallery_img" src="immagini/spogliatoio/spogliatoio1.jpg"
-				alt="I nostri spogliatoi sono dotati di armadietti spaziosi" />
-			<img id="spogliatoio2" class="gallery_img" src="immagini/spogliatoio/spogliatoio2.jpg"
-				alt="I nostri spogliatoi sono dotati di numerose panche e armadietti" />
-			<img id="spogliatoio3" class="gallery_img" src="immagini/spogliatoio/spogliatoio3.jpg"
-				alt="I nostri spogliatoi sono dotati di docce moderne e molto pulite" />
-			<img id="spogliatoio4" class="gallery_img" src="immagini/spogliatoio/spogliatoio4.jpg"
-				alt="I nostri spogliatoi hanno uno specchio molto ampio sulla parete dei lavandini" />
-			<img id="spogliatoio5" class="gallery_img" src="immagini/spogliatoio/spogliatoio5.jpg"
-				alt="I nostri spogliatoi sono dotati di tutti i sanitari necessari" />
-			<img id="spogliatoio6" class="gallery_img" src="immagini/spogliatoio/spogliatoio6.jpg"
-				alt="Davanti alle docce è presente una panca in legno dove appoggiare gli asciugamani" />
+		<div>
+			<h2>Il nostri spogliatoi</h2>
+			<div class="gallery" id="gallerySpogliatoio">
+				<img id="spogliatoio1" class="gallery_img" src="immagini/spogliatoio/spogliatoio1.jpg"
+					alt="I nostri spogliatoi sono dotati di armadietti spaziosi" />
+				<img id="spogliatoio2" class="gallery_img" src="immagini/spogliatoio/spogliatoio2.jpg"
+					alt="I nostri spogliatoi sono dotati di numerose panche e armadietti" />
+				<img id="spogliatoio3" class="gallery_img gallery_img_zoom" src="immagini/spogliatoio/spogliatoio3.jpg"
+					alt="I nostri spogliatoi sono dotati di docce moderne e molto pulite" />
+				<img id="spogliatoio4" class="gallery_img gallery_img_zoom" src="immagini/spogliatoio/spogliatoio4.jpg"
+					alt="I nostri spogliatoi hanno uno specchio molto ampio sulla parete dei lavandini" />
+				<img id="spogliatoio5" class="gallery_img gallery_img_zoom" src="immagini/spogliatoio/spogliatoio5.jpg"
+					alt="I nostri spogliatoi sono dotati di tutti i sanitari necessari" />
+				<img id="spogliatoio6" class="gallery_img gallery_img_zoom" src="immagini/spogliatoio/spogliatoio6.jpg"
+					alt="Davanti alle docce è presente una panca in legno dove appoggiare gli asciugamani" />
+			</div>
 		</div>
 	</div>
 
