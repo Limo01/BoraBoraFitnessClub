@@ -103,91 +103,88 @@ header,
     margin-top: 1em;
 }
 
-/*==================== PERSONAL TRAINER ====================*/
+/*==================== AUTENTICAZIONE ====================*/
 
-.personalTrainer {
+input[type=button] {
+    width: 40%;
+    border-radius: 1em;
+    cursor: pointer;
+    border: 2px solid black;
+    color: #f7f9fb;
+    background-color: #5085a5;
+    font-size: 1.5em;
+    transition: box-shadow 0.2s, width 0.2s, background-color 0.2s;
+    transition-timing-function: ease;
+}
+
+form {
     background-color: #f7f9fb;
     border-radius: 1em;
     margin: 2em 0em;
     padding: 1em;
-    overflow: hidden;
 }
 
-.personalTrainer > h2 {
-    margin: 0.4em 0em 0.4em 35%;
-    padding: 0.4em;
-    font-size: 2.5em;
-    color: #687864;
-}
-
-.personalTrainer > img {
-    float: left;
-    width: 30%;
-    padding: 0em;
-    margin: 0em;
-    transition: transform 0.2s;
-    transition-timing-function: ease;
-}
-
-.personalTrainer > img:hover {
-    transform: scale(1.01);
-}
-
-.personalTrainer > p {
-    color: #f7f9fb;
-    background-color: #5085a5;
-    margin: 1em 0em 1em 35%;
-    padding: 1em;
+fieldset {
+    background-color: #eef2f6;
     border-radius: 1em;
-    transition: box-shadow 0.2s;
-    transition-timing-function: ease;
+    padding: 1em;
 }
 
-.personalTrainer > p:hover {
-    box-shadow: 0px 10px 13px -7px #000000;
-}
-
-.personalTrainer > p > cite {
-    display: block;
-    padding: 0.2em 0em;
-    margin:  0em;
-    font-size: 1.5em;
-}
-
-.personalTrainer > div {
-    margin: 1em 0em 1em 35%;
-    padding: 0em;
-}
-
-.personalTrainer > div > p {
-    display: inline;
-    color: #f7f9fb;
-    background-color: #5085a5;
-    padding: 0.5em 1em;
-    margin:  0.5em 2em 0.5em 0em;
-    border-radius: 2em;
-}
-
-.personalTrainer > div > ul {
-    display: inline;
-}
-
-.personalTrainer > div > ul > li {
+legend {
     color: #f7f9fb;
     background-color: #687864;
+    border-radius: 1em;
+    font-size: 1.5em;
+    padding: 0.5em 3em;
+    margin: 0em auto;
+}
+
+label {
+    font-size: 1.5em;
+    color: #687864;
+    margin: 1em 20% 0.5em 20%;
+    padding: 0em;
+}
+
+input[type=text], input[type=password] {
+    display: block;
+    border: 2px solid #000;
+    border-radius: 1em;
+    margin: 0.5em auto 1em auto;
+    padding: 1em;
+    width: 60%;
+    background-color: #5085a5;
+    color: #f7f9fb;
+}
+
+::placeholder {
+    color: #f7f9fb;
+}
+
+input[type=submit], input[type=reset] {
+    display: block;
+    margin: 1em auto;
     padding: 0.5em 1em;
-    margin:  0.5em 0em;
+    width: 65%;
     border-radius: 2em;
-    list-style-type: none;
-    display: inline-block;
-    transition: box-shadow 0.2s, transform 0.2s, background-color 0.2s;
+    cursor: pointer;
+    border: 2px solid #000;
+    color: #f7f9fb;
+    background-color: #687864;
+    font-size: 1.5em;
+    transition: box-shadow 0.2s, width 0.2s, background-color 0.2s;
     transition-timing-function: ease;
 }
 
-.personalTrainer > div > ul > li:hover {
-    transform: scale(1.02);
+input[type=submit]:hover, input[type=reset]:hover {
     box-shadow: 0px 10px 13px -7px #000000;
-    background-color: #546151;
+    width: 75%;
+    background-color: #426e8a;
+}
+
+input[type=submit]:active, input[type=reset]:active {
+    box-shadow: 0px 10px 13px -5px #000000;
+    background-color: #325367;
 }
 
 /*==================== FOOTER ====================*/
