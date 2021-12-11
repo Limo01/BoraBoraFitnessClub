@@ -65,6 +65,7 @@ header,
 }
 
 /*==================== CONTENT ====================*/
+
 #content {
     margin-left: auto;
     margin-right: auto;
@@ -95,36 +96,6 @@ header,
     background-color: #f7f9fb;
 }
 
-.personalTrainer {
-    background-color: #f7f9fb;
-    border-radius: 1em;
-    padding: 0;
-    margin: 2em 0em 2em 0em;
-    overflow: hidden;
-}
-
-.personalTrainer > h2 {
-    margin-left: 30%;
-    padding: 0.5em 0em 0.5em 0em;
-    font-size: 2.5em;
-    color: #687864;
-}
-
-.personalTrainer > img {
-    float: left;
-    width: 30%;
-    height: 100%;
-    padding: 0em 0em 0.5em 0.5em;
-}
-
-.personalTrainer > p {
-    color: #f7f9fb;
-    background-color: #5085a5;
-    margin: 0em 1em 2em 30%;
-    padding: 1em;
-    border-radius: 1em;
-}
-
 #content > div > p {
     color: #687864;
     clear: left;
@@ -132,45 +103,95 @@ header,
     margin-top: 1em;
 }
 
+/*==================== PERSONAL TRAINER ====================*/
 
-/**/
+.personalTrainer {
+    background-color: #f7f9fb;
+    border-radius: 1em;
+    margin: 2em 0em;
+    padding: 1em;
+    overflow: hidden;
+}
+
+.personalTrainer > h2 {
+    margin: 0.4em 0em 0.4em 35%;
+    padding: 0.4em;
+    font-size: 2.5em;
+    color: #687864;
+}
+
+.personalTrainer > img {
+    float: left;
+    width: 30%;
+    padding: 0em;
+    margin: 0em;
+    transition: transform 0.2s;
+    transition-timing-function: ease;
+}
+
+.personalTrainer > img:hover {
+    transform: scale(1.01);
+}
+
+.personalTrainer > p {
+    color: #f7f9fb;
+    background-color: #5085a5;
+    margin: 1em 0em 1em 35%;
+    padding: 1em;
+    border-radius: 1em;
+    transition: box-shadow 0.2s;
+    transition-timing-function: ease;
+}
+
+.personalTrainer > p:hover {
+    box-shadow: 0px 10px 13px -7px #000000;
+}
 
 .personalTrainer > p > cite {
     display: block;
-    margin:  0.3em 0em 0.3em 0em;
+    padding: 0.2em 0em;
+    margin:  0em;
     font-size: 1.5em;
 }
 
-.personalTrainer > div > p {
-    color: #f7f9fb;
-    background-color: #5085a5;
-    margin-right: 1em;
-    padding: 0.5em;
-    border-radius: 1em;
+.personalTrainer > div {
+    margin: 1em 0em 1em 35%;
+    padding: 0em;
 }
 
-.personalTrainer > div > p, .personalTrainer > div > ul {
+.personalTrainer > div > p {
     display: inline;
-    margin-bottom: 2em;
+    color: #f7f9fb;
+    background-color: #5085a5;
+    padding: 0.5em 1em 0.5em 1em;
+    margin:  0.5em 2em 0.5em 0em;
+    border-radius: 2em;
+}
+
+.personalTrainer > div > ul {
+    display: inline;
 }
 
 .personalTrainer > div > ul > li {
     color: #f7f9fb;
     background-color: #687864;
-    padding: 0.3em 1em 0.3em 1em;
-    margin:  0.3em 0em 0.3em 0em;
+    padding: 0.5em 1em 0.5em 1em;
+    margin:  0.5em 0em 0.5em 0em;
     border-radius: 2em;
     list-style-type: none;
     display: inline-block;
+    transition: box-shadow 0.2s, transform 0.2s, opacity 0.2s;
+    transition-timing-function: ease;
 }
 
 .personalTrainer > div > ul > li:hover {
-    /*transform: scale(1.03);*/
-    
-    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+    box-shadow: 0px 10px 13px -7px #000000;
+    opacity: 0.9;
 }
 
 /*==================== FOOTER ====================*/
+
 footer {
     padding: 1em 2em;
     text-align: center;
@@ -180,6 +201,7 @@ footer {
     border-top-right-radius: 2em;
     color: #f7f9fb;
 }
+
 footer img {
     margin-top: 1em;
 }
