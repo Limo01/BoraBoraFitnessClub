@@ -4,9 +4,9 @@
 		<meta charset="utf-8" />
 		<title>Autenticazione - Bora Bora Fitness Club</title>
 		<meta name="keywords" content="autenticazione, accesso, registrazione, bora bora, fitness club" />
-		<meta name="description"
-			content="Accedi per usufruire di tutte le funzionalità della palestra, o registrati se non hai ancora un profilo" />
+		<meta name="description" content="Accedi per usufruire di tutte le funzionalità della palestra, o registrati se non hai ancora un profilo" />
 		<meta name="author" content="Adnan Latif Gazi, Alberto Lazari, Marco Andrea Limongelli, Francesco Protopapa" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" media="screen" href="autenticazione.css" />
 	</head>
 
@@ -39,43 +39,49 @@
 				<p>
 			</div>
 
-			<input type="button" value="Accedi" id="Accedi" name="autenticazione">
-			<input type="button" value="Registrati" id="Registrati" name="autenticazione">
+			<div id="sceltaAutenticazione">
+				<h2>Scegli se accedere o registrarti!</h2>
+				<div>
+					<input type="button" value="Accedi" id="Accedi" name="autenticazione">
+					<input type="button" value="Registrati" id="Registrati" name="autenticazione">
+				</div>
+			</div>
 
-			<form id="accesso" action="post" method="post" autocomplete="on">
+			<form id="accesso" class="autenticazione" action="post" method="post" autocomplete="on">
 				<fieldset>
-					<legend>Accesso</legend>
+					<legend><h2>Accesso</h2></legend>
 
 					<label>Nome utente</label>
-					<input type="text" id="nomeUtenteAccesso" name="nomeUtenteAccesso" required placeholder="es: mariorossi@gmail.com | MarioRossi23">
+					<input type="text" name="nomeUtenteAccesso" required placeholder="es: mariorossi@gmail.com | MarioRossi23">
 
 					<label lang="en">Password</label>
-					<input type="password" id="passwordAccesso" minlength="5" maxlength="16" name="passwordAccesso" required>
+					<input type="password" minlength="5" maxlength="16" name="passwordAccesso" required>
 
-					<input type="submit" value="Accedi" id="bottoneAccesso">
+					<input type="submit" value="Accedi">
 				</fieldset>
 			</form>
 
-			<form id="registrazione" action="post" method="post" autocomplete="on">
+			<form id="registrazione" class="autenticazione" action="post" method="post" autocomplete="on">
 				<fieldset>
-					<legend>Regitrazione</legend>
+					<legend><h2>Registrazione</h2></legend>
 
 					<label>Nome</label>
-					<input type="text" id="nomeRegistrazione" name="nomeRegistrazione" required placeholder="es: Mario">
+					<input type="text" name="nomeRegistrazione" required placeholder="es: Mario">
 
 					<label>Cognome</label>
-					<input type="text" id="cognomeRegistrazione" name="cognomeRegistrazione" required placeholder="es: Rossi">
+					<input type="text" name="cognomeRegistrazione" required placeholder="es: Rossi">
 
 					<label>Nome utente</label>
-					<input type="text" id="nomeUtenteRegistrazione" name="nomeUtenteRegistrazione" required placeholder="es: mariorossi@gmail.com | MarioRossi23">
+					<input type="text" name="nomeUtenteRegistrazione" required placeholder="es: mariorossi@gmail.com | MarioRossi23">
 
 					<label lang="en">Password</label>
-					<input type="password" id="passwordRegistrazione" minlength="5" maxlength="16" name="passwordRegistrazione" required>
+					<input type="password" minlength="5" maxlength="16" name="passwordRegistrazione" required>
 
 					<label>Conferma <span lang="en">password</span></label>
-					<input type="password" id="passwordConfermaRegistrazione" minlength="5" maxlength="16" name="passwordConfermaRegistrazione" required>
+					<input type="password" minlength="5" maxlength="16" name="passwordConfermaRegistrazione" required>
 
-					<input type="reset" value="Cancella" id="bottoneReset"><input type="submit" value="Registrati" id="bottoneRegistrazione">
+					<input type="reset" value="Cancella">
+					<input type="submit" value="Registrati">
 				</fieldset>
 			</form>
 		</div>
@@ -88,10 +94,8 @@
 				<a href="mailto:boraborafitnessclub@gmail.com">boraborafitnessclub@gmail.com</a>
 			</p>
 			<!--DIMENSIONI IMMAGINI DA FARE POI SU CSS E TOGLIERE-->
-			<a href="https://www.instagram.com/" target="_blank"><img src="immagini/logo/instagram.png"
-					alt="logo instagram" width="50" height="50" /></a>
-			<a href="https://www.facebook.com/" target="_blank"><img src="immagini/logo/facebook.png" alt="logo facebook"
-					width="50" height="50" /></a>
+			<a href="https://www.instagram.com/" target="_blank"><img src="immagini/logo/instagram.png" alt="logo instagram" width="50" height="50" /></a>
+			<a href="https://www.facebook.com/" target="_blank"><img src="immagini/logo/facebook.png" alt="logo facebook" width="50" height="50" /></a>
 		</footer>
 	</body>
 </html>
