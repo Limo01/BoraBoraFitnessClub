@@ -20,6 +20,14 @@ header,
     text-align: center;
 }
 
+.aiuti{
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
 /*==================== MENU ====================*/
 #menu {
     position: fixed;
