@@ -22,7 +22,15 @@ html, body{
     /*max-width: 1024px;*/
 }
 
-header, #breadcrumb{
+#breadcrumb{
+    top: 75px;
+    position: fixed;
+    max-width: 1024px;
+    margin: auto;
+    text-align: center;
+}
+
+header{
     background-color: #f7f9fb;
     text-align: center;
 }
@@ -121,10 +129,17 @@ header, #breadcrumb{
 
 /*--------footer---------------*/
 
-footer{
-    text-align: center;
-    max-width: 1024px;
+footer {
+	padding: 1em 2em;
+	text-align: center;
+	max-width: 1200px;
+	background-color: rgba(0, 0, 0, 0.3);
+	border-top-left-radius: 2em;
+	border-top-right-radius: 2em;
+	color: #f7f9fb;
+
     margin: auto;
-    /*border-top: solid #687864;*/
-    padding-top: 1em;
+}
+footer img {
+	margin-top: 1em;
 }
