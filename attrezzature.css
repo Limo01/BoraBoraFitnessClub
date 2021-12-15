@@ -87,7 +87,7 @@ header,
 	margin-bottom: 3em;
 }
 
-#content .titolo {
+#content #titolo {
 	border-top-left-radius: 0%;
 	border-top-right-radius: 0%;
 	margin-top: 0;
@@ -145,7 +145,7 @@ article div{
 	border-radius: 2em;
 }
 
-#content h2{
+#attrezzature h2{
 	text-align: center;
 	margin-bottom: 1em;
 	font-size: 2.5em;
