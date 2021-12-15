@@ -8,7 +8,7 @@
 	<meta name="description" content="Visualizza le foto del nostro meraviglioso fitness club!" />
 	<meta name="author" content="Adnan Latif Gazi, Alberto Lazari, Marco Andrea Limongelli, Francesco Protopapa" />
 
-	<link rel="stylesheet" media="screen" href="galleria.css" />
+	<link rel="stylesheet" media="screen" href="style.css" />
 
 </head>
 
@@ -27,25 +27,25 @@
 	<nav id="menu">
 		<ul>
 			<li lang="en"><a href="home.html">Home</a></li>
-			<li><a href="schede-allenamento.html">Schede allenamento</a></li>
-			<li><a href="attrezzature.html">Attrezzature</a></li>
-			<li id="currentLink">Galleria</li>
 			<li><a href="abbonamenti.html">Abbonamenti</a></li>
-			<li><a href="storia.html">Storia</a></li>
 			<li lang="en"><a href="personal-trainer.html">Personal trainer</a></li>
+			<li><a href="attrezzature.html">Attrezzature</a></li>	
+			<li><a href="schede-allenamento.html">Schede allenamento</a></li>
+			<li><a href="storia.html">Storia</a></li>
+			<li id="currentLink">Galleria</li>	
 			<li><a href="area-personale.html">Area personale</a></li>
 		</ul>
 	</nav>
 
 	<div id="content">	
-		<div class="titolo">
+		<div id="titolo">
 			<h1>Gallery</h1>
 			<p>
 				Scopria la meravigliosa struttura di <strong lang="en">Bora Bora Fitness Club</strong>!
 			<p>
 		</div>
 
-		<div>
+		<div class="sala">
 			<h2>La nostra sala pesi</h2>
 			<div class="gallery" id="gallerySalaPesi">
 				<img id="pesi1" class="gallery_img" src="immagini/sala-pesi/pesi1.jpg"
@@ -71,7 +71,7 @@
 			</div>
 		</div>
 
-		<div>
+		<div class="sala">
 			<h2>La nostra sala cardio</h2>
 			<div class="gallery" id="gallerySalaCardio">
 				<img id="cardio1" class="gallery_img" src="immagini/sala-cardio/cardio1.jpg"
@@ -89,7 +89,7 @@
 			</div>
 		</div>
 
-		<div>
+		<div class="sala">
 			<h2>La nostra sala <span lang="en">fitness</span></h2>
 			<div class="gallery gridQuadrata" id="gallerySalaFitness">
 				<img id="fitness1" class="gallery_img" src="immagini/sala-fitness/fitness1.jpg"
@@ -103,7 +103,7 @@
 			</div>
 		</div>
 
-		<div>
+		<div class="sala">
 			<h2>La nostra piscine</h2>
 			<div class="gallery gridQuadrata" id="galleryPiscina">
 				<img id="piscina1" class="gallery_img" src="immagini/piscina/piscina1.jpg"
@@ -117,7 +117,7 @@
 			</div>
 		</div>
 
-		<div>
+		<div class="sala">
 			<h2>Il nostro paradisiaco spazio <span lang="en">outdoor</span></h2>
 			<div class="gallery" id="galleryOutdoor">
 				<img id="outdoor1" class="gallery_img" src="immagini/outdoor/outdoor1.jpg"
@@ -135,7 +135,7 @@
 			</div>
 		</div>
 
-		<div>
+		<div class="sala">
 			<h2>Il nostri spogliatoi</h2>
 			<div class="gallery" id="gallerySpogliatoio">
 				<img id="spogliatoio1" class="gallery_img" src="immagini/spogliatoio/spogliatoio1.jpg"
