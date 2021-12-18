@@ -13,11 +13,13 @@ header h1{
 #menu{
     position: static;
 	z-index: 2;
+	margin-bottom: 1em;
+	
 }
 
 #menu ul {
 	background-color: #f7f9fb;
-	border-radius: 0;
+	border-radius: 0.5em;
 	padding-bottom: 0.5em;
 }
 #menu li {
@@ -37,6 +39,8 @@ header h1{
 
 #currentLink {
 	background-color: #f7f9fb;
+	color: #31708e;
+	font-weight: bold;
 	border-radius: 0px;
 }
 
@@ -44,13 +48,15 @@ header h1{
 	background-color: #f7f9fb;
 }
 
-/* immagini*/
+/*===========immagini===========*/
 
 #content img{
 	width: 100%;
 	height: auto;
 	margin: auto;
 }
+
+/*========content=========*/
 
 #content h1{
 	font-size: 2em;
@@ -72,7 +78,13 @@ header h1{
 	border-bottom-left-radius: 0.5em;
 }
 
-#content > div{
+#content #titolo{
+	border-top-left-radius: 0.5em;
+	border-top-right-radius: 0.5em;
+}
+
+#content > div,
+#content > article {
 	margin-top: 1em;
 	margin-bottom: 1em;
 	border-radius: 0.5em;
@@ -80,4 +92,115 @@ header h1{
 
 #content p {
 	margin-top: 0.5em;
+}
+/*=============== GALLERIA ===============*/
+
+.gallery {
+	display: inline;
+	width: 100%;
+	height: 100%;
+}
+
+#content .gallery img{
+	margin-top: 1em;
+}
+
+.gallery_img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 0.5em;
+}
+
+.gallery_img_zoom {
+	transition: none;
+}
+
+.gallery_img_zoom:hover{
+	border: none;
+	transform: none;
+}
+
+
+/*========== ATTREZZATURE ==========*/
+
+#content .attrezzature article {
+	margin-bottom: 1.5em;
+}
+
+#content .attrezzature article h3 {
+	border-radius: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+#content .attrezzature article div img {
+	float: none;
+	width: 100%;
+	border-radius: 0.5em;
+}
+
+#content .attrezzature article div{
+	min-height: 0;
+}
+
+#content .attrezzature article div p {
+	clear: none;
+	margin-left: 0;
+	margin-bottom: 2em;
+	border-radius: 0.5em;
+}
+
+/*========== PERSONAL TRAINER ==========*/
+
+#content .personalTrainer > h2 {
+    margin: auto;
+	text-align: center;
+    padding: 0.5em;
+}
+
+#content .personalTrainer > img {
+    float: none;
+    width: 80%;
+    margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 0.5em;
+    transition: none;
+}
+
+#content .personalTrainer > img:hover {
+    transform: none;
+}
+
+#content .personalTrainer > p {
+    margin: 0;
+	margin-bottom: 1em;
+    border-radius: 0.5em;
+    transition:none;
+}
+
+#content .personalTrainer > p:hover {
+    box-shadow:none;
+}
+
+#content .personalTrainer > div {
+    margin: 1em 0 0 0;
+}
+
+#content .personalTrainer > div > p {
+    padding: 0.5em 0.5em;
+    margin:  0;
+    border-radius: 0.5em;
+}
+
+#content .personalTrainer > div > ul > li {
+    padding: 0.5em 0.5em;
+    margin:  0.5em 0.2em;
+    border-radius: 0.5em;
+    transition: none;
+}
+
+#content .personalTrainer > div > ul > li:hover {
+    transform:none;
+    box-shadow:none;
+    background-color: #687864;
 }
