@@ -1,6 +1,15 @@
+:root{
+	--colore-sfondo-div: rgba(247,249,251,0.93);
+	--colore-testo: #f7f9fb;
+	--colore-titoli: #687864;
+	--blu-scuro: #31708e;
+	--azzurro: #8fc1e3;
+	--blu: #5085a5;
+}
+
 header h1{
-	background-color: #f7f9fb;
-	color: #31708e;
+	background-color: var(--colore-sfondo-div);
+	color: var(--blu-scuro);
 	font-size: 2.2em;
 	padding-top: 0.8em;
 	padding-bottom: 0.5em;
@@ -18,7 +27,7 @@ header h1{
 }
 
 #menu ul {
-	background-color: #f7f9fb;
+	background-color: var(--colore-sfondo-div);
 	border-radius: 0.5em;
 	padding-bottom: 0.5em;
 }
@@ -28,24 +37,24 @@ header h1{
 
 #menu li a,
 #currentLink {
-	color: #687864;
+	color: var(--colore-titoli);
 	padding-top: 0.3em;
 	padding-bottom: 0.3em;
-	border-bottom: #687864 solid 0.3px;
+	border-bottom: var(--colore-titoli) solid 0.3px;
 	margin-left: 10%;
 	margin-right: 10%;
 	border-radius: 0;
 }
 
 #currentLink {
-	background-color: #f7f9fb;
-	color: #31708e;
+	background-color:unset;
+	color: var(--blu-scuro);
 	font-weight: bold;
 	border-radius: 0px;
 }
 
 #menu li a:hover {
-	background-color: #f7f9fb;
+	background-color: var(--colore-sfondo-div);
 }
 
 /*===========immagini===========*/
@@ -60,18 +69,18 @@ header h1{
 
 #content h1{
 	font-size: 2em;
-	color: #31708e;
+	color: var(--blu-scuro);
 }
 
 
 #content h2{
-	color: #5085a5;
+	color: var(--blu);
 	margin-bottom: 0.5em;
 	margin-top: 0.5em;
 }
 
 #breadcrumb{
-	background-color: #f7f9fb;
+	background-color:var(--colore-sfondo-div);
 	margin-bottom: 1em;
 	padding-bottom: 1em;
 	border-bottom-right-radius: 0.5em;
@@ -202,5 +211,42 @@ header h1{
 #content .personalTrainer > div > ul > li:hover {
     transform:none;
     box-shadow:none;
-    background-color: #687864;
+    background-color: var(--colore-titoli);
+}
+
+/*============= ABBONAMENTI =============*/
+
+#abbonamenti {
+	grid-gap: 0;
+	grid-template-areas:
+		'a'
+		'b'
+		'c'
+		'd'
+		'e';
+}
+
+
+.offertaAbbonamento {
+	display: inline;
+	background-color:unset;
+	box-shadow: none;
+	padding: 0.5em 0em;
+	width: auto;
+	border-radius: 0;
+	transition: none;
+	border-bottom: var(--colore-titoli) solid 0.3px;
+
+}
+
+.offertaAbbonamento:hover {
+	transform: none;
+}
+#resortPass > ul{
+	margin-top: 0.5em;
+}
+#resortPass li{
+	color: var(--colore-titoli); /*!!!! da togliere quando si sistema in style.css !!!!!*/
+	font-size: 1.2em;
+	margin-left: 1.2em;
 }
