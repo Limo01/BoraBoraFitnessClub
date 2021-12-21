@@ -1,10 +1,10 @@
 :root{
 	--colore-sfondo-div: rgba(247,249,251,0.93);
-	--colore-testo: #f7f9fb;
-	--colore-titoli: #687864;
-	--blu-scuro: #31708e;
-	--azzurro: #8fc1e3;
-	--blu: #5085a5;
+	--colore-testo-contrasto-sfondi: #f7f9fb;
+	--colore-testo-principale: #687864;
+	--colore-sfondo-article-p: #5085a5;
+	--colore-hover-menu: #5085a5;
+	--colore-background-menu: #31708e;
 }
 
 * {
@@ -25,8 +25,20 @@ body {
 
 header,
 #breadcrumb {
-	background-color: var(--colore-testo-menu);
+	background-color: var(--colore-sfondo-div);
+	color: var(--colore-testo-principale);
 	text-align: center;
+}
+
+header h1{
+	padding-top: 1.2em;
+	font-size: 5em;
+}
+
+#breadcrumb{
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-color: var(--colore-sfondo-div);
 }
 
 .aiuti{
@@ -38,14 +50,23 @@ header,
 }
 
 /*==================== MENU ====================*/
-#menu {
+/*#menu {
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	font-size: 1.2em;
-	color: var(--colore-testo);
+	color: var(--colore-testo-contrasto-sfondi);
 	z-index: 2;
+}*/
+
+#menu {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	max-width: 1200px;
+	font-size: 1.2em;
+	color: var(--colore-testo-contrasto-sfondi);
 }
 
 #menu ul {
@@ -53,7 +74,7 @@ header,
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: var(--blu-scuro);
+	background-color: var(--colore-background-menu);
 }
 #menu li {
 	float: left;
@@ -62,7 +83,7 @@ header,
 #menu li a,
 #currentLink {
 	display: block;
-	color: var(--colore-testo);
+	color: var(--colore-testo-contrasto-sfondi);
 	text-align: center;
 	padding-top: 1em;
 	padding-bottom: 1em;
@@ -73,12 +94,12 @@ header,
 }
 
 #currentLink {
-	background-color: var(--colore-titoli);
+	background-color: var(--colore-testo-principale);
 	border-radius: 10px;
 }
 
 #menu li a:hover {
-	background-color: #5085a5;
+	background-color: var(--colore-hover-menu);
 }
 
 /*==================== CONTENT ====================*/
@@ -106,13 +127,20 @@ header,
 
 #content h1 {
 	text-align: center;
+	color: var(--colore-testo-principale);
 	padding-top: 0.5em;
-	color: var(--colore-titoli);
 	font-size: 4em;
 }
 
+#content h2{	
+	text-align: center;
+	margin-bottom: 1em;
+	font-size: 2.5em;
+	color: var(--colore-testo-principale);
+}
+
 #content p {
-	color: var(--colore-titoli);
+	color: var(--colore-testo-principale);
 	font-size: 1.3em;
 	margin-top: 1em;
 }
@@ -125,7 +153,7 @@ footer {
 	background-color: rgba(0, 0, 0, 0.3);
 	border-top-left-radius: 2em;
 	border-top-right-radius: 2em;
-	color: var(--colore-testo);
+	color: var(--colore-testo-contrasto-sfondi);
 }
 
 footer img {
@@ -162,7 +190,8 @@ footer img {
 		"a"
 		"b"
 		"c";
-	background-color: rgb(200, 230, 255);
+	background-color: var(--colore-sfondo-article-p);
+	color: var(--colore-testo-contrasto-sfondi);
 	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
 	padding: 2em 0em;
 	width: 12em;
@@ -171,19 +200,23 @@ footer img {
 	transition: all 0.17s ease-in-out;
 }
 
-.offertaAbbonamento h2 {
+#content .offertaAbbonamento h2 {
 	grid-area: a;
 	align-self: start;
+	font-size: 2em;
+	color: var(--colore-testo-contrasto-sfondi);
 }
 .offertaAbbonamento ul {
 	grid-area: b;
 	align-self: start;
 	list-style-type: none;
+	padding-top: 2em;
 }
-.offertaAbbonamento p {
+#content .offertaAbbonamento p {
 	grid-area: c;
 	align-self: end;
 	margin-top: 0;
+	color: var(--colore-testo-contrasto-sfondi);
 }
 
 .offertaAbbonamento:hover {
@@ -224,7 +257,7 @@ Pseudo elemento per migliorare le prestazioni
     margin: 0.5em 0em 0.5em 35%;
     padding: 0.5em;
     font-size: 2.5em;
-    color: #687864;
+    color: var(--colore-testo-principale);
 }
 
 #content .personalTrainer > img {
@@ -241,8 +274,8 @@ Pseudo elemento per migliorare le prestazioni
 }
 
 #content .personalTrainer > p {
-    color: #f7f9fb;
-    background-color: #5085a5;
+    color: var(--colore-testo-contrasto-sfondi);
+    background-color: var(--colore-sfondo-article-p);
     margin: 1em 0em 1em 35%;
     padding: 1em;
     outline: none;
@@ -267,8 +300,8 @@ Pseudo elemento per migliorare le prestazioni
 
 #content .personalTrainer > div > p {
     display: inline;
-    color: #f7f9fb;
-    background-color: #5085a5;
+    color: var(--colore-testo-contrasto-sfondi);
+    background-color: var(--colore-sfondo-article-p);
     padding: 0.5em 1em;
     margin:  0.5em 2em 0.5em 0em;
     outline: none;
@@ -280,8 +313,8 @@ Pseudo elemento per migliorare le prestazioni
 }
 
 #content .personalTrainer > div > ul > li {
-    color: #f7f9fb;
-    background-color: #687864;
+    color: var(--colore-testo-contrasto-sfondi);
+    background-color: var(--colore-testo-principale);
     padding: 0.5em 1em;
     margin:  0.5em 0em;
     outline: none;
@@ -292,11 +325,11 @@ Pseudo elemento per migliorare le prestazioni
     transition-timing-function: ease;
 }
 
-#content .personalTrainer > div > ul > li:hover {
+/*#content .personalTrainer > div > ul > li:hover {
     transform: scale(1.02);
     box-shadow: 0px 10px 13px -7px #000000;
-    background-color: #687864;
-}
+    background-color: #546151;
+}*/
 
 /*==================== STILE ATTREZZATURE ====================*/
 
@@ -305,8 +338,8 @@ Pseudo elemento per migliorare le prestazioni
 }
 
 #content .attrezzature article h3 {
-	background-color: #687864;
-	color: #f7f9fb;
+	background-color: var(--colore-testo-principale);
+	color: var(--colore-testo-contrasto-sfondi);
 	padding: 0.5em;
 	font-size: 1.5em;
 	text-align: center;
@@ -328,17 +361,16 @@ Pseudo elemento per migliorare le prestazioni
 	clear: right;
 	margin-left: 35%;
 	margin-bottom: 1.0em;
-	color: #f7f9fb;
-	background-color: #5085a5;
+	color: var(--colore-testo-contrasto-sfondi);
+	background-color: var(--colore-sfondo-article-p);
 	padding: 1.2em;
 	border-radius: 2em;
 }
 
-#content .attrezzature h2{
-	text-align: center;
-	margin-bottom: 1em;
-	font-size: 2.5em;
-	color: #687864;
+/*==================== STILE STORIA ======================*/
+
+#presente h2, #passato h2{
+	padding-top: 1em;
 }
 
 /*==================== STILE GALLERIA ====================*/
@@ -362,7 +394,7 @@ Pseudo elemento per migliorare le prestazioni
 }
 
 .gallery_img_zoom:hover{
-	border: 0.2em solid #687864;
+	border: 0.2em solid var(--colore-testo-principale);
 	transform: scale(2);
 }
 
@@ -568,11 +600,4 @@ Pseudo elemento per migliorare le prestazioni
 
 #gallerySpogliatoio #spogliatoio6 {
 	grid-area: f;
-}
-
-#content .sala h2{
-	text-align: center;
-	margin-bottom: 1em;
-	font-size: 2.5em;
-	color: #687864;
 }
