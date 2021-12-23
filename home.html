@@ -11,11 +11,42 @@
 
 	<link rel="stylesheet" media="screen" href="style.css" />
 	<link rel="stylesheet" media="screen and (max-width:600px), only screen and (max-width:600px)" href="mobile.css" />
+	
+	<!-- Questo bisogna vedere se ha senso inserilo, probabilmente dovremmo usare un AJAX se facciamo così -->
+	<!-- Fatto in questo modo è solo per simulare il funzionamento -->
+	<script>
+		window.onload= function(){
+			setInterval(function(){				
+				var contatorePersone= document.getElementById('contatorePersone');
+
+				if(Math.random()>0.5){
+					var n= Math.floor(Math.random() * 10);
+
+					if(parseInt(contatorePersone.innerHTML)+ n <= 200){
+						contatorePersone.innerHTML= parseInt(contatorePersone.innerHTML)+n;
+					}
+					else{
+						contatorePersone.innerHTML= 200;
+					}
+				}
+				else{
+					var n= Math.floor(Math.random() * 10);
+
+					if(parseInt(contatorePersone.innerHTML)-n >= 0){
+						contatorePersone.innerHTML= parseInt(contatorePersone.innerHTML)-n;
+					}
+					else{
+						contatorePersone.innerHTML= 0;
+					}
+				}
+			}, 8000);
+		}
+	</script>
 </head>
 
 <body>
 	<header>
-		<h1 lang="en">BORA BORA FITNESS CLUB</h1>
+		<h1 lang="en" class="hide">BORA BORA FITNESS CLUB</h1>
 	</header>
 
 	<nav id="breadcrumb">
@@ -25,7 +56,7 @@
 	<a class="aiuti" href="#content">
 		Salta la navigazione
 	</a>
-
+	
 	<nav id="menu">
 		<ul>
 			<li lang="en" id="currentLink">Home</li>
@@ -39,23 +70,94 @@
 		</ul>
 	</nav>
 
-	<aside>
-		<h2>Conta persone</h2>
-		<p id="contaPersone">In questo momento si stanno allenando 67/200 persone!</p>
-	</aside>
-
 	<div id="content">
-		<div id="doveSiamo">
-			<h2>Dove siamo</h2>
+		<div id="titolo">
+			<h2>La palestra più <span lang="en">cool</span> dell'isola di Bora Bora</h2>
+		</div>
+		
+		<div id="scegliNoi">
+			<h2>Perchè sceglierci?</h2>
+
+			<div id="motivazioni">
+				<div id="motivazionePT" class="motivazione">
+					<span>7</span>
+					<h3><span lang="en">Personal trainer</span></h3>
+					<p>Provenienti dalle migliori università del mondo in materia di <span lang="en">fitness</span>, sapranno guidarti per raggiungere i tuoi obiettivi.</p>
+				</div>
+
+				<div id="motivazioneClienti" class="motivazione">
+					<span>5000+</span>
+					<h3>Clienti soddisfatti</h3>
+					<p>Negli anni abbiamo aiutato i nostri clienti a raggiungere i loro obiettivi di <span lang="en">fitness</span> ... e senza rinunciare al divertimento!</p>
+				</div>
+
+				<div id="motivazioneSale" class="motivazione">
+					<span>4</span>
+					<h3><span lang="en">Sale diverse</span></h3>
+					<p>Tutte a tua disposizione a seconda del tipo di allenamento che vuoi effettuare: pesi, cardio, <span lang="en">fitness</span> o nuoto.</p>
+				</div>
+				
+				<div id="motivazioneBar" class="motivazione">
+					<span>3</span>
+					<h3 lang="en">Cocktail Bar</h3>
+					<p>Perché il <span lang="en">wellness</span> non è solo allenamento ma anche relax e divertimento. Troverai una vasta selezione di <span lang="en">drink</span> e <span lang="en">snack</span> oltre alla musica: tutto ciò che serve per un aperitivo perfetto!</p>
+				</div>
+
+				<div id="motivazioneOutdoor" class="motivazione">
+					<span>4000 <abbr title="metri quadrati">m<sup>2</sup></abbr></span>
+					<h3>Spazio otudoor</h3>
+					<p>Allenarsi sulla spiaggia è un'emozione unica, soprattutto quando quest'ultima è la più bella al mondo!.</p>
+				</div>
+
+				<div id="motivazioneZen" class="motivazione">
+					<span>1</span>
+					<h3>Giardino Zen</h3>
+					<p>Il posto perfetto per i tuoi momenti di riflessione, meditazione e relax in cui potrai lascia andare via la tensione e lo stress accumulati.</p>
+				</div>
+			</div>
+		</div>
+
+		<div id="diventaMembro">
+			<h2>Diventa un nostro membro</h2>
 			<p>
-				La palestra è situata vicino alla strada principale dell’isola di Bora Bora, poco più a nord del Resort
-				“Bora Bora Holiday’s Lodge &amp; Villa”. È raggiungibile in auto in meno di 30 minuti da ogni parte
-				dell’isola e in meno di un’ora dalle isole circostanti. È particolarmente semplice arrivare dalle isole
-				Tevairoa e To’opua, perché il molo per gli Yacht si trova a pochi metri dalla palestra
+				Che tu sia a Bora Bora solo per le tue vacanze oppure per periodi più lunghi, abbiamo una soluzione per ogni tua esigenza.
 			</p>
-			<a href="https://www.google.com/maps/place/16%C2%B029'22.6%22S+151%C2%B045'25.7%22W/@-16.4911643,-151.7580425,18.54z/data=!4m5!3m4!1s0x0:0x4459b5b1172dba21!8m2!3d-16.4896089!4d-151.757139"
-				target="_blank"><img src="immagini/home/mappa.png"
-					alt="Mappa satellitare dell'isola tropicale di Bora Bora con il riferimento alla posizione della palestra" /></a>
+
+			<a href="abbonamenti.html">
+				<button>Abbonati</button>
+			</a>
+		</div>
+
+		<div id="vieniAtrovarci">
+			<h2>Vieni a trovarci!</h2>
+			<div id="doveSiamo">
+				<h3>Dove siamo</h3>
+				<p>
+					La palestra è situata vicino alla strada principale dell’isola di Bora Bora, poco più a nord del <span lang="en">Resort
+					“Bora Bora Holiday’s Lodge &amp; Villa”</span>. È raggiungibile in auto in meno di 30 minuti da ogni parte
+					dell’isola e in meno di un’ora dalle isole circostanti. È particolarmente semplice arrivare dalle isole
+					"<span lang="ty">Tevairoa</span> e <span lang="ty">To’opua</span>, perché il molo per gli <span lang="en">Yacht</span> si trova a pochi metri dalla palestra.
+				</p>
+				<a href="https://www.google.com/maps/place/16%C2%B029'22.6%22S+151%C2%B045'25.7%22W/@-16.4911643,-151.7580425,18.54z/data=!4m5!3m4!1s0x0:0x4459b5b1172dba21!8m2!3d-16.4896089!4d-151.757139"
+					target="_blank"><img id="mappa" src="immagini/home/mappa.png"
+						alt="Mappa satellitare dell'isola tropicale di Bora Bora con il riferimento alla posizione della palestra" /></a>
+			</div>
+
+			<div id="orari">
+				<h3>Orari di apertura</h3>
+				<p>
+					Lunedì - Venerdì: 8:00 - 23:00
+					<br>
+					Sabato - Domenica: 8:00 - 00:00
+				</p>
+			</div>
+
+			<!-- bisogna capire se simulare con un js o AJAX ad un php -->
+			<div id="contaPersone">
+				<h3>Conta persone</h3>
+				<p>In questo momento si stanno allenando <span id="contatorePersone">110</span>/200 persone!</p>
+			</div>
+			<div class="clear"></div>
 		</div>
 	</div>
 
@@ -66,12 +168,9 @@
 			<a href="tel:+68940603300">+689 40 60 33 00</a>
 			<a href="mailto:boraborafitnessclub@gmail.com">boraborafitnessclub@gmail.com</a>
 		</p>
-		<!--DIMENSIONI IMMAGINI DA FARE POI SU CSS E TOGLIERE-->
-		<a href="https://www.instagram.com/" target="_blank"><img src="immagini/logo/instagram.png" alt="logo instagram"
-				width="50" height="50" /></a>
-		<a href="https://www.facebook.com/" target="_blank"><img src="immagini/logo/facebook.png" alt="logo facebook"
-				width="50" height="50" /></a>
+
+		<a href="https://www.instagram.com/" target="_blank"><img class="social" src="immagini/logo/instagram.png" alt="logo instagram"/></a>
+		<a href="https://www.facebook.com/" target="_blank"><img class="social" src="immagini/logo/facebook.png" alt="logo facebook"/></a>
 	</footer>
 </body>
-
 </html>
