@@ -37,20 +37,20 @@ header,
 }
 
 .hide{
-	text-indent:100%;
-	white-space:nowrap;
-	overflow:hidden;
+	text-indent: 200%;
+	white-space: nowrap;
+	overflow: hidden;
 }
 
 h1.hide{
 	background-image: url('immagini/titolo.png');
-	height: 250px;
-	width: 95%;
+	height: 130px;
+	width: 100%;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
 	transition: all 0.5s cubic-bezier(.15,1,.15,1);
-	margin-top: 1.5em;
+	margin-top: 1.7em;
 }
 
 h1.hide:hover{
@@ -59,6 +59,7 @@ h1.hide:hover{
 
 #breadcrumb{
 	background-color: var(--colore-sfondo-div);
+	padding-top: 1em;
 }
 
 .aiuti{
@@ -548,6 +549,9 @@ small{
 }
 
 /*==================== STILE GALLERIA ====================*/
+div div .gallery{
+	width: 70%;
+}
 
 .gallery {
 	display: grid;
@@ -580,7 +584,6 @@ small{
 
 /*CSS Gallery sala pesi*/
 #gallerySalaPesi {
-	width: 70%;
 	grid-template-areas:
 		'a a b b c c'
 		'a a b b c c'
@@ -611,6 +614,10 @@ small{
 	grid-area: e;
 }
 
+#gallerySalaPesiQuadrato{
+	width: 100%;
+}
+
 #gallerySalaPesiQuadrato #pesi5 {
 	grid-area: x;
 }
@@ -629,7 +636,6 @@ small{
 
 /*CSS Gallery Sala Cardio*/
 #gallerySalaCardio {
-	width: 70%;
 	grid-template-areas:
 		'a a a a'
 		'a a a a'
@@ -664,7 +670,6 @@ small{
 
 /*CSS Gallery Sala Fitness*/
 #gallerySalaFitness {
-	width: 70%;
 	padding-bottom: 3em;
 }
 
@@ -686,7 +691,6 @@ small{
 
 /*CSS Gallery Piscina*/
 #galleryPiscina {
-	width: 70%;
 	padding-bottom: 3em;
 }
 
@@ -708,7 +712,6 @@ small{
 
 /*CSS Gallery Outdoor*/
 #galleryOutdoor {
-	width: 70%;
 	grid-template-areas:
 		'a a b c'
 		'a a d e'
@@ -741,9 +744,41 @@ small{
 	grid-area: f;
 }
 
+/*CSS Gallery Cocktail-bar*/
+#galleryCocktailBar #cocktailbar1{
+	grid-area: x;
+}
+
+#galleryCocktailBar #cocktailbar2{
+	grid-area: y;
+}
+
+#galleryCocktailBar #cocktailbar3{
+	grid-area: z;
+}
+
+#galleryCocktailBar #cocktailbar4{
+	grid-area: w;
+}
+
+/*CSS Gallery Zen*/
+#galleryGiardinoZen #zen1{
+	grid-area: x;
+}
+
+#galleryGiardinoZen #zen2{
+	grid-area: y;
+}
+
+#galleryGiardinoZen #zen3{
+	grid-area: z;
+}
+
+#galleryGiardinoZen #zen4{
+	grid-area: w;
+}
 /*CSS Gallery Spogliatoio*/
 #gallerySpogliatoio {
-	width: 70%;
 	grid-template-areas:
 		'a a b b'
 		'a a b b'
