@@ -684,7 +684,7 @@ div div .gallery {
 }
 
 .gallery_img_zoom:hover {
-	border: 0.2em solid var(--colore-testo-principale);
+	border: 0.3em solid var(--colore-testo-principale);
 	transform: scale(2);
 }
 
