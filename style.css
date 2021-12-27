@@ -454,6 +454,7 @@ footer .social {
 
 .clear {
 	clear: both;
+	overflow: hidden;
 }
 /*==================== ABBONAMENTI ====================*/
 #abbonamenti {
@@ -658,6 +659,33 @@ small {
 #passato img {
 	display: block;
 	margin-top: 2em;
+	margin-bottom: 2em;
+	border-radius: 2em;
+}
+
+#presente p,
+#passato p{
+	padding: 0em 1.4em 1em 1.4em;
+}
+
+#secondaGuerra{
+	float: right;
+	width: 50%;
+	padding-top: 0.3em;
+}
+
+#secondaGuerra p{
+	margin-top: 0em;
+}
+
+#secondaGuerraImg{
+	float: left;
+	padding-left: 1.4em;
+}
+
+#secondaGuerraImg img{
+	float: left;
+	margin-top: 0em;
 }
 
 /*==================== STILE GALLERIA ====================*/
