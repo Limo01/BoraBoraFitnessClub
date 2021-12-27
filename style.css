@@ -8,6 +8,8 @@
 	--colore-sfondo-footer: rgba(0, 0, 0, 0.7);
 	--colore-testo-footer: #fdf1ce;
 	--immagine-background: url("immagini/sfondo.jpg");
+	--icona-autenticazione: url("immagini/logo/user.png");
+	--icona-autenticazione-current: url("immagini/logo/user-light.png");
 }
 
 [data-theme="dark"] {
@@ -20,6 +22,8 @@
 	--colore-sfondo-footer: rgba(0, 0, 0, 0.7);
 	--colore-testo-footer: #fdf1ce;
 	--immagine-background: url("immagini/sfondo-dark.jpg");
+	--icona-autenticazione: url("immagini/logo/user-light.png");
+	--icona-autenticazione-current: url("immagini/logo/user.png");
 }
 
 * {
@@ -141,7 +145,7 @@ button:hover::after {
 	display: block;
 	color: var(--colore-testo-principale);
 	text-align: center;
-	padding: 1em;
+	padding: 1em 1.8em 1em 1.8em;
 	text-decoration: none;
 	border-radius: 10px;
 }
@@ -160,24 +164,24 @@ button:hover::after {
 }
 
 #menu #userIcon {
-	background-image: url("immagini/logo/user.png");
+	/*background-image: var(--icona-autenticazione);
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: 2em;
+	background-size: 2em;*/
 	width: 3.5em;
 	float: right;
 }
 
 #userIcon a,
 #userIcon a:hover {
-	background-image: url("immagini/logo/user.png");
+	background-image: var(--icona-autenticazione);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 2em;
 }
 
 #userIcon span {
-	background-image: url("immagini/logo/user-light.png");
+	background-image: var(--icona-autenticazione-current);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 2em;
