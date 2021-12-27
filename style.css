@@ -46,7 +46,7 @@ header,
 }
 
 .hide {
-	text-indent: 200%;
+	text-indent: -9999px;
 	white-space: nowrap;
 	overflow: hidden;
 }
@@ -141,10 +141,7 @@ button:hover::after {
 	display: block;
 	color: var(--colore-testo-principale);
 	text-align: center;
-	padding-top: 1em;
-	padding-bottom: 1em;
-	padding-left: 1.5em;
-	padding-right: 1.5em;
+	padding: 1em;
 	text-decoration: none;
 	border-radius: 10px;
 }
@@ -152,7 +149,6 @@ button:hover::after {
 #currentLink {
 	color: var(--colore-testo-contrasto-sfondi);
 	background-color: var(--colore-testo-principale);
-	border-radius: 10px;
 }
 
 #menu li a {
@@ -161,7 +157,30 @@ button:hover::after {
 
 #menu li a:hover {
 	background-color: var(--colore-hover-menu);
-	/*color: var(--colore-testo-contrasto-sfondi);*/
+}
+
+#menu #userIcon {
+	background-image: url("immagini/logo/user.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 2em;
+	width: 3.5em;
+	float: right;
+}
+
+#userIcon a,
+#userIcon a:hover {
+	background-image: url("immagini/logo/user.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 2em;
+}
+
+#userIcon span {
+	background-image: url("immagini/logo/user-light.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 2em;
 }
 
 /*Toggle dark mode*/

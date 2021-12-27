@@ -1,108 +1,120 @@
 <!DOCTYPE html>
 <html lang="it">
-	<head>
-		<meta charset="utf-8" />
-		<title>Autenticazione - Bora Bora Fitness Club</title>
-		<meta name="keywords" content="autenticazione, accesso, registrazione, bora bora, fitness club" />
-		<meta name="description" content="Accedi per usufruire di tutte le funzionalità della palestra, o registrati se non hai ancora un profilo" />
-		<meta name="author" content="Adnan Latif Gazi, Alberto Lazari, Marco Andrea Limongelli, Francesco Protopapa" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" media="screen" href="style.css" />
-		<link rel="stylesheet" media="screen and (max-width:600px), only screen and (max-width:600px)" href="mobile.css"/>
-	</head>
 
-	<body>
-		<header>
-			<h1 lang="en" class="hide">BORA BORA FITNESS CLUB</h1>
-		</header>
-		
-		<nav id="breadcrumb">
-			<p>Ti trovi in: <a lang="en" href="Home.html">Home</a> &gt;&gt; <span id="breadcrumb-percorso"></span> &gt;&gt;
-				Autenticazione</p>
-		</nav>
+<head>
+	<meta charset="utf-8" />
+	<title>Autenticazione - Bora Bora Fitness Club</title>
+	<meta name="keywords" content="autenticazione, accesso, registrazione, bora bora, fitness club" />
+	<meta name="description"
+		content="Accedi per usufruire di tutte le funzionalità della palestra, o registrati se non hai ancora un profilo" />
+	<meta name="author" content="Adnan Latif Gazi, Alberto Lazari, Marco Andrea Limongelli, Francesco Protopapa" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" media="screen" href="style.css" />
+	<link rel="stylesheet" media="screen and (max-width:600px), only screen and (max-width:600px)" href="mobile.css" />
+</head>
 
-		<a class="aiuti" href="#content">
-			Salta la navigazione
-		</a>
-	
-		<nav id="menu">
-			<ul>
-				<li lang="en"><a href="home.html">Home</a></li>
-				<li><a href="schede-allenamento.html">Schede allenamento</a></li>
-				<li><a href="attrezzature.html">Attrezzature</a></li>
-				<li><a href="galleria.html">Galleria</a></li>
-				<li><a href="abbonamenti.html">Abbonamenti</a></li>
-				<li><a href="storia.html">Storia</a></li>
-				<li lang="en"><a href="personal-trainer.html">Personal trainer</a></li>
-				<li><a href="area-personale.html">Area personale</a></li>
-			</ul>
-		</nav>
+<body>
+	<header>
+		<h1 lang="en" class="hide">BORA BORA FITNESS CLUB</h1>
+	</header>
 
-		<div id="content">
-			<div class="titolo">
-				<h1>Autenticazione</h1>
-				<p>
-					Accedi per usufruire di tutte le funzionalità di <strong lang="en">Bora Bora Fitness Club</strong>, o registrati se non hai ancora un profilo!
-				<p>
-			</div>
+	<nav id="breadcrumb">
+		<p>Ti trovi in: <a lang="en" href="Home.html">Home</a> &gt;&gt; <span id="breadcrumb-percorso"></span> &gt;&gt;
+			Autenticazione</p>
+	</nav>
 
-			<div id="sceltaAutenticazione">
-				<h2>Scegli se accedere o registrarti!</h2>
-				<div>
-					<input type="button" value="Accedi" id="Accedi" name="autenticazione">
-					<input type="button" value="Registrati" id="Registrati" name="autenticazione">
-				</div>
-			</div>
+	<a class="aiuti" href="#content">
+		Salta la navigazione
+	</a>
 
-			<form id="accesso" class="autenticazione" action="post" method="post" autocomplete="on">
-				<fieldset>
-					<legend><h2>Accesso</h2></legend>
+	<nav id="menu">
+		<ul>
+			<li lang="en"><a href="home.html">Home</a></li>
+			<li><a href="abbonamenti.html">Abbonamenti</a></li>
+			<li lang="en"><a href="personal-trainer.html">Trainers</a></li>
+			<li><a href="attrezzature.html">Attrezzature</a></li>
+			<li><a href="schede-allenamento.html">Allenamenti</a></li>
+			<li><a href="storia.html">Storia</a></li>
+			<li><a href="galleria.html">Galleria</a></li>
+			<li id="userIcon" class="hide"><a href="area-personale.html">Area personale</a></li>
+		</ul>
+	</nav>
 
-					<label>Nome utente</label>
-					<input type="text" name="nomeUtenteAccesso" required placeholder="es: mariorossi@gmail.com | MarioRossi23">
-
-					<label lang="en">Password</label>
-					<input type="password" minlength="5" maxlength="16" name="passwordAccesso" required>
-
-					<input type="submit" value="Accedi">
-				</fieldset>
-			</form>
-
-			<form id="registrazione" class="autenticazione" action="post" method="post" autocomplete="on">
-				<fieldset>
-					<legend><h2>Registrazione</h2></legend>
-
-					<label>Nome</label>
-					<input type="text" name="nomeRegistrazione" required placeholder="es: Mario">
-
-					<label>Cognome</label>
-					<input type="text" name="cognomeRegistrazione" required placeholder="es: Rossi">
-
-					<label>Nome utente</label>
-					<input type="text" name="nomeUtenteRegistrazione" required placeholder="es: mariorossi@gmail.com | MarioRossi23">
-
-					<label lang="en">Password</label>
-					<input type="password" minlength="5" maxlength="16" name="passwordRegistrazione" required>
-
-					<label>Conferma <span lang="en">password</span></label>
-					<input type="password" minlength="5" maxlength="16" name="passwordConfermaRegistrazione" required>
-
-					<input type="reset" value="Cancella">
-					<input type="submit" value="Registrati">
-				</fieldset>
-			</form>
+	<div id="content">
+		<div class="titolo">
+			<h1>Autenticazione</h1>
+			<p>
+				Accedi per usufruire di tutte le funzionalità di <strong lang="en">Bora Bora Fitness Club</strong>, o
+				registrati se non hai ancora un profilo!
+			<p>
 		</div>
 
-		<footer>
-			<h2 lang="en">BORA BORA FITNESS CLUB</h2>
-			<address>BP 502 Vaitape - 98730 - Bora Bora, Polinesia Francese</address>
-			<p>
-				<a href="tel:+68940603300">+689 40 60 33 00</a>
-				<a href="mailto:boraborafitnessclub@gmail.com">boraborafitnessclub@gmail.com</a>
-			</p>
+		<div id="sceltaAutenticazione">
+			<h2>Scegli se accedere o registrarti!</h2>
+			<div>
+				<input type="button" value="Accedi" id="Accedi" name="autenticazione">
+				<input type="button" value="Registrati" id="Registrati" name="autenticazione">
+			</div>
+		</div>
 
-			<a href="https://www.instagram.com/" target="_blank"><img class="social" src="immagini/logo/instagram.png" alt="logo instagram"/></a>
-			<a href="https://www.facebook.com/" target="_blank"><img class="social" src="immagini/logo/facebook.png" alt="logo facebook"/></a>
-		</footer>
-	</body>
+		<form id="accesso" class="autenticazione" action="post" method="post" autocomplete="on">
+			<fieldset>
+				<legend>
+					<h2>Accesso</h2>
+				</legend>
+
+				<label>Nome utente</label>
+				<input type="text" name="nomeUtenteAccesso" required
+					placeholder="es: mariorossi@gmail.com | MarioRossi23">
+
+				<label lang="en">Password</label>
+				<input type="password" minlength="5" maxlength="16" name="passwordAccesso" required>
+
+				<input type="submit" value="Accedi">
+			</fieldset>
+		</form>
+
+		<form id="registrazione" class="autenticazione" action="post" method="post" autocomplete="on">
+			<fieldset>
+				<legend>
+					<h2>Registrazione</h2>
+				</legend>
+
+				<label>Nome</label>
+				<input type="text" name="nomeRegistrazione" required placeholder="es: Mario">
+
+				<label>Cognome</label>
+				<input type="text" name="cognomeRegistrazione" required placeholder="es: Rossi">
+
+				<label>Nome utente</label>
+				<input type="text" name="nomeUtenteRegistrazione" required
+					placeholder="es: mariorossi@gmail.com | MarioRossi23">
+
+				<label lang="en">Password</label>
+				<input type="password" minlength="5" maxlength="16" name="passwordRegistrazione" required>
+
+				<label>Conferma <span lang="en">password</span></label>
+				<input type="password" minlength="5" maxlength="16" name="passwordConfermaRegistrazione" required>
+
+				<input type="reset" value="Cancella">
+				<input type="submit" value="Registrati">
+			</fieldset>
+		</form>
+	</div>
+
+	<footer>
+		<h2 lang="en">BORA BORA FITNESS CLUB</h2>
+		<address>BP 502 Vaitape - 98730 - Bora Bora, Polinesia Francese</address>
+		<p>
+			<a href="tel:+68940603300">+689 40 60 33 00</a>
+			<a href="mailto:boraborafitnessclub@gmail.com">boraborafitnessclub@gmail.com</a>
+		</p>
+
+		<a href="https://www.instagram.com/" target="_blank"><img class="social" src="immagini/logo/instagram.png"
+				alt="logo instagram" /></a>
+		<a href="https://www.facebook.com/" target="_blank"><img class="social" src="immagini/logo/facebook.png"
+				alt="logo facebook" /></a>
+	</footer>
+</body>
+
 </html>
