@@ -70,9 +70,45 @@ h1.hide:hover {
 	clip: rect(1px, 1px, 1px, 1px);
 }
 
+button {
+	margin-top: 1.5em;
+	padding: 0.3em 0.6em 0.3em 0.6em;
+	border-radius: 1em;
+	border: none;
+	font-size: 2em;
+	color: var(--colore-testo-contrasto-sfondi);
+	background-color: var(--colore-testo-principale);
+	cursor: pointer;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
+	transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+	transform: scale(1.03);
+}
+
+button::after {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	border-radius: 40px;
+	box-shadow: 0px 7px 13px rgba(0, 0, 0, 0.4);
+	transition: opacity 0.17s ease-in-out;
+}
+
+button:hover::after {
+	opacity: 1;
+}
+
 /*==================== MENU ====================*/
 #menu {
 	position: fixed;
+	z-index: 1;
 	top: 0;
 	width: 100%;
 	max-width: 1200px;
@@ -255,6 +291,24 @@ footer .social {
 	transform: scale(1.02);
 }
 
+.motivazione::after {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	border-radius: 2em;
+	box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2);
+	transition: opacity 0.2s ease-in-out;
+}
+
+.motivazione:hover::after {
+	opacity: 1;
+}
+
 .motivazione > span {
 	font-size: 5em;
 	padding-bottom: 1em;
@@ -269,6 +323,7 @@ footer .social {
 	text-align: center;
 }
 
+/*
 #diventaMembro button {
 	margin-top: 1.5em;
 	padding: 0.3em 0.6em 0.3em 0.6em;
@@ -282,6 +337,7 @@ footer .social {
 	background-color: var(--colore-sfondo-article-p);
 	color: var(--colore-testo-principale);
 }
+*/
 
 #vieniAtrovarci {
 	text-align: center;
@@ -347,7 +403,7 @@ footer .social {
 	background-color: var(--colore-sfondo-article-p);
 	color: var(--colore-testo-principale);
 	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
-	padding: 2em 0em;
+	padding: 2em 1em;
 	width: 12em;
 	text-align: center;
 	border-radius: 40px;
