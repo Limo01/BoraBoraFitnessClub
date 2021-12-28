@@ -188,7 +188,7 @@ button:hover::after {
 	display: flex;
 	align-items: center;
 	float: right;
-	margin: 0.35em;
+	margin: 0.5em;
 }
 
 #darkmode-switch {
