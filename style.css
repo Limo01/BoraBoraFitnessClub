@@ -145,7 +145,7 @@ button:hover::after {
 	display: block;
 	color: var(--colore-testo-principale);
 	text-align: center;
-	padding: 1em 1.8em 1em 1.8em;
+	padding: 1em 1.8em;
 	text-decoration: none;
 	border-radius: 10px;
 }
@@ -164,10 +164,6 @@ button:hover::after {
 }
 
 #menu #userIcon {
-	/*background-image: var(--icona-autenticazione);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 2em;*/
 	width: 3.5em;
 	float: right;
 }
@@ -188,69 +184,68 @@ button:hover::after {
 }
 
 /*Toggle dark mode*/
-#darkmode-switch-wrapper {
-  	display: flex;
-  	align-items: center;
-  	float: right;
-  	padding-top: 0.5em;
-  	padding-right: 0.5em;
+#menu #darkmode-switch-wrapper {
+	display: flex;
+	align-items: center;
+	float: right;
+	margin: 0.35em;
 }
 
 #darkmode-switch {
-  	display: inline-block;
-  	height: 40px;
-  	position: relative;
-  	width: 80px;
+	display: inline-block;
+	height: 40px;
+	position: relative;
+	width: 80px;
 }
 
 #darkmode-switch input {
-  	display:none;
+	display: none;
 }
 
 .slider {
-  	background-color: var(--colore-background-menu);
-  	bottom: 0;
-  	cursor: pointer;
-  	left: 0;
-  	position: absolute;
-  	right: 0;
-  	top: 0;
-  	transition: .4s;
-  	background-image: url("immagini/sun.png");
-  	background-size: contain;
-  	background-repeat: no-repeat;
-  	background-position: right;
+	background-color: var(--colore-testo-principale);
+	cursor: pointer;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+	transition: 0.4s;
+	background-image: url("immagini/sun.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: right;
 }
 
 .slider:before {
-  	background-color: var(--colore-testo-contrasto-sfondi);
- 	bottom: 5px;
-  	content: "";
-  	height: 30px;
-  	left: 5px;
-  	position: absolute;
-  	transition: .4s;
-  	width: 30px;
+	background-color: var(--colore-testo-contrasto-sfondi);
+	bottom: 5px;
+	content: "";
+	height: 30px;
+	left: 5px;
+	position: absolute;
+	transition: 0.4s;
+	width: 30px;
 }
 
 input:checked + .slider {
-  	background-color: #66bb6a;
-  	background-image: url("immagini/moon.png");
-  	background-size: contain;
-  	background-repeat: no-repeat;
-  	background-position: left;
+	background-color: #66bb6a;
+	background-image: url("immagini/moon.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: left;
 }
 
 input:checked + .slider:before {
-  	transform: translateX(40px);
+	transform: translateX(40px);
 }
 
 .slider.round {
-  	border-radius: 34px;
+	border-radius: 34px;
 }
 
 .slider.round:before {
-  	border-radius: 50%;
+	border-radius: 50%;
 }
 
 /*==================== CONTENT ====================*/
@@ -349,31 +344,24 @@ footer .social {
 #motivazioni h3 {
 	color: var(--colore-testo-principale);
 }
-
 #motivazionePT {
 	grid-area: a;
 }
-
 #motivazioneClienti {
 	grid-area: b;
 }
-
 #motivazioneSale {
 	grid-area: c;
 }
-
 #motivazioneBar {
 	grid-area: d;
 }
-
 #motivazioneOutdoor {
 	grid-area: e;
 }
-
 #motivazioneZen {
 	grid-area: f;
 }
-
 .motivazione {
 	text-align: center;
 	max-width: 350px;
@@ -454,6 +442,7 @@ footer .social {
 
 .clear {
 	clear: both;
+	overflow: hidden;
 }
 /*==================== ABBONAMENTI ====================*/
 #abbonamenti {
@@ -581,7 +570,6 @@ small {
 }
 
 #content .personalTrainer > div > ul {
-	/*display: inline;*/
 	margin-top: 1em;
 	margin-bottom: 1em;
 }
@@ -658,6 +646,33 @@ small {
 #passato img {
 	display: block;
 	margin-top: 2em;
+	margin-bottom: 2em;
+	border-radius: 2em;
+}
+
+#presente p,
+#passato p {
+	padding: 0em 1.4em 1em 1.4em;
+}
+
+#secondaGuerra {
+	float: right;
+	width: 50%;
+	padding-top: 0.3em;
+}
+
+#secondaGuerra p {
+	margin-top: 0em;
+}
+
+#secondaGuerraImg {
+	float: left;
+	padding-left: 1.4em;
+}
+
+#secondaGuerraImg img {
+	float: left;
+	margin-top: 0em;
 }
 
 /*==================== STILE GALLERIA ====================*/
@@ -684,7 +699,7 @@ div div .gallery {
 }
 
 .gallery_img_zoom:hover {
-	border: 0.2em solid var(--colore-testo-principale);
+	border: 0.3em solid var(--colore-testo-principale);
 	transform: scale(2);
 }
 
@@ -705,43 +720,33 @@ div div .gallery {
 		"d d d e e e";
 	padding-bottom: 3em;
 }
-
 #gallerySalaPesi #pesi1 {
 	grid-area: a;
 }
-
 #gallerySalaPesi #pesi2 {
 	grid-area: b;
 }
-
 #gallerySalaPesi #pesi3 {
 	grid-area: c;
 }
-
 #gallerySalaPesi #pesi4 {
 	grid-area: d;
 }
-
 #gallerySalaPesi #gallerySalaPesiQuadrato {
 	grid-area: e;
 }
-
 #gallerySalaPesiQuadrato {
 	width: 100%;
 }
-
 #gallerySalaPesiQuadrato #pesi5 {
 	grid-area: x;
 }
-
 #gallerySalaPesiQuadrato #pesi6 {
 	grid-area: y;
 }
-
 #gallerySalaPesiQuadrato #pesi7 {
 	grid-area: z;
 }
-
 #gallerySalaPesiQuadrato #pesi8 {
 	grid-area: w;
 }
@@ -784,19 +789,15 @@ div div .gallery {
 #gallerySalaFitness {
 	padding-bottom: 3em;
 }
-
 #gallerySalaFitness #fitness1 {
 	grid-area: x;
 }
-
 #gallerySalaFitness #fitness2 {
 	grid-area: y;
 }
-
 #gallerySalaFitness #fitness3 {
 	grid-area: z;
 }
-
 #gallerySalaFitness #fitness4 {
 	grid-area: w;
 }
@@ -805,19 +806,15 @@ div div .gallery {
 #galleryPiscina {
 	padding-bottom: 3em;
 }
-
 #galleryPiscina #piscina1 {
 	grid-area: x;
 }
-
 #galleryPiscina #piscina2 {
 	grid-area: y;
 }
-
 #galleryPiscina #piscina3 {
 	grid-area: z;
 }
-
 #galleryPiscina #piscina4 {
 	grid-area: w;
 }
@@ -831,27 +828,21 @@ div div .gallery {
 		"f f f f";
 	padding-bottom: 3em;
 }
-
 #galleryOutdoor #outdoor1 {
 	grid-area: a;
 }
-
 #galleryOutdoor #outdoor2 {
 	grid-area: b;
 }
-
 #galleryOutdoor #outdoor3 {
 	grid-area: c;
 }
-
 #galleryOutdoor #outdoor4 {
 	grid-area: d;
 }
-
 #galleryOutdoor #outdoor5 {
 	grid-area: e;
 }
-
 #galleryOutdoor #outdoor6 {
 	grid-area: f;
 }
@@ -860,15 +851,12 @@ div div .gallery {
 #galleryCocktailBar #cocktailbar1 {
 	grid-area: x;
 }
-
 #galleryCocktailBar #cocktailbar2 {
 	grid-area: y;
 }
-
 #galleryCocktailBar #cocktailbar3 {
 	grid-area: z;
 }
-
 #galleryCocktailBar #cocktailbar4 {
 	grid-area: w;
 }
@@ -877,15 +865,12 @@ div div .gallery {
 #galleryGiardinoZen #zen1 {
 	grid-area: x;
 }
-
 #galleryGiardinoZen #zen2 {
 	grid-area: y;
 }
-
 #galleryGiardinoZen #zen3 {
 	grid-area: z;
 }
-
 #galleryGiardinoZen #zen4 {
 	grid-area: w;
 }
@@ -898,27 +883,21 @@ div div .gallery {
 		"a a e f";
 	padding-bottom: 3em;
 }
-
 #gallerySpogliatoio #spogliatoio1 {
 	grid-area: a;
 }
-
 #gallerySpogliatoio #spogliatoio2 {
 	grid-area: b;
 }
-
 #gallerySpogliatoio #spogliatoio3 {
 	grid-area: c;
 }
-
 #gallerySpogliatoio #spogliatoio4 {
 	grid-area: d;
 }
-
 #gallerySpogliatoio #spogliatoio5 {
 	grid-area: e;
 }
-
 #gallerySpogliatoio #spogliatoio6 {
 	grid-area: f;
 }
