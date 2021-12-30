@@ -25,4 +25,18 @@ window.onload= function(){
 		document.documentElement.setAttribute('data-theme', 'dark');
 		toggleSwitch.checked = true;
 	}
+
+	//per il menu a comparsa
+	window.sessionStorage.setItem('menuDisplay', 'no');
 }		
+
+function menuClickEvent(){
+	if(sessionStorage.getItem('menuDisplay') == 'yes'){
+		window.sessionStorage.setItem('menuDisplay', 'no');
+		document.getElementById("menu").style.display = "none";
+	}
+	else {
+		window.sessionStorage.setItem('menuDisplay', 'yes');
+		document.getElementById("menu").style.display = "block";
+	}
+}
