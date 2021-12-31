@@ -188,14 +188,14 @@ button:hover::after {
 	display: flex;
 	align-items: center;
 	float: right;
-	margin: 0.5em;
+	margin: 0.3em;
 }
 
 #darkmode-switch {
 	display: inline-block;
-	height: 40px;
+	height: 2.3em;
 	position: relative;
-	width: 80px;
+	width: 4.7em;
 }
 
 #darkmode-switch input {
@@ -219,13 +219,13 @@ button:hover::after {
 
 .slider:before {
 	background-color: var(--colore-testo-contrasto-sfondi);
-	bottom: 5px;
+	bottom: 0.3em;
 	content: "";
-	height: 30px;
-	left: 5px;
+	height: 1.72em;
+	left: 0.27em;
 	position: absolute;
 	transition: 0.4s;
-	width: 30px;
+	width: 1.72em;
 }
 
 input:checked + .slider {
@@ -237,11 +237,11 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-	transform: translateX(40px);
+	transform: translateX(2.4em);
 }
 
 .slider.round {
-	border-radius: 34px;
+	border-radius: 5em;
 }
 
 .slider.round:before {
