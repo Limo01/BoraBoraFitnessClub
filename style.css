@@ -852,6 +852,9 @@ div div .gallery {
 }
 
 /*CSS Gallery Cocktail-bar*/
+#galleryCocktailBar{
+	padding-bottom: 3em;
+}
 #galleryCocktailBar #cocktailbar1 {
 	grid-area: x;
 }
@@ -866,6 +869,9 @@ div div .gallery {
 }
 
 /*CSS Gallery Zen*/
+#galleryGiardinoZen{
+	padding-bottom: 3em;
+}
 #galleryGiardinoZen #zen1 {
 	grid-area: x;
 }
