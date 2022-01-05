@@ -33,7 +33,7 @@
 	</header>
 
 	<nav id="breadcrumb">
-		<p>Ti trovi in: <span lang="en"><a href="Home.html">Home</a> &gt;&gt; Personal trainer</span></p>
+		<p>Ti trovi in: <span lang="en"><a href="index.html">Home</a> &gt;&gt; Personal trainer</span></p>
 	</nav>
 
 	<a class="aiuti" href="#content">
@@ -42,24 +42,27 @@
 
 	<button onclick="menuClickEvent()" id="displayMenuButton">Menu</button>
 
-	<nav id="menu">
-		<ul>
-			<li lang="en"><a href="home.html">Home</a></li>
-			<li><a href="abbonamenti.html">Abbonamenti</a></li>
-			<li lang="en" id="currentLink">Trainers</li>
-			<li><a href="attrezzature.html">Attrezzature</a></li>
-			<li><a href="schede-allenamento.html">Allenamenti</a></li>
-			<li><a href="storia.html">Storia</a></li>
-			<li><a href="galleria.html">Galleria</a></li>
-			<li id="userIcon" class="hide"><a href="area-personale.html">Area personale</a></li>
-			<li id="darkmode-switch-wrapper">
-				<label id="darkmode-switch" for="checkbox">
-					<input type="checkbox" id="checkbox" />
-					<div class="slider round"></div>
-				</label>
-			</li>
-		</ul>
-	</nav>
+	<div id="topbar">
+		<nav id="menu">
+			<ul>
+				<li lang="en"><a href="index.html">Home</a></li>
+				<li><a href="abbonamenti.html">Abbonamenti</a></li>
+				<li lang="en" id="currentLink">Trainers</li>
+				<li><a href="attrezzature.html">Attrezzature</a></li>
+				<li><a href="schede-allenamento.html">Allenamenti</a></li>
+				<li><a href="storia.html">Storia</a></li>
+				<li><a href="galleria.html">Galleria</a></li>
+				<li id="userIcon" class="hide"><a href="area-personale.html">Area personale</a></li>
+			</ul>
+		</nav>
+
+		<div id="darkmode-switch-wrapper">
+			<label id="darkmode-switch" for="checkbox">
+				<input type="checkbox" id="checkbox" />
+				<div class="slider round"></div>
+			</label>
+		</div>
+	</div>
 
 	<div id="content">
 		<div id="titolo">
