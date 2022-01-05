@@ -118,7 +118,7 @@ button:hover::after {
 }
 
 /*==================== MENU ====================*/
-#menu {
+#topbar {
 	position: fixed;
 	z-index: 1;
 	top: 0;
@@ -184,11 +184,12 @@ button:hover::after {
 }
 
 /*Toggle dark mode*/
-#menu #darkmode-switch-wrapper {
-	display: flex;
-	align-items: center;
-	float: right;
-	margin: 0.3em;
+#topbar #darkmode-switch-wrapper {
+	margin-top: 0.4em;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin-right: 4em;
 }
 
 #darkmode-switch {
