@@ -25,10 +25,9 @@
         public function closeConnection() {
             mysqli_close($this->connection);
         }
-    
-        public function getClienti() {
-            $query = "SELECT * FROM cliente";
-            $queryResult = mysqli_query($this->connection, $query) or die("Errore in getClienti(): " . mysqli_error($this->connection));
+
+        public function doQuery($query) {
+            $queryResult = mysqli_query($this->connection, $query) or die("Errore in doQuery(): " . mysqli_error($this->connection));
 
             if(mysqli_num_rows($queryResult) != 0) {
                 $result = array();
