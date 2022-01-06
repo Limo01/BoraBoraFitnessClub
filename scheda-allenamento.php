@@ -14,7 +14,7 @@
 	$queryPagineResult = "";
 	$content = "";
 
-	$query = "SELECT nome, COUNT(id) AS Followers, descrizione, allenamento.username_cliente, data_creazione FROM cliente_allenamento join allenamento on id_allenamento = id GROUP BY id ORDER BY Followers DESC LIMIT " . $startRow . ", " . $numeroAllenamentiPerPagina;
+	$query = "SELECT id, nome, COUNT(id) AS Followers, descrizione, allenamento.username_cliente, data_creazione FROM cliente_allenamento join allenamento on id_allenamento = id GROUP BY id ORDER BY Followers DESC LIMIT " . $startRow . ", " . $numeroAllenamentiPerPagina;
 	$queryPagine = "SELECT COUNT(*) AS numeroAllenamenti FROM allenamento";
 
 	if ($connessioneOK) {
@@ -29,6 +29,7 @@
 			$content .= '<dd>' . $row['descrizione'] . '</dd>';
 			$content .= '<dd>' . $row['username_cliente'] . '</dd>';
 			$content .= '<dd>' . $row['data_creazione'] . '</dd>';
+			$content .= '<dd><a href="dettaglio-allenamento.php?id=' . $row['id'] . '&percorso=scheda-allenamento&nomeBreadcrumb=Allenamenti&pagina=' . $pagina . '">Apri nel dettaglio</a></dd>';
 		}
 		$content .= '</dl>';
 

@@ -8,6 +8,9 @@
 
 	$id = $_GET['id'];
 	$percorso = $_GET['percorso'];
+	$nomeBreadcrumb = $_GET['nomeBreadcrumb'];
+	$pagina = $_GET['pagina'];
+	$breadcrumb = "<a href='" . $percorso . ".php?pagina=" . $pagina . "'>" . $nomeBreadcrumb . "</a>";
 	
 	$queryOverviewAllenamentoResult = "";
 	$queryNumeroFollowersResult = "";
@@ -49,7 +52,7 @@
 		$content = "<p>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
 	}
 
-	$paginaHTML = str_replace("<genitoreBreadcrumb/>", $percorso, $paginaHTML);
+	$paginaHTML = str_replace("<genitoreBreadcrumb/>", $breadcrumb, $paginaHTML);
 	$paginaHTML = str_replace("<dettaglioAllenamento/>", $content, $paginaHTML);
 	echo $paginaHTML;
 ?>
