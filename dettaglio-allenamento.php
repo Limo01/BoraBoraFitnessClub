@@ -7,7 +7,8 @@
 	$connessioneOK = $connessione->openDBConnection();
 
 	$id = $_GET['id'];
-	//$percorso = $_GET['percorso'];
+	$percorso = $_GET['percorso'];
+	
 	$queryOverviewAllenamentoResult = "";
 	$queryNumeroFollowersResult = "";
 	$queryDettaglioAllenamentoResult = "";
@@ -18,13 +19,12 @@
 	$queryDettaglioAllenamento = "SELECT nome, descrizione, peso, serie, ripetizioni, durata FROM allenamento_esercizio JOIN esercizio ON allenamento_esercizio.nome_esercizio = esercizio.nome WHERE id_allenamento = " . $id;
 
 	if ($connessioneOK) {
-		$queryOverviewAllenamentoResult = $connessione->doQuery($queryOverviewAllenamento);
-		$queryNumeroFollowersResult = $connessione->doQuery($queryNumeroFollowers);
-		$queryDettaglioAllenamentoResult = $connessione->doQuery($queryDettaglioAllenamento);
+		$queryOverviewAllenamentoResult = $connessione->doReadQuery($queryOverviewAllenamento);
+		$queryNumeroFollowersResult = $connessione->doReadQuery($queryNumeroFollowers);
+		$queryDettaglioAllenamentoResult = $connessione->doReadQuery($queryDettaglioAllenamento);
 		$connessione->closeConnection();
 
 		$content = '<dl>';
-
 		foreach ($queryOverviewAllenamentoResult as $overview) {
 			$content .= '<dd>' . $overview['nome'] . '</dd>';
 			$content .= '<dd>' . $overview['descrizione'] . '</dd>';
@@ -44,11 +44,12 @@
 			$content .= '<dd>' . $esercizio['ripetizioni'] . '</dd>';
 			$content .= '<dd>' . $esercizio['durata'] . '</dd>';
 		}
-
 		$content .= '</dl>';
 	} else {
 		$content = "<p>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
 	}
 
-	echo str_replace("<dettaglioAllenamento/>", $content, $paginaHTML);
+	$paginaHTML = str_replace("<genitoreBreadcrumb/>", $percorso, $paginaHTML);
+	$paginaHTML = str_replace("<dettaglioAllenamento/>", $content, $paginaHTML);
+	echo $paginaHTML;
 ?>

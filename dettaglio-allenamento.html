@@ -3,10 +3,10 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>Allenamento - Bora Bora Fitness Club</title>
-	<meta name="keywords" content="allenamento, esercizi, scheda personale, bora bora, fitness club" />
+	<title>Dettaglio allenamento - Bora Bora Fitness Club</title>
+	<meta name="keywords" content="dettaglio allenamento, esercizi, scheda personale, followers, workout, bora bora, fitness club" />
 	<meta name="description"
-		content="Sezione dove visualizzare in dettaglio una scheda di allenamento" />
+		content="Sezione dove visualizzare in dettaglio una scheda di allenamento con tutti i suoi esercizi" />
 	<meta name="author" content="Adnan Latif Gazi, Alberto Lazari, Marco Andrea Limongelli, Francesco Protopapa" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" media="screen" href="style.css" />
@@ -21,7 +21,7 @@
 	</header>
 
 	<nav id="breadcrumb">
-		<p>Ti trovi in: <a href="home.html" lang="en">Home</a> &gt;&gt; Area personale</p>
+		<p>Ti trovi in: <a href="home.html" lang="en">Home</a> &gt;&gt; <genitoreBreadcrumb/> &gt;&gt; Dettaglio allenamento</p>
 	</nav>
 
 	<a class="aiuti" href="#content">
@@ -30,24 +30,27 @@
 
 	<button onclick="menuClickEvent()" id="displayMenuButton">Menu</button>
 
-	<nav id="menu">
-		<ul>
-			<li lang="en"><a href="home.html">Home</a></li>
-			<li><a href="abbonamenti.html">Abbonamenti</a></li>
-			<li lang="en"><a href="personal-trainer.html">Trainers</a></li>
-			<li><a href="attrezzature.html">Attrezzature</a></li>
-			<li><a href="schede-allenamento.html">Allenamenti</a></li>
-			<li><a href="storia.html">Storia</a></li>
-			<li><a href="galleria.html">Galleria</a></li>
-			<li id="userIcon" class="hide"><span id="currentLink">Area personale</span></li>
-			<li id="darkmode-switch-wrapper">
-				<label id="darkmode-switch" for="checkbox">
-					<input type="checkbox" id="checkbox" />
-					<div class="slider round"></div>
-				</label>
-			</li>
-		</ul>
-	</nav>
+	<div id="topbar">
+		<nav id="menu">
+			<ul>
+				<li lang="en"><a href="index.html">Home</a></li>
+				<li><a href="abbonamenti.html">Abbonamenti</a></li>
+				<li lang="en"><a href="personal-trainer.html">Trainers</a></li>
+				<li><a href="attrezzature.html">Attrezzature</a></li>
+				<li><a href="schede-allenamento.html">Allenamenti</a></li>
+				<li><a href="storia.html">Storia</a></li>
+				<li><a href="galleria.html">Galleria</a></li>
+				<li id="userIcon" class="hide"><a href="area-personale.html">Area personale</a></li>
+			</ul>
+		</nav>
+
+		<div id="darkmode-switch-wrapper">
+			<label id="darkmode-switch" for="checkbox">
+				<input type="checkbox" id="checkbox" />
+				<div class="slider round"></div>
+			</label>
+		</div>
+	</div>
 
 	<div id="content">
 		<dettaglioAllenamento/>
