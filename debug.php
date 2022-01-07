@@ -1,6 +1,6 @@
 <?php
 	require_once "db_sample.php";
-	use DB\DBAccess;
+	use DB1\DBAccess;
 	session_start();
 
     $connessione = new DBAccess();
@@ -27,11 +27,18 @@
         echo"<p>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
     }
 
+    for ($i = 1; $i <= 10; $i++) {
+        $id = uniqid("BID");
+        echo "<p>id: " . $id ."</p>";
+    }
     //echo $listaClienti;
+    //password_verify()
+    /*
     if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]){
-        echo $_SESSION["username"];
+        echo "sei loggato con lo username: ". $_SESSION["username"];
     }
     else{
         echo "not logged in";
     }
+    */
 ?>

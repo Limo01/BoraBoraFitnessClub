@@ -25,7 +25,7 @@ create table abbonamento(
 
 create table cliente(
     username varchar(50) primary key,
-    password varchar(16) not null,
+    password char(60) not null,
     nome varchar(20) not null,
     cognome varchar(20) not null,
     email varchar(50),

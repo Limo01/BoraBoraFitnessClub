@@ -1,6 +1,6 @@
 <?php
 	require_once "db_sample.php";
-	use DB\DBAccess;
+	use DB1\DBAccess;
 	session_start();
 
 
@@ -23,9 +23,18 @@
 
 		$row = $queryResult;
 
-		if(isset($row[0]["password"]) && $row[0]["password"] == $password) {
+		if(isset($row[0]["password"]) && password_verify($password,$row[0]["password"])) {
 			return true;
 		} else {
+			return false;
+		}
+	}
+
+	function isNameValid ($name){
+		if (preg_match("/^[a-zA-Z-' àèìòùáéíóú]*$/",$name)){
+			return true;
+		}
+		else {
 			return false;
 		}
 	}
@@ -37,6 +46,15 @@
 		else {
 			return false;
 		}
+	}
+
+	function getNewBadge ($connessione){
+		do{
+			$badge = uniqid("BID");
+			$query = "select * from cliente where badge = '" . $badge . "'";
+			$queryResult = $connessione->doReadQuery($query);
+		} while ($queryResult != null);
+		return $badge;
 	}
 
 	function login()
@@ -93,7 +111,7 @@
 		$password2 = $_POST["passwordConfermaRegistrazione"];
 		$email = $_POST["emailRegistrazione"];
 		$tel = $_POST["telRegistrazione"];
-		$badge = "123456789";
+		$badge = getNewBadge($connessione);
 		$out = "";
 		
 		/*
@@ -106,12 +124,14 @@
 		if ($connessioneOK) {
 			$userDoppio = isUsernameCorrect($username, $connessione);
 			$emailValid = isEmailValid($email);
+			$nomeValid = isNameValid($nome);
+			$cognomeValid = isNameValid($cognome);
 
-			if($userDoppio == false && $password1 == $password2 && $emailValid){
+			if($userDoppio == false && $password1 == $password2 && $nomeValid && $cognomeValid && $emailValid){
 				$query = "insert into cliente(username, password, nome, cognome, email, data_nascita, badge, entrate, numero_telefono, nome_abbonamento, data_inizio, data_fine)
 				values (
 					'" . $username . 
-					"', '" . $password1 .
+					"', '" . password_hash($password1, PASSWORD_BCRYPT) .
 					"', '" . $nome .
 					"', '" . $cognome .
 					"', '" . $email .
@@ -122,6 +142,12 @@
 
 					$connessione->doWriteQuery($query);
 			} else {
+				if(!$nomeValid){
+					$out .= "<p>sono ammesse solamente lettere per il nome</p>";
+				}
+				if(!$cognomeValid){
+					$out .= "<p>sono ammesse solamente lettere per il cognome</p>";
+				}
 				if($userDoppio){
 					$out .= "<p>username non disponibile</p>";
 				}

@@ -1,11 +1,11 @@
 <?php
-    namespace DB;
+    namespace DB1;
 
     class DBAccess {
         private const HOST_DB = "127.0.0.1"; // == localhost
-        private const DATABASE_NAME = ""; // username laboratorio
-        private const USERNAME = ""; // username laboratorio
-        private const PASSWORD = ""; // password per phpmyadmin
+        private const DATABASE_NAME = "fprotopa"; // username laboratorio
+        private const USERNAME = "fprotopa"; // username laboratorio
+        private const PASSWORD = "aodoThohYe2choom"; // password per phpmyadmin
 
         private $connection;
 
