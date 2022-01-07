@@ -3,32 +3,23 @@
 
     class DBAccess {
         private const HOST_DB = "127.0.0.1"; // == localhost
-        private const DATABASE_NAME = "fprotopa"; // username laboratori
-        private const USERNAME = "fprotopa"; // username laboratori
-        private const PASSWORD = "aodoThohYe2choom"; // password per phpmyadmin
+        private const DATABASE_NAME = ""; // username laboratorio
+        private const USERNAME = ""; // username laboratorio
+        private const PASSWORD = ""; // password per phpmyadmin
 
         private $connection;
 
         public function openDBConnection() {
-            $this->connection = mysqli_connect(DBAccess::HOST_DB, 
-                                               DBAccess::USERNAME,
-                                               DBAccess::PASSWORD,
-                                               DBAccess::DATABASE_NAME
-                                               );
-            if(mysqli_errno($this->connection)) {
-                return false;
-            } else {
-                return true;
-            }
+            $this->connection = mysqli_connect(DBAccess::HOST_DB, DBAccess::USERNAME, DBAccess::PASSWORD, DBAccess::DATABASE_NAME );
+            return !mysqli_errno($this->connection);
         }
 
         public function closeConnection() {
             mysqli_close($this->connection);
         }
-    
-        public function getClienti() {
-            $query = "SELECT * FROM cliente";
-            $queryResult = mysqli_query($this->connection, $query) or die("Errore in getClienti(): " . mysqli_error($this->connection));
+
+        public function doReadQuery($query) {
+            $queryResult = mysqli_query($this->connection, $query) or die("Errore in doReadQuery(): " . mysqli_error($this->connection));
 
             if(mysqli_num_rows($queryResult) != 0) {
                 $result = array();
@@ -69,5 +60,9 @@
         }
 
 
+        public function doWriteQuery($query) {
+            $queryResult = msqli_query($this->connection, $query) or die("Errore in doReadQuery(): " . msqli_error($this->connection));
+            return msqli_affected_rows($this->connection) > 0;
+        }
     }
 ?>
