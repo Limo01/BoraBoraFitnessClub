@@ -1,18 +1,20 @@
 <?php
-    namespace DB;
+	namespace DB;
 
-    class DBAccess {
-        private const HOST_DB = "127.0.0.1"; // == localhost
-        private const DATABASE_NAME = ""; // username laboratorio
-        private const USERNAME = ""; // username laboratorio
-        private const PASSWORD = ""; // password per phpmyadmin
+	class DBAccess {
+		private $connection;
 
-        private $connection;
+		public function openDBConnection() {
+			$file = fopen("db.conf", "r") or die("Impossibile aprire il file di configurazione del database");
+			$host_db = fgets($file);
+			$username = fgets($file);
+			$password = fgets($file);
+			$database_name = fgets($file);
+			fclose($file);
 
-        public function openDBConnection() {
-            $this->connection = mysqli_connect(DBAccess::HOST_DB, DBAccess::USERNAME, DBAccess::PASSWORD, DBAccess::DATABASE_NAME );
-            return !mysqli_errno($this->connection);
-        }
+			$this->connection = mysqli_connect($host_db, $username, $password, $database_name);
+			return !mysqli_errno($this->connection);
+		}
 
         public function closeConnection() {
             mysqli_close($this->connection);

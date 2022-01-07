@@ -7,36 +7,23 @@
 	$connessione = new DBAccess();
 	$connessioneOK = $connessione->openDBConnection();
 
-
-	$listaClienti = "";
-	$clienti = "";
+	$user = "user";
 
 	if ($connessioneOK) {
-		$clienti = $connessione->getClienti();
+		$result = $connessione->doReadQuery("SELECT * FROM cliente WHERE username='". $user ."';");
 		$connessione->closeConnection();
-		if ($clienti != null) {
-			$listaClienti = '<dl>';
-			foreach ($clienti as $cliente) {
-				$listaClienti .= '<dd>' . $cliente['username'] . '</dd>';
-				$listaClienti .= '<dd>' . $cliente['password'] . '</dd>';
-				$listaClienti .= '<dd>' . $cliente['nome'] . '</dd>';
-				$listaClienti .= '<dd>' . $cliente['cognome'] . '</dd>';
-				$listaClienti .= '<dd>' . $cliente['email'] . '</dd>';
-				$listaClienti .= '<dd>' . $cliente['data_nascita'] . '</dd>';
-				$listaClienti .= '<dd>' . $cliente['badge'] . '</dd>';
-				$listaClienti .= '<dd>' . $cliente['entrate'] . '</dd>';
-				$listaClienti .= '<dd>' . $cliente['numero_telefono'] . '</dd>';
-				$listaClienti .= '<dd>' . $cliente['nome_abbonamento'] . '</dd>';
-				$listaClienti .= '<dd>' . $cliente['data_inizio'] . '</dd>';
-				$listaClienti .= '<dd>' . $cliente['data_fine'] . '</dd>';
-			}
-			$listaClienti .= '</dl>';
-		} else {
-			$listaClienti = "<p>Non ci sono informazioni relative ai clienti!</p>";
-		}
+
+		$datiPersonali = $result[0];
+		
+		$paginaHTML= str_replace("<nome />", $datiPersonali["nome"], $paginaHTML);
+		$paginaHTML= str_replace("<cognome />", $datiPersonali["cognome"], $paginaHTML);
+		$paginaHTML= str_replace("<email />", $datiPersonali["email"], $paginaHTML);
+		$paginaHTML= str_replace("<numero_telefono />", $datiPersonali["numero_telefono"], $paginaHTML);
+		$paginaHTML= str_replace("<data_nascita />", $datiPersonali["data_nascita"], $paginaHTML);
+		$paginaHTML= str_replace("<badge />", $datiPersonali["badge"], $paginaHTML);
 	} else {
 		$listaClienti = "<p>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
 	}
 
-	echo str_replace("<areaPersonale/>", $listaClienti, $paginaHTML);
+	echo $paginaHTML;
 ?>
