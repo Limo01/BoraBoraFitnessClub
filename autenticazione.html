@@ -28,29 +28,31 @@
 	</a>
 
 	<button onclick="menuClickEvent()" id="displayMenuButton">Menu</button>
+	<!--
 
-	<div id="topbar">
-		<nav id="menu">
-			<ul>
-				<li lang="en"><a href="index.html">Home</a></li>
-				<li><a href="abbonamenti.html">Abbonamenti</a></li>
-				<li lang="en"><a href="personal-trainer.html">Trainers</a></li>
-				<li><a href="attrezzature.html">Attrezzature</a></li>
-				<li><a href="schede-allenamento.html">Allenamenti</a></li>
-				<li><a href="storia.html">Storia</a></li>
-				<li><a href="galleria.html">Galleria</a></li>
-				<li id="userIcon" class="hide"><a href="area-personale.html">Area personale</a></li>
-			</ul>
-		</nav>
-
-		<div id="darkmode-switch-wrapper">
-			<label id="darkmode-switch" for="checkbox">
-				<input type="checkbox" id="checkbox" />
-				<div class="slider round"></div>
-			</label>
+		<div id="topbar">
+			<nav id="menu">
+				<ul>
+					<li lang="en"><a href="index.html">Home</a></li>
+					<li><a href="abbonamenti.html">Abbonamenti</a></li>
+					<li lang="en"><a href="personal-trainer.html">Trainers</a></li>
+					<li><a href="attrezzature.html">Attrezzature</a></li>
+					<li><a href="schede-allenamento.html">Allenamenti</a></li>
+					<li><a href="storia.html">Storia</a></li>
+					<li><a href="galleria.html">Galleria</a></li>
+					<li id="userIcon" class="hide"><a href="area-personale.html">Area personale</a></li>
+				</ul>
+			</nav>
+			
+			<div id="darkmode-switch-wrapper">
+				<label id="darkmode-switch" for="checkbox">
+					<input type="checkbox" id="checkbox" />
+					<div class="slider round"></div>
+				</label>
+			</div>
 		</div>
-	</div>
-
+	-->
+		
 	<div id="content">
 		<div class="titolo">
 			<h1>Autenticazione</h1>
@@ -60,15 +62,6 @@
 			<p>
 		</div>
 
-		<!--
-			<div id="sceltaAutenticazione">
-				<h2>Scegli se accedere o registrarti!</h2>
-				<div>
-					<input type="button" value="Accedi" id="Accedi" name="autenticazione">
-					<input type="button" value="Registrati" id="Registrati" name="autenticazione">
-				</div>
-			</div>
-		-->
 		<autenticazione/>
 		
 		<form id="accesso" class="autenticazione" action="autenticazione.php" method="post" autocomplete="on">
@@ -88,15 +81,15 @@
 			</fieldset>
 		</form>
 
-		<!-- 
-    entrate smallint unsigned default 0,
-    numero_telefono varchar(20),-->
+		
 
-		<form id="registrazione" class="autenticazione" action="post" method="post" autocomplete="on">
+		<form id="registrazione" class="autenticazione" action="autenticazione.php" method="post" autocomplete="on">
 			<fieldset>
 				<legend>
 					<h2>Registrazione</h2>
 				</legend>
+
+				<registrazione/>
 				
 				<label>Nome</label>
 				<input type="text" name="nomeRegistrazione" required placeholder="es: Mario">
@@ -112,16 +105,16 @@
 				placeholder="es: MarioRossi23">
 				
 				<label lang="en">Password</label>
-				<input type="password" name="passwordRegistrazione" required>
+				<input type="password" name="passwordRegistrazione" minlength="4" required>
 				
 				<label>Conferma <span lang="en">password</span></label>
-				<input type="password" name="passwordConfermaRegistrazione" required>
+				<input type="password" name="passwordConfermaRegistrazione" minlength="4" required>
 
 				<label lang="en">email</label>
-				<input type="text" name="emailRegistrazione" placeholder="es: mariorossi@gmail.com">
+				<input type="email" name="emailRegistrazione" placeholder="es: mariorossi@gmail.com" required>
 
 				<label>Numero di telefono</label>
-				<input type="tel" name="telRegistrazione">
+				<input type="tel" name="telRegistrazione" required>
 
 				<input type="reset" value="Cancella">
 				<input type="submit" value="Registrati" name="registrationSubmit">
