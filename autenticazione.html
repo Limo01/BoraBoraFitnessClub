@@ -29,24 +29,27 @@
 
 	<button onclick="menuClickEvent()" id="displayMenuButton">Menu</button>
 
-	<nav id="menu">
-		<ul>
-			<li lang="en"><a href="home.html">Home</a></li>
-			<li><a href="abbonamenti.html">Abbonamenti</a></li>
-			<li lang="en"><a href="personal-trainer.html">Trainers</a></li>
-			<li><a href="attrezzature.html">Attrezzature</a></li>
-			<li><a href="schede-allenamento.html">Allenamenti</a></li>
-			<li><a href="storia.html">Storia</a></li>
-			<li><a href="galleria.html">Galleria</a></li>
-			<li id="userIcon" class="hide"><a href="area-personale.html">Area personale</a></li>
-			<li id="darkmode-switch-wrapper">
-				<label id="darkmode-switch" for="checkbox">
-					<input type="checkbox" id="checkbox" />
-					<div class="slider round"></div>
-				</label>
-			</li>
-		</ul>
-	</nav>
+	<!--
+
+		<nav id="menu">
+			<ul>
+				<li lang="en"><a href="home.html">Home</a></li>
+				<li><a href="abbonamenti.html">Abbonamenti</a></li>
+				<li lang="en"><a href="personal-trainer.html">Trainers</a></li>
+				<li><a href="attrezzature.html">Attrezzature</a></li>
+				<li><a href="schede-allenamento.html">Allenamenti</a></li>
+				<li><a href="storia.html">Storia</a></li>
+				<li><a href="galleria.html">Galleria</a></li>
+				<li id="userIcon" class="hide"><a href="area-personale.html">Area personale</a></li>
+				<li id="darkmode-switch-wrapper">
+					<label id="darkmode-switch" for="checkbox">
+						<input type="checkbox" id="checkbox" />
+						<div class="slider round"></div>
+					</label>
+				</li>
+			</ul>
+		</nav>
+	-->
 
 	<div id="content">
 		<div class="titolo">
@@ -57,15 +60,18 @@
 			<p>
 		</div>
 
-		<div id="sceltaAutenticazione">
-			<h2>Scegli se accedere o registrarti!</h2>
-			<div>
-				<input type="button" value="Accedi" id="Accedi" name="autenticazione">
-				<input type="button" value="Registrati" id="Registrati" name="autenticazione">
+		<!--
+			<div id="sceltaAutenticazione">
+				<h2>Scegli se accedere o registrarti!</h2>
+				<div>
+					<input type="button" value="Accedi" id="Accedi" name="autenticazione">
+					<input type="button" value="Registrati" id="Registrati" name="autenticazione">
+				</div>
 			</div>
-		</div>
-
-		<form id="accesso" class="autenticazione" action="post" method="post" autocomplete="on">
+		-->
+		<autenticazione/>
+		
+		<form id="accesso" class="autenticazione" action="autenticazione.php" method="post" autocomplete="on">
 			<fieldset>
 				<legend>
 					<h2>Accesso</h2>
@@ -76,38 +82,52 @@
 					placeholder="es: mariorossi@gmail.com | MarioRossi23">
 
 				<label lang="en">Password</label>
-				<input type="password" minlength="5" maxlength="16" name="passwordAccesso" required>
+				<input type="password" name="passwordAccesso" required>
 
-				<input type="submit" value="Accedi">
+				<input type="submit" value="Accedi" name="loginSubmit">
 			</fieldset>
 		</form>
+
+		<!-- 
+    entrate smallint unsigned default 0,
+    numero_telefono varchar(20),-->
 
 		<form id="registrazione" class="autenticazione" action="post" method="post" autocomplete="on">
 			<fieldset>
 				<legend>
 					<h2>Registrazione</h2>
 				</legend>
-
+				
 				<label>Nome</label>
 				<input type="text" name="nomeRegistrazione" required placeholder="es: Mario">
-
+				
 				<label>Cognome</label>
 				<input type="text" name="cognomeRegistrazione" required placeholder="es: Rossi">
+				
+				<label>Data di nascita</label>
+				<input type="date" name="dataNascitaRegistrazione" required>
 
 				<label>Nome utente</label>
 				<input type="text" name="nomeUtenteRegistrazione" required
-					placeholder="es: mariorossi@gmail.com | MarioRossi23">
-
+				placeholder="es: MarioRossi23">
+				
 				<label lang="en">Password</label>
-				<input type="password" minlength="5" maxlength="16" name="passwordRegistrazione" required>
-
+				<input type="password" name="passwordRegistrazione" required>
+				
 				<label>Conferma <span lang="en">password</span></label>
-				<input type="password" minlength="5" maxlength="16" name="passwordConfermaRegistrazione" required>
+				<input type="password" name="passwordConfermaRegistrazione" required>
 
+				<label lang="en">email</label>
+				<input type="text" name="emailRegistrazione" placeholder="es: mariorossi@gmail.com">
+
+				<label>Numero di telefono</label>
+				<input type="tel" name="telRegistrazione">
+				
 				<input type="reset" value="Cancella">
-				<input type="submit" value="Registrati">
+				<input type="submit" value="Registrati" name="registrationSubmit">
 			</fieldset>
 		</form>
+		
 	</div>
 
 	<footer>
