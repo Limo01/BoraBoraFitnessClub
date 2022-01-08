@@ -51,18 +51,25 @@
         }
 
         public function isUsernameCorrect($submitted) {
-            $result= $this->doReadQuery("SELECT username FROM cliente WHERE username = ?", "s", $submitted);
-            
-            return count($result) != 0;
+            if($this->openDBConnection()){
+                $result= $this->doReadQuery("SELECT username FROM cliente WHERE username = ?", "s", $submitted);
+                $this->closeConnection();
+                
+                return count($result) != 0;
+            }
+            else die("Errore in isUsernameCorrect(): " . $this->connection->mysql_error());
         }
 
         public function isPasswordCorrect($name, $password) {
-            $result= $this->doReadQuery("SELECT password FROM cliente WHERE username = ?", "s", $name);
+            if($this->openDBConnection()){
+                $result= $this->doReadQuery("SELECT password FROM cliente WHERE username = ?", "s", $name);
 
-            if(count($result)==0)
-                return false;
+                if(count($result)==0)
+                    return false;
 
-            return $result[0]['password'] === $password;
+                return $result[0]['password'] === $password;
+            }
+            else die("Errore in isPasswordCorrect(): " . $this->connection->mysql_error());
         }
 
 
