@@ -6,20 +6,12 @@
 
 		public function openDBConnection() {
 			$file = fopen("db.conf", "r") or die("Impossibile aprire il file di configurazione del database");
-<<<<<<< HEAD
-			$host_db = fgets($file);
-			$username = fgets($file);
-			$password = fgets($file);
-			$database_name = fgets($file);
-			fclose($file);
-=======
 			$host_db = trim(fgets($file));
 			$username = trim(fgets($file));
 			$password = trim(fgets($file));
 			$database_name = trim(fgets($file));
 			fclose($file);
             if ($password == '""') $password = "";
->>>>>>> cdb62e457d19602a1039dbc9cbfad83d522a7b46
 
 			$this->connection = mysqli_connect($host_db, $username, $password, $database_name);
 			return !mysqli_errno($this->connection);
