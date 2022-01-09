@@ -6,7 +6,7 @@
 
 	function isUsernameCorrect($submitted, $connessione) {
 		//TODO: anti injection
-		$query = "SELECT username FROM cliente WHERE username = '".$submitted."'";
+		$query = "SELECT username FROM utente WHERE username = '".$submitted."'";
 		$queryResult = $connessione->doReadQuery($query);
 
 		if($queryResult != null) {
@@ -18,7 +18,7 @@
 
 	function isPasswordCorrect($name, $password, $connessione) {
 		//TODO: anti injection
-		$query = "SELECT password FROM cliente WHERE username = '".$name."'";
+		$query = "SELECT password FROM utente WHERE username = '".$name."'";
 		$queryResult = $connessione->doReadQuery($query);
 
 		$row = $queryResult;
@@ -51,7 +51,7 @@
 	function getNewBadge ($connessione){
 		do{
 			$badge = uniqid("BID");
-			$query = "select * from cliente where badge = '" . $badge . "'";
+			$query = "select * from utente where badge = '" . $badge . "'";
 			$queryResult = $connessione->doReadQuery($query);
 		} while ($queryResult != null);
 		return $badge;
@@ -128,7 +128,7 @@
 			$cognomeValid = isNameValid($cognome);
 
 			if($userDoppio == false && $password1 == $password2 && $nomeValid && $cognomeValid && $emailValid){
-				$query = "insert into cliente(username, password, nome, cognome, email, data_nascita, badge, entrate, numero_telefono, nome_abbonamento, data_inizio, data_fine)
+				$query = "insert into utente(username, password, nome, cognome, email, data_nascita, badge, entrate, numero_telefono, nome_abbonamento, data_inizio, data_fine)
 				values (
 					'" . $username . 
 					"', '" . password_hash($password1, PASSWORD_BCRYPT) .

@@ -1,14 +1,14 @@
 -- Nome database: BBFC
 drop table if exists abbonamento;
-drop table if exists cliente;
+drop table if exists utente;
 drop table if exists accesso;
 drop table if exists personal_trainer;
-drop table if exists cliente_personal_trainer;
+drop table if exists utente_personal_trainer;
 drop table if exists allenamento;
-drop table if exists cliente_allenamento;
+drop table if exists utente_allenamento;
 drop table if exists sala;
 drop table if exists corso;
-drop table if exists cliente_corso;
+drop table if exists utente_corso;
 drop table if exists personal_trainer_corso;
 drop table if exists persona_trainer_sala;
 drop table if exists attrezzatura;
@@ -23,14 +23,14 @@ create table abbonamento(
     prezzo decimal(5,2) not null check (prezzo >= 0)
 );
 
-create table cliente(
+create table utente(
     username varchar(50) primary key,
     password char(60) not null,
     nome varchar(20) not null,
     cognome varchar(20) not null,
     email varchar(50),
     data_nascita date not null,
-    badge char(16) not null,
+    badge char(16) unique,
     entrate smallint unsigned default 0,
     numero_telefono varchar(20),
     nome_abbonamento varchar(50)
@@ -39,20 +39,20 @@ create table cliente(
             on update cascade,
     data_inizio date,
     data_fine date,
-
-    constraint CHK_cliente check (data_inizio <= data_fine)
+    isAdmin boolean default false,
+    constraint CHK_utente check (data_inizio <= data_fine)
 );
 
 create table accesso(
-    username_cliente varchar(50)
-        references cliente(username)
+    username_utente varchar(50)
+        references utente(username)
             on delete cascade
             on update cascade,
     dataora_entrata datetime default current_timestamp,
     dataora_uscita datetime,
 
     
-    primary key(username_cliente, dataora_entrata),
+    primary key(username_utente, dataora_entrata),
     constraint CHK_accesso check (dataora_entrata <= dataora_uscita)
 );
 
@@ -64,9 +64,9 @@ create table personal_trainer(
     numero_telefono varchar(20)
 );
 
-create table cliente_personal_trainer(
-    username_cliente varchar(50)
-        references cliente(username)
+create table utente_personal_trainer(
+    username_utente varchar(50)
+        references utente(username)
             on delete cascade
             on update cascade,
     id_personal_trainer int
@@ -74,15 +74,15 @@ create table cliente_personal_trainer(
             on delete cascade
             on update cascade,
 
-    primary key(username_cliente, id_personal_trainer)
+    primary key(username_utente, id_personal_trainer)
 );
 
 create table allenamento(
     id int primary key auto_increment, 
     nome varchar(100) not null,
     descrizione text,
-    username_cliente varchar(50)
-        references cliente(username)
+    username_utente varchar(50)
+        references utente(username)
             on delete set null
             on update cascade,
     data_creazione date default (current_date),
@@ -92,9 +92,9 @@ create table allenamento(
             on update cascade
 );
 
-create table cliente_allenamento(
-    username_cliente varchar(50)
-        references cliente(username)
+create table utente_allenamento(
+    username_utente varchar(50)
+        references utente(username)
             on delete cascade
             on update cascade,
     id_allenamento int
@@ -102,7 +102,7 @@ create table cliente_allenamento(
             on delete cascade
             on update cascade,
 
-    primary key(username_cliente, id_allenamento)
+    primary key(username_utente, id_allenamento)
 );
 
 create table sala(
@@ -117,9 +117,9 @@ create table corso(
             on update cascade
 );
 
-create table cliente_corso(
-    username_cliente varchar(50)
-        references cliente(username)
+create table utente_corso(
+    username_utente varchar(50)
+        references utente(username)
             on delete cascade
             on update cascade,
     nome_corso varchar(50)
@@ -127,7 +127,7 @@ create table cliente_corso(
             on delete cascade
             on update cascade,
 
-    primary key(username_cliente, nome_corso)
+    primary key(username_utente, nome_corso)
 );
 
 create table personal_trainer_corso(

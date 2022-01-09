@@ -3,12 +3,12 @@ values ('Mensile', 80),
 	   ('Annuale', 760),
 	   ('Resort Pass', 0);
 
-insert into cliente(username, password, nome, cognome, email, data_nascita, badge, entrate, numero_telefono, nome_abbonamento, data_inizio, data_fine)
-values ('admin', '$2y$10$C1t0K8PSME4joo94czYkUutjnjA3gyfwebXU6FT/aXviqpoUgidKy', 'Ad', 'Min', 'admin@gmail.com', '1970-01-01', 'BID61d8b7d0759a7', 2, '+39 377 541 2343', 'Annuale', '2021-01-01', '2021-12-31'),
-	   ('user', '$2y$10$3zE3K.4w70zcoQLEQPvrouAoSuWn/Gnq7UAfhQKlNcUf5x50TV86S', 'Mario', 'Rossi', 'mariorossi@gmail.com', '2000-01-29', 'BID61d8b7d0759ac', 8, '+689 36 28 12 88', 'Mensile', '2021-01-13', '2021-02-13');
+insert into utente(username, password, nome, cognome, email, data_nascita, badge, entrate, numero_telefono, nome_abbonamento, data_inizio, data_fine, isAdmin)
+values ('admin', '$2y$10$C1t0K8PSME4joo94czYkUutjnjA3gyfwebXU6FT/aXviqpoUgidKy', 'Ad', 'Min', 'admin@gmail.com', '1970-01-01', 'BID61d8b7d0759a7', 2, '+39 377 541 2343', 'Annuale', '2021-01-01', '2021-12-31', true),
+	   ('user', '$2y$10$3zE3K.4w70zcoQLEQPvrouAoSuWn/Gnq7UAfhQKlNcUf5x50TV86S', 'Mario', 'Rossi', 'mariorossi@gmail.com', '2000-01-29', 'BID61d8b7d0759ac', 8, '+689 36 28 12 88', 'Mensile', '2021-01-13', '2021-02-13', false);
 
 
-insert into accesso(username_cliente, dataora_entrata, dataora_uscita)
+insert into accesso(username_utente, dataora_entrata, dataora_uscita)
 values ('user', '2021-12-23 17:00', '2021-12-23 19:30'),
 	   ('user', '2021-01-29 16:00', null),
 	   ('admin', '2021-11-23 17:00', '2021-11-23 19:30'),
@@ -23,7 +23,7 @@ values ('Fabio', 'Villotti', 'fabio.villotti@bbfc.com', '+39 111 111 1111'),
 	   ('Anastasia', 'Smirnova', 'anastasia.smirnova@bbfc.com', '+39 666 666 6666'),
 	   ('Gustavo', 'Perez', 'gustavo.perez@bbfc.com', '+39 777 777 7777');
 
-insert into cliente_personal_trainer(username_cliente, id_personal_trainer)
+insert into utente_personal_trainer(username_utente, id_personal_trainer)
 values ('admin', '1'),
 	   ('admin', '2'),
 	   ('admin', '3'),
@@ -39,13 +39,13 @@ values ('admin', '1'),
 	   ('user', '6'),
 	   ('user', '7');
 
-insert into allenamento(nome, descrizione, username_cliente, data_creazione, id_personal_trainer)
+insert into allenamento(nome, descrizione, username_utente, data_creazione, id_personal_trainer)
 values ('Brucia grassi', 'Principalmente esercizi cardio per bruciare grassi e dimagrire', 'admin', '2021-12-28', null),
 	   ('Massa muscolare', 'Tutti gli esercizi per mettere su muscoli VELOCEMENTE!', 'admin', '2021-11-28', 1),
 	   ('Allenamento per ritornare in forma', 'In un mese si può ritornare in forma seguendo gli esericizi con il giusto ritmo', 'user', '2021-12-27', null),
 	   ('Gambe e spalle', 'Principalmente gambe, ma anche spalle nel finale di allenamento', 'user', '2021-11-27', 2);
 
-insert into cliente_allenamento(username_cliente, id_allenamento)
+insert into utente_allenamento(username_utente, id_allenamento)
 values ('admin', 1),
 	   ('admin', 2),
 	   ('admin', 3),
@@ -103,7 +103,7 @@ values ('Boxe', 'Sala pesi'),
 	   ('Psyco Wellness', 'Spazio outdoor'),
 	   ('Wellness Coaching', 'Spazio outdoor');
 
-insert into cliente_corso(username_cliente, nome_corso)
+insert into utente_corso(username_utente, nome_corso)
 values ('admin', 'Boxe'),
 	   ('admin', 'Clisthenics'),
 	   ('admin', 'Cross Active Induction'),
