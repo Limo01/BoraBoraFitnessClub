@@ -523,26 +523,13 @@ small {
 
 /*==================== PERSONAL TRAINER ====================*/
 
-#content .personalTrainer {
-	outline: none;
-	margin: 2em 0em;
-	padding: 1em;
-	overflow: hidden;
-}
-
 #content .personalTrainer > h2 {
-	margin: 0.5em 0em 0.5em 35%;
-	padding: 0.5em;
-	font-size: 2.5em;
-	color: var(--colore-testo-principale);
+	margin: 0em 0em 0.7em 35%;
 }
 
 #content .personalTrainer > img {
 	float: left;
 	width: 30%;
-	padding: 0em;
-	margin: 0em;
-	transition: transform 0.2s;
 }
 
 #content .personalTrainer > p {
@@ -550,9 +537,7 @@ small {
 	background-color: var(--colore-sfondo-article-p);
 	margin: 1em 0em 1em 35%;
 	padding: 1em;
-	outline: none;
 	border-radius: 1em;
-	transition: box-shadow 0.2s;
 }
 
 #content .personalTrainer > p > cite {
@@ -570,8 +555,6 @@ small {
 	color: var(--colore-testo-contrasto-sfondi);
 	background-color: var(--colore-testo-principale);
 	padding: 0.5em 1em;
-	margin: 1em 2em 0.5em 0em;
-	outline: none;
 	border-radius: 2em;
 }
 
@@ -585,19 +568,10 @@ small {
 	background-color: var(--colore-sfondo-article-p);
 	padding: 0.5em 1em;
 	margin: 0.5em 0em;
-	outline: none;
 	border-radius: 2em;
 	list-style-type: none;
 	display: inline-block;
-	transition: box-shadow 0.2s, transform 0.2s, background-color 0.2s;
-	transition-timing-function: ease;
 }
-
-/*#content .personalTrainer > div > ul > li:hover {
-    transform: scale(1.02);
-    box-shadow: 0px 10px 13px -7px #000000;
-    background-color: #546151;
-}*/
 
 /*==================== STILE ATTREZZATURE ====================*/
 
