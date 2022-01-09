@@ -52,7 +52,7 @@
 
         public function isUsernameCorrect($submitted) {
             if($this->openDBConnection()){
-                $result= $this->doReadQuery("SELECT username FROM cliente WHERE username = ?", "s", $submitted);
+                $result= $this->doReadQuery("SELECT username FROM utente WHERE username = ?", "s", $submitted);
                 $this->closeConnection();
                 
                 return count($result) != 0;
@@ -62,7 +62,7 @@
 
         public function isPasswordCorrect($name, $password) {
             if($this->openDBConnection()){
-                $result= $this->doReadQuery("SELECT password FROM cliente WHERE username = ?", "s", $name);
+                $result= $this->doReadQuery("SELECT password FROM utente WHERE username = ?", "s", $name);
 
                 if(count($result)==0)
                     return false;

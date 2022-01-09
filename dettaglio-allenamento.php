@@ -17,7 +17,7 @@
 	$queryDettaglioAllenamentoResult = "";
 	$content = "";
 
-	$queryOverviewAllenamento = "SELECT nome, descrizione, username_cliente, data_creazione FROM allenamento WHERE id = " . $id;
+	$queryOverviewAllenamento = "SELECT nome, descrizione, username_utente, data_creazione FROM allenamento WHERE id = " . $id;
 	$queryNumeroFollowers = "SELECT COUNT(*) AS Followers FROM allenamento_esercizio WHERE id_allenamento = " . $id;
 	$queryDettaglioAllenamento = "SELECT nome, descrizione, peso, serie, ripetizioni, durata FROM allenamento_esercizio JOIN esercizio ON allenamento_esercizio.nome_esercizio = esercizio.nome WHERE id_allenamento = " . $id;
 
@@ -31,7 +31,7 @@
 		foreach ($queryOverviewAllenamentoResult as $overview) {
 			$content .= '<dd>' . $overview['nome'] . '</dd>';
 			$content .= '<dd>' . $overview['descrizione'] . '</dd>';
-			$content .= '<dd>' . $overview['username_cliente'] . '</dd>';
+			$content .= '<dd>' . $overview['username_utente'] . '</dd>';
 			$content .= '<dd>' . $overview['data_creazione'] . '</dd>';
 		}
 

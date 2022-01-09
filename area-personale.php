@@ -10,7 +10,7 @@
 	$user = "user";
 
 	if ($connessioneOK) {
-		$result = $connessione->doReadQuery("SELECT * FROM cliente WHERE username = '". $user . "'");
+		$result = $connessione->doReadQuery("SELECT * FROM utente WHERE username = '". $user . "'");
 		$connessione->closeConnection();
 
 		$datiPersonali = $result[0];
