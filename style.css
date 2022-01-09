@@ -5,7 +5,7 @@
 	--colore-sfondo-article-p: #d7c99e;
 	--colore-hover-menu: #d6c8a6;
 	--colore-background-menu: #bfb394;
-	--colore-sfondo-footer: rgba(0, 0, 0, 0.7);
+	--colore-sfondo-footer: rgba(71, 54, 3, 0.9);
 	--colore-testo-footer: #fdf1ce;
 	--immagine-background: url("immagini/sfondo.jpg");
 	--icona-autenticazione: url("immagini/logo/user.png");
@@ -17,7 +17,7 @@
 	--colore-testo-contrasto-sfondi: #473603;
 	--colore-testo-principale: #bfb394;
 	--colore-sfondo-article-p: rgba(0, 0, 0, 0.8);
-	--colore-hover-menu: rgba(200, 20, 0, 0.6);
+	--colore-hover-menu: #bfb39433;
 	--colore-background-menu: rgb(0, 0, 0);
 	--colore-sfondo-footer: rgba(0, 0, 0, 0.7);
 	--colore-testo-footer: #fdf1ce;
@@ -115,6 +115,10 @@ button::after {
 
 button:hover::after {
 	opacity: 1;
+}
+
+small {
+	font-size: 1em;
 }
 
 /*==================== MENU ====================*/
@@ -249,7 +253,7 @@ input:checked + .slider:before {
 	border-radius: 50%;
 }
 
-#displayMenuButton{
+#displayMenuButton {
 	display: none;
 }
 
@@ -302,6 +306,10 @@ input:checked + .slider:before {
 	color: var(--colore-testo-principale);
 	font-size: 1.3em;
 	margin-top: 1em;
+}
+
+#content img {
+	border-radius: 2em;
 }
 
 #titolo h2 {
@@ -853,7 +861,7 @@ div div .gallery {
 }
 
 /*CSS Gallery Cocktail-bar*/
-#galleryCocktailBar{
+#galleryCocktailBar {
 	padding-bottom: 3em;
 }
 #galleryCocktailBar #cocktailbar1 {
@@ -870,7 +878,7 @@ div div .gallery {
 }
 
 /*CSS Gallery Zen*/
-#galleryGiardinoZen{
+#galleryGiardinoZen {
 	padding-bottom: 3em;
 }
 #galleryGiardinoZen #zen1 {
