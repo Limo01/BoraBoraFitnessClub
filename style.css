@@ -312,6 +312,10 @@ input:checked + .slider:before {
 	border-radius: 2em;
 }
 
+#content li {
+	font-size: 1.1em;
+}
+
 #titolo h2 {
 	margin-bottom: 0em;
 }
@@ -459,30 +463,14 @@ footer .social {
 }
 /*==================== ABBONAMENTI ====================*/
 #abbonamenti {
-	display: grid;
-	grid-gap: 1.5em;
-	grid-template-areas: "a b c d e";
-}
-
-#entrataSingola {
-	grid-area: a;
-}
-#entrate {
-	grid-area: b;
-}
-#mensile {
-	grid-area: c;
-}
-#annuale {
-	grid-area: d;
-}
-#resortPass {
-	grid-area: e;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2em 1.4em;
 }
 
 .offertaAbbonamento {
 	display: grid;
-	grid-template-rows: 5em 15em 2em;
+	grid-template-rows: 5em 17em 2em;
 	grid-template-areas:
 		"a"
 		"b"
@@ -508,20 +496,25 @@ footer .social {
 	padding-top: 1em;
 }
 .offertaAbbonamento button {
+	grid-area: c;
+	align-self: baseline;
 	margin-top: 0;
 	width: 6em;
 	font-size: 1.5em;
 }
 
-#resortPassDiv ul {
-	margin-top: 2em;
+#resortPass ul {
+	display: inline-block;
+	margin-top: 1.5em;
 	color: var(--colore-testo-principale);
-	text-align: center;
-	columns: 3;
 }
-
-#resortPassDiv li {
-	margin-top: 0.7em;
+#resortPass li {
+	float: left;
+	background-color: var(--colore-sfondo-article-p);
+	margin: 0.5em;
+	padding: 0.5em 1em;
+	list-style-type: none;
+	border-radius: 5em;
 }
 
 small {
