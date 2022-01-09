@@ -5,7 +5,7 @@
 	--colore-sfondo-article-p: #d7c99e;
 	--colore-hover-menu: #d6c8a6;
 	--colore-background-menu: #bfb394;
-	--colore-sfondo-footer: rgba(0, 0, 0, 0.7);
+	--colore-sfondo-footer: rgba(0, 0, 0, 0.8);
 	--colore-testo-footer: #fdf1ce;
 	--immagine-background: url("immagini/sfondo.jpg");
 	--icona-autenticazione: url("immagini/logo/user.png");
@@ -13,13 +13,13 @@
 }
 
 [data-theme="dark"] {
-	--colore-sfondo-div: rgba(0, 0, 0, 0.7);
+	--colore-sfondo-div: rgba(0, 0, 0, 0.8);
 	--colore-testo-contrasto-sfondi: #473603;
 	--colore-testo-principale: #bfb394;
-	--colore-sfondo-article-p: rgba(0, 0, 0, 0.8);
+	--colore-sfondo-article-p: #332a1f;
 	--colore-hover-menu: #bfb39433;
-	--colore-background-menu: rgb(0, 0, 0);
-	--colore-sfondo-footer: rgba(0, 0, 0, 0.7);
+	--colore-background-menu: #241f19;
+	--colore-sfondo-footer: rgba(0, 0, 0, 0.8);
 	--colore-testo-footer: #fdf1ce;
 	--immagine-background: url("immagini/sfondo-dark.jpg");
 	--icona-autenticazione: url("immagini/logo/user-light-darkmode.png");
