@@ -385,30 +385,7 @@ footer .social {
 	background-color: var(--colore-sfondo-article-p);
 	border-radius: 2em;
 	padding: 1em;
-	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
-	transition: all 0.17s ease-in-out;
-}
-
-.motivazione:hover {
-	transform: scale(1.02);
-}
-
-.motivazione::after {
-	content: "";
-	position: absolute;
-	z-index: -1;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	opacity: 0;
-	border-radius: 2em;
-	box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2);
-	transition: opacity 0.2s ease-in-out;
-}
-
-.motivazione:hover::after {
-	opacity: 1;
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .motivazione > span {
