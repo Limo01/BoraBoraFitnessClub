@@ -445,7 +445,7 @@ footer .social {
 	gap: 2em 1.4em;
 }
 
-.offertaAbbonamento {
+.offertaAbbonamento, .esercizio {
 	display: grid;
 	grid-template-rows: 5em 17em 2em;
 	grid-template-areas:
@@ -461,12 +461,12 @@ footer .social {
 	border-radius: 40px;
 }
 
-#content .offertaAbbonamento h2 {
+#content .offertaAbbonamento h2, #content .esercizio h2 {
 	grid-area: a;
 	align-self: start;
 	font-size: 2em;
 }
-.offertaAbbonamento ul {
+.offertaAbbonamento ul, .esercizio ul {
 	grid-area: b;
 	align-self: start;
 	list-style-type: none;

@@ -39,10 +39,12 @@
         /*
         * ParamsType: s => string, i => int, d => double, b => blob
         */
-        public function doReadQuery($query, $paramsType, ...$params) {
+        public function doReadQuery($query, $paramsType="", ...$params) {
             $stmt = $this->connection->prepare($query);
 
-            $stmt->bind_param($paramsType, ...$params);
+            if ($paramsType != "") {
+                $stmt->bind_param($paramsType, ...$params);
+            }
 
             $stmt->execute();
             $result = $stmt->get_result();
@@ -73,7 +75,7 @@
         }
 
 
-        public function doWriteQuery($query, $paramsType=0, ...$params) {
+        public function doWriteQuery($query, $paramsType="", ...$params) {
             $stmt = $this->connection->prepare($query);
 
             if(count($params)>0){
