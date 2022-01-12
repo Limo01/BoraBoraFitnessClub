@@ -12,37 +12,8 @@
 	<link rel="stylesheet" media="screen" href="style.css" />
 	<link rel="stylesheet" media="screen and (max-width:600px), only screen and (max-width:600px)" href="mobile.css" />
 
-	<!-- Questo bisogna vedere se ha senso inserilo, probabilmente dovremmo usare un AJAX se facciamo così -->
-	<!-- Fatto in questo modo è solo per simulare il funzionamento -->
-	<script>
-		window.onload = function () {
-			setInterval(function () {
-				var contatorePersone = document.getElementById('contatorePersone');
-
-				if (Math.random() > 0.5) {
-					var n = Math.floor(Math.random() * 10);
-
-					if (parseInt(contatorePersone.innerHTML) + n <= 200) {
-						contatorePersone.innerHTML = parseInt(contatorePersone.innerHTML) + n;
-					}
-					else {
-						contatorePersone.innerHTML = 200;
-					}
-				}
-				else {
-					var n = Math.floor(Math.random() * 10);
-
-					if (parseInt(contatorePersone.innerHTML) - n >= 0) {
-						contatorePersone.innerHTML = parseInt(contatorePersone.innerHTML) - n;
-					}
-					else {
-						contatorePersone.innerHTML = 0;
-					}
-				}
-			}, 8000);
-		}
-	</script>
 	<script src="darkmode.js"></script>
+	<script src="script-home.js"></script>
 </head>
 
 <body>
