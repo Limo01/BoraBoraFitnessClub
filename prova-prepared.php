@@ -9,12 +9,12 @@
 		echo "funziona </br>";
 	}
 
-	$result= $connessione->doReadQuery("SELECT * FROM cliente WHERE username=? and password=?", "ss", "user", "user");
+	$result= $connessione->doReadQuery("SELECT * FROM utente WHERE username=? and password=?", "ss", "user", "user");
 	
 	print_r($result);
 	echo "<br>" . count($result);
 	
-	//echo $connessione->doWriteQuery("INSERT INTO `allenamento`(`nome`, `descrizione`, `username_cliente`, `data_creazione`, `id_personal_trainer`) VALUES (?,?,?,?,?)", "ssssi", "prova", "descrizione", 'user', '2002-08-10', 1);
+	//echo $connessione->doWriteQuery("INSERT INTO `allenamento`(`nome`, `descrizione`, `username_utente`, `data_creazione`, `id_personal_trainer`) VALUES (?,?,?,?,?)", "ssssi", "prova", "descrizione", 'user', '2002-08-10', 1);
 	
 	//echo $connessione->doWriteQuery("INSERT INTO `sala`(`nome`) VALUES (?)", "s", "pippo");
 

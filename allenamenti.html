@@ -4,8 +4,8 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Allenamenti - Bora Bora Fitness Club</title>
-	<meta name="keywords" content="allenamenti, schede allenamento, allenamenti, workout, palestra, esercizi, followers, bora bora, fitness club" />
-	<meta name="description" content="Visualizza le schede allenamento più seguite dai nostri clienti" />
+	<meta name="keywords" content="allenamenti, schede allenamento, scheda personale, workout, training, esercizi, palestra, followers, bora bora fitness club" />
+	<meta name="description" content="Visualizza gli allenamenti più seguiti dai nostri clienti" />
 	<meta name="author" content="Adnan Latif Gazi, Alberto Lazari, Marco Andrea Limongelli, Francesco Protopapa" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" media="screen" href="style.css" />
@@ -52,7 +52,29 @@
 	</div>
 
 	<div id="content">
-		<allenamenti/>
+		<div id="titolo">
+			<h1>Allenamenti</h1>
+			<p>
+				Presso <strong lang="en">Bora Bora Fitness Club</strong> potrai scoprire gli allenamenti più gettonati dai nostri clienti!
+			</p>
+		</div>
+		<div>
+			<form action="allenamenti.php?pagina=1" method="post">
+				Name: <input type="text" name="name"><br>
+				E-mail: <input type="text" name="email"><br>
+				<input type="submit">
+			</form>
+		</div>
+		<div>
+			<allenamenti/>
+		</div>
+		<div id="scorriPagine">
+			<nav id="pagine">
+				<ul>
+					<pagine/>
+				</ul>
+			</nav>
+		</div>
 	</div>
 
 	<footer>

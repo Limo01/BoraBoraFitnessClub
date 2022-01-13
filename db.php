@@ -39,10 +39,12 @@
         /*
         * ParamsType: s => string, i => int, d => double, b => blob
         */
-        public function doReadQuery($query, $paramsType, ...$params) {
+        public function doReadQuery($query, $paramsType="", ...$params) {
             $stmt = $this->connection->prepare($query);
 
-            $stmt->bind_param($paramsType, ...$params);
+            if ($paramsType != "") {
+                $stmt->bind_param($paramsType, ...$params);
+            }
 
             $stmt->execute();
             $result = $stmt->get_result();
@@ -52,7 +54,7 @@
 
         public function isUsernameCorrect($submitted) {
             if($this->openDBConnection()){
-                $result= $this->doReadQuery("SELECT username FROM cliente WHERE username = ?", "s", $submitted);
+                $result= $this->doReadQuery("SELECT username FROM utente WHERE username = ?", "s", $submitted);
                 $this->closeConnection();
                 
                 return count($result) != 0;
@@ -62,7 +64,7 @@
 
         public function isPasswordCorrect($name, $password) {
             if($this->openDBConnection()){
-                $result= $this->doReadQuery("SELECT password FROM cliente WHERE username = ?", "s", $name);
+                $result= $this->doReadQuery("SELECT password FROM utente WHERE username = ?", "s", $name);
 
                 if(count($result)==0)
                     return false;
@@ -73,7 +75,7 @@
         }
 
 
-        public function doWriteQuery($query, $paramsType=0, ...$params) {
+        public function doWriteQuery($query, $paramsType="", ...$params) {
             $stmt = $this->connection->prepare($query);
 
             if(count($params)>0){

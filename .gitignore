@@ -1,3 +1,7 @@
 db.conf
 db_sample.php
 debug.php
+**/.DS_Store
+sync
+upload
+connect

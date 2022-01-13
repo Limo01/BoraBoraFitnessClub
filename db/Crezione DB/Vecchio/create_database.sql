@@ -1,13 +1,13 @@
 -- Nome database: BBFC
-drop table if exists Cliente;
+drop table if exists utente;
 drop table if exists Accesso;
 drop table if exists Abbonamento;
 drop table if exists Allenamento;
-drop table if exists Cliente_Allenamento;
+drop table if exists utente_Allenamento;
 drop table if exists Esercizio;
 drop table if exists Allenamento_Esercizio;
 
-create table Cliente (
+create table utente (
     Username        varchar (20)    primary key,
     Nome            varchar (50)    not null,
     Cognome        varchar (50)    not null,
@@ -28,7 +28,7 @@ create table Cliente (
 
 create table Accesso (
     Username            varchar (30)    not null
-references     Cliente(Username)
+references     utente(Username)
 on delete cascade
 on update cascade,
     Dataora_entrata        datetime     not null,
@@ -48,14 +48,14 @@ create table Allenamento (
     Nome            varchar (50)    not null,
     Descrizione    varchar (500)    ,
     Autore        varchar (20)    not null
-        references    Cliente (Username)
+        references    utente (Username)
                 on delete cascade
                 on update cascade
 );
 
-create table Cliente_Allenamento (
+create table utente_Allenamento (
     Username        varchar (20)
-references     Cliente(Username)
+references     utente(Username)
 on delete cascade
 on update cascade,
     ID            int
