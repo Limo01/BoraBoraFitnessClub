@@ -52,29 +52,6 @@
             return $result->fetch_all(MYSQLI_ASSOC);
         }
 
-        public function isUsernameCorrect($submitted) {
-            if($this->openDBConnection()){
-                $result= $this->doReadQuery("SELECT username FROM utente WHERE username = ?", "s", $submitted);
-                $this->closeConnection();
-                
-                return count($result) != 0;
-            }
-            else die("Errore in isUsernameCorrect(): " . $this->connection->mysql_error());
-        }
-
-        public function isPasswordCorrect($name, $password) {
-            if($this->openDBConnection()){
-                $result= $this->doReadQuery("SELECT password FROM utente WHERE username = ?", "s", $name);
-
-                if(count($result)==0)
-                    return false;
-
-                return $result[0]['password'] === $password;
-            }
-            else die("Errore in isPasswordCorrect(): " . $this->connection->mysql_error());
-        }
-
-
         public function doWriteQuery($query, $paramsType="", ...$params) {
             $stmt = $this->connection->prepare($query);
 

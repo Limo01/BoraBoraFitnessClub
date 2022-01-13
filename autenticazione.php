@@ -1,13 +1,11 @@
 <?php
-	require_once "db_sample.php";
-	use DB1\DBAccess;
+	require_once "db.php";
+	use DB\DBAccess;
 	session_start();
 
 
 	function isUsernameCorrect($submitted, $connessione) {
-		//TODO: anti injection
-		$query = "SELECT username FROM utente WHERE username = '".$submitted."'";
-		$queryResult = $connessione->doReadQuery($query);
+		$queryResult = $connessione->doReadQuery("SELECT username FROM utente WHERE username = ?", "s", $submitted);
 
 		if($queryResult != null) {
 			return true;
@@ -17,9 +15,7 @@
 	}
 
 	function isPasswordCorrect($name, $password, $connessione) {
-		//TODO: anti injection
-		$query = "SELECT password FROM utente WHERE username = '".$name."'";
-		$queryResult = $connessione->doReadQuery($query);
+		$queryResult = $connessione->doReadQuery("SELECT password FROM utente WHERE username = ?", "s", $name);
 
 		$row = $queryResult;
 
@@ -41,6 +37,15 @@
 
 	function isEmailValid ($email){
 		if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	function isTelValid ($tel){
+		if (preg_match("/^\+[0-9]+$|^[0-9]+$/",$tel)){
 			return true;
 		}
 		else {
@@ -75,18 +80,13 @@
 			$pwOK = isPasswordCorrect($nomeUtente, $password, $connessione);
 			$connessione->closeConnection();
 			
-			if($userOK == true){
-				if($pwOK == true){
-					$_SESSION["loggedin"] = true;
-					$_SESSION["username"] = $nomeUtente;
-					header("location: area-personale.php");
-				}
-				else {
-					$out = "password non corretta";
-				}
+			if($userOK == true && $pwOK == true){
+				$_SESSION["loggedin"] = true;
+				$_SESSION["username"] = $nomeUtente;
+				header("location: area-personale-prepared.php");
 			}
 			else {
-				$out = "nome utente non corretto";
+				$out = "nome utente o password errato";
 			}
 		} else {
 			$out = "<p>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
@@ -114,33 +114,17 @@
 		$badge = getNewBadge($connessione);
 		$out = "";
 		
-		/*
-			check:
-			username non presente nel sistema
-			pw1 == pw2
-			email valida
-			tel valido??
-		 */
 		if ($connessioneOK) {
 			$userDoppio = isUsernameCorrect($username, $connessione);
 			$emailValid = isEmailValid($email);
 			$nomeValid = isNameValid($nome);
 			$cognomeValid = isNameValid($cognome);
+			$telValid = isTelValid($tel);
 
-			if($userDoppio == false && $password1 == $password2 && $nomeValid && $cognomeValid && $emailValid){
-				$query = "insert into utente(username, password, nome, cognome, email, data_nascita, badge, entrate, numero_telefono, nome_abbonamento, data_inizio, data_fine)
-				values (
-					'" . $username . 
-					"', '" . password_hash($password1, PASSWORD_BCRYPT) .
-					"', '" . $nome .
-					"', '" . $cognome .
-					"', '" . $email .
-					"', '" . $nascita .
-					"', '" . $badge .
-					"', 0, '" . $tel .
-					"', null, null, null)";
-
-					$connessione->doWriteQuery($query);
+			if($userDoppio == false && $password1 == $password2 && $nomeValid && $cognomeValid && $emailValid && $telValid){
+				$connessione->doWriteQuery("INSERT INTO utente(username, password, nome, cognome, email, data_nascita, badge, entrate, numero_telefono, nome_abbonamento, data_inizio, data_fine)
+					VALUES(?,?,?,?,?,?,?,0,?,null,null,null)", "ssssssss",
+					$username, password_hash($password1, PASSWORD_BCRYPT), $nome, $cognome, $email, $nascita, $badge, $tel);
 			} else {
 				if(!$nomeValid){
 					$out .= "<p>sono ammesse solamente lettere per il nome</p>";
@@ -156,6 +140,9 @@
 				}
 				if(!$emailValid){
 					$out .= "<p>inserisci una email valida</p>";
+				}
+				if(!$telValid){
+					$out .= "<p>inserisci un numero di telefono valido</p>";
 				}
 			}
 
