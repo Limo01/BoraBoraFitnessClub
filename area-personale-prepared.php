@@ -1,5 +1,5 @@
 <?php
-	require_once "db-prepared.php";
+	require_once "db.php";
 	use DB\DBAccess;
 
 	$paginaHTML = file_get_contents("area-personale.html");
@@ -10,14 +10,14 @@
 	$user = "user";
 
 	if ($connessioneOK) {
-		$result = $connessione->doReadQuery("SELECT * FROM cliente WHERE username=?", "s", $user);
+		$result = $connessione->doReadQuery("SELECT * FROM utente WHERE username=?", "s", $user);
 		$datiPersonali = $result[0];
 
-		$ultimoIngresso = $connessione->doReadQuery("SELECT dataora_entrata FROM accesso WHERE username_cliente=? order by dataora_entrata DESC limit 1", "s", $user)[0];
+		$ultimoIngresso = $connessione->doReadQuery("SELECT dataora_entrata FROM accesso WHERE username_utente=? order by dataora_entrata DESC limit 1", "s", $user)[0];
 
-		$schedeSeguite =  $connessione->doReadQuery("SELECT id, nome, descrizione FROM cliente_allenamento JOIN allenamento ON (cliente_allenamento.id_allenamento=allenamento.id) WHERE cliente_allenamento.username_cliente=? AND cliente_allenamento.username_cliente!=allenamento.username_cliente", "s", $user);
+		$schedeSeguite =  $connessione->doReadQuery("SELECT id, nome, descrizione FROM utente_allenamento JOIN allenamento ON (utente_allenamento.id_allenamento=allenamento.id) WHERE utente_allenamento.username_utente=? AND utente_allenamento.username_utente!=allenamento.username_utente", "s", $user);
 
-		$schedeCreate = $connessione->doReadQuery("SELECT id, nome, descrizione FROM allenamento WHERE allenamento.username_cliente=?", "s", $user);
+		$schedeCreate = $connessione->doReadQuery("SELECT id, nome, descrizione FROM allenamento WHERE allenamento.username_utente=?", "s", $user);
 
 		$connessione->closeConnection();
 
