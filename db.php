@@ -2,18 +2,6 @@
     namespace DB;
 
     class DBAccess {
-        /*private const HOST_DB = "127.0.0.1"; // == localhost
-        private const DATABASE_NAME = "borabora"; // username laboratorio
-        private const USERNAME = "root"; // username laboratorio
-        private const PASSWORD = ""; // password per phpmyadmin
-
-        private $connection;
-
-        public function openDBConnection() {
-            $this->connection = new \mysqli(DBAccess::HOST_DB, DBAccess::USERNAME, DBAccess::PASSWORD, DBAccess::DATABASE_NAME);
-            return !$this->connection->connect_errno;
-        }*/
-
         private $connection;
 
         public function openDBConnection() {
@@ -52,12 +40,14 @@
             return $result->fetch_all(MYSQLI_ASSOC);
         }
 
+        /*
+        * ParamsType: s => string, i => int, d => double, b => blob
+        */
         public function doWriteQuery($query, $paramsType="", ...$params) {
             $stmt = $this->connection->prepare($query);
 
             if(count($params)>0){
                 $stmt->bind_param($paramsType, ...$params);
-                echo count($params);
             }
 
             return $stmt->execute();;
