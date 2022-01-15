@@ -9,6 +9,10 @@ function menuClickEvent(){
 	}
 }
 
+function modificaDatiPersonaliClickEvent(e){
+	window.location.href = "area-personale.php?update=1";
+}
+
 function switchTheme(e) {
 	if (e.target.checked) {
 		document.documentElement.setAttribute('data-theme', 'dark');
