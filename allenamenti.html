@@ -59,16 +59,53 @@
 			</p>
 		</div>
 		<div>
+			<h2>Cerca il tuo allenamento ideale</h2>
 			<form action="allenamenti.php?pagina=1" method="post">
-				Name: <input type="text" name="name"><br>
-				E-mail: <input type="text" name="email"><br>
+				<label>Nome utente</label>
+				<input type="text" name="nomeUtenteRegistrazione" placeholder="es: MarioRossi23">
+
+				<label>Descrizione</label>
+				<input type="text" name="nomeUtenteRegistrazione" placeholder="es: MarioRossi23">
+
+				<label>Data iniziale</label>
+				<input type="date" name="dataNascitaRegistrazione">
+
+				<label>Data finale</label>
+				<input type="date" name="dataNascitaRegistrazione">
+
+				<label>Followers RANGE</label>
+				<input type="range" id="vol" name="vol" min="0" max="50">
+
+				<label>Esercizi RANGE</label>
+				<input type="range" id="vol" name="vol" min="0" max="50">
+
+				<input type="number" id="quantity" name="quantity" min="1" max="5">
+
+				<label>Esercizi</label>
+				 <select name="cars" id="cars">
+				    <option value="volvo">Volvo</option>
+				    <option value="saab">Saab</option>
+				    <option value="opel">Opel</option>
+				    <option value="audi">Audi</option>
+				</select>
+
+				<label>ORDINE</label>
+				<input type="radio" id="html" name="fav_language" value="HTML">
+				<label for="html">HTML</label><br>
+				<input type="radio" id="css" name="fav_language" value="CSS">
+				<label for="css">CSS</label><br>
+
+				<label>RESET</label>
+				<input type="reset">
 				<input type="submit">
 			</form>
 		</div>
 		<div>
+			<h2>Guarda i migliori allenamenti</h2>
 			<allenamenti/>
 		</div>
 		<div id="scorriPagine">
+			<h2>Scorri tutte le pagine</h2>
 			<nav id="pagine">
 				<ul>
 					<pagine/>
