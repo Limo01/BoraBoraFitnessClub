@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Modifica allenamento - Bora Bora Fitness Club</title>
+	<meta name="keywords" content="autenticazione, accesso, registrazione, bora bora, fitness club" />
+	<meta name="description"
+		content="Accedi per usufruire di tutte le funzionalità della palestra, o registrati se non hai ancora un profilo" />
+	<meta name="author" content="Adnan Latif Gazi, Alberto Lazari, Marco Andrea Limongelli, Francesco Protopapa" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" media="screen" href="style.css" />
+	<link rel="stylesheet" media="screen and (max-width:600px), only screen and (max-width:600px)" href="mobile.css" />
+
+    <script src="darkmode.js"></script>
+</head>
+
+<body>
+	<header>
+		<h1 lang="en" class="hide">BORA BORA FITNESS CLUB</h1>
+	</header>
+
+	<nav id="breadcrumb">
+		<p>
+            Ti trovi in: <a lang="en" href="index.html">Home</a> &gt;&gt;
+            <a href="allenamenti.php"> Allenamenti</a> &gt;&gt; Modifica allenamento
+        </p>
+	</nav>
+
+	<a class="aiuti" href="#content">
+		Salta la navigazione
+	</a>
+
+	<button onclick="menuClickEvent()" id="displayMenuButton">Menu</button>
+	<!-- COMMENTATO PERCHÈ OSCURA I MESSAGGI DI ERRORE PHP
+
+		<div id="topbar">
+			<nav id="menu">
+				<ul>
+					<li lang="en"><a href="index.html">Home</a></li>
+					<li><a href="abbonamenti.html">Abbonamenti</a></li>
+					<li lang="en"><a href="personal-trainer.html">Trainers</a></li>
+					<li><a href="attrezzature.html">Attrezzature</a></li>
+					<li><a href="schede-allenamento.html">Allenamenti</a></li>
+					<li><a href="storia.html">Storia</a></li>
+					<li><a href="galleria.html">Galleria</a></li>
+					<li id="userIcon" class="hide"><a href="area-personale.html">Area personale</a></li>
+				</ul>
+			</nav>
+			
+			<div id="darkmode-switch-wrapper">
+				<label id="darkmode-switch" for="checkbox">
+					<input type="checkbox" id="checkbox" />
+					<div class="slider round"></div>
+				</label>
+			</div>
+		</div>
+	-->
+		
+	<div id="content">
+		<div class="titolo">
+			<h1>Modifica il tuo allenamento</h1>
+            <button id="aggiungiEsercizio" onclick="showAddEsercizioForm()">Aggiungi un esercizio</button>
+			<button id="eliminaEsercizio" onclick="showDeleteEsercizioForm()">Rimuovi un eserizio</button>
+
+            <insertEsercizio/>
+
+            <deleteEsercizio/>        
+
+            <datiScheda/>
+
+
+		</div>
+	</div>
+
+	<footer>
+		<h2 lang="en">BORA BORA FITNESS CLUB</h2>
+		<address>BP 502 Vaitape - 98730 - Bora Bora, Polinesia Francese</address>
+		<p>
+			<a href="tel:+68940603300">+689 40 60 33 00</a>
+			<a href="mailto:boraborafitnessclub@gmail.com">boraborafitnessclub@gmail.com</a>
+		</p>
+
+		<a href="https://www.instagram.com/" target="_blank"><img class="social" src="immagini/logo/instagram.png"
+				alt="logo instagram" /></a>
+		<a href="https://www.facebook.com/" target="_blank"><img class="social" src="immagini/logo/facebook.png"
+				alt="logo facebook" /></a>
+	</footer>
+</body>
+
+</html>

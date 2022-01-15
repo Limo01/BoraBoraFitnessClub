@@ -864,3 +864,13 @@ div div .gallery {
 #gallerySpogliatoio #spogliatoio6 {
 	grid-area: f;
 }
+
+/*--- NASCONDI I FORM DI AGGIUNTA E ELIMINAZIONE ESERCIZIO ---*/
+
+#aggiungiEsercizioForm{
+	display: none;
+}
+
+#eliminaEsercizioForm{
+	display: none;
+}

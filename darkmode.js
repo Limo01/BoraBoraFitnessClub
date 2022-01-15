@@ -9,6 +9,10 @@ function menuClickEvent(){
 	}
 }
 
+function modificaDatiPersonaliClickEvent(e){
+	window.location.href = "area-personale.php?update=1";
+}
+
 function switchTheme(e) {
 	if (e.target.checked) {
 		document.documentElement.setAttribute('data-theme', 'dark');
@@ -36,6 +40,17 @@ function initDarkMode(){
 		toggleSwitch.checked = true;
 	}
 }
+
+function showAddEsercizioForm (){
+	document.getElementById("eliminaEsercizioForm").style.display = "none";
+	document.getElementById("aggiungiEsercizioForm").style.display = "block";
+}
+
+function showDeleteEsercizioForm (){
+	document.getElementById("aggiungiEsercizioForm").style.display = "none";
+	document.getElementById("eliminaEsercizioForm").style.display = "block";
+}
+
 
 window.onload= function(){
 	initDarkMode();
