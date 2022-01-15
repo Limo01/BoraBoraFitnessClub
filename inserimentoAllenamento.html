@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>Autenticazione - Bora Bora Fitness Club</title>
+	<title>Crea allenamento - Bora Bora Fitness Club</title>
 	<meta name="keywords" content="autenticazione, accesso, registrazione, bora bora, fitness club" />
 	<meta name="description"
 		content="Accedi per usufruire di tutte le funzionalità della palestra, o registrati se non hai ancora un profilo" />
@@ -19,8 +19,10 @@
 	</header>
 
 	<nav id="breadcrumb">
-		<p>Ti trovi in: <a lang="en" href="index.html">Home</a> &gt;&gt; <span id="breadcrumb-percorso"></span> &gt;&gt;
-			Autenticazione</p>
+		<p>
+            Ti trovi in: <a lang="en" href="index.html">Home</a> &gt;&gt;
+            <a href="allenamenti.php"> Allenamenti</a> &gt;&gt; Crea allenamento
+        </p>
 	</nav>
 
 	<a class="aiuti" href="#content">
@@ -55,72 +57,32 @@
 		
 	<div id="content">
 		<div class="titolo">
-			<h1>Autenticazione</h1>
+			<h1>Crea il tuo allenamento</h1>
 			<p>
-				Accedi per usufruire di tutte le funzionalità di <strong lang="en">Bora Bora Fitness Club</strong>, o
-				registrati se non hai ancora un profilo!
+				Compila il seguente <span lang="en">form </span>per creare la tua scheda di allenamento da poter consultare sul nostro sito!
 			<p>
 		</div>
 
-		<autenticazione/>
-		
-		<form id="accesso" class="autenticazione" action="autenticazione.php" method="post" autocomplete="on">
+		<form action="generatoreScheda.php" method="post" autocomplete="on">
 			<fieldset>
 				<legend>
-					<h2>Accesso</h2>
+					<h2>Creazione scheda di allenamento</h2>
 				</legend>
 
-				<label>Nome utente</label>
-				<input type="text" name="nomeUtenteAccesso" required
-					placeholder="es: mariorossi@gmail.com | MarioRossi23">
+				<label>Nome scheda</label>
+				<input type="text" name="nomeScheda" required maxlength="100">
 
-				<label lang="en">Password</label>
-				<input type="password" name="passwordAccesso" required>
+				<label>Descrizione</label>
+				<textarea rows="5" cols="30" name="descrizioneScheda"></textarea>
+                
+                <label>Allenatore</label>
+                <select name="allenatoreScheda">
+                    <selectAllenatore/>
+                </select>
 
-				<input type="submit" value="Accedi" name="loginSubmit">
-			</fieldset>
+                <selectUsername/>
+				<input type="submit" value="Crea" name="creaSchedaSubmit">
 		</form>
-
-		
-
-		<form id="registrazione" class="autenticazione" action="autenticazione.php" method="post" autocomplete="on">
-			<fieldset>
-				<legend>
-					<h2>Registrazione</h2>
-				</legend>
-
-				<registrazione/>
-				
-				<label>Nome</label>
-				<input type="text" name="nomeRegistrazione" required placeholder="es: Mario" value="">
-				
-				<label>Cognome</label>
-				<input type="text" name="cognomeRegistrazione" required placeholder="es: Rossi">
-				
-				<label>Data di nascita</label>
-				<input type="date" name="dataNascitaRegistrazione" required>
-
-				<label>Nome utente</label>
-				<input type="text" name="nomeUtenteRegistrazione" required
-				placeholder="es: MarioRossi23">
-				
-				<label lang="en">Password</label>
-				<input type="password" name="passwordRegistrazione" minlength="4" required>
-				
-				<label>Conferma <span lang="en">password</span></label>
-				<input type="password" name="passwordConfermaRegistrazione" minlength="4" required>
-
-				<label lang="en">email</label>
-				<input type="email" name="emailRegistrazione" placeholder="es: mariorossi@gmail.com" required>
-
-				<label>Numero di telefono</label>
-				<input type="tel" name="telRegistrazione" required>
-
-				<input type="reset" value="Cancella">
-				<input type="submit" value="Registrati" name="registrationSubmit">
-			</fieldset>
-		</form>
-		
 	</div>
 
 	<footer>

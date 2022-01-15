@@ -3,7 +3,6 @@
 	use DB\DBAccess;
 	session_start();
 
-
 	function isUsernameCorrect($submitted, $connessione) {
 		$queryResult = $connessione->doReadQuery("SELECT username FROM utente WHERE username = ?", "s", $submitted);
 
@@ -83,7 +82,14 @@
 			if($userOK == true && $pwOK == true){
 				$_SESSION["loggedin"] = true;
 				$_SESSION["username"] = $nomeUtente;
-				header("location: area-personale-prepared.php");
+				
+				if(isset($_SESSION['previousPage'])){
+					$previous = $_SESSION['previousPage'];
+					unset($_SESSION['previousPage']);
+					header("location: " . $previous);
+				} else{
+					header("location: area-personale-prepared.php");
+				}
 			}
 			else {
 				$out = "nome utente o password errato";
@@ -125,6 +131,16 @@
 				$connessione->doWriteQuery("INSERT INTO utente(username, password, nome, cognome, email, data_nascita, badge, entrate, numero_telefono, nome_abbonamento, data_inizio, data_fine)
 					VALUES(?,?,?,?,?,?,?,0,?,null,null,null)", "ssssssss",
 					$username, password_hash($password1, PASSWORD_BCRYPT), $nome, $cognome, $email, $nascita, $badge, $tel);
+					$_SESSION["loggedin"] = true;
+					$_SESSION["username"] = $username;
+					
+					if(isset($_SESSION['previousPage'])){
+						$previous = $_SESSION['previousPage'];
+						unset($_SESSION['previousPage']);
+						header("location: " . $previous);
+					} else{
+						header("location: area-personale-prepared.php");
+					}
 			} else {
 				if(!$nomeValid){
 					$out .= "<p>sono ammesse solamente lettere per il nome</p>";
@@ -155,10 +171,15 @@
 		echo str_replace("<registrazione/>", $out, $paginaHTML);
 	}
 
+	if(isset($_GET['url'])){
+		$_SESSION['previousPage'] = $_GET['url'];
+	}
 	if(isset($_POST['loginSubmit'])){
 		login();
 	} elseif (isset($_POST['registrationSubmit'])){
 		registration();
+	} else {
+		echo file_get_contents("autenticazione.html");
 	}
 
 		
