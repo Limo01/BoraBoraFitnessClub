@@ -1,46 +1,55 @@
 <?php
+	session_start();
 	require_once "db.php";
 	use DB\DBAccess;
-
-	$connessione = new DBAccess();
-	$connessioneOK = $connessione->openDBConnection();
-
-	if (!isset($_GET['id'])) {
-		header("location: allenamenti.php");
-		return;
-	}
-	
-	$content = "<a href='" . $_GET['percorso'] . ".php?pagina=" . $_GET['pagina'] . "'>Torna indietro</a>";
-
-	if ($connessioneOK) {
-		$id = $_GET['id'];
-		$queryOverviewAllenamentoResult = $connessione->doReadQuery("SELECT id, nome, descrizione, allenamento.username_utente AS username_utente, data_creazione, COUNT(id) AS Followers FROM allenamento LEFT JOIN utente_allenamento ON id = id_allenamento WHERE id = ?", "i", $id);
-		$queryDettaglioAllenamentoResult = $connessione->doReadQuery("SELECT nome, descrizione, peso, serie, ripetizioni, durata FROM allenamento_esercizio JOIN esercizio ON allenamento_esercizio.nome_esercizio = esercizio.nome WHERE id_allenamento = ?", "i", $id);
-		
-		if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]){
-			$queryIsClientResult = $connessione->doReadQuery("SELECT isAdmin FROM utente WHERE username = ?", "s", $_SESSION["username"]);
-			$connection_statement = ($queryIsClientResult[0])? 1 : 0;
-		} else {
-			$connection_statement = 2;
+	$referer = $_SERVER['HTTP_REFERER'] != null? $_SERVER['HTTP_REFERER'] : "allenamenti.php";
+	$nomeBreadcrumb = isset($_GET['nomeBreadcrumb'])? $_GET['nomeBreadcrumb'] : basename($referer, ".php");
+	$content = "<a href='" . $referer . "'>Torna indietro</a>";
+	$id = isset($_GET['id'])? $_GET['id'] : 0;
+	if ($id > 0) {
+		if (!isset($_SESSION['changes'])) {
+			$_SESSION['changes'] = false;
 		}
-
-		if ($connection_statement != 2) {
-			$content .= "<form action='' method='post'><input type='hidden' name='isAdmin' value='" . $connection_statement . "' readonly/><button type='submit'>Crea allenamento</button></form>";
-		}
-
-		if (count($queryOverviewAllenamentoResult) != 0) {
-			if (!(isset($_POST['elimina']) && $_POST['id'] == $id)) {
-				$content .= '<h2>' . $queryOverviewAllenamentoResult[0]['nome'] . '</h2>';
-				$content .= '<p>' . $queryOverviewAllenamentoResult[0]['descrizione'] . '</p>';
+		$changes = $_SESSION['changes'];
+		$connessione = new DBAccess();
+		$connessioneOK = $connessione->openDBConnection();
+		if ($connessioneOK) {
+			if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]){ // cliente = 0, admin = 1
+				$tipoUtente = $connessione->doReadQuery("SELECT isAdmin FROM utente WHERE username = ?", "s", $_SESSION["username"])[0]['isAdmin']? 1 : 0;
+				$utente = $_SESSION['username'];
+			} else {
+				$tipoUtente = 2;
+				$utente = "admin"; //"";
+			}
+			if (isset($_POST['segui'])) {
+				if ($_POST['segui'] == "seguire") {
+					$connessione->doWriteQuery("INSERT INTO utente_allenamento(username_utente, id_allenamento) VALUES (?, ?)", "si", $utente, $id);
+				} else {
+					$connessione->doWriteQuery("DELETE FROM utente_allenamento WHERE id_allenamento = ?", "i", $id);
+				}
+				$_SESSION['changes'] = true;
+				header('Location: dettagli-allenamento.php?id=' . $id . '&nomeBreadcrumb=' . $nomeBreadcrumb);
+				return;
+			} elseif (isset($_POST['elimina'])) {
+				$connessione->doWriteQuery("DELETE FROM allenamento WHERE id = ?", "i", $id);
+				$_SESSION['changes'] = true;
+				header('Location: dettagli-allenamento.php?id=' . $id . '&nomeBreadcrumb=' . $nomeBreadcrumb);
+				return;
+			}
+			$queryOverviewAllenamentoResult = $connessione->doReadQuery("SELECT id, nome, descrizione, allenamento.username_utente, data_creazione, COUNT(id) AS Followers FROM allenamento LEFT JOIN utente_allenamento ON id = id_allenamento WHERE id = ?", "i", $id);
+			$queryDettaglioAllenamentoResult = $connessione->doReadQuery("SELECT nome, descrizione, peso, serie, ripetizioni, durata FROM allenamento_esercizio JOIN esercizio ON allenamento_esercizio.nome_esercizio = esercizio.nome WHERE id_allenamento = ?", "i", $id);
+			if ($tipoUtente != 2) {
+				$content .= "<form action='' method='post'><input type='hidden' name='isAdmin' value='" . $tipoUtente . "' readonly/><button type='submit'>Crea allenamento</button></form>";
+			} else {
+				$content .= "<a href='autenticazione.php?url=dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=Autenticazione'>Effettua l'autenticazione</a>";
+			}
+			if ($queryOverviewAllenamentoResult[0]['id'] != null) {
 				$numeroEsercizi = count($queryDettaglioAllenamentoResult);
-				$content .= '<p>Questo allenamento comprende ' . $numeroEsercizi . ' esercizi';
-				
+				$content .= '<h2>' . $queryOverviewAllenamentoResult[0]['nome'] . '</h2><p>' . $queryOverviewAllenamentoResult[0]['descrizione'] . '</p><p>Questo allenamento comprende ' . $numeroEsercizi . ' esercizi';			
 				if ($numeroEsercizi == 1) {
 					$content .= 'o';
 				}
-				
-				$content .= ', tra cui esercizi come ' . $queryDettaglioAllenamentoResult[0]['nome'];
-				
+				$content .= ', tra cui esercizi come ' . $queryDettaglioAllenamentoResult[0]['nome'];		
 				if ($numeroEsercizi > 1) {
 					$i = 1;
 					for (; $i <= $numeroEsercizi - 3 && $i <= 3; $i++) {
@@ -48,66 +57,41 @@
 					}
 					$content .= ' e ' . $queryDettaglioAllenamentoResult[$i]['nome'];
 				}
-
-				$content .= '.</p>';
-
-				if ($connection_statement == 2 || ($connection_statement == 0 && $queryOverviewAllenamentoResult[0]['username_utente'] == $_SESSION["username"])) { //admin: 1
-					$content .= "<form action='' method='post'><input type='hidden' name='id' value='" . $id . "' readonly/><input type='hidden' name='isAdmin' value='" . $connection_statement . "' readonly/><button type='submit'>Modifica allenamento</button></form>";
-					$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&pagina=" . $_GET['pagina'] . "&percorso=" . $_GET['percorso'] . "&nomeBreadcrumb=" . $_GET['nomeBreadcrumb'] . "' method='post'><input type='hidden' name='id' value='" . $id . "' readonly/><button type='submit' name='segui' value='seguire'>Elimina allenamento</button></form>";
+				$content .= '.</p><ul><li>' . $queryOverviewAllenamentoResult[0]['username_utente'] . '</li><li>' . $queryOverviewAllenamentoResult[0]['data_creazione'] . '</li><li>' . ($queryOverviewAllenamentoResult[0]['Followers'] == null ? 0 : $queryOverviewAllenamentoResult[0]['Followers']) . '</li></ul>';
+				if ($tipoUtente == 2 || ($tipoUtente == 0 && $queryOverviewAllenamentoResult[0]['username_utente'] == $utente)) { // 1
+					$content .= "<form action='' method='post'><input type='hidden' name='id' value='" . $id . "' readonly/><input type='hidden' name='isAdmin' value='" . $tipoUtente . "' readonly/><button type='submit'>Modifica allenamento</button></form>";
+					$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "' method='post'><button type='submit' name='elimina' value='seguire'>Elimina allenamento</button></form>";
 				} //else...
-				if ($connection_statement == 2) { //cliente: 0
-					$segui = count($connessione->doReadQuery("SELECT * FROM utente_allenamento WHERE id_allenamento = ? AND username_utente = ?", "is", $id, "admin")) == 0;
-					if (isset($_POST['segui']) && $_POST['id'] == $id) {
-						if ($_POST['segui'] == "seguire") {
-							$connessione->doWriteQuery("INSERT INTO utente_allenamento(username_utente, id_allenamento) VALUES (?, ?)", "si", "admin", $id);
-							$segui = false;
-							$content .= "<p>Hai iniziato a seguire questo allenamento!</p>";
-							$queryOverviewAllenamentoResult[0]['Followers'] = $queryOverviewAllenamentoResult[0]['Followers'] == null ? 1 : $queryOverviewAllenamentoResult[0]['Followers'] + 1;
-						} else {
-							$connessione->doWriteQuery("DELETE FROM utente_allenamento WHERE id_allenamento = ?", "i", $id);
-							$segui = true;
-							$content .= "<p>Hai smesso di seguire questo allenamento!</p>";
-							$queryOverviewAllenamentoResult[0]['Followers'] = $queryOverviewAllenamentoResult[0]['Followers'] == 1 ? null : $queryOverviewAllenamentoResult[0]['Followers'] - 1;
+				if ($tipoUtente == 2) { // 0
+					if ($connessione->doReadQuery("SELECT COUNT(*) AS isFollowing FROM utente_allenamento WHERE id_allenamento = ? AND username_utente = ?", "is", $id, $utente)[0]['isFollowing'] == 0) {
+						$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "' method='post'><button type='submit' name='segui' value='seguire'>Segui</button></form>";
+						if ($id == $changes) {
+							$_SESSION['changes'] = false;
+							$content .= "<div><p>Hai smesso di seguire l'allenamento!</p></div>";
+						}
+					} else {
+						$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "' method='post'><button type='submit' name='segui' value='nonSeguire'>Smetti di seguire</button></form>";
+						if ($id == $changes) {
+							$_SESSION['changes'] = false;
+							$content .= "<div><p>Hai iniziato di seguire l'allenamento!</p></div>";
 						}
 					}
-					if ($segui) {
-						$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&pagina=" . $_GET['pagina'] . "&percorso=" . $_GET['percorso'] . "&nomeBreadcrumb=" . $_GET['nomeBreadcrumb'] . "' method='post'><input type='hidden' name='id' value='" . $id . "' readonly/><button type='submit' name='segui' value='seguire'>Segui allenamento</button></form>";
-					} else {
-						$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&pagina=" . $_GET['pagina'] . "&percorso=" . $_GET['percorso'] . "&nomeBreadcrumb=" . $_GET['nomeBreadcrumb'] . "' method='post'><input type='hidden' name='id' value='" . $id . "' readonly/><button type='submit' name='segui' value='nonSeguire'>Smetti di seguire allenamento</button></form>";
-					}	
 				}
-
-				$content .= '<ul>';
-				$content .= '<li>' . $queryOverviewAllenamentoResult[0]['username_utente'] . '</li>';
-				$content .= '<li>' . $queryOverviewAllenamentoResult[0]['data_creazione'] . '</li>';
-				$content .= '<li>' . ($queryOverviewAllenamentoResult[0]['Followers'] == null ? 0 : $queryOverviewAllenamentoResult[0]['Followers']) . '</li>';
-				$content .= "fatto qua";
-				$content .= '</ul>';
-
 				foreach ($queryDettaglioAllenamentoResult as $esercizio) {
-					$content .= '<div class="esercizio">';
-					$content .= '<h2>' . $esercizio['nome'] . '</h2>';
-					$content .= '<p>' . $esercizio['descrizione'] . '</p>';
-					$content .= '<ul>';
-					$content .= '<li>' . $esercizio['peso'] . '</li>';
-					$content .= '<li>' . $esercizio['serie'] . '</li>';
-					$content .= '<li>' . $esercizio['ripetizioni'] . '</li>';
-					$content .= '<li>' . ($esercizio['durata'] == null ? "00:00:00" : $esercizio['durata']) . '</li>';
-					$content .= '</ul>';
-					$content .= '</div>';
+					$content .= '<div class="esercizio"><h2>' . $esercizio['nome'] . '</h2><p>' . $esercizio['descrizione'] . '</p><ul><li>' . $esercizio['peso'] . '</li<li>' . $esercizio['serie'] . '</li><li>' . $esercizio['ripetizioni'] . '</li><li>' . ($esercizio['durata'] == null ? "00:00:00" : $esercizio['durata']) . '</li></ul></div>';
 				}
-			} else {
-				$connessione->doWriteQuery("DELETE FROM allenamento WHERE id = ?", "i", $id);
+			} elseif ($changes) {
 				$content .= "<p>Allenamento eliminato!</p>";
+				$changes = false;
+			} else {
+				$content .= "<p>Sembra che questo allenamento non esista!</p>";
 			}
+			$connessione->closeConnection();
 		} else {
-			$content .= "<p>Sembra che questo allenamento non esista!</p>";
+			$content .= "<p>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
 		}
-		$connessione->closeConnection();
 	} else {
-		$content .= "<p>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
+		$content .= "<p>Nessun allenamento indicato!</p>";
 	}
-
-	$paginaHTML = str_replace("<genitoreBreadcrumb/>", "<a href='" . $_GET['percorso'] . ".php?pagina=" . $_GET['pagina'] . "'>" . $_GET['nomeBreadcrumb'] . "</a>", file_get_contents("dettagli-allenamento.html"));
-	echo str_replace("<dettaglioAllenamento/>", $content, $paginaHTML);
+	echo str_replace("<dettaglioAllenamento/>", $content, str_replace("<genitoreBreadcrumb/>", "<a href='" . $referer . "'>" . $nomeBreadcrumb . "</a>", file_get_contents("dettagli-allenamento.html")));
 ?>
