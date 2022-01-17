@@ -1,8 +1,8 @@
 <?php
-	require_once "db.php";
+	require_once "php/db.php";
 	use DB\DBAccess;
 
-	$paginaHTML = file_get_contents("admin.html");
+	$paginaHTML = file_get_contents("html/admin.html");
 
 	$connessione = new DBAccess();
 	$connessioneOK = $connessione->openDBConnection();

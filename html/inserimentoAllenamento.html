@@ -9,8 +9,9 @@
 		content="Accedi per usufruire di tutte le funzionalità della palestra, o registrati se non hai ancora un profilo" />
 	<meta name="author" content="Adnan Latif Gazi, Alberto Lazari, Marco Andrea Limongelli, Francesco Protopapa" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" media="screen" href="style.css" />
-	<link rel="stylesheet" media="screen and (max-width:600px), only screen and (max-width:600px)" href="mobile.css" />
+	<link rel="stylesheet" media="screen" href="css/style.css" />
+	<link rel="stylesheet" media="screen and (max-width:600px), only screen and (max-width:600px)"
+		href="css/mobile.css" />
 </head>
 
 <body>
@@ -20,9 +21,9 @@
 
 	<nav id="breadcrumb">
 		<p>
-            Ti trovi in: <a lang="en" href="index.html">Home</a> &gt;&gt;
-            <a href="allenamenti.php"> Allenamenti</a> &gt;&gt; Crea allenamento
-        </p>
+			Ti trovi in: <a lang="en" href="index.html">Home</a> &gt;&gt;
+			<a href="allenamenti.php"> Allenamenti</a> &gt;&gt; Crea allenamento
+		</p>
 	</nav>
 
 	<a class="aiuti" href="#content">
@@ -39,10 +40,10 @@
 					<li><a href="abbonamenti.html">Abbonamenti</a></li>
 					<li lang="en"><a href="personal-trainer.html">Trainers</a></li>
 					<li><a href="attrezzature.html">Attrezzature</a></li>
-					<li><a href="schede-allenamento.html">Allenamenti</a></li>
+					<li><a href="allenamenti.php">Allenamenti</a></li>
 					<li><a href="storia.html">Storia</a></li>
 					<li><a href="galleria.html">Galleria</a></li>
-					<li id="userIcon" class="hide"><a href="area-personale.html">Area personale</a></li>
+					<li id="userIcon" class="hide"><a href="area-personale.php">Area personale</a></li>
 				</ul>
 			</nav>
 			
@@ -54,12 +55,13 @@
 			</div>
 		</div>
 	-->
-		
+
 	<div id="content">
 		<div class="titolo">
 			<h1>Crea il tuo allenamento</h1>
 			<p>
-				Compila il seguente <span lang="en">form </span>per creare la tua scheda di allenamento da poter consultare sul nostro sito!
+				Compila il seguente <span lang="en">form </span>per creare la tua scheda di allenamento da poter
+				consultare sul nostro sito!
 			<p>
 		</div>
 
@@ -74,13 +76,13 @@
 
 				<label>Descrizione</label>
 				<textarea rows="5" cols="30" name="descrizioneScheda"></textarea>
-                
-                <label>Allenatore</label>
-                <select name="allenatoreScheda">
-                    <selectAllenatore/>
-                </select>
 
-                <selectUsername/>
+				<label>Allenatore</label>
+				<select name="allenatoreScheda">
+					<selectAllenatore />
+				</select>
+
+				<selectUsername />
 				<input type="submit" value="Crea" name="creaSchedaSubmit">
 		</form>
 	</div>

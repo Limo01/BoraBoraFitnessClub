@@ -26,12 +26,12 @@ create table allenamento_esercizio(
 ); -->
 
 <?php
-require_once "db.php";
+require_once "php/db.php";
 use DB\DBAccess;
 session_start();
 
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
-    $paginaHTML = file_get_contents("modificaAllenamento.html");
+    $paginaHTML = file_get_contents("html/modificaAllenamento.html");
     $connessione = new DBAccess();
     $connessioneOK = $connessione->openDBConnection();
     if ($connessioneOK) {

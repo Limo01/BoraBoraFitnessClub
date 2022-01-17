@@ -1,5 +1,5 @@
 <?php
-	require_once "db.php";
+	require_once "php/db.php";
 	use DB\DBAccess;
 	session_start();
 
@@ -63,7 +63,7 @@
 
 	function login()
 	{
-		$paginaHTML = file_get_contents("autenticazione.html");
+		$paginaHTML = file_get_contents("html/autenticazione.html");
 		
 		$connessione = new DBAccess();
 		$connessioneOK = $connessione->openDBConnection();
@@ -103,7 +103,7 @@
 	
 	function registration()
 	{
-		$paginaHTML = file_get_contents("autenticazione.html");
+		$paginaHTML = file_get_contents("html/autenticazione.html");
 		
 		$connessione = new DBAccess();
 		$connessioneOK = $connessione->openDBConnection();
@@ -179,7 +179,7 @@
 	} elseif (isset($_POST['registrationSubmit'])){
 		registration();
 	} else {
-		echo file_get_contents("autenticazione.html");
+		echo file_get_contents("hmlt/autenticazione.html");
 	}
 
 		

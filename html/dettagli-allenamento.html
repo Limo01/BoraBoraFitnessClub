@@ -3,16 +3,18 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>Area personale [admin] - Bora Bora Fitness Club</title>
-	<meta name="keywords" content="admin, amministratore, area personale, profilo, bora bora, fitness club" />
+	<title>Dettaglio allenamento - Bora Bora Fitness Club</title>
+	<meta name="keywords"
+		content="dettagli allenamento, esercizi, scheda personale, schede allenamento, followers, workout, bora bora fitness club" />
 	<meta name="description"
-		content="Area personale dell'amministratore in cui visualizzare e modificare le proprie informazioni e quelle degli altri utenti" />
+		content="Sezione dove visualizzare in dettaglio un allenamento con tutti i suoi esercizi" />
 	<meta name="author" content="Adnan Latif Gazi, Alberto Lazari, Marco Andrea Limongelli, Francesco Protopapa" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" media="screen" href="style.css" />
-	<link rel="stylesheet" media="screen and (max-width:600px), only screen and (max-width:600px)" href="mobile.css" />
+	<link rel="stylesheet" media="screen" href="css/style.css" />
+	<link rel="stylesheet" media="screen and (max-width:600px), only screen and (max-width:600px)"
+		href="css/mobile.css" />
 
-	<script src="darkmode.js"></script>
+	<script src="javascript/darkmode.js"></script>
 </head>
 
 <body>
@@ -21,7 +23,9 @@
 	</header>
 
 	<nav id="breadcrumb">
-		<p>Ti trovi in: <a href="index.html" lang="en">Home</a> &gt;&gt; Area personale</p>
+		<p>Ti trovi in: <a href="index.html" lang="en">Home</a> &gt;&gt;
+			<genitoreBreadcrumb /> &gt;&gt; Dettaglio allenamento
+		</p>
 	</nav>
 
 	<a class="aiuti" href="#content">
@@ -37,10 +41,10 @@
 				<li><a href="abbonamenti.html">Abbonamenti</a></li>
 				<li lang="en"><a href="personal-trainer.html">Trainers</a></li>
 				<li><a href="attrezzature.html">Attrezzature</a></li>
-				<li><a href="schede-allenamento.html">Allenamenti</a></li>
+				<li><a href="allenamenti.php">Allenamenti</a></li>
 				<li><a href="storia.html">Storia</a></li>
 				<li><a href="galleria.html">Galleria</a></li>
-				<li id="userIcon" class="hide"><span id="currentLink">Area personale</span></li>
+				<li id="userIcon" class="hide"><a href="area-personale.php">Area personale</a></li>
 			</ul>
 		</nav>
 
@@ -54,19 +58,16 @@
 
 	<div id="content">
 		<div id="titolo">
-			<h1>Area personale</h1>
+			<h1>Dettagli allenamento</h1>
+			<p>
+				Scopri tutti gli esercizi che compongono gli allenamenti dei clienti di <strong lang="en">Bora Bora
+					Fitness Club</strong>!
+			</p>
 		</div>
-
-		<div id="dati_personali">
-			<h2>Dati personali</h2>
-
-			<dati_personali />
-		</div>
-
-		<div id="gestione_utenti">
-			<h2>Gestione utenti</h2>
-
-			<lista_utenti />
+		<div>
+			<div id="abbonamenti">
+				<dettaglioAllenamento />
+			</div>
 		</div>
 	</div>
 

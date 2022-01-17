@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	require_once "db.php";
+	require_once "php/db.php";
 	use DB\DBAccess;
 	$referer = $_SERVER['HTTP_REFERER'] != null? $_SERVER['HTTP_REFERER'] : "allenamenti.php";
 	$basename = basename($referer, ".php");
@@ -91,5 +91,5 @@
 	} else {
 		$content .= "<p>Nessun allenamento indicato!</p>";
 	}
-	echo str_replace("<dettaglioAllenamento/>", $content, str_replace("<genitoreBreadcrumb/>", "<a href='" . $referer . "'>" . $nomeBreadcrumb . "</a>", file_get_contents("dettagli-allenamento.html")));
+	echo str_replace("<dettaglioAllenamento/>", $content, str_replace("<genitoreBreadcrumb/>", "<a href='" . $referer . "'>" . $nomeBreadcrumb . "</a>", file_get_contents("html/dettagli-allenamento.html")));
 ?>

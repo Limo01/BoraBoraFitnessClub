@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	require_once "db.php";
+	require_once "php/db.php";
 	use DB\DBAccess;
 	if (!isset($_SESSION['numeroPagine'])) {
 		$_SESSION['numeroPagine'] = 1;
@@ -124,5 +124,5 @@
 	   	$contentPagine .= "<li><a href='allenamenti.php?pagina=" . $i . "'>" . $i . "</a></li>";
 	}
 	$contentPagine .= "</ul>";
-	echo str_replace("<pagine/>", $contentPagine, str_replace("<allenamenti/>", $content, file_get_contents("allenamenti.html")));
+	echo str_replace("<pagine/>", $contentPagine, str_replace("<allenamenti/>", $content, file_get_contents("html/allenamenti.html")));
 ?>

@@ -53,14 +53,14 @@ create table allenamento_esercizio(
 ); -->
 
 <?php
-require_once "db.php";
+require_once "php/db.php";
 
 use DB\DBAccess;
 
 session_start();
 
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
-    $paginaHTML = file_get_contents("inserimentoAllenamento.html");
+    $paginaHTML = file_get_contents("html/inserimentoAllenamento.html");
     $connessione = new DBAccess();
     $connessioneOK = $connessione->openDBConnection();
     $out = "";

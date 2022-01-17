@@ -1,5 +1,5 @@
 <?php
-	require_once "db.php";
+	require_once "php/db.php";
 	require_once "controlli_input.php";
 	use DB\DBAccess;
 

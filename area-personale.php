@@ -1,5 +1,5 @@
 <?php
-	require_once "db.php";
+	require_once "php/db.php";
 	use DB\DBAccess;
 
 	session_start();
@@ -12,7 +12,7 @@
 		return;
 	}
 
-	$paginaHTML = file_get_contents("area-personale.html");
+	$paginaHTML = file_get_contents("html/area-personale.html");
 
 	$connessione = new DBAccess();
 	$connessioneOK = $connessione->openDBConnection();
