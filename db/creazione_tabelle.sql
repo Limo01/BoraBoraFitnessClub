@@ -39,7 +39,7 @@ create table utente(
             on update cascade,
     data_inizio date,
     data_fine date,
-    isAdmin boolean default false,
+    is_admin boolean default false,
     constraint CHK_utente check (data_inizio <= data_fine)
 );
 

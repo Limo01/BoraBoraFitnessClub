@@ -3,10 +3,10 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>Area personale - Bora Bora Fitness Club</title>
-	<meta name="keywords" content="area personale, profilo, allenamenti, bora bora, fitness club" />
+	<title>Area personale [admin] - Bora Bora Fitness Club</title>
+	<meta name="keywords" content="admin, amministratore, area personale, profilo, bora bora, fitness club" />
 	<meta name="description"
-		content="Area personale in cui visualizzare e modificare le proprie informazioni, abbonamenti e allenamenti" />
+		content="Area personale dell'amministratore in cui visualizzare e modificare le proprie informazioni e quelle degli altri utenti" />
 	<meta name="author" content="Adnan Latif Gazi, Alberto Lazari, Marco Andrea Limongelli, Francesco Protopapa" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" media="screen" href="style.css" />
@@ -59,88 +59,14 @@
 
 		<div id="dati_personali">
 			<h2>Dati personali</h2>
-			<dl>
-				<dt>Nome</dt>
-				<dd>
-					<nome />
-				</dd>
 
-				<dt>Cognome</dt>
-				<dd>
-					<cognome />
-				</dd>
-
-				<dt>Email</dt>
-				<dd>
-					<email />
-				</dd>
-
-				<dt>Numero di telefono</dt>
-				<dd>
-					<numero_telefono />
-				</dd>
-
-				<dt>Data di nascita</dt>
-				<dd>
-					<data_nascita />
-				</dd>
-
-				<dt>Badge ID</dt>
-				<dd>
-					<badge />
-				</dd>
-			</dl>
-
-			<button>Modifica</button>
+			<dati_personali />
 		</div>
 
-		<div id="dettagli_abbonamento">
-			<h2>Dettagli abbonamento</h2>
-			<dl>
-				<dt>Abbonamento attivo</dt>
-				<dd>
-					<abbonamento />
-				</dd>
+		<div id="gestione_utenti">
+			<h2>Gestione utenti</h2>
 
-				<dt>Scadenza abbonamento</dt>
-				<dd>
-					<scadenza_abbonamento />
-				</dd>
-
-				<dt>Entrate singole disponibili</dt>
-				<dd>
-					<entrate />
-				</dd>
-			</dl>
-		</div>
-
-		<div id="ultimo-ingresso">
-			<h3>Ultimo ingresso effettuato</h3>
-			<dl>
-				<dt>Data</dt>
-				<dd>
-					<data_ingresso />
-				</dd>
-
-				<dt>Ora</dt>
-				<dd>
-					<ora_ingresso />
-				</dd>
-			</dl>
-		</div>
-
-		<div id="schede_allenamento">
-			<h2>Schede allenamento</h2>
-
-			<div id="schede_seguite">
-				<h3>Schede seguite</h3>
-				<allenamenti_seguiti />
-			</div>
-
-			<div id="schede_create">
-				<h3>Schede create</h3>
-				<allenamenti_creati />
-			</div>
+			<lista_utenti />
 		</div>
 	</div>
 

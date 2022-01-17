@@ -2,7 +2,7 @@ function check_validity_nome(e){
 	var spanErrore= document.getElementById("errore_nome");
 
 	if(!e.target.checkValidity()){
-		spanErrore.innerHTML= "Il nome inserito non è valido. Deve contenere solo lettere, senza caratteri speciali (? , * ; + .)";
+		spanErrore.innerHTML= "Il nome inserito non è valido. Deve contenere solo lettere, senza caratteri speciali (? , * ; + .).";
 	}
 	else{
 		document.getElementById("nome").setCustomValidity("");
@@ -14,7 +14,7 @@ function check_validity_cognome(e){
 	var spanErrore= document.getElementById("errore_cognome");
 
 	if(!e.target.checkValidity()){
-		spanErrore.innerHTML= "Il cognome inserito non è valido. Deve contenere solo lettere, senza caratteri speciali (? , * ; + .)";
+		spanErrore.innerHTML= "Il cognome inserito non è valido. Deve contenere solo lettere, senza caratteri speciali (? , * ; + .).";
 	}
 	else {
 		spanErrore.innerHTML="";
