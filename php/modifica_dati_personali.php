@@ -1,6 +1,6 @@
 <?php
-	require_once "php/db.php";
-	require_once "php/controlli_input.php";
+	require_once "db.php";
+	require_once "controlli_input.php";
 	use DB\DBAccess;
 
 	session_start();
