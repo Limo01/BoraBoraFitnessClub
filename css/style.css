@@ -965,17 +965,37 @@ div div .gallery {
 }
 
 #schede_allenamento article[class="article_allenamento"] {
+	text-align: center;
+	width: 25%;
 	background-color: var(--colore-sfondo-article-p);
 	color: var(--colore-testo-principale);
 	padding: 2em;
-	width: 25%;
-	text-align: center;
 	border-radius: 2em;
 	margin-bottom: 2em;
+	box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);
+	transition: transform 0.17s ease-in-out;
 }
 
 #schede_allenamento article[class="article_allenamento"]:hover {
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	transform: scale(1.02);
+}
+
+#schede_allenamento article[class="article_allenamento"]::after {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	border-radius: 2em;
+	box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.2);
+	transition: opacity 0.2s ease-in-out;
+}
+
+#schede_allenamento article[class="article_allenamento"]:hover::after {
+	opacity: 1;
 }
 
 #dati_personali form {
