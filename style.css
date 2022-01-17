@@ -949,7 +949,8 @@ div div .gallery {
 	grid-area: c;
 }
 
-#schede_seguite{
+#schede_seguite,
+#schede_create{
 	text-align: center;
 	margin-bottom: 3em;
 }
