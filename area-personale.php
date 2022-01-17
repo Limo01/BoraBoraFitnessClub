@@ -34,7 +34,7 @@
 		//Informazioni personali
 		if(!$updatePersonalData){
 			$personalData= 
-			"<dl>
+			"<dl class=\"dl_inline\">
 				<dt>Nome</dt>
 				<dd>
 					<nome />
@@ -50,7 +50,7 @@
 					<email />
 				</dd>
 
-				<dt>Numero di telefono</dt>
+				<dt>Telefono</dt>
 				<dd>
 					<numero_telefono />
 				</dd>
@@ -76,30 +76,25 @@
 
 			$personalData= $personalData . 
 				"<form action=\"/modifica_dati_personali.php\" method=\"post\">
-					<label for=\"nome\">Nome:</label><br>
+					<label for=\"nome\">Nome</label>
 					<input type=\"text\" id=\"nome\" name=\"nome\" value=\"<nome />\" required pattern=\"^[a-zA-Z-' àèìòùáéíóú]*$\" onblur=\"check_validity_nome(event)\" >
-					<span id=\"errore_nome\"class=\"errore_form\"></span>
-					<br><br>
+					<p id=\"errore_nome\"class=\"errore_form\"></p>
 					
-					<label for=\"cognome\">Cognome:</label><br>
+					<label for=\"cognome\">Cognome</label>
 					<input type=\"text\" id=\"cognome\" name=\"cognome\" value=\"<cognome />\" required pattern=\"^[a-zA-Z-' àèìòùáéíóú]*$\" onblur=\"check_validity_cognome(event)\">
-					<span id=\"errore_cognome\"class=\"errore_form\"></span>
-					<br><br>
+					<p id=\"errore_cognome\"class=\"errore_form\"></p>
 					
-					<label for=\"email\">Email:</label><br>
+					<label for=\"email\">Email</label>
 					<input type=\"email\" id=\"email\" name=\"email\" value=\"<email />\" required onblur=\"check_validity_email(event)\">
-					<span id=\"errore_email\"class=\"errore_form\"></span>
-					<br><br>
+					<p id=\"errore_email\"class=\"errore_form\"></p>
 
-					<label for=\"telefono\">Numero di telefono:</label><br>
+					<label for=\"telefono\">Numero di telefono</label>
 					<input type=\"text\" id=\"telefono\" name=\"telefono\" value=\"<numero_telefono />\" required pattern=\"^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$\" onblur=\"check_validity_telefono(event)\">
-					<span id=\"errore_telefono\"class=\"errore_form\"></span>
-					<br><br>
+					<p id=\"errore_telefono\"class=\"errore_form\"></p>
 
-					<label for=\"data_nascita\">Data di nascita:</label><br>
+					<label for=\"data_nascita\">Data di nascita</label>
 					<input type=\"date\" id=\"data_nascita\" name=\"data_nascita\" value=\"<data_nascita />\" required onblur=\"check_validity_data_nascita(event)\">
-					<span id=\"errore_data_nascita\"class=\"errore_form\"></span>
-					<br><br>
+					<p id=\"errore_data_nascita\"class=\"errore_form\"></p>
 					
 					<input type=\"submit\" value=\"Conferma modifica\">
 				</form>";
@@ -142,12 +137,13 @@
 			$paginaHTML = str_replace("<allenamenti_seguiti />", "<p>Nessuna scheda allenamento seguita</p>", $paginaHTML);
 		}
 		else{
-			$output= "";
+			$output= "<div class=\"display_allenamenti\">";
 			foreach($schedeSeguite as $allenamento){
-				$output= $output . "<a href=\"dettagli-allenamento.php?id=" . $allenamento["id"] . "\"><article>";
+				$output= $output . "<article class=\"article_allenamento\"><a href=\"dettagli-allenamento.php?id=" . $allenamento["id"] . "\">";
 				$output= $output . "<h3>" . $allenamento["nome"] . "</h3>";
-				$output= $output . "<p>" . $allenamento["descrizione"] . "</p></article></a>";	
+				$output= $output . "<p>" . $allenamento["descrizione"] . "</p></a></article>";	
 			}
+			$output= $output . "</div>";
 			$paginaHTML = str_replace("<allenamenti_seguiti />", $output, $paginaHTML);
 		}
 
@@ -156,12 +152,13 @@
 			$paginaHTML = str_replace("<allenamenti_creati />", "<p>Nessun allenamento creato</p>", $paginaHTML);
 		}
 		else{
-			$output= "";
+			$output= "<div class=\"display_allenamenti\">";
 			foreach($schedeCreate as $allenamento){
-				$output= $output . "<a href=\"dettagli-allenamento.php?id=" . $allenamento["id"] . "\"><article>";
+				$output= $output . "<article class=\"article_allenamento\"><a href=\"dettagli-allenamento.php?id=" . $allenamento["id"] . "\">";
 				$output= $output . "<h3>" . $allenamento["nome"] . "</h3>";
-				$output= $output . "<p>" . $allenamento["descrizione"] . "</p></article></a>";	
+				$output= $output . "<p>" . $allenamento["descrizione"] . "</p></a></article>";	
 			}
+			$output= $output . "</div>";
 			$paginaHTML = str_replace("<allenamenti_creati />", $output, $paginaHTML);
 		}
 
