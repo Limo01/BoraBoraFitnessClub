@@ -7,7 +7,7 @@
 	--colore-background-menu: #bfb394;
 	--colore-sfondo-footer: rgba(0, 0, 0, 0.8);
 	--colore-testo-footer: #fdf1ce;
-	--immagine-background: url("../immagini/sfondo.jpg");
+	--immagine-background: url("../immagini/sfondo-light.jpg");
 	--icona-autenticazione: url("../immagini/logo/user.png");
 	--icona-autenticazione-current: url("../immagini/logo/user-light.png");
 }
