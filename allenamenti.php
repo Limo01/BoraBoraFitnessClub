@@ -124,5 +124,5 @@
 	   	$contentPagine .= "<li><a href='allenamenti.php?pagina=" . $i . "'>" . $i . "</a></li>";
 	}
 	$contentPagine .= "</ul>";
-	echo str_replace("<pagine/>", $contentPagine, str_replace("<allenamenti/>", $content, file_get_contents("html/allenamenti.html")));
+	echo str_replace("<pagine />", $contentPagine, str_replace("<allenamenti />", $content, file_get_contents("html/allenamenti.html")));
 ?>

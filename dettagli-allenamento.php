@@ -91,5 +91,5 @@
 	} else {
 		$content .= "<p>Nessun allenamento indicato!</p>";
 	}
-	echo str_replace("<dettaglioAllenamento/>", $content, str_replace("<genitoreBreadcrumb/>", "<a href='" . $referer . "'>" . $nomeBreadcrumb . "</a>", file_get_contents("html/dettagli-allenamento.html")));
+	echo str_replace("<dettaglioAllenamento />", $content, str_replace("<genitoreBreadcrumb/>", "<a href='" . $referer . "'>" . $nomeBreadcrumb . "</a>", file_get_contents("html/dettagli-allenamento.html")));
 ?>
