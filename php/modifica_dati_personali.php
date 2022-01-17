@@ -27,9 +27,9 @@
 		$connessione->closeConnection();
 
 		if($esito){
-			header("location: area-personale.php");	
+			header("location: ../area-personale.php");	
 			return;	
 		}
 	}
-	header("location: area-personale.php?update=1&form_error=1");
+	header("location: ../area-personale.php?update=1&form_error=1");
 ?>

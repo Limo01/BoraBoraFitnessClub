@@ -179,7 +179,7 @@
 	} elseif (isset($_POST['registrationSubmit'])){
 		registration();
 	} else {
-		echo file_get_contents("hmlt/autenticazione.html");
+		echo file_get_contents("html/autenticazione.html");
 	}
 
 		
