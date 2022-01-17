@@ -22,7 +22,7 @@
 	</header>
 
 	<nav id="breadcrumb">
-		<p>Ti trovi in: <a href="index.html" lang="en">Home</a> &gt;&gt; Area personale</p>
+		<p>Ti trovi in: <a href="./" lang="en">Home</a> &gt;&gt; Area personale</p>
 	</nav>
 
 	<a class="aiuti" href="#content">
@@ -34,7 +34,7 @@
 	<div id="topbar">
 		<nav id="menu">
 			<ul>
-				<li lang="en"><a href="index.html">Home</a></li>
+				<li lang="en"><a href="./">Home</a></li>
 				<li><a href="abbonamenti.html">Abbonamenti</a></li>
 				<li lang="en"><a href="personal-trainer.html">Trainers</a></li>
 				<li><a href="attrezzature.html">Attrezzature</a></li>
@@ -55,20 +55,68 @@
 
 	<div id="content">
 		<div id="titolo">
-			<h1>Area personale</h1>
+			<h1>Area personale [admin]</h1>
 		</div>
-
-		<div id="widget_admin">
+		<div id="widget_area_personale">
 			<div id="dati_personali" class="widget">
 				<h2>Dati personali</h2>
 
 				<dati_personali />
 			</div>
 
+			<div id="dettagli_abbonamento" class="widget">
+				<h2>Dettagli abbonamento</h2>
+				<dl class="dl_inline">
+					<dt>Abbonamento attivo</dt>
+					<dd>
+						<abbonamento />
+					</dd>
+
+					<dt>Scadenza</dt>
+					<dd>
+						<scadenza_abbonamento />
+					</dd>
+
+					<dt>Entrate singole disponibili</dt>
+					<dd>
+						<entrate />
+					</dd>
+				</dl>
+			</div>
+
+			<div id="ultimo-ingresso" class="widget">
+				<h2>Ultimo accesso</h2>
+				<dl class="dl_inline">
+					<dt>Data</dt>
+					<dd>
+						<data_ingresso />
+					</dd>
+
+					<dt>Ora</dt>
+					<dd>
+						<ora_ingresso />
+					</dd>
+				</dl>
+			</div>
+
 			<div id="gestione_utenti" class="widget">
 				<h2>Gestione utenti</h2>
 
 				<lista_utenti />
+			</div>
+		</div>
+
+		<div id="schede_allenamento">
+			<h2>Schede allenamento</h2>
+
+			<div id="schede_seguite">
+				<h3>Schede seguite</h3>
+				<allenamenti_seguiti />
+			</div>
+
+			<div id="schede_create">
+				<h3>Schede create</h3>
+				<allenamenti_creati />
 			</div>
 		</div>
 	</div>

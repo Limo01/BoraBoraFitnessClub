@@ -175,7 +175,7 @@
 		}
 
 	} else {
-		$listaClienti = "<p>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
+		$paginaHTML = "<p>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
 	}
 
 	echo $paginaHTML;
