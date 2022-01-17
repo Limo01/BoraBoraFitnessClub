@@ -19,7 +19,7 @@
 	$connessioneOK = $connessione->openDBConnection();
 	if ($connessioneOK) {
 		if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]){ // cliente = 0, admin = 1
-			$tipoUtente = $connessione->doReadQuery("SELECT isAdmin FROM utente WHERE username = ?", "s", $_SESSION["username"])[0]['isAdmin']? 1 : 0;
+			$tipoUtente = $connessione->doReadQuery("SELECT is_admin FROM utente WHERE username = ?", "s", $_SESSION["username"])[0]['is_admin']? 1 : 0;
 			$utente = $_SESSION['username'];
 		} else {
 			$tipoUtente = 2;
