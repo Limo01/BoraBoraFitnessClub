@@ -64,7 +64,7 @@
 			}
 
 			$personalData= $personalData . 
-				"<form action=\"/modifica_dati_personali.php\" method=\"post\">
+				"<form action=\"/php/modifica_dati_personali.php\" method=\"post\">
 					<label for=\"nome\">Nome:</label><br>
 					<input type=\"text\" id=\"nome\" name=\"nome\" value=\"<nome />\" required pattern=\"^[a-zA-Z-' àèìòùáéíóú]*$\" onblur=\"check_validity_nome(event)\" >
 					<span id=\"errore_nome\"class=\"errore_form\"></span>

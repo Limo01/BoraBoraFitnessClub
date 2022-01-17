@@ -61,7 +61,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
                 
                 <input type=\"submit\" value=\"Aggiungi\" name=\"aggiungiEsercizioSubmit\">
             </form>";
-            $paginaHTML = str_replace("<insertEsercizio/>",$aggiungiEsercizio,$paginaHTML);
+            $paginaHTML = str_replace("<insertEsercizio />",$aggiungiEsercizio,$paginaHTML);
 
             //form elimina esercizio
             $optionEsercizio = "<form id=\"eliminaEsercizioForm\" action=\"generatoreScheda.php?id=".$_GET["id"]."\", method=\"post\"><select name=\"esercizioScheda\"><label>Seleziona esercizio</label>";
@@ -69,7 +69,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
                 $optionEsercizio .= "<option value=\"" . $row["nome_esercizio"] . "\">" . $row["nome_esercizio"] . "</option>";
             }
             $optionEsercizio .= "<input type=\"submit\" value=\"Elimina\" name=\"eliminaEsercizioSubmit\"></select></form>";
-            $paginaHTML = str_replace("<deleteEsercizio/>",$optionEsercizio,$paginaHTML);
+            $paginaHTML = str_replace("<deleteEsercizio />",$optionEsercizio,$paginaHTML);
             
             //dati scheda
             $datiScheda = "<div id=\"abbonamenti\">";
@@ -84,7 +84,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
             }
             
             $datiScheda .= "</div>";
-            $paginaHTML = str_replace("<datiScheda/>",$datiScheda,$paginaHTML);
+            $paginaHTML = str_replace("<datiScheda />",$datiScheda,$paginaHTML);
             echo $paginaHTML;
         } else {
             echo "non puoi accedere a questa pagina";
