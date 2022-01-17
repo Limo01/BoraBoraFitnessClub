@@ -7,9 +7,9 @@
 	--colore-background-menu: #bfb394;
 	--colore-sfondo-footer: rgba(0, 0, 0, 0.8);
 	--colore-testo-footer: #fdf1ce;
-	--immagine-background: url("immagini/sfondo.jpg");
-	--icona-autenticazione: url("immagini/logo/user.png");
-	--icona-autenticazione-current: url("immagini/logo/user-light.png");
+	--immagine-background: url("../immagini/sfondo.jpg");
+	--icona-autenticazione: url("../immagini/logo/user.png");
+	--icona-autenticazione-current: url("../immagini/logo/user-light.png");
 }
 
 [data-theme="dark"] {
@@ -21,9 +21,9 @@
 	--colore-background-menu: #241f19;
 	--colore-sfondo-footer: rgba(0, 0, 0, 0.8);
 	--colore-testo-footer: #fdf1ce;
-	--immagine-background: url("immagini/sfondo-dark.jpg");
-	--icona-autenticazione: url("immagini/logo/user-light-darkmode.png");
-	--icona-autenticazione-current: url("immagini/logo/user.png");
+	--immagine-background: url("../immagini/sfondo-dark.jpg");
+	--icona-autenticazione: url("../immagini/logo/user-light-darkmode.png");
+	--icona-autenticazione-current: url("../immagini/logo/user.png");
 }
 
 * {
@@ -56,7 +56,7 @@ header,
 }
 
 h1.hide {
-	background-image: url("immagini/titolo.png");
+	background-image: url("../immagini/titolo.png");
 	height: 130px;
 	width: 100%;
 	background-repeat: no-repeat;
@@ -84,7 +84,7 @@ h1.hide:hover {
 }
 
 button,
-input[type=submit] {
+input[type="submit"] {
 	margin-top: 1.5em;
 	padding: 0.3em 0.6em 0.3em 0.6em;
 	border-radius: 1em;
@@ -97,12 +97,12 @@ input[type=submit] {
 }
 
 button:hover,
-input[type=submit]:hover {
+input[type="submit"]:hover {
 	transform: scale(1.03);
 }
 
 button::after,
-input[type=submit]::after {
+input[type="submit"]::after {
 	content: "";
 	position: absolute;
 	z-index: -1;
@@ -117,7 +117,7 @@ input[type=submit]::after {
 }
 
 button:hover::after,
-input[type=submit]:hover::after {
+input[type="submit"]:hover::after {
 	opacity: 1;
 }
 
@@ -220,7 +220,7 @@ small {
 	right: 0;
 	top: 0;
 	transition: 0.4s;
-	background-image: url("immagini/sun.png");
+	background-image: url("../immagini/sun.png");
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: right;
@@ -239,7 +239,7 @@ small {
 
 input:checked + .slider {
 	background-color: #66bb6a;
-	background-image: url("immagini/moon.png");
+	background-image: url("../immagini/moon.png");
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: left;
@@ -315,12 +315,12 @@ input:checked + .slider:before {
 	margin-top: 1em;
 }
 
-#content input{
+#content input {
 	color: var(--colore-testo-principale);
 	font-size: 1em;
 }
 
-#content dt{
+#content dt {
 	font-weight: bold;
 }
 /*fine roba agggiunta*/
@@ -462,7 +462,8 @@ footer .social {
 	gap: 2em 1.4em;
 }
 
-.offertaAbbonamento, .esercizio {
+.offertaAbbonamento,
+.esercizio {
 	display: grid;
 	grid-template-rows: 5em 17em 2em;
 	grid-template-areas:
@@ -478,12 +479,14 @@ footer .social {
 	border-radius: 40px;
 }
 
-#content .offertaAbbonamento h2, #content .esercizio h2 {
+#content .offertaAbbonamento h2,
+#content .esercizio h2 {
 	grid-area: a;
 	align-self: start;
 	font-size: 2em;
 }
-.offertaAbbonamento ul, .esercizio ul {
+.offertaAbbonamento ul,
+.esercizio ul {
 	grid-area: b;
 	align-self: start;
 	list-style-type: none;
@@ -884,37 +887,37 @@ div div .gallery {
 
 /*--- NASCONDI I FORM DI AGGIUNTA E ELIMINAZIONE ESERCIZIO ---*/
 
-#aggiungiEsercizioForm{
+#aggiungiEsercizioForm {
 	display: none;
 }
 
-#eliminaEsercizioForm{
+#eliminaEsercizioForm {
 	display: none;
 }
 
 /*==================== STILE AREA PERSONALE ====================*/
-#content dl[class="dl_inline"]{
+#content dl[class="dl_inline"] {
 	text-align: center;
 	width: 80%;
 }
 
-#content .dl_inline dt{
+#content .dl_inline dt {
 	float: left;
-    clear: left;
-    width: 40%;
-    text-align: left;
+	clear: left;
+	width: 40%;
+	text-align: left;
 }
 
-.dl_inline dd{
-    padding-bottom: 1em;
-    text-align: left;
+.dl_inline dd {
+	padding-bottom: 1em;
+	text-align: left;
 }
 
 .dl_inline dt::after {
-    content: ': ';
+	content: ": ";
 }
 
-#content #widget_area_personale{
+#content #widget_area_personale {
 	background-color: transparent;
 	display: grid;
 	grid-gap: 3em;
@@ -924,7 +927,7 @@ div div .gallery {
 		"b c c";
 }
 
-.widget{
+.widget {
 	background-color: var(--colore-sfondo-div);
 	border-radius: 2em;
 	padding-top: 1em;
@@ -932,30 +935,30 @@ div div .gallery {
 	width: 100%;
 }
 
-#dettagli_abbonamento{	
+#dettagli_abbonamento {
 	grid-area: a;
 }
 
-#dettagli_abbonamento .dl_inline dt{
+#dettagli_abbonamento .dl_inline dt {
 	width: 60%;
 }
 
-#ultimo-ingresso{
+#ultimo-ingresso {
 	grid-area: b;
 }
 
-#dati_personali{
+#dati_personali {
 	text-align: center;
 	grid-area: c;
 }
 
 #schede_seguite,
-#schede_create{
+#schede_create {
 	text-align: center;
 	margin-bottom: 3em;
 }
 
-#schede_allenamento .display_allenamenti{
+#schede_allenamento .display_allenamenti {
 	display: flex;
 	text-align: left;
 	flex-wrap: wrap;
@@ -971,41 +974,41 @@ div div .gallery {
 	margin-bottom: 2em;
 }
 
-#schede_allenamento article[class="article_allenamento"]:hover{
+#schede_allenamento article[class="article_allenamento"]:hover {
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-#dati_personali form{
+#dati_personali form {
 	width: 60%;
 	text-align: left;
 }
 
-#dati_personali form label{
+#dati_personali form label {
 	font-weight: bold;
 }
 
-#dati_personali label::after{
-	 content: ': ';
+#dati_personali label::after {
+	content: ": ";
 }
 
-#dati_personali input{
-  	width: 100%;
-  	margin-top: 0.5em;
- 	margin-bottom: 1em;
- 	padding-top: 0.2em;
-  	box-sizing: border-box;
-  	border: none;
-  	border-bottom: 2px solid var(--colore-background-menu);
-  	background-color: transparent;
-  	outline: none;
+#dati_personali input {
+	width: 100%;
+	margin-top: 0.5em;
+	margin-bottom: 1em;
+	padding-top: 0.2em;
+	box-sizing: border-box;
+	border: none;
+	border-bottom: 2px solid var(--colore-background-menu);
+	background-color: transparent;
+	outline: none;
 }
 
-#dati_personali input[type=date]{
+#dati_personali input[type="date"] {
 	font-size: 1.3em;
 	font-weight: bold;
 }
 
-#dati_personali input[type=submit]{
+#dati_personali input[type="submit"] {
 	width: 75%;
 	display: block;
 	text-align: center;
@@ -1014,15 +1017,15 @@ div div .gallery {
 	font-size: 1.3em;
 }
 
-#dati_personali input:invalid{
+#dati_personali input:invalid {
 	border-bottom: 2px solid red;
 }
 
 #dati_personali input:focus {
-  border: 2px solid var(--colore-testo-principale);
+	border: 2px solid var(--colore-testo-principale);
 }
 
-#dati_personali .errore_form{
+#dati_personali .errore_form {
 	color: red;
 	margin: 0;
 	padding-bottom: 1em;
