@@ -88,7 +88,7 @@
 					unset($_SESSION['previousPage']);
 					header("location: " . $previous);
 				} else{
-					header("location: area-personale-prepared.php");
+					header("location: area-personale.php");
 				}
 			}
 			else {

@@ -2,12 +2,20 @@
 	require_once "db.php";
 	use DB\DBAccess;
 
+	session_start();
+
+	if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
+		$user = $_SESSION["username"];
+	}
+	else{
+		header("location: autenticazione.php");
+		return;
+	}
+
 	$paginaHTML = file_get_contents("area-personale.html");
 
 	$connessione = new DBAccess();
 	$connessioneOK = $connessione->openDBConnection();
-
-	$user = "user";
 	
 	$updatePersonalData = false;
 	if(isset($_GET["update"]) and $_GET["update"]==1){
