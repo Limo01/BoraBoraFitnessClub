@@ -23,7 +23,7 @@
 			$utente = $_SESSION['username'];
 		} else {
 			$tipoUtente = 2;
-			$utente = "admin"; //"";
+			$utente = "";
 		}
 		if (isset($_POST['segui'])) {
 			$id = $_POST['id'];
@@ -41,19 +41,26 @@
 			header('Location: allenamenti.php?pagina=' . $pagina);
 			return;
 		}
-		$numeroAllenamentiPerPagina = 50;
+		if (isset($_POST['cerca'])) {
+			if (isset($_POST['titolo'])) {
+				$_SESSION['titolo'] = $_POST['titolo'];
+			}
+			header('Location: allenamenti.php?pagina=' . $pagina);
+			return;
+		}
+		$numeroAllenamentiPerPagina = 5;
 		$startRow = $pagina * $numeroAllenamentiPerPagina - $numeroAllenamentiPerPagina;
-		$queryAllenamentiResult = $connessione->doReadQuery("SELECT allenamento.id, nome, descrizione, allenamento.username_utente, data_creazione, Followers from allenamento LEFT JOIN (SELECT id_allenamento AS id, COUNT(id_allenamento) as Followers FROM utente_allenamento GROUP BY id_allenamento) AS TabellaFollowers USING(id) ORDER BY Followers DESC LIMIT ?, ?", "ii", $startRow, $numeroAllenamentiPerPagina);
+		//if (isset($_SESSION['titolo'])) {
+			//echo $_SESSION['titolo'];
+			//$queryAllenamentiResult = $connessione->doReadQuery("SELECT allenamento.id, nome, descrizione, allenamento.username_utente, data_creazione, Followers FROM allenamento LEFT JOIN (SELECT id_allenamento AS id, COUNT(id_allenamento) as Followers FROM utente_allenamento GROUP BY id_allenamento) AS TabellaFollowers USING(id) WHERE nome LIKE %?% OR ? LIKE %nome% ORDER BY Followers DESC LIMIT ?, ?", "ssii", $_SESSION['titolo'], $_SESSION['titolo'], $startRow, $numeroAllenamentiPerPagina);
+		//} else {
+			$queryAllenamentiResult = $connessione->doReadQuery("SELECT allenamento.id, nome, descrizione, allenamento.username_utente, data_creazione, Followers FROM allenamento LEFT JOIN (SELECT id_allenamento AS id, COUNT(id_allenamento) as Followers FROM utente_allenamento GROUP BY id_allenamento) AS TabellaFollowers USING(id) ORDER BY Followers DESC LIMIT ?, ?", "ii", $startRow, $numeroAllenamentiPerPagina);
+		//}
 		$queryPagineResult = $connessione->doReadQuery("SELECT COUNT(*) AS numeroAllenamenti FROM allenamento");
 		if ($tipoUtente != 2) {
 			$content = "<form action='' method='post'><input type='hidden' name='isAdmin' value='" . $tipoUtente . "' readonly/><button type='submit'>Crea allenamento</button></form>";
 		} else {
 			$content = "<a href='autenticazione.php?url=allenamenti.php?pagina=" . $pagina . "'>Effettua l'autenticazione</a>";
-		}
-		if (isset($_POST['invia'])) {
-			$content .= "</br>is set</br>";
-		} else {
-			$content .= "</br>is not set</br>";
 		}
 		$copyContent = $content;
 		$itPrecedente = -1;
@@ -63,7 +70,7 @@
 			if ($precedente == $itPrecedente) {
 				$content .= "<div><p>Allenamento eliminato!</p></div>";
 			}
-			$content .= '<div class="allenamento"><h2>' . $row['nome'] . '</h2><p>' . $row['descrizione'] . '</p><p>Questo allenamento comprende ' . $numeroEsercizi . ' esercizi';
+			$content .= '<div class="allenamento"><h3>' . $row['nome'] . '</h3><p>' . $row['descrizione'] . '</p><p>Questo allenamento comprende ' . $numeroEsercizi . ' esercizi';
 			if ($numeroEsercizi == 1) {
 				$content .= 'o';
 			}
@@ -76,11 +83,10 @@
 				$content .= ' e ' . $queryDettaglioAllenamentoResult[$j]['nome'];
 			}
 			$content .= '.</p><ul><li>' . $row['username_utente'] . '</li><li>' . $row['data_creazione'] . '</li><li>' . ($row['Followers'] == null ? 0 : $row['Followers']) . '</li></ul><a href="dettagli-allenamento.php?id=' . $row['id'] . '&nomeBreadcrumb=Allenamenti">Apri nel dettaglio</a>';
-			if ($tipoUtente == 2 || ($tipoUtente == 0 && $row['username_utente'] == $utente)) { // 1
+			if ($tipoUtente == 1 || ($tipoUtente == 0 && $row['username_utente'] == $utente)) {
 				$content .= "<form action='' method='post'><input type='hidden' name='id' value='" . $row['id'] . "' readonly/><input type='hidden' name='isAdmin' value='" . $tipoUtente . "' readonly/><button type='submit'>Modifica allenamento</button></form>";
 				$content .= "<form action='allenamenti.php?pagina=" . $pagina . "' method='post'><input type='hidden' name='idPrecedente' value='" . $itPrecedente . "' readonly/><input type='hidden' name='id' value='" . $row['id'] . "' readonly/><button type='submit' name='elimina' value='seguire'>Elimina allenamento</button></form>";
-			} //else...
-			if ($tipoUtente == 2) { // 0
+			} elseif ($tipoUtente == 0) {
 				if ($connessione->doReadQuery("SELECT COUNT(*) AS isFollowing FROM utente_allenamento WHERE id_allenamento = ? AND username_utente = ?", "is", $row['id'], $utente)[0]['isFollowing'] == 0) {
 					$content .= "<form action='allenamenti.php?pagina=" . $pagina . "' method='post'><input type='hidden' name='id' value='" . $row['id'] . "' readonly/><button type='submit' name='segui' value='seguire'>Segui</button></form>";				
 					if ($row['id'] == $attuale) {

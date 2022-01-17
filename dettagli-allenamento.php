@@ -3,7 +3,8 @@
 	require_once "db.php";
 	use DB\DBAccess;
 	$referer = $_SERVER['HTTP_REFERER'] != null? $_SERVER['HTTP_REFERER'] : "allenamenti.php";
-	$nomeBreadcrumb = isset($_GET['nomeBreadcrumb'])? $_GET['nomeBreadcrumb'] : basename($referer, ".php");
+	$basename = basename($referer, ".php");
+	$nomeBreadcrumb = isset($_GET['nomeBreadcrumb'])? $_GET['nomeBreadcrumb'] : strtoupper($basename[0]) . substr($basename, 1);
 	$content = "<a href='" . $referer . "'>Torna indietro</a>";
 	$id = isset($_GET['id'])? $_GET['id'] : 0;
 	if ($id > 0) {
@@ -19,7 +20,7 @@
 				$utente = $_SESSION['username'];
 			} else {
 				$tipoUtente = 2;
-				$utente = "admin"; //"";
+				$utente = "";
 			}
 			if (isset($_POST['segui'])) {
 				if ($_POST['segui'] == "seguire") {
@@ -58,11 +59,10 @@
 					$content .= ' e ' . $queryDettaglioAllenamentoResult[$i]['nome'];
 				}
 				$content .= '.</p><ul><li>' . $queryOverviewAllenamentoResult[0]['username_utente'] . '</li><li>' . $queryOverviewAllenamentoResult[0]['data_creazione'] . '</li><li>' . ($queryOverviewAllenamentoResult[0]['Followers'] == null ? 0 : $queryOverviewAllenamentoResult[0]['Followers']) . '</li></ul>';
-				if ($tipoUtente == 2 || ($tipoUtente == 0 && $queryOverviewAllenamentoResult[0]['username_utente'] == $utente)) { // 1
+				if ($tipoUtente == 1 || ($tipoUtente == 0 && $queryOverviewAllenamentoResult[0]['username_utente'] == $utente)) {
 					$content .= "<form action='' method='post'><input type='hidden' name='id' value='" . $id . "' readonly/><input type='hidden' name='isAdmin' value='" . $tipoUtente . "' readonly/><button type='submit'>Modifica allenamento</button></form>";
 					$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "' method='post'><button type='submit' name='elimina' value='seguire'>Elimina allenamento</button></form>";
-				} //else...
-				if ($tipoUtente == 2) { // 0
+				} elseif ($tipoUtente == 0) {
 					if ($connessione->doReadQuery("SELECT COUNT(*) AS isFollowing FROM utente_allenamento WHERE id_allenamento = ? AND username_utente = ?", "is", $id, $utente)[0]['isFollowing'] == 0) {
 						$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "' method='post'><button type='submit' name='segui' value='seguire'>Segui</button></form>";
 						if ($id == $changes) {
