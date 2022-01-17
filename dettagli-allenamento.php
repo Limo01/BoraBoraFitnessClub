@@ -39,9 +39,7 @@
 			}
 			$queryOverviewAllenamentoResult = $connessione->doReadQuery("SELECT id, nome, descrizione, allenamento.username_utente, data_creazione, COUNT(id) AS Followers FROM allenamento LEFT JOIN utente_allenamento ON id = id_allenamento WHERE id = ?", "i", $id);
 			$queryDettaglioAllenamentoResult = $connessione->doReadQuery("SELECT nome, descrizione, peso, serie, ripetizioni, durata FROM allenamento_esercizio JOIN esercizio ON allenamento_esercizio.nome_esercizio = esercizio.nome WHERE id_allenamento = ?", "i", $id);
-			if ($tipoUtente != 2) {
-				$content .= "<form action='' method='post'><input type='hidden' name='isAdmin' value='" . $tipoUtente . "' readonly/><button type='submit'>Crea allenamento</button></form>";
-			} else {
+			if ($tipoUtente == 2) {
 				$content .= "<a href='autenticazione.php?url=dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=Autenticazione'>Effettua l'autenticazione</a>";
 			}
 			if ($queryOverviewAllenamentoResult[0]['id'] != null) {

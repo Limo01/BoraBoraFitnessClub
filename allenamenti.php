@@ -58,7 +58,7 @@
 		//}
 		$queryPagineResult = $connessione->doReadQuery("SELECT COUNT(*) AS numeroAllenamenti FROM allenamento");
 		if ($tipoUtente != 2) {
-			$content = "<form action='' method='post'><input type='hidden' name='isAdmin' value='" . $tipoUtente . "' readonly/><button type='submit'>Crea allenamento</button></form>";
+			$content = "<a href='inserimentoAllenamento.php'>Crea allenamento</a>";
 		} else {
 			$content = "<a href='autenticazione.php?url=allenamenti.php?pagina=" . $pagina . "'>Effettua l'autenticazione</a>";
 		}
@@ -84,7 +84,7 @@
 			}
 			$content .= '.</p><ul><li>' . $row['username_utente'] . '</li><li>' . $row['data_creazione'] . '</li><li>' . ($row['Followers'] == null ? 0 : $row['Followers']) . '</li></ul><a href="dettagli-allenamento.php?id=' . $row['id'] . '&nomeBreadcrumb=Allenamenti">Apri nel dettaglio</a>';
 			if ($tipoUtente == 1 || ($tipoUtente == 0 && $row['username_utente'] == $utente)) {
-				$content .= "<form action='' method='post'><input type='hidden' name='id' value='" . $row['id'] . "' readonly/><input type='hidden' name='isAdmin' value='" . $tipoUtente . "' readonly/><button type='submit'>Modifica allenamento</button></form>";
+				$content .= "<a href='modificaAllenamento.php?id=" . $row['id'] . "'>Modifica allenamento</a>";
 				$content .= "<form action='allenamenti.php?pagina=" . $pagina . "' method='post'><input type='hidden' name='idPrecedente' value='" . $itPrecedente . "' readonly/><input type='hidden' name='id' value='" . $row['id'] . "' readonly/><button type='submit' name='elimina' value='seguire'>Elimina allenamento</button></form>";
 			} elseif ($tipoUtente == 0) {
 				if ($connessione->doReadQuery("SELECT COUNT(*) AS isFollowing FROM utente_allenamento WHERE id_allenamento = ? AND username_utente = ?", "is", $row['id'], $utente)[0]['isFollowing'] == 0) {
