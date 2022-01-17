@@ -1,6 +1,6 @@
 <?php
 	function isNameValid($name){
-		return preg_match("/^[a-zA-Z-' àèìòùáéíóú]*$/", $name);
+		return preg_match("/^[a-zA-Z-' àèìòùáéíóú]*$/", $name) && strlen($name)>0;
 	}
 
 	function isEmailValid($email){
