@@ -1,14 +1,15 @@
 <?php
 	require_once "php/db.php";
-	require_once "controlli_input.php";
+	require_once "php/controlli_input.php";
 	use DB\DBAccess;
+
+	session_start();
 
 	$connessione = new DBAccess();
 	$connessioneOK = $connessione->openDBConnection();
 
-	$user= "user";
-
-	if ($connessioneOK and $_SERVER["REQUEST_METHOD"] == "POST") {
+	if ($connessioneOK && isset($_SESSION["loggedin"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
+		$user= $_SESSION["username"];
 		$nome = $_POST["nome"];
 		$cognome = $_POST["cognome"];
 		$email = $_POST["email"];
