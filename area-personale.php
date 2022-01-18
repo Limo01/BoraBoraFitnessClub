@@ -28,6 +28,10 @@
 	}
 
 	if ($connessioneOK) {
+		if ($connessione->doReadQuery("SELECT * FROM utente WHERE username=? and is_admin=true", "s", $user) != null) {
+			header("Location: admin.php");
+			die("Errore: il redirect è stato disabilitato");
+		}
 		$result = $connessione->doReadQuery("SELECT * FROM utente WHERE username=?", "s", $user);
 		$datiPersonali = $result[0];
 
@@ -77,7 +81,9 @@
 					<badge />
 				</dd>
 			</dl>
-			<button id=\"buttonModDati\" onclick=\"modificaDatiPersonaliClickEvent()\">Modifica</button>";		
+			<a href=\"area-personale.php?update=1\">
+				<button id=\"buttonModDati\">Modifica</button>
+			</a>";
 		}
 		else{
 			$personalData= "";
@@ -87,7 +93,7 @@
 			}
 
 			$personalData= $personalData . 
-				"<form action=\"/modifica_dati_personali.php\" method=\"post\">
+				"<form action=\"php/modifica_dati_personali.php\" method=\"post\">
 					<label for=\"nome\">Nome</label>
 					<input type=\"text\" id=\"nome\" name=\"nome\" value=\"<nome />\" required pattern=\"^[a-zA-Z-' àèìòùáéíóú]*$\" onblur=\"check_validity_nome(event)\" >
 					<p id=\"errore_nome\"class=\"errore_form\"></p>
@@ -108,7 +114,7 @@
 					<input type=\"date\" id=\"data_nascita\" name=\"data_nascita\" value=\"<data_nascita />\" required onblur=\"check_validity_data_nascita(event)\">
 					<p id=\"errore_data_nascita\"class=\"errore_form\"></p>
 					
-					<input type=\"submit\" value=\"Conferma modifica\">
+					<button>Conferma modifica</button>
 				</form>";
 		}
 
@@ -175,7 +181,7 @@
 		}
 
 	} else {
-		$listaClienti = "<p>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
+		$paginaHTML = "<p>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
 	}
 
 	echo $paginaHTML;

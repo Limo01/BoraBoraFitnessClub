@@ -1,6 +1,6 @@
 <?php
-	require_once "php/db.php";
-	require_once "php/controlli_input.php";
+	require_once "db.php";
+	require_once "controlli_input.php";
 	use DB\DBAccess;
 
 	session_start();
@@ -23,13 +23,13 @@
 				WHERE username=?", "ssssss", 
 				$nome, $cognome, $email, $data_nascita, $telefono, $user);
 		}
-		
+
 		$connessione->closeConnection();
 
-		if($esito){
-			header("location: area-personale.php");	
-			return;	
+		if ($esito) {
+			header("location: ../area-personale.php");
+			return;
 		}
 	}
-	header("location: area-personale.php?update=1&form_error=1");
+	header("location: ../area-personale.php?update=1&form_error=1");
 ?>

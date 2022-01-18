@@ -67,7 +67,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
 
     if ($connessioneOK) {
         $queryAllenatori = $connessione->doReadQuery("SELECT nome, cognome, id FROM personal_trainer");
-        $queryIsAdmin = $connessione->doReadQuery("SELECT isAdmin FROM utente WHERE username = ?", "s", $_SESSION["username"]);
+        $queryis_admin = $connessione->doReadQuery("SELECT is_admin FROM utente WHERE username = ?", "s", $_SESSION["username"]);
         $queryUsername = $connessione->doReadQuery("SELECT username FROM utente");
         $connessione->closeConnection();
 
@@ -77,7 +77,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
         $paginaHTML = str_replace("<selectAllenatore/>", $out, $paginaHTML);
         $out = "";
 
-        if ($queryIsAdmin[0]["isAdmin"] == true) {
+        if ($queryis_admin[0]["is_admin"] == true) {
             $out .= "<label>Username cliente</label><select name=\"usernameScheda\">";
             foreach ($queryUsername as $row) {
                 $out .= "<option value=\"" . $row["username"] . "\">" . $row["username"] . "</option>";

@@ -35,12 +35,12 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
     $connessione = new DBAccess();
     $connessioneOK = $connessione->openDBConnection();
     if ($connessioneOK) {
-        $isAdminQuery = $connessione->doReadQuery("SELECT isAdmin from utente where username=?","s",$_SESSION["username"]);
+        $is_adminQuery = $connessione->doReadQuery("SELECT is_admin from utente where username=?","s",$_SESSION["username"]);
         $schedaQuery = $connessione->doReadQuery("SELECT * from allenamento where id=?", "i", $_GET["id"]);
         $eserciziQuery = $connessione->doReadQuery("SELECT * from allenamento_esercizio where id_allenamento=?", "i", $_GET["id"]);
 
         $connessione->closeConnection();
-        if(($schedaQuery != null) && ($isAdminQuery[0]["isAdmin"] == true || $schedaQuery[0]["username_utente"] == $_SESSION["username"])){
+        if(($schedaQuery != null) && ($is_adminQuery[0]["is_admin"] == true || $schedaQuery[0]["username_utente"] == $_SESSION["username"])){
             //form aggiungi esercizio
             $aggiungiEsercizio = 
             "<form id=\"aggiungiEsercizioForm\" action=\"generatoreScheda.php?id=". $_GET["id"] ."\", method=\"post\">
@@ -61,7 +61,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
                 
                 <input type=\"submit\" value=\"Aggiungi\" name=\"aggiungiEsercizioSubmit\">
             </form>";
-            $paginaHTML = str_replace("<insertEsercizio/>",$aggiungiEsercizio,$paginaHTML);
+            $paginaHTML = str_replace("<insertEsercizio />",$aggiungiEsercizio,$paginaHTML);
 
             //form elimina esercizio
             $optionEsercizio = "<form id=\"eliminaEsercizioForm\" action=\"generatoreScheda.php?id=".$_GET["id"]."\", method=\"post\"><select name=\"esercizioScheda\"><label>Seleziona esercizio</label>";
@@ -69,7 +69,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
                 $optionEsercizio .= "<option value=\"" . $row["nome_esercizio"] . "\">" . $row["nome_esercizio"] . "</option>";
             }
             $optionEsercizio .= "<input type=\"submit\" value=\"Elimina\" name=\"eliminaEsercizioSubmit\"></select></form>";
-            $paginaHTML = str_replace("<deleteEsercizio/>",$optionEsercizio,$paginaHTML);
+            $paginaHTML = str_replace("<deleteEsercizio />",$optionEsercizio,$paginaHTML);
             
             //dati scheda
             $datiScheda = "<div id=\"abbonamenti\">";
@@ -84,7 +84,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
             }
             
             $datiScheda .= "</div>";
-            $paginaHTML = str_replace("<datiScheda/>",$datiScheda,$paginaHTML);
+            $paginaHTML = str_replace("<datiScheda />",$datiScheda,$paginaHTML);
             echo $paginaHTML;
         } else {
             echo "non puoi accedere a questa pagina";

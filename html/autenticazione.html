@@ -20,7 +20,7 @@
 	</header>
 
 	<nav id="breadcrumb">
-		<p>Ti trovi in: <a lang="en" href="index.html">Home</a> &gt;&gt; <span id="breadcrumb-percorso"></span> &gt;&gt;
+		<p>Ti trovi in: <a lang="en" href="./">Home</a> &gt;&gt; <span id="breadcrumb-percorso"></span> &gt;&gt;
 			Autenticazione</p>
 	</nav>
 
@@ -29,33 +29,30 @@
 	</a>
 
 	<button onclick="menuClickEvent()" id="displayMenuButton">Menu</button>
-	<!-- COMMENTATO PERCHÈ OSCURA I MESSAGGI DI ERRORE PHP
+	<div id="topbar">
+		<nav id="menu">
+			<ul>
+				<li lang="en"><a href="./">Home</a></li>
+				<li><a href="abbonamenti.html">Abbonamenti</a></li>
+				<li lang="en"><a href="personal-trainer.html">Trainers</a></li>
+				<li><a href="attrezzature.html">Attrezzature</a></li>
+				<li><a href="allenamenti.php">Allenamenti</a></li>
+				<li><a href="storia.html">Storia</a></li>
+				<li><a href="galleria.html">Galleria</a></li>
+				<li id="userIcon" class="hide"><a href="area-personale.php">Area personale</a></li>
+			</ul>
+		</nav>
 
-		<div id="topbar">
-			<nav id="menu">
-				<ul>
-					<li lang="en"><a href="index.html">Home</a></li>
-					<li><a href="abbonamenti.html">Abbonamenti</a></li>
-					<li lang="en"><a href="personal-trainer.html">Trainers</a></li>
-					<li><a href="attrezzature.html">Attrezzature</a></li>
-					<li><a href="allenamenti.php">Allenamenti</a></li>
-					<li><a href="storia.html">Storia</a></li>
-					<li><a href="galleria.html">Galleria</a></li>
-					<li id="userIcon" class="hide"><a href="area-personale.php">Area personale</a></li>
-				</ul>
-			</nav>
-			
-			<div id="darkmode-switch-wrapper">
-				<label id="darkmode-switch" for="checkbox">
-					<input type="checkbox" id="checkbox" />
-					<div class="slider round"></div>
-				</label>
-			</div>
+		<div id="darkmode-switch-wrapper">
+			<label id="darkmode-switch" for="checkbox">
+				<input type="checkbox" id="checkbox" />
+				<div class="slider round"></div>
+			</label>
 		</div>
-	-->
+	</div>
 
 	<div id="content">
-		<div class="titolo">
+		<div id="titolo">
 			<h1>Autenticazione</h1>
 			<p>
 				Accedi per usufruire di tutte le funzionalità di <strong lang="en">Bora Bora Fitness Club</strong>, o
@@ -79,7 +76,7 @@
 					<label lang="en">Password</label>
 					<input type="password" name="passwordAccesso" required>
 
-					<input type="submit" value="Accedi" name="loginSubmit">
+					<button name="loginSubmit">Accedi</button>
 				</fieldset>
 			</form>
 		</div>
@@ -117,8 +114,8 @@
 					<label>Numero di telefono</label>
 					<input type="tel" name="telRegistrazione" required>
 
-					<input type="reset" value="Cancella">
-					<input type="submit" value="Registrati" name="registrationSubmit">
+					<button type="reset">Cancella</button>
+					<button name="registrationSubmit">Registrati</button>
 				</fieldset>
 			</form>
 		</div>
