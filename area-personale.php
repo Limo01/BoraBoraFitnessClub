@@ -30,7 +30,7 @@
 	if ($connessioneOK) {
 		if ($connessione->doReadQuery("SELECT * FROM utente WHERE username=? and is_admin=true", "s", $user) != null) {
 			header("Location: admin.php");
-			die();
+			die("Errore: il redirect è stato disabilitato");
 		}
 		$result = $connessione->doReadQuery("SELECT * FROM utente WHERE username=?", "s", $user);
 		$datiPersonali = $result[0];

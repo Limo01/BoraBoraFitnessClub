@@ -183,7 +183,8 @@
 		}
 		else {
 			$connessione->closeConnection();
-			$paginaHTML = "<p>Accesso negato</p>";
+			header("Location: area-personale.php");
+			$paginaHTML = "<p>Accesso negato</p>";	//Viene visualizzato solo se l'utente ha disabilitato redirect
 		}
 	}
 	else {
