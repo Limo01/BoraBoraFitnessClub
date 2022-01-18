@@ -59,7 +59,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
                 <label>Durata</label>
                 <input type=\"number\" name=\"durataEsercizio\" min=\"0\", value=\"0\", step=\"0.01\">
                 
-                <input type=\"submit\" value=\"Aggiungi\" name=\"aggiungiEsercizioSubmit\">
+                <button name=\"aggiungiEsercizioSubmit\">Aggiungi</button>
             </form>";
             $paginaHTML = str_replace("<insertEsercizio />",$aggiungiEsercizio,$paginaHTML);
 
@@ -68,7 +68,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
             foreach($eserciziQuery as $row){
                 $optionEsercizio .= "<option value=\"" . $row["nome_esercizio"] . "\">" . $row["nome_esercizio"] . "</option>";
             }
-            $optionEsercizio .= "<input type=\"submit\" value=\"Elimina\" name=\"eliminaEsercizioSubmit\"></select></form>";
+            $optionEsercizio .= "<button name=\"eliminaEsercizioSubmit\">Elimina</button></select></form>";
             $paginaHTML = str_replace("<deleteEsercizio />",$optionEsercizio,$paginaHTML);
             
             //dati scheda

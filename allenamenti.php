@@ -87,16 +87,16 @@
 			$content .= '.</p><ul><li>' . $row['username_utente'] . '</li><li>' . $row['data_creazione'] . '</li><li>' . ($row['Followers'] == null ? 0 : $row['Followers']) . '</li></ul><a href="dettagli-allenamento.php?id=' . $row['id'] . '&nomeBreadcrumb=Allenamenti">Apri nel dettaglio</a>';
 			if ($tipoUtente == 1 || ($tipoUtente == 0 && $row['username_utente'] == $utente)) {
 				$content .= "<a href='modificaAllenamento.php?id=" . $row['id'] . "'>Modifica allenamento</a>";
-				$content .= "<form action='allenamenti.php?pagina=" . $pagina . "' method='post'><input type='hidden' name='idPrecedente' value='" . $itPrecedente . "' readonly/><input type='hidden' name='id' value='" . $row['id'] . "' readonly/><button type='submit' name='elimina' value='seguire'>Elimina allenamento</button></form>";
+				$content .= "<form action='allenamenti.php?pagina=" . $pagina . "' method='post'><input type='hidden' name='idPrecedente' value='" . $itPrecedente . "' readonly/><input type='hidden' name='id' value='" . $row['id'] . "' readonly/><button name='elimina' value='seguire'>Elimina allenamento</button></form>";
 			} elseif ($tipoUtente == 0) {
 				if ($connessione->doReadQuery("SELECT COUNT(*) AS isFollowing FROM utente_allenamento WHERE id_allenamento = ? AND username_utente = ?", "is", $row['id'], $utente)[0]['isFollowing'] == 0) {
-					$content .= "<form action='allenamenti.php?pagina=" . $pagina . "' method='post'><input type='hidden' name='id' value='" . $row['id'] . "' readonly/><button type='submit' name='segui' value='seguire'>Segui</button></form>";				
+					$content .= "<form action='allenamenti.php?pagina=" . $pagina . "' method='post'><input type='hidden' name='id' value='" . $row['id'] . "' readonly/><button name='segui' value='seguire'>Segui</button></form>";				
 					if ($row['id'] == $attuale) {
 						$_SESSION['attuale'] = 0;
 						$content .= "<p>Hai smesso di seguire l'allenamento!</p>";
 					}
 				} else {
-					$content .= "<form action='allenamenti.php?pagina=" . $pagina . "' method='post'><input type='hidden' name='id' value='" . $row['id'] . "' readonly/><button type='submit' name='segui' value='nonSeguire'>Smetti di seguire</button></form>";
+					$content .= "<form action='allenamenti.php?pagina=" . $pagina . "' method='post'><input type='hidden' name='id' value='" . $row['id'] . "' readonly/><button name='segui' value='nonSeguire'>Smetti di seguire</button></form>";
 					if ($row['id'] == $attuale) {
 						$_SESSION['attuale'] = 0;
 						$content .= "<p>Hai iniziato di seguire l'allenamento!</p>";

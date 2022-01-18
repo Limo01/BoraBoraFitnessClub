@@ -59,16 +59,16 @@
 				$content .= '.</p><ul><li>' . $queryOverviewAllenamentoResult[0]['username_utente'] . '</li><li>' . $queryOverviewAllenamentoResult[0]['data_creazione'] . '</li><li>' . ($queryOverviewAllenamentoResult[0]['Followers'] == null ? 0 : $queryOverviewAllenamentoResult[0]['Followers']) . '</li></ul>';
 				if ($tipoUtente == 1 || ($tipoUtente == 0 && $queryOverviewAllenamentoResult[0]['username_utente'] == $utente)) {
 					$content .= "<a href='modificaAllenamento.php?id=" . $id . "'>Modifica allenamento</a>";
-					$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "' method='post'><button type='submit' name='elimina' value='seguire'>Elimina allenamento</button></form>";
+					$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "' method='post'><button name='elimina' value='seguire'>Elimina allenamento</button></form>";
 				} elseif ($tipoUtente == 0) {
 					if ($connessione->doReadQuery("SELECT COUNT(*) AS isFollowing FROM utente_allenamento WHERE id_allenamento = ? AND username_utente = ?", "is", $id, $utente)[0]['isFollowing'] == 0) {
-						$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "' method='post'><button type='submit' name='segui' value='seguire'>Segui</button></form>";
+						$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "' method='post'><button name='segui' value='seguire'>Segui</button></form>";
 						if ($id == $changes) {
 							$_SESSION['changes'] = false;
 							$content .= "<div><p>Hai smesso di seguire l'allenamento!</p></div>";
 						}
 					} else {
-						$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "' method='post'><button type='submit' name='segui' value='nonSeguire'>Smetti di seguire</button></form>";
+						$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "' method='post'><button name='segui' value='nonSeguire'>Smetti di seguire</button></form>";
 						if ($id == $changes) {
 							$_SESSION['changes'] = false;
 							$content .= "<div><p>Hai iniziato di seguire l'allenamento!</p></div>";
