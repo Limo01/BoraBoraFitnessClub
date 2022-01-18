@@ -43,7 +43,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
         if(($schedaQuery != null) && ($is_adminQuery[0]["is_admin"] == true || $schedaQuery[0]["username_utente"] == $_SESSION["username"])){
             //form aggiungi esercizio
             $aggiungiEsercizio = 
-            "<form id=\"aggiungiEsercizioForm\" action=\"generatoreScheda.php?id=". $_GET["id"] ."\", method=\"post\">
+            "<form id=\"aggiungiEsercizioForm\" action=\"php/generatoreScheda.php?id=". $_GET["id"] ."\", method=\"post\">
                 <label>Nome</label>
                 <input type=\"text\" name=\"nomeEsercizio\" required>
                 
@@ -64,7 +64,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
             $paginaHTML = str_replace("<insertEsercizio />",$aggiungiEsercizio,$paginaHTML);
 
             //form elimina esercizio
-            $optionEsercizio = "<form id=\"eliminaEsercizioForm\" action=\"generatoreScheda.php?id=".$_GET["id"]."\", method=\"post\"><select name=\"esercizioScheda\"><label>Seleziona esercizio</label>";
+            $optionEsercizio = "<form id=\"eliminaEsercizioForm\" action=\"php/generatoreScheda.php?id=".$_GET["id"]."\", method=\"post\"><select name=\"esercizioScheda\"><label>Seleziona esercizio</label>";
             foreach($eserciziQuery as $row){
                 $optionEsercizio .= "<option value=\"" . $row["nome_esercizio"] . "\">" . $row["nome_esercizio"] . "</option>";
             }

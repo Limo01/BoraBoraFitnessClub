@@ -74,7 +74,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
         foreach ($queryAllenatori as $row) {
             $out .= "<option value=\"" . $row["id"] . "\">" . $row["nome"] . " " . $row["cognome"] . "</option>";
         }
-        $paginaHTML = str_replace("<selectAllenatore/>", $out, $paginaHTML);
+        $paginaHTML = str_replace("<selectAllenatore />", $out, $paginaHTML);
         $out = "";
 
         if ($queryis_admin[0]["is_admin"] == true) {
@@ -83,10 +83,10 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
                 $out .= "<option value=\"" . $row["username"] . "\">" . $row["username"] . "</option>";
             }
             $out .= "</select>";
-            $paginaHTML = str_replace("<selectUsername/>", $out, $paginaHTML);
+            $paginaHTML = str_replace("<selectUsername />", $out, $paginaHTML);
             $out = "";
         } else {
-            $paginaHTML = str_replace("<selectUsername/>", "", $paginaHTML);
+            $paginaHTML = str_replace("<selectUsername />", "", $paginaHTML);
         }
     } else {
         $out = "<p>I sistemi sono al momento non disponibili, riprova più tardi!</p>";

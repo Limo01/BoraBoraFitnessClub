@@ -32,12 +32,12 @@
                 $idSchedaQuery = $connessione->doReadQuery("SELECT max(id) as maxID FROM allenamento WHERE username_utente = ?", "s", $username);
                 $idScheda = $idSchedaQuery[0]["maxID"];
                 $connessione->closeConnection();
-                header("location: modificaAllenamento.php?id=" . $idScheda);
+                header("location: ../modificaAllenamento.php?id=" . $idScheda);
             } else {
                 $out = "<p>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
             }
         } else {
-            header("location: autenticaione.php");
+            header("location: ../autenticaione.php");
         }
     } elseif (isset($_POST['eliminaEsercizioSubmit'])) {
         if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
@@ -52,7 +52,7 @@
                     $nomeEsercizio = $_POST["esercizioScheda"];
                     $connessione->doWriteQuery("DELETE FROM allenamento_esercizio WHERE id_allenamento = ? AND nome_esercizio = ?","is",$idScheda,$nomeEsercizio);
                     $connessione->closeConnection();
-                    header("location: modificaAllenamento.php?id=".$_GET["id"]);
+                    header("location: ../modificaAllenamento.php?id=".$_GET["id"]);
                 } else {
                     echo "non puoi accedere a questa pagina";
                 }  
@@ -60,7 +60,7 @@
                 $out = "<p>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
             }
         } else {
-            header("location: autenticaione.php");
+            header("location: ../autenticaione.php");
         }
         
     } elseif (isset($_POST['aggiungiEsercizioSubmit'])){
@@ -86,7 +86,7 @@
                     $connessione->doWriteQuery("INSERT INTO allenamento_esercizio(id_allenamento,nome_esercizio,peso,ripetizioni,serie,durata) values(?,?,?,?,?,?)","isdiid",$idScheda,$nomeEsercizio,$peso,$ripetizioni,$serie,$durata);
 
                     $connessione->closeConnection();
-                    header("location: modificaAllenamento.php?id=".$_GET["id"]);
+                    header("location: ../modificaAllenamento.php?id=".$_GET["id"]);
                 } else {
                     echo "non puoi accedere a questa pagina";
                 }  
@@ -94,7 +94,7 @@
                 $out = "<p>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
             }
         } else {
-            header("location: autenticaione.php");
+            header("location: ../autenticaione.php");
         }
     }
 ?>
