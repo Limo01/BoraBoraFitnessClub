@@ -4,10 +4,10 @@
 
 	session_start();
 
-	if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
+	if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
 		$user = $_SESSION["username"];
 	}
-	else{
+	else {
 		header("location: autenticazione.php");
 		return;
 	}
@@ -50,9 +50,17 @@
 			$listaUtenti = "<p>Nessun utente presente</p>";
 			
 			if ($utenti != null) {
-				$listaUtenti = '<ul id="lista_utenti">';
+				$listaUtenti = "<ul id='lista_utenti'>";
 				foreach ($utenti as $utente) {
-					$listaUtenti .= '<li class="utente">' . $utente["username"] . "</li>";
+					$utente = $utente["username"];
+					$listaUtenti .=
+						"<li class='utente'>
+							<a href='modifica-utente.php?usr=" . $utente ."'>" . $utente . "</a>
+							<form action='admin.php' method='post'>
+								<input type='hidden' name='user' value='" . $utente . "' readonly/>
+								<button name='elimina'>Elimina</button>
+							</form>
+						</li>";
 				}
 				$listaUtenti .= "</ul>";
 			}

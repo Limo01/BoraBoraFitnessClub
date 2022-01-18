@@ -40,7 +40,7 @@
 	$connessioneOK = $connessione->openDBConnection();
 	
 	if ($connessioneOK) {
-		if ($connessione->doReadQuery("SELECT * FROM utente WHERE username=? and is_admin=true", "s", $admin) == null) {
+		if (!$connessione->doReadQuery("SELECT is_admin FROM utente WHERE username=?", "s", $admin)[0]["is_admin"]) {
 			header("location: area-personale.php");
 			die("Accesso negato!");
 		}

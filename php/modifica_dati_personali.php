@@ -14,7 +14,7 @@
 			$hasUsr = false;
 			if (
 				isset($_GET["usr"]) &&
-				$connessione->doReadQuery("SELECT * FROM utente WHERE username=? and is_admin=true", "s", $user) != null
+				$connessione->doReadQuery("SELECT is_admin FROM utente WHERE username=?", "s", $admin)[0]["is_admin"]
 			) {
 				$hasUsr = true;
 				$user = $_GET["usr"];

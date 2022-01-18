@@ -921,11 +921,11 @@ div div .gallery {
 	grid-gap: 3em;
 	padding: 0em;
 	grid-template-areas:
-		"a c c"
-		"b c c";
+		"c c a"
+		"c c b";
 }
 
-.widget {
+#widget_area_personale .widget {
 	background-color: var(--colore-sfondo-div);
 	border-radius: 2em;
 	padding: 2em;
@@ -1056,3 +1056,24 @@ div div .gallery {
 }
 
 /*==================== STILE AREA PERSONALE ADMIN ====================*/
+#content #widget_area_personale_admin {
+	background-color: transparent;
+	display: grid;
+	grid-gap: 3em;
+	padding: 0;
+	grid-template-areas:
+		"c d"
+		"c d"
+		"a b";
+}
+
+#widget_area_personale_admin .widget {
+	background-color: var(--colore-sfondo-div);
+	border-radius: 2em;
+	padding: 2em;
+	width: 88%;
+}
+
+#gestione_utenti {
+	grid-area: d;
+}
