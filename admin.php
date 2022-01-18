@@ -82,7 +82,9 @@
 						<badge />
 					</dd>
 				</dl>
-				<button id=\"buttonModDati\" onclick=\"modificaDatiPersonaliClickEvent()\">Modifica</button>";		
+				<a href=\"admin.php?update=1\">
+					<button id=\"buttonModDati\">Modifica</button>
+				</a>";
 			}
 			else{
 				$personalData= "";
@@ -113,7 +115,7 @@
 						<input type=\"date\" id=\"data_nascita\" name=\"data_nascita\" value=\"<data_nascita />\" required onblur=\"check_validity_data_nascita(event)\">
 						<p id=\"errore_data_nascita\"class=\"errore_form\"></p>
 						
-						<input type=\"submit\" value=\"Conferma modifica\">
+						<button>Conferma modifica</button>
 					</form>";
 			}
 

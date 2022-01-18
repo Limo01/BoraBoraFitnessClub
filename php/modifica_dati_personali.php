@@ -23,12 +23,12 @@
 				WHERE username=?", "ssssss", 
 				$nome, $cognome, $email, $data_nascita, $telefono, $user);
 		}
-		
+
 		$connessione->closeConnection();
 
-		if($esito){
-			header("location: ../area-personale.php");	
-			return;	
+		if ($esito) {
+			header("location: ../area-personale.php");
+			return;
 		}
 	}
 	header("location: ../area-personale.php?update=1&form_error=1");
