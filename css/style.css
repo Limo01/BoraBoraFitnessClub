@@ -573,26 +573,24 @@ small {
 }
 
 #content .attrezzature article h3 {
-	background-color: var(--colore-testo-principale);
-	color: var(--colore-testo-contrasto-sfondi);
-	padding: 0.5em;
-	font-size: 1.5em;
+	color: var(--colore-testo-principale);
+	font-size: 2.5em;
 	text-align: center;
-	border-radius: 2em;
+	margin: 0em 0em 0.7em 35%;
 }
 
-#content .attrezzature article div img {
+#content .attrezzature article img {
 	float: left;
 	width: 30%;
 	margin-right: 1em;
 	border-radius: 2em;
 }
 
-#content .attrezzature article div {
-	min-height: 500px;
+#content .attrezzature article {
+	min-height: 600px;
 }
 
-#content .attrezzature article div p {
+#content .attrezzature article p {
 	clear: right;
 	margin-left: 35%;
 	margin-bottom: 1em;
@@ -600,6 +598,10 @@ small {
 	background-color: var(--colore-sfondo-article-p);
 	padding: 1.2em;
 	border-radius: 2em;
+}
+
+#content .attrezzature h2{
+	font-size: 3.2em;
 }
 
 /*==================== STILE STORIA ======================*/
