@@ -74,7 +74,9 @@
 			if ($numeroEsercizi == 1) {
 				$content .= 'o';
 			}
-			$content .= ', tra cui esercizi come ' . $queryDettaglioAllenamentoResult[0]['nome'];
+			if($numeroEsercizi>0){
+				$content .= ', tra cui esercizi come ' . $queryDettaglioAllenamentoResult[0]['nome'];
+			}
 			if ($numeroEsercizi > 1) {
 				$j = 1;
 				for (; $j <= $numeroEsercizi - 3 && $j <= 3; $j++) {

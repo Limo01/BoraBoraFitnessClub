@@ -139,7 +139,7 @@
 						unset($_SESSION['previousPage']);
 						header("location: " . $previous);
 					} else{
-						header("location: area-personale-prepared.php");
+						header("location: area-personale.php");
 					}
 			} else {
 				if(!$nomeValid){
@@ -179,7 +179,7 @@
 	} elseif (isset($_POST['registrationSubmit'])){
 		registration();
 	} else {
-		echo file_get_contents("hmlt/autenticazione.html");
+		echo file_get_contents("html/autenticazione.html");
 	}
 
 		
