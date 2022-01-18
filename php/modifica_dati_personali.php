@@ -8,28 +8,42 @@
 	$connessione = new DBAccess();
 	$connessioneOK = $connessione->openDBConnection();
 
-	if ($connessioneOK && isset($_SESSION["loggedin"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
-		$user= $_SESSION["username"];
-		$nome = $_POST["nome"];
-		$cognome = $_POST["cognome"];
-		$email = $_POST["email"];
-		$data_nascita = $_POST["data_nascita"];
-		$telefono = $_POST["telefono"];
+	if ($connessioneOK) {
+		if (isset($_SESSION["loggedin"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
+			$user = $_SESSION["username"];
+			$hasUsr = false;
+			if (
+				isset($_GET["usr"]) &&
+				$connessione->doReadQuery("SELECT * FROM utente WHERE username=? and is_admin=true", "s", $user) != null
+			) {
+				$hasUsr = true;
+				$user = $_GET["usr"];
+			}
 
-		$esito= false;
+			$nome = $_POST["nome"];
+			$cognome = $_POST["cognome"];
+			$email = $_POST["email"];
+			$data_nascita = $_POST["data_nascita"];
+			$telefono = $_POST["telefono"];
 
-		if(isNameValid($nome) and isNameValid($cognome) and isEmailValid($email) and isDateValid($data_nascita) and isPhoneNumberValid($telefono)){
-			$esito= $connessione->doWriteQuery("UPDATE utente SET nome=?, cognome=?, email=?, data_nascita=?, numero_telefono=?
-				WHERE username=?", "ssssss", 
-				$nome, $cognome, $email, $data_nascita, $telefono, $user);
+			$esito = false;
+
+			if(isNameValid($nome) and isNameValid($cognome) and isEmailValid($email) and isDateValid($data_nascita) and isPhoneNumberValid($telefono)){
+				$esito= $connessione->doWriteQuery("UPDATE utente SET nome=?, cognome=?, email=?, data_nascita=?, numero_telefono=?
+					WHERE username=?", "ssssss", 
+					$nome, $cognome, $email, $data_nascita, $telefono, $user);
+			}
+
+			$connessione->closeConnection();
+
+			if ($esito) {
+				header("location: ../" . ($hasUsr ? "modifica-utente.php?usr=" . $user : "area-personale.php"));
+				return;
+			}
 		}
-
-		$connessione->closeConnection();
-
-		if ($esito) {
-			header("location: ../area-personale.php");
-			return;
+		else {
+			$connessione->closeConnection();
 		}
 	}
-	header("location: ../area-personale.php?update=1&form_error=1");
+	header("location: ../" . ($hasUsr ? "modifica-utente.php?usr=" . $user . "&" : "area-personale.php?") . "update=1&form_error=1");
 ?>

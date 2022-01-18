@@ -19,25 +19,30 @@
 		die("Errore: nessun utente selezionato");
 	}
 
-	$paginaHTML = file_get_contents("html/area-personale.html");
+	if ($admin == $user) {
+		header("location: area-personale.php");
+		die("Errore: il redirect è stato disabilitato");
+	}
 
-	$connessione = new DBAccess();
-	$connessioneOK = $connessione->openDBConnection();
+	$paginaHTML = file_get_contents("html/area-personale.html");
 
 	$updatePersonalData = false;
 	if(isset($_GET["update"]) and $_GET["update"]==1){
 		$updatePersonalData= true;
 	}
-
+	
 	$formError = false;
 	if(isset($_GET["form_error"]) and $_GET["form_error"]==1){
 		$formError = true;
 	}
 
+	$connessione = new DBAccess();
+	$connessioneOK = $connessione->openDBConnection();
+	
 	if ($connessioneOK) {
-		if ($connessione->doReadQuery("SELECT * FROM utente WHERE username=? and is_admin=true", "s", $user) != null) {
-			header("location: admin.php");
-			die("Errore: il redirect è stato disabilitato");
+		if ($connessione->doReadQuery("SELECT * FROM utente WHERE username=? and is_admin=true", "s", $admin) == null) {
+			header("location: area-personale.php");
+			die("Accesso negato!");
 		}
 		$result = $connessione->doReadQuery("SELECT * FROM utente WHERE username=?", "s", $user);
 		$datiPersonali = $result[0];
@@ -88,7 +93,7 @@
 					<badge />
 				</dd>
 			</dl>
-			<a href=\"area-personale.php?update=1\">
+			<a href=\"modifica-utente.php?usr=" . $user . "&update=1\">
 				<button id=\"buttonModDati\">Modifica</button>
 			</a>";
 		}
@@ -100,7 +105,7 @@
 			}
 
 			$personalData= $personalData . 
-				"<form action=\"php/modifica_dati_personali.php\" method=\"post\">
+				"<form action=\"php/modifica_dati_personali.php?usr=" . $user . "\" method=\"post\">
 					<label for=\"nome\">Nome</label>
 					<input type=\"text\" id=\"nome\" name=\"nome\" value=\"<nome />\" required pattern=\"^[a-zA-Z-' àèìòùáéíóú]*$\" onblur=\"check_validity_nome(event)\" >
 					<p id=\"errore_nome\"class=\"errore_form\"></p>

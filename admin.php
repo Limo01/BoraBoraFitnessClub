@@ -194,7 +194,7 @@
 		else {
 			$connessione->closeConnection();
 			header("Location: area-personale.php");
-			$paginaHTML = "<p>Accesso negato</p>";	//Viene visualizzato solo se l'utente ha disabilitato redirect
+			$paginaHTML = "<p>Accesso negato!</p>";
 		}
 	}
 	else {
