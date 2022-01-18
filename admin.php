@@ -32,7 +32,7 @@
 		if ($result != null) {
 			$datiPersonali = $result[0];
 
-			$listaUtenti = $connessione->doReadQuery("SELECT username FROM utente WHERE username!=?", "s", $user);
+			$utenti = $connessione->doReadQuery("SELECT username FROM utente WHERE username!=?", "s", $user);
 
 			$ultimoIngresso = $connessione->doReadQuery("SELECT dataora_entrata FROM accesso WHERE username_utente=? order by dataora_entrata DESC limit 1", "s", $user);
 
@@ -47,6 +47,16 @@
 			$connessione->closeConnection();
 
 			//Gestione utenti
+			$listaUtenti = "<p>Nessun utente presente</p>";
+			
+			if ($utenti != null) {
+				$listaUtenti = '<ul id="lista_utenti">';
+				foreach ($utenti as $utente) {
+					$listaUtenti .= '<li class="utente">' . $utente["username"] . "</li>";
+				}
+				$listaUtenti .= "</ul>";
+			}
+			$paginaHTML = str_replace("<lista_utenti />", $listaUtenti, $paginaHTML);
 
 			//Informazioni personali
 			if(!$updatePersonalData){
