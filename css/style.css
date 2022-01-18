@@ -1044,6 +1044,11 @@ div div .gallery {
 	font-size: 1.5em;
 }
 
+#dati_personali button{
+	text-align: center;
+	display: block;
+}
+
 #dati_personali dl {
 	margin-top: 3em;
 }
