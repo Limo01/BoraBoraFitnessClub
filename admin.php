@@ -30,6 +30,13 @@
 	if ($connessioneOK) {
 		$result = $connessione->doReadQuery("SELECT * FROM utente WHERE username=? and is_admin=true", "s", $user);
 		if ($result != null) {
+			if (isset($_POST["elimina"])) {
+				$connessione->doWriteQuery("DELETE FROM utente WHERE username = ?", "s", $_POST["user"]);
+				$userRemoved = true;
+			} else {
+				$userRemoved = false;
+			}
+
 			$datiPersonali = $result[0];
 
 			$utenti = $connessione->doReadQuery("SELECT username FROM utente WHERE username!=?", "s", $user);
@@ -63,6 +70,10 @@
 						</li>";
 				}
 				$listaUtenti .= "</ul>";
+			}
+
+			if ($userRemoved) {
+				$listaUtenti = "<p>Utente rimosso!</p>" . $listaUtenti;
 			}
 			$paginaHTML = str_replace("<lista_utenti />", $listaUtenti, $paginaHTML);
 
