@@ -3,11 +3,12 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>Dettaglio allenamento - Bora Bora Fitness Club</title>
-	<meta name="keywords"
-		content="dettagli allenamento, esercizi, scheda personale, schede allenamento, followers, workout, bora bora fitness club" />
+	<title>
+		<username /> - Bora Bora Fitness Club
+	</title>
+	<meta name="keywords" content="area personale, profilo, allenamenti, bora bora, fitness club" />
 	<meta name="description"
-		content="Sezione dove visualizzare in dettaglio un allenamento con tutti i suoi esercizi" />
+		content="Area personale in cui visualizzare e modificare le proprie informazioni, abbonamenti e allenamenti" />
 	<meta name="author" content="Adnan Latif Gazi, Alberto Lazari, Marco Andrea Limongelli, Francesco Protopapa" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" media="screen" href="css/style.css" />
@@ -15,6 +16,7 @@
 		href="css/mobile.css" />
 
 	<script src="javascript/darkmode.js"></script>
+	<script src="javascript/script-area-personale.js"></script>
 </head>
 
 <body>
@@ -23,9 +25,7 @@
 	</header>
 
 	<nav id="breadcrumb">
-		<p>Ti trovi in: <a href="./" lang="en">Home</a> &gt;&gt;
-			<genitore-breadcrumb /> &gt;&gt; Dettaglio allenamento
-		</p>
+		<p>Ti trovi in: <a href="./" lang="en">Home</a> &gt;&gt; Area personale</p>
 	</nav>
 
 	<a class="aiuti" href="#content">
@@ -44,7 +44,7 @@
 				<li><a href="allenamenti.php">Allenamenti</a></li>
 				<li><a href="storia.html">Storia</a></li>
 				<li><a href="galleria.html">Galleria</a></li>
-				<li id="userIcon" class="hide"><a href="area-personale.php">Area personale</a></li>
+				<li id="userIcon" class="hide"><span id="currentLink">Area personale</span></li>
 			</ul>
 		</nav>
 
@@ -58,36 +58,52 @@
 
 	<div id="content">
 		<div id="titolo">
-			<h1>Dettagli allenamento</h1>
-			<p>
-				Scopri tutti gli esercizi che compongono gli allenamenti dei clienti di <strong lang="en">Bora Bora
-					Fitness Club</strong>!
-			</p>
+			<h1>
+				<nome />
+				<cognome /> - Area personale
+			</h1>
 		</div>
-		<div>
-			<div id="bottone-iniziale-sinistra">
-				<ul>
-					<li>
-						<bottone-iniziale />
-					</li>
-				</ul>
+
+		<div id="widget_area_personale">
+			<div id="dati_personali" class="widget">
+				<h2>Dati personali</h2>
+
+				<dati_personali />
 			</div>
-			<div id="bottone-iniziale">
-				<ul>
-					<li>
-						<bottone-iniziale-destra />
-					</li>
-				</ul>
+
+			<div id="dettagli_abbonamento" class="widget">
+				<h2>Dettagli abbonamento</h2>
+				<dettagli_abbonamento />
 			</div>
-			<dettagli-allenamento />		
+
+			<div id="ultimo-ingresso" class="widget">
+				<h2>Ultimo accesso</h2>
+				<dl class="dl_inline">
+					<dt>Data</dt>
+					<dd>
+						<data_ingresso />
+					</dd>
+
+					<dt>Ora</dt>
+					<dd>
+						<ora_ingresso />
+					</dd>
+				</dl>
+			</div>
 		</div>
-		<div>
-			<h2>Scorri tra gli allenamenti</h2>
-			<nav id="naviga-pagine">
-				<ul>
-					<pagine />
-				</ul>
-			</nav>
+
+		<div id="schede_allenamento">
+			<h2>Schede allenamento</h2>
+
+			<div id="schede_seguite">
+				<h3>Schede seguite</h3>
+				<allenamenti_seguiti />
+			</div>
+
+			<div id="schede_create">
+				<h3>Schede create</h3>
+				<allenamenti_creati />
+			</div>
 		</div>
 	</div>
 

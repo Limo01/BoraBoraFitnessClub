@@ -4,15 +4,16 @@
 
 	session_start();
 
-	if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
+	if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
 		$user = $_SESSION["username"];
 	}
-	else{
+	else {
 		header("location: autenticazione.php");
 		return;
 	}
 
 	$paginaHTML = file_get_contents("html/admin.html");
+	$paginaHTML = str_replace("<username />", $user, $paginaHTML);
 
 	$connessione = new DBAccess();
 	$connessioneOK = $connessione->openDBConnection();
@@ -30,6 +31,13 @@
 	if ($connessioneOK) {
 		$result = $connessione->doReadQuery("SELECT * FROM utente WHERE username=? and is_admin=true", "s", $user);
 		if ($result != null) {
+			if (isset($_POST["elimina"])) {
+				$connessione->doWriteQuery("DELETE FROM utente WHERE username = ?", "s", $_POST["user"]);
+				$userRemoved = true;
+			} else {
+				$userRemoved = false;
+			}
+
 			$datiPersonali = $result[0];
 
 			$utenti = $connessione->doReadQuery("SELECT username FROM utente WHERE username!=?", "s", $user);
@@ -50,11 +58,23 @@
 			$listaUtenti = "<p>Nessun utente presente</p>";
 			
 			if ($utenti != null) {
-				$listaUtenti = '<ul id="lista_utenti">';
+				$listaUtenti = "<ul id='lista_utenti'>";
 				foreach ($utenti as $utente) {
-					$listaUtenti .= '<li class="utente">' . $utente["username"] . "</li>";
+					$utente = $utente["username"];
+					$listaUtenti .=
+						"<li class='utente'>
+							<a href='modifica-utente.php?usr=" . $utente ."'>" . $utente . "</a>
+							<form action='admin.php' method='post'>
+								<input type='hidden' name='user' value='" . $utente . "' readonly/>
+								<button name='elimina'>Elimina</button>
+							</form>
+						</li>";
 				}
 				$listaUtenti .= "</ul>";
+			}
+
+			if ($userRemoved) {
+				$listaUtenti = "<p>Utente rimosso!</p>" . $listaUtenti;
 			}
 			$paginaHTML = str_replace("<lista_utenti />", $listaUtenti, $paginaHTML);
 
@@ -104,7 +124,7 @@
 				}
 
 				$personalData= $personalData . 
-					"<form action=\"php/modifica_dati_personali.php\" method=\"post\">
+					"<form action=\"php/modifica_dati_personali.php?update=1\" method=\"post\">
 						<label for=\"nome\">Nome</label>
 						<input type=\"text\" id=\"nome\" name=\"nome\" value=\"<nome />\" required pattern=\"^[a-zA-Z-' àèìòùáéíóú]*$\" onblur=\"check_validity_nome(event)\" >
 						<p id=\"errore_nome\"class=\"errore_form\"></p>
@@ -194,7 +214,7 @@
 		else {
 			$connessione->closeConnection();
 			header("Location: area-personale.php");
-			$paginaHTML = "<p>Accesso negato</p>";	//Viene visualizzato solo se l'utente ha disabilitato redirect
+			$paginaHTML = "<p>Accesso negato!</p>";
 		}
 	}
 	else {

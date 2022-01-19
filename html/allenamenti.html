@@ -62,56 +62,21 @@
 			</p>
 		</div>
 		<div>
-			<form action="allenamenti.php" method="post">
-				<fieldset>
-					<legend>
-						<h2>Cerca il tuo allenamento ideale</h2>
-					</legend>
-
-					<label>Titolo</label>
-					<input type="text" name="titolo" placeholder="es: Massa muscolare">
-
-					<label>Descrizione</label>
-					<input type="text" name="descrizione" placeholder="es: bruciare grassi e dimagrire">
-
-					<label>Nome utente</label>
-					<input type="text" name="nomeUtente" placeholder="es: MarioRossi23">
-
-					<label>Data iniziale</label>
-					<input type="date" name="dataIniziale">
-
-					<label>Data finale</label>
-					<input type="date" name="dataFinale">
-
-					<label>Followers RANGE</label>
-					<input type="range" name="followersMin" min="0" max="50">
-					<input type="range" name="followersMax" min="0" max="50">
-
-					<label>Esercizi RANGE</label>
-					<input type="range" name="eserciziMin" min="0" max="50">
-					<input type="range" name="eserciziMax" min="0" max="50">
-
-					<label>Esercizi</label>
-					<input type="text" name="nomeUtente" placeholder="es: Addominali, Alzate laterali e Burpees">
-
-					<label>ORDINE</label>
-					<input type="radio" name="desc" checked="checked">
-					<label>Descrescente</label>
-					<input type="radio" name="asc">
-					<label>Crescente</label>
-
-					<button type="reset" name="cancella">Cancella</button>
-					<button name="cerca">Cerca</button>
-				</fieldset>
-			</form>
+			<div id="bottone-iniziale">
+				<ul>
+					<li>
+						<bottone-iniziale-destra />
+					</li>
+				</ul>
+			</div>
+			<h2 id="titolo-allenamenti">Guarda i migliori allenamenti</h2>
+			<div class="allenamenti">
+				<allenamenti />
+			</div>
 		</div>
 		<div>
-			<h2>Guarda i migliori allenamenti</h2>
-			<allenamenti />
-		</div>
-		<div id="scorriPagine">
 			<h2>Scorri tutte le pagine</h2>
-			<nav id="pagine">
+			<nav id="naviga-pagine">
 				<ul>
 					<pagine />
 				</ul>

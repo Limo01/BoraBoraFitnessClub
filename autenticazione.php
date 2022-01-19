@@ -34,6 +34,15 @@
 		}
 	}
 
+	function isUsernameValid ($name){
+		if (preg_match("/^[0-9-a-zA-Z-' àèìòùáéíóú]*$/",$name)){
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
 	function isEmailValid ($email){
 		if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 			return true;
@@ -122,12 +131,13 @@
 		
 		if ($connessioneOK) {
 			$userDoppio = isUsernameCorrect($username, $connessione);
+			$userValid = isUsernameValid($username);
 			$emailValid = isEmailValid($email);
 			$nomeValid = isNameValid($nome);
 			$cognomeValid = isNameValid($cognome);
 			$telValid = isTelValid($tel);
 
-			if($userDoppio == false && $password1 == $password2 && $nomeValid && $cognomeValid && $emailValid && $telValid){
+			if(!$userDoppio && $userValid && $password1 == $password2 && $nomeValid && $cognomeValid && $emailValid && $telValid){
 				$connessione->doWriteQuery("INSERT INTO utente(username, password, nome, cognome, email, data_nascita, badge, entrate, numero_telefono, nome_abbonamento, data_inizio, data_fine)
 					VALUES(?,?,?,?,?,?,?,0,?,null,null,null)", "ssssssss",
 					$username, password_hash($password1, PASSWORD_BCRYPT), $nome, $cognome, $email, $nascita, $badge, $tel);
@@ -143,22 +153,31 @@
 					}
 			} else {
 				if(!$nomeValid){
-					$out .= "<p>sono ammesse solamente lettere per il nome</p>";
+					// $out .= "<p>sono ammesse solamente lettere per il nome</p>";
+					$paginaHTML = str_replace("<erroreNome />","Il nome inserito non è valido. Deve contenere solo lettere, senza caratteri speciali (? , * ; + .).",$paginaHTML);
 				}
 				if(!$cognomeValid){
-					$out .= "<p>sono ammesse solamente lettere per il cognome</p>";
+					// $out .= "<p>sono ammesse solamente lettere per il cognome</p>";
+					$paginaHTML = str_replace("<erroreCognome />","Il cognome inserito non è valido. Deve contenere solo lettere, senza caratteri speciali (? , * ; + .).",$paginaHTML);
 				}
 				if($userDoppio){
-					$out .= "<p>username non disponibile</p>";
+					// $out .= "<p>username non disponibile</p>";
+					$paginaHTML = str_replace("<erroreUsername />","Lo username inserito non è disponibile.",$paginaHTML);
+				}
+				if(!$userValid){
+					// $out .= "<p>sono ammesse solamente lettere e numeri per lo username</p>";
+					$paginaHTML = str_replace("<erroreUsername />","Lo username inserito non è valido. Deve contenere solo lettere e numeri, senza caratteri speciali (? , * ; + .).",$paginaHTML);
 				}
 				if($password1 != $password2){
 					$out .= "<p>verifica di aver inserito correttamente la password</p>";
 				}
 				if(!$emailValid){
-					$out .= "<p>inserisci una email valida</p>";
+					#$out .= "<p>inserisci una email valida</p>";
+					$paginaHTML = str_replace("<erroreEmail />","L'email inserita non è valida.",$paginaHTML);
 				}
 				if(!$telValid){
 					$out .= "<p>inserisci un numero di telefono valido</p>";
+					$paginaHTML = str_replace("<erroreTelefono />","Il numero di telefono inserito non è valida.",$paginaHTML);
 				}
 			}
 
@@ -168,7 +187,7 @@
 			$out = "<p>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
 		}
 		
-		echo str_replace("<registrazione/>", $out, $paginaHTML);
+		echo str_replace("<registrazione />", $out, $paginaHTML);
 	}
 
 	if(isset($_GET['url'])){

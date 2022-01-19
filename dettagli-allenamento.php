@@ -2,12 +2,19 @@
 	session_start();
 	require_once "php/db.php";
 	use DB\DBAccess;
-	$referer = $_SERVER['HTTP_REFERER'] != null? $_SERVER['HTTP_REFERER'] : "allenamenti.php";
-	$basename = basename($referer, ".php");
-	$nomeBreadcrumb = isset($_GET['nomeBreadcrumb'])? $_GET['nomeBreadcrumb'] : strtoupper($basename[0]) . substr($basename, 1);
-	$content = "<a href='" . $referer . "'>Torna indietro</a>";
+	$nomeBreadcrumb = isset($_GET['url'])? (isset($_GET['nomeBreadcrumb'])? $_GET['nomeBreadcrumb'] : strtoupper(basename($_GET['url'])[0]) . substr(basename($_GET['url']), 1)) : "Allenamenti";
+	$referer = isset($_GET['url'])? $_GET['url'] : "allenamenti.php";
+	$init = "<a href='" . $referer . "'>Torna indietro</a>";
 	$id = isset($_GET['id'])? $_GET['id'] : 0;
+	$tipoUtente = 2;
+	$utente = "";
+	$content = "";
+	$numeroAllenamenti = 0;
+	
 	if ($id > 0) {
+		if ($nomeBreadcrumb == "Allenamenti") {
+			$referer .= "#" . $id;
+		}
 		if (!isset($_SESSION['changes'])) {
 			$_SESSION['changes'] = false;
 		}
@@ -15,12 +22,10 @@
 		$connessione = new DBAccess();
 		$connessioneOK = $connessione->openDBConnection();
 		if ($connessioneOK) {
+			$numeroAllenamenti = $connessione->doReadQuery("SELECT COUNT(*) AS numeroAllenamenti FROM allenamento")[0]['numeroAllenamenti'];
 			if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]){ // cliente = 0, admin = 1
 				$tipoUtente = $connessione->doReadQuery("SELECT is_admin FROM utente WHERE username = ?", "s", $_SESSION["username"])[0]['is_admin']? 1 : 0;
 				$utente = $_SESSION['username'];
-			} else {
-				$tipoUtente = 2;
-				$utente = "";
 			}
 			if (isset($_POST['segui'])) {
 				if ($_POST['segui'] == "seguire") {
@@ -39,16 +44,16 @@
 			}
 			$queryOverviewAllenamentoResult = $connessione->doReadQuery("SELECT id, nome, descrizione, allenamento.username_utente, data_creazione, COUNT(id) AS Followers FROM allenamento LEFT JOIN utente_allenamento ON id = id_allenamento WHERE id = ?", "i", $id);
 			$queryDettaglioAllenamentoResult = $connessione->doReadQuery("SELECT nome, descrizione, peso, serie, ripetizioni, durata FROM allenamento_esercizio JOIN esercizio ON allenamento_esercizio.nome_esercizio = esercizio.nome WHERE id_allenamento = ?", "i", $id);
-			if ($tipoUtente == 2) {
-				$content .= "<a href='autenticazione.php?url=dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=Autenticazione'>Effettua l'autenticazione</a>";
-			}
+
 			if ($queryOverviewAllenamentoResult[0]['id'] != null) {
 				$numeroEsercizi = count($queryDettaglioAllenamentoResult);
-				$content .= '<h2>' . $queryOverviewAllenamentoResult[0]['nome'] . '</h2><p>' . $queryOverviewAllenamentoResult[0]['descrizione'] . '</p><p>Questo allenamento comprende ' . $numeroEsercizi . ' esercizi';			
+				$content .= '<h2 id="titolo-dettagli-allenamento">' . $queryOverviewAllenamentoResult[0]['nome'] . '</h2><p>' . $queryOverviewAllenamentoResult[0]['descrizione'] . '. Questo allenamento comprende ' . $numeroEsercizi . ' esercizi';			
 				if ($numeroEsercizi == 1) {
 					$content .= 'o';
 				}
-				$content .= ', tra cui esercizi come ' . $queryDettaglioAllenamentoResult[0]['nome'];		
+				if($numeroEsercizi > 0){
+					$content .= ', tra cui esercizi come ' . $queryDettaglioAllenamentoResult[0]['nome'];
+				}		
 				if ($numeroEsercizi > 1) {
 					$i = 1;
 					for (; $i <= $numeroEsercizi - 3 && $i <= 3; $i++) {
@@ -56,40 +61,63 @@
 					}
 					$content .= ' e ' . $queryDettaglioAllenamentoResult[$i]['nome'];
 				}
-				$content .= '.</p><ul><li>' . $queryOverviewAllenamentoResult[0]['username_utente'] . '</li><li>' . $queryOverviewAllenamentoResult[0]['data_creazione'] . '</li><li>' . ($queryOverviewAllenamentoResult[0]['Followers'] == null ? 0 : $queryOverviewAllenamentoResult[0]['Followers']) . '</li></ul>';
+				$content .= '.</p><ul id="specifiche-utente-dettaglio-allenamento"><li>' . $queryOverviewAllenamentoResult[0]['username_utente'] . '</li><li>' . $queryOverviewAllenamentoResult[0]['data_creazione'] . '</li><li>' . ($queryOverviewAllenamentoResult[0]['Followers'] == null ? 0 : $queryOverviewAllenamentoResult[0]['Followers']) . '</li></ul><div class="bottoni-allenamenti">';
 				if ($tipoUtente == 1 || ($tipoUtente == 0 && $queryOverviewAllenamentoResult[0]['username_utente'] == $utente)) {
-					$content .= "<a href='modificaAllenamento.php?id=" . $id . "'>Modifica allenamento</a>";
+					$content .= "<ul><li><a href='modificaAllenamento.php?id=" . $id . "'>Modifica allenamento</a></li></ul>";
 					$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "' method='post'><button name='elimina' value='seguire'>Elimina allenamento</button></form>";
 				} elseif ($tipoUtente == 0) {
 					if ($connessione->doReadQuery("SELECT COUNT(*) AS isFollowing FROM utente_allenamento WHERE id_allenamento = ? AND username_utente = ?", "is", $id, $utente)[0]['isFollowing'] == 0) {
 						$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "' method='post'><button name='segui' value='seguire'>Segui</button></form>";
+
 						if ($id == $changes) {
 							$_SESSION['changes'] = false;
-							$content .= "<div><p>Hai smesso di seguire l'allenamento!</p></div>";
+							$content .= "<p class='allenamento-avviso'>Hai smesso di seguire l'allenamento!</p>";
 						}
 					} else {
 						$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "' method='post'><button name='segui' value='nonSeguire'>Smetti di seguire</button></form>";
+
 						if ($id == $changes) {
 							$_SESSION['changes'] = false;
-							$content .= "<div><p>Hai iniziato di seguire l'allenamento!</p></div>";
+							$content .= "<p class='allenamento-avviso'>Hai iniziato a seguire l'allenamento!</p>";
 						}
 					}
 				}
+
+				$content .= "</div><div class='dettagli-allenamento'>";
+
 				foreach ($queryDettaglioAllenamentoResult as $esercizio) {
-					$content .= '<div class="esercizio"><h2>' . $esercizio['nome'] . '</h2><p>' . $esercizio['descrizione'] . '</p><ul><li>' . $esercizio['peso'] . '</li<li>' . $esercizio['serie'] . '</li><li>' . $esercizio['ripetizioni'] . '</li><li>' . ($esercizio['durata'] == null ? "00:00:00" : $esercizio['durata']) . '</li></ul></div>';
+					$content .= '<article><h3>' . $esercizio['nome'] . '</h3><p>' . $esercizio['descrizione'] . '</p><ul><li>Con +' . $esercizio['peso'] . 'kg</li><li>' . $esercizio['serie'] . ' serie</li><li>' . $esercizio['ripetizioni'] . ' ripetizioni</li><li>' . ($esercizio['durata'] == null ? "Durata non specificata" : "Durata di " . $esercizio['durata']) . '</li></ul></article>';
 				}
+				$content .= "</div>";
 			} elseif ($changes) {
-				$content .= "<p>Allenamento eliminato!</p>";
+				$content .= "<p class='allenamento-avviso'>Allenamento eliminato!</p>";
 				$changes = false;
 			} else {
-				$content .= "<p>Sembra che questo allenamento non esista!</p>";
+				$content .= "<p class='allenamento-avviso'>Sembra che questo allenamento non esista!</p>";
 			}
 			$connessione->closeConnection();
 		} else {
-			$content .= "<p>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
+			$content .= "<p class='allenamento-avviso'>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
 		}
 	} else {
-		$content .= "<p>Nessun allenamento indicato!</p>";
+		$content .= "<p class='allenamento-avviso'>Nessun allenamento indicato!</p>";
 	}
-	echo str_replace("<dettaglioAllenamento />", $content, str_replace("<genitoreBreadcrumb/>", "<a href='" . $referer . "'>" . $nomeBreadcrumb . "</a>", file_get_contents("html/dettagli-allenamento.html")));
+
+	$initiate = "";
+	if ($tipoUtente != 2) {
+		$initiate = "<a href='inserimentoAllenamento.php'>Crea allenamento</a>";
+	} else {
+		$initiate = "<a href='autenticazione.php?url=dettaglio-allenamento.php?nomeBreadcrumb=Allenamenti&id=" . $id . "'>Effettua l'autenticazione</a>";
+	}
+
+	$pag = "";
+
+	if ($id > 1) {
+		$pag .= "<li><a href='dettagli-allenamento.php?id=" . $id - 1 . "&nomeBreadcrumb=Dettagli%allenamento&url=dettagli-allenamento.php?'>Precedente</a></li>";
+	}
+	if ($id < $numeroAllenamenti) {
+		$pag .= "<li><a href='dettagli-allenamento.php?id=" . $id + 1 . "&nomeBreadcrumb=Dettagli%allenamento&url=dettagli-allenamento.php'>Successiva</a></li>";
+	}
+
+	echo str_replace("<pagine />", $pag, str_replace("<bottone-iniziale-destra />", $initiate, str_replace("<bottone-iniziale />", $init, str_replace("<dettagli-allenamento />", $content, str_replace("<genitore-breadcrumb />", "<a href='" . $referer . "'>" . $nomeBreadcrumb . "</a>", file_get_contents("html/dettagli-allenamento.html"))))));
 ?>

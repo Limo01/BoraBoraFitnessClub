@@ -57,7 +57,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
                 <input type=\"number\" name=\"ripetizioniEsercizio\" min=\"0\" value=\"0\">
 
                 <label>Durata</label>
-                <input type=\"number\" name=\"durataEsercizio\" min=\"0\", value=\"0\", step=\"0.01\">
+                <input type=\"time\" name=\"durataEsercizio\" min=\"0\", value=\"0:0:0\", step=\"1\">
                 
                 <button name=\"aggiungiEsercizioSubmit\">Aggiungi</button>
             </form>";
@@ -68,7 +68,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
             foreach($eserciziQuery as $row){
                 $optionEsercizio .= "<option value=\"" . $row["nome_esercizio"] . "\">" . $row["nome_esercizio"] . "</option>";
             }
-            $optionEsercizio .= "<button name=\"eliminaEsercizioSubmit\">Elimina</button></select></form>";
+            $optionEsercizio .= "</select><button name=\"eliminaEsercizioSubmit\">Elimina</button></form>";
             $paginaHTML = str_replace("<deleteEsercizio />",$optionEsercizio,$paginaHTML);
             
             //dati scheda
@@ -79,8 +79,25 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
             
             foreach($eserciziQuery as $row){
                 //TODO: non mostrare serie, durata ecc se valore è null
-                $datiScheda .= "<div class=\"esercizio\"><h2>" . $row["nome_esercizio"] ."</h2><ul><li>peso:" . 
-                $row["peso"] . "</li><li>Serie: ". $row["serie"] ."</li><li>ripetizioni: ". $row["ripetizioni"] ."</li><li>durata: ". $row["durata"] ."</li></ul></div>";
+                $datiScheda .= "<div class=\"esercizio\"><h2>" . $row["nome_esercizio"] ."</h2>";
+                $row["peso"] . "</li><li>Serie: ". $row["serie"] ."</li><li>ripetizioni: ". $row["ripetizioni"] ."</li><li>durata: ". $row["durata"] ."</li>";
+                if($row["peso"] != null || $row["serie"] != null || $row["ripetizioni"] != null || $row["durata"] != null ){
+                    $datiScheda .= "<ul>";
+                    if($row["peso"] != null){
+                        $datiScheda .= "<li>Peso: " . $row["peso"] . "</li>";
+                    }
+                    if($row["serie"] != null){
+                        $datiScheda .= "<li>Serie: " . $row["serie"] . "</li>";
+                    }
+                    if($row["ripetizioni"] != null){
+                        $datiScheda .= "<li>Ripetizioni: " . $row["ripetizioni"] . "</li>";
+                    }
+                    if($row["durata"] != null){
+                        $datiScheda .= "<li>Durata: " . $row["durata"] . "</li>";
+                    }
+                    $datiScheda .= "</ul>";
+                }
+                $datiScheda .= "</div>";
             }
             
             $datiScheda .= "</div>";
