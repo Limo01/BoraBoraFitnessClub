@@ -24,7 +24,8 @@
 		die("Errore: il redirect è stato disabilitato");
 	}
 
-	$paginaHTML = file_get_contents("html/area-personale.html");
+	$paginaHTML = file_get_contents("html/modifica-utente.html");
+	$paginaHTML = str_replace("<username />", $user, $paginaHTML);
 
 	$updatePersonalData = false;
 	if(isset($_GET["update"]) and $_GET["update"]==1){

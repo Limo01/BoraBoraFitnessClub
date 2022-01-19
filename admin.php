@@ -13,6 +13,7 @@
 	}
 
 	$paginaHTML = file_get_contents("html/admin.html");
+	$paginaHTML = str_replace("<username />", $user, $paginaHTML);
 
 	$connessione = new DBAccess();
 	$connessioneOK = $connessione->openDBConnection();
