@@ -68,7 +68,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
             foreach($eserciziQuery as $row){
                 $optionEsercizio .= "<option value=\"" . $row["nome_esercizio"] . "\">" . $row["nome_esercizio"] . "</option>";
             }
-            $optionEsercizio .= "<button name=\"eliminaEsercizioSubmit\">Elimina</button></select></form>";
+            $optionEsercizio .= "</select><button name=\"eliminaEsercizioSubmit\">Elimina</button></form>";
             $paginaHTML = str_replace("<deleteEsercizio />",$optionEsercizio,$paginaHTML);
             
             //dati scheda
