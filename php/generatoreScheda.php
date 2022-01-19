@@ -5,8 +5,8 @@
     if (isset($_POST['creaSchedaSubmit'])) {
         if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
 
-            $nome = $_POST["nomeScheda"];
-            $descrizione = $_POST["descrizioneScheda"];
+            $nome = htmlspecialchars($_POST["nomeScheda"]);
+            $descrizione = htmlspecialchars($_POST["descrizioneScheda"]);
             if (isset($_POST["usernameScheda"])) {
                 $username = $_POST["usernameScheda"];
             } else {
@@ -73,7 +73,7 @@
                 $schedaQuery = $connessione->doReadQuery("SELECT * from allenamento where id=?", "i", $_GET["id"]);
                 if(($schedaQuery != null) && ($is_adminQuery[0]["is_admin"] == true || $schedaQuery[0]["username_utente"] == $_SESSION["username"])){
                     $idScheda = $_GET["id"];
-                    $nomeEsercizio = $_POST["nomeEsercizio"];
+                    $nomeEsercizio = htmlspecialchars($_POST["nomeEsercizio"]);
                     $peso = $_POST["pesoEsercizio"] == 0 ? null : $_POST["pesoEsercizio"];
                     $ripetizioni = $_POST["ripetizioniEsercizio"] == 0 ? null : $_POST["ripetizioniEsercizio"];
                     $serie = $_POST["serieEsercizio"] == 0 ? null : $_POST["serieEsercizio"];

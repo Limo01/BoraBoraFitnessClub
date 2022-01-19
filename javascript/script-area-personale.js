@@ -10,6 +10,18 @@ function check_validity_nome(e){
 	}
 }
 
+function check_validity_username(e){
+	var spanErrore= document.getElementById("errore_username");
+
+	if(!e.target.checkValidity()){
+		spanErrore.innerHTML= "Lo username inserito non è valido. Deve contenere solo lettere e numeri, senza caratteri speciali (? , * ; + .).";
+	}
+	else{
+		document.getElementById("username").setCustomValidity("");
+		spanErrore.innerHTML= "";
+	}
+}
+
 function check_validity_cognome(e){
 	var spanErrore= document.getElementById("errore_cognome");
 
