@@ -115,14 +115,14 @@
 	$minScorri = $minNavPag <= $pagina? $minNavPag : $pagina - 1;
 
 	$contentPagine = "";
-	for ($i = 1; $i < $pagina - $minScorri > 0 ? $pagina - $minScorri : 1 && $i < $minNavPag; $i++) {
+	/*for ($i = 1; $i < (($pagina - $minScorri > 0) ? $pagina - $minScorri : 1) && $i < $minNavPag; $i++) {
 		$j = $ + 1;
 		if ($j < $pagina - $minScorri > 0 ? $pagina - $minScorri : 1 && $j < $minNavPag) {
 	   		$contentPagine .= "<li><a href='allenamenti.php?pagina=" . $i . "'>" . $i . "</a></li>";
 		} else {
 	   		$contentPagine .= "<li id='fine-pagine-iniziali'><a href='allenamenti.php?pagina=" . $i . "'>" . $i . "</a></li>";
 	    }
-	}
+	}*/
 	for ($i = $pagina - $minScorri > 0 ? $pagina - $minScorri : 1; $i < $pagina; $i++) {
 	   	$contentPagine .= "<li><a href='allenamenti.php?pagina=" . $i . "'>" . $i . "</a></li>";
 	}

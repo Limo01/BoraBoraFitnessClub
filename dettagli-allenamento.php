@@ -113,10 +113,10 @@
 	$pag = "";
 
 	if ($id > 1) {
-		$pag .= "<li><a href='dettagli-allenamento.php?id=" . $id - 1 . "&nomeBreadcrumb=Dettagli%allenamento&url=dettagli-allenamento.php?'>Precedente</a></li>";
+		$pag .= "<li><a href=''>Precedente" . ($id - 1) . "</a></li>";
 	}
 	if ($id < $numeroAllenamenti) {
-		$pag .= "<li><a href='dettagli-allenamento.php?id=" . $id + 1 . "&nomeBreadcrumb=Dettagli%allenamento&url=dettagli-allenamento.php'>Successiva</a></li>";
+		$pag .= "<li><a href=''>Precedente" . ($id + 1) . "</a></li>";
 	}
 
 	echo str_replace("<pagine />", $pag, str_replace("<bottone-iniziale-destra />", $initiate, str_replace("<bottone-iniziale />", $init, str_replace("<dettagli-allenamento />", $content, str_replace("<genitore-breadcrumb />", "<a href='" . $referer . "'>" . $nomeBreadcrumb . "</a>", file_get_contents("html/dettagli-allenamento.html"))))));
