@@ -5,12 +5,19 @@
 
 	session_start();
 
+	if (isset($_GET["update"]) && ($_GET["update"] == 1 || $_GET["update"] == 0)) {
+		$update = $_GET["update"];
+	} else {
+		die("Si è verificato un errore");
+	}
+
 	$connessione = new DBAccess();
 	$connessioneOK = $connessione->openDBConnection();
 
 	if ($connessioneOK) {
 		if (isset($_SESSION["loggedin"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
 			$user = $_SESSION["username"];
+			$admin = $user;
 			$hasUsr = false;
 			if (
 				isset($_GET["usr"]) &&
@@ -37,7 +44,11 @@
 			$connessione->closeConnection();
 
 			if ($esito) {
-				header("location: ../" . ($hasUsr ? "modifica-utente.php?usr=" . $user : "area-personale.php"));
+				if ($update == 0) {
+					header("location: ../" . ($hasUsr ? "modifica-utente.php?usr=" . $user . "&" : "area-personale.php?") . "update=2");
+				} else {
+					header("location: ../" . ($hasUsr ? "modifica-utente.php?usr=" . $user : "area-personale.php"));
+				}
 				return;
 			}
 		}
@@ -45,5 +56,5 @@
 			$connessione->closeConnection();
 		}
 	}
-	header("location: ../" . ($hasUsr ? "modifica-utente.php?usr=" . $user . "&" : "area-personale.php?") . "update=1&form_error=1");
+	header("location: ../" . ($hasUsr ? "modifica-utente.php?usr=" . $user . "&" : "area-personale.php?") . "update=" . $update . "&form_error=1");
 ?>
