@@ -1057,9 +1057,28 @@ div div .gallery {
 }
 
 /*==================== STILE AREA PERSONALE ADMIN ====================*/
-<<<<<<< HEAD
 
+#content #widget_area_personale_admin {
+	background-color: transparent;
+	display: grid;
+	grid-gap: 3em;
+	padding: 0;
+	grid-template-areas:
+		"c d"
+		"c d"
+		"a b";
+}
 
+#widget_area_personale_admin .widget {
+	background-color: var(--colore-sfondo-div);
+	border-radius: 2em;
+	padding: 2em;
+	width: 88%;
+}
+
+#gestione_utenti {
+	grid-area: d;
+}
 
 /*==================== ALLENAMENTI ====================*/
 
@@ -1189,26 +1208,3 @@ div div .gallery {
 #titolo-dettagli-allenamento {
 	margin-right: 10%;
 }
-=======
-#content #widget_area_personale_admin {
-	background-color: transparent;
-	display: grid;
-	grid-gap: 3em;
-	padding: 0;
-	grid-template-areas:
-		"c d"
-		"c d"
-		"a b";
-}
-
-#widget_area_personale_admin .widget {
-	background-color: var(--colore-sfondo-div);
-	border-radius: 2em;
-	padding: 2em;
-	width: 88%;
-}
-
-#gestione_utenti {
-	grid-area: d;
-}
->>>>>>> e2ff6ad8722f74b6be5cbce6fe8e8f0048633b49
