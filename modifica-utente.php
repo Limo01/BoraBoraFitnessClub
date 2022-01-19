@@ -26,10 +26,20 @@
 
 	$paginaHTML = file_get_contents("html/modifica-utente.html");
 	$paginaHTML = str_replace("<username />", $user, $paginaHTML);
-
+	
+	$update = -1;
 	$updatePersonalData = false;
-	if(isset($_GET["update"]) and $_GET["update"]==1){
-		$updatePersonalData= true;
+	$updateSubscription = false;
+	if(isset($_GET["update"])) {
+		$update = $_GET["update"];
+		if ($update == 1) {
+			$updatePersonalData = true;
+		} elseif ($update == 2) {
+			$updateSubscription = true;
+		} elseif ($update == 0) {
+			$updatePersonalData = true;
+			$updateSubscription = true;
+		}
 	}
 	
 	$formError = false;
@@ -54,14 +64,20 @@
 			$ultimoIngresso = $ultimoIngresso[0];
  		}
 
-		$schedeSeguite =  $connessione->doReadQuery("SELECT id, nome, descrizione FROM utente_allenamento JOIN allenamento ON (utente_allenamento.id_allenamento=allenamento.id) WHERE utente_allenamento.username_utente=? AND utente_allenamento.username_utente!=allenamento.username_utente", "s", $user);
+		$schedeSeguite = $connessione->doReadQuery("SELECT id, nome, descrizione FROM utente_allenamento JOIN allenamento ON (utente_allenamento.id_allenamento=allenamento.id) WHERE utente_allenamento.username_utente=? AND utente_allenamento.username_utente!=allenamento.username_utente", "s", $user);
 
 		$schedeCreate = $connessione->doReadQuery("SELECT id, nome, descrizione FROM allenamento WHERE allenamento.username_utente=?", "s", $user);
+
+		if ($updateSubscription) {
+			$abbonamenti = $connessione->doReadQuery("SELECT nome FROM abbonamento");
+		}
 
 		$connessione->closeConnection();
 
 		//Informazioni personali
 		if(!$updatePersonalData){
+			$update = ($update > 0 ? 0 : 1);
+
 			$personalData= 
 			"<dl class=\"dl_inline\">
 				<dt>Nome</dt>
@@ -94,7 +110,7 @@
 					<badge />
 				</dd>
 			</dl>
-			<a href=\"modifica-utente.php?usr=" . $user . "&update=1\">
+			<a href=\"modifica-utente.php?usr=" . $user . "&update=" . $update . "\">
 				<button id=\"buttonModDati\">Modifica</button>
 			</a>";
 		}
@@ -106,7 +122,7 @@
 			}
 
 			$personalData= $personalData . 
-				"<form action=\"php/modifica_dati_personali.php?usr=" . $user . "\" method=\"post\">
+				"<form action=\"php/modifica_dati_personali.php?update=" . $update . "&usr=" . $user . "\" method=\"post\">
 					<label for=\"nome\">Nome</label>
 					<input type=\"text\" id=\"nome\" name=\"nome\" value=\"<nome />\" required pattern=\"^[a-zA-Z-' àèìòùáéíóú]*$\" onblur=\"check_validity_nome(event)\" >
 					<p id=\"errore_nome\"class=\"errore_form\"></p>
@@ -130,16 +146,70 @@
 					<button>Conferma modifica</button>
 				</form>";
 		}
-
+		
 		$paginaHTML = str_replace("<dati_personali />", $personalData, $paginaHTML);
-
+		
 		$paginaHTML = str_replace("<nome />", $datiPersonali["nome"], $paginaHTML);
 		$paginaHTML = str_replace("<cognome />", $datiPersonali["cognome"], $paginaHTML);
 		$paginaHTML = str_replace("<email />", $datiPersonali["email"], $paginaHTML);
 		$paginaHTML = str_replace("<numero_telefono />", $datiPersonali["numero_telefono"], $paginaHTML);
 		$paginaHTML = str_replace("<data_nascita />", $datiPersonali["data_nascita"], $paginaHTML);
 		$paginaHTML = str_replace("<badge />", $datiPersonali["badge"], $paginaHTML);		
+		
+		//Dettagli abbonamento
+		if (!$updateSubscription) {
+			$update = ($update > 0 ? 0 : 2);
 
+			$dettagli_abbonamento = '
+				<dl class="dl_inline">
+					<dt>Abbonamento attivo</dt>
+					<dd>
+						<abbonamento />
+					</dd>
+
+					<dt>Scadenza</dt>
+					<dd>
+						<scadenza_abbonamento />
+					</dd>
+
+					<dt>Entrate singole disponibili</dt>
+					<dd>
+						<entrate />
+					</dd>
+				</dl>
+
+				<a href="modifica-utente.php?usr=' . $user . '&update=' . $update . '">Modifica</a>
+			';
+		} else {
+			$abbonamentoCorrente = $datiPersonali["nome_abbonamento"];
+			$abbonamentiOptions = "<option value='Nessuno'" . ($abbonamentoCorrente == null ? " selected='selected'" : "") . ">Nessuno</option>";
+			foreach ($abbonamenti as $abbonamento) {
+				$abbonamento = $abbonamento["nome"];
+				$abbonamentiOptions .= "<option value='" . $abbonamento . ($abbonamentoCorrente == $abbonamento ? "' selected='selected'" : "'") . ">" . $abbonamento . "</option>";
+			}
+
+			$dettagli_abbonamento = "
+				<form action=\"php/modifica_dati_personali.php?update=" . $update . "&usr=" . $user . "\" method=\"post\">
+					<label for=\"abbonamento\">Abbonamento attivo</label>
+					
+					<select name='abbonamento' id='abbonamento' required>
+						" . $abbonamentiOptions . "
+					</select>
+					
+					<label for=\"scadenza\">Scadenza</label>
+					<input type=\"date\" name=\"scadenza\" id=\"scadenza\" value=\"<scadenza_abbonamento />\" required >
+					<p id=\"errore_scadenza\"class=\"errore_form\"></p>
+					
+					<label for=\"entrate\">Entrate singole disponibili</label>
+					<input type=\"number\" name=\"entrate\" id=\"entrate\" value=\"<entrate />\" required >
+					<p id=\"errore_entrate\"class=\"errore_form\"></p>
+
+					<button>Conferma modifica</button>
+				</form>
+			";
+		}
+		$paginaHTML = str_replace("<dettagli_abbonamento />", $dettagli_abbonamento, $paginaHTML);
+		
 		//Riempimento dati abbonamento
 		if($datiPersonali["nome_abbonamento"] == null){
 			$paginaHTML = str_replace("<abbonamento />", "Nessuno", $paginaHTML);
@@ -150,7 +220,7 @@
 			$paginaHTML = str_replace("<scadenza_abbonamento />", $datiPersonali["data_fine"], $paginaHTML);
 		}
 		$paginaHTML= str_replace("<entrate />", $datiPersonali["entrate"], $paginaHTML);
-
+		
 		//Riempimento dati ultimo ingresso
 		if($ultimoIngresso == null){
 			$paginaHTML = str_replace("<data_ingresso />", "Nessuna", $paginaHTML);
