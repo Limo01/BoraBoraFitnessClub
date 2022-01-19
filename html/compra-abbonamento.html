@@ -3,18 +3,17 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>Area personale - Bora Bora Fitness Club</title>
-	<meta name="keywords" content="area personale, profilo, allenamenti, bora bora, fitness club" />
-	<meta name="description"
-		content="Area personale in cui visualizzare e modificare le proprie informazioni, abbonamenti e allenamenti" />
+	<title>Bora Bora Fitness Club</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
 	<meta name="author" content="Adnan Latif Gazi, Alberto Lazari, Marco Andrea Limongelli, Francesco Protopapa" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<link rel="stylesheet" media="screen" href="css/style.css" />
 	<link rel="stylesheet" media="screen and (max-width:600px), only screen and (max-width:600px)"
 		href="css/mobile.css" />
 
 	<script src="javascript/darkmode.js"></script>
-	<script src="javascript/script-area-personale.js"></script>
 </head>
 
 <body>
@@ -23,7 +22,7 @@
 	</header>
 
 	<nav id="breadcrumb">
-		<p>Ti trovi in: <a href="./" lang="en">Home</a> &gt;&gt; Area personale</p>
+		<p>Ti trovi in: <a lang="en" href="./">Home</a> &gt;&gt; <a lang="en" href="abbonamenti.html">Abbonamenti</a> &gt;&gt; Compra abbonamento</p>
 	</nav>
 
 	<a class="aiuti" href="#content">
@@ -36,13 +35,13 @@
 		<nav id="menu">
 			<ul>
 				<li lang="en"><a href="./">Home</a></li>
-				<li><a href="abbonamenti.html">Abbonamenti</a></li>
+				<li ><a href="abbonamenti.html">Abbonamenti</a></li>
 				<li lang="en"><a href="personal-trainer.html">Trainers</a></li>
 				<li><a href="attrezzature.html">Attrezzature</a></li>
 				<li><a href="allenamenti.php">Allenamenti</a></li>
 				<li><a href="storia.html">Storia</a></li>
 				<li><a href="galleria.html">Galleria</a></li>
-				<li id="userIcon" class="hide"><span id="currentLink">Area personale</span></li>
+				<li id="userIcon" class="hide"><a href="area-personale.php">Area personale</a></li>
 			</ul>
 		</nav>
 
@@ -56,69 +55,27 @@
 
 	<div id="content">
 		<div id="titolo">
-			<h1>
-				<username /> - Area personale
-			</h1>
-			<h1>Area personale</h1>
+			<h1>Acquista il tuo abbonamento</h1>
 		</div>
 
-		<div id="widget_area_personale">
-			<div id="dati_personali" class="widget">
-				<h2>Dati personali</h2>
+		<div id="acquisto_abbonamento">
+			<h2>Conferma acquisto</h2>
 
-				<dati_personali />
-			</div>
+			<messaggio_abbonamento_presente />
 
-			<div id="dettagli_abbonamento" class="widget">
-				<h2>Dettagli abbonamento</h2>
-				<dl class="dl_inline">
-					<dt>Tipo abbonamento</dt>
-					<dd>
-						<abbonamento />
-					</dd>
+			<form action="php/conferma-acquisto.php" method="post" id="form_acquisto">
+				<label for="tipo-abbonamento">Scegli il tipo di abbonamento</label>
+				
+				<select id="tipo-abbonamento" name="tipo-abbonamento">
+					<option value="singola">Entrata singola - 7$</option>
+					<option value="dieci-entrate">Pacchetto 10 entrate - 50$</option>
+					<option value="mensile">Mensile - 80$</option>
+					<option value="annuale">Annuale - 760$</option>					
+				</select>
 
-					<dt>Scadenza</dt>
-					<dd>
-						<scadenza_abbonamento />
-					</dd>
-
-					<dt>Entrate singole disponibili</dt>
-					<dd>
-						<entrate />
-					</dd>
-				</dl>
-				<avviso_acquisto />
-				<avviso_abbonamento />
-			</div>
-
-			<div id="ultimo-ingresso" class="widget">
-				<h2>Ultimo accesso</h2>
-				<dl class="dl_inline">
-					<dt>Data</dt>
-					<dd>
-						<data_ingresso />
-					</dd>
-
-					<dt>Ora</dt>
-					<dd>
-						<ora_ingresso />
-					</dd>
-				</dl>
-			</div>
-		</div>
-
-		<div id="schede_allenamento">
-			<h2>Schede allenamento</h2>
-
-			<div id="schede_seguite">
-				<h3>Schede seguite</h3>
-				<allenamenti_seguiti />
-			</div>
-
-			<div id="schede_create">
-				<h3>Schede create</h3>
-				<allenamenti_creati />
-			</div>
+				<button>Conferma</button>				
+			</form>
+			<a id="annulla" href="abbonamenti.html">Annulla</a>
 		</div>
 	</div>
 

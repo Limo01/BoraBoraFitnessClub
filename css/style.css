@@ -301,7 +301,6 @@ input:checked + .slider:before {
 	color: var(--colore-testo-principale);
 }
 
-/*roba agggiunta*/
 #content p,
 #content dl,
 #content form {
@@ -318,7 +317,6 @@ input:checked + .slider:before {
 #content dt {
 	font-weight: bold;
 }
-/*fine roba agggiunta*/
 
 #content img {
 	border-radius: 2em;
@@ -326,6 +324,10 @@ input:checked + .slider:before {
 
 #content li {
 	font-size: 1.1em;
+}
+
+#content label:after{
+	content: ":";
 }
 
 #titolo h2 {
@@ -369,10 +371,6 @@ footer .social {
 		"d e f";
 }
 
-#motivazioni p,
-#motivazioni h3 {
-	color: var(--colore-testo-principale);
-}
 #motivazionePT {
 	grid-area: a;
 }
@@ -496,6 +494,16 @@ footer .social {
 	margin-top: 0;
 }
 
+#link_compra_abbonamento{
+	display: block;
+	color: var(--colore-testo-contrasto-sfondi);
+	background-color: var(--colore-testo-principale);
+	padding: 1em;
+	border-radius: 2em;
+	font-size: 1.3em;
+	margin-top: 2em;
+}
+
 #resortPass ul {
 	display: inline-block;
 	margin-top: 1.5em;
@@ -600,7 +608,7 @@ small {
 	border-radius: 2em;
 }
 
-#content .attrezzature h2 {
+#content .attrezzature h2{
 	font-size: 3.2em;
 }
 
@@ -999,14 +1007,11 @@ div div .gallery {
 #dati_personali form {
 	width: 60%;
 	text-align: left;
+	margin-bottom: 1em;
 }
 
 #dati_personali form label {
 	font-weight: bold;
-}
-
-#dati_personali label::after {
-	content: ": ";
 }
 
 #dati_personali input {
@@ -1047,14 +1052,78 @@ div div .gallery {
 	font-size: 1.5em;
 }
 
-#dati_personali button {
+#dati_personali button{
 	text-align: center;
 	display: block;
 }
 
-#dati_personali dl {
+#dati_personali dl{
 	margin-top: 3em;
 }
+
+#content #dettagli_abbonamento p{
+	text-align: center;
+}
+
+#dettagli_abbonamento #avviso_abbonamento{
+	color: red;
+}
+
+#dettagli_abbonamento #avviso_acquisto{
+	color: green;
+}
+
+/*==================== STILE ACQUISTO ABBONAMENTO ====================*/
+#acquisto_abbonamento form{
+	text-align: center;
+	margin-top: 1.5em;
+}
+
+#annulla{
+	text-align: center;
+	display: block;
+	margin-top: 2em;
+}
+
+#acquisto_abbonamento p{
+	text-align: center;
+}
+
+/*==================== STILE CONFERMA ACQUISTO =======================*/
+#content #caricamento {
+	margin-top: 1em;
+	width: 100%;
+	height: 30px;
+	border: 1px solid var(--colore-testo-principale);
+	border-radius: 7px;
+	padding: 4px;
+}
+
+#content #progressBar {
+	margin: 0;
+	width: 0%;
+	height: 100%;
+	background-color: var(--colore-background-menu);
+	animation-name: progressBarAnimation;
+	animation-iteration-count: 1;
+	animation-duration: 8s;
+}
+
+#content #avviso_pagamento{
+	text-align: center;
+	margin-top: 2em;
+	display: none;
+}
+
+@keyframes progressBarAnimation {
+	0% {
+		width: 0%;
+	}  
+	100% {
+		width: 100%;
+	}
+}
+
 /*==================== STILE AREA PERSONALE ADMIN ====================*/
 
 #content #widget_area_personale_admin {

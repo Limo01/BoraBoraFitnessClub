@@ -116,7 +116,8 @@
 					<p id=\"errore_data_nascita\"class=\"errore_form\"></p>
 					
 					<button>Conferma modifica</button>
-				</form>";
+				</form>
+				<a href=\"area-personale.php\">Annulla</a>";
 		}
 
 		$paginaHTML = str_replace("<dati_personali />", $personalData, $paginaHTML);
@@ -138,6 +139,20 @@
 			$paginaHTML = str_replace("<scadenza_abbonamento />", $datiPersonali["data_fine"], $paginaHTML);
 		}
 		$paginaHTML= str_replace("<entrate />", $datiPersonali["entrate"], $paginaHTML);
+
+		if(isset($_GET["acquisto"]) && $_GET["acquisto"]==1){
+			$paginaHTML= str_replace("<avviso_acquisto />", "<p id=\"avviso_acquisto\">Hai appena effettutato un acquisto!</p>", $paginaHTML);
+		}
+		else{
+			$paginaHTML= str_replace("<avviso_acquisto />", "", $paginaHTML);
+		}
+
+		if($datiPersonali["data_fine"]!=null && $datiPersonali["data_fine"] < date("Y-m-d")){
+			$paginaHTML= str_replace("<avviso_abbonamento />", "<p id=\"avviso_abbonamento\">Attenzione! Il tuo abbonamenoto è scaduto.</p>", $paginaHTML);
+		}
+		else{
+			$paginaHTML= str_replace("<avviso_abbonamento />", "", $paginaHTML);
+		}
 
 		//Riempimento dati ultimo ingresso
 		if($ultimoIngresso == null){
