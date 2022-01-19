@@ -35,7 +35,7 @@
 	}
 
 	function isUsernameValid ($name){
-		if (preg_match("/^[0-9-a-zA-Z-' àèìòùáéíóú]*$/",$name)){
+		if (preg_match("/^[0-9a-zA-Z-' àèìòùáéíóú]*$/",$name)){
 			return true;
 		}
 		else {
