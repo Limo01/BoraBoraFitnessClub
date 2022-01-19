@@ -76,6 +76,7 @@
 
 		//Informazioni personali
 		if(!$updatePersonalData){
+			$oldUpdate = $update;
 			$update = ($update > 0 ? 0 : 1);
 
 			$personalData= 
@@ -113,6 +114,8 @@
 			<a href=\"modifica-utente.php?usr=" . $user . "&update=" . $update . "\">
 				<button id=\"buttonModDati\">Modifica</button>
 			</a>";
+
+			$update = $oldUpdate;
 		}
 		else{
 			$personalData= "";
@@ -158,6 +161,7 @@
 		
 		//Dettagli abbonamento
 		if (!$updateSubscription) {
+			$oldUpdate = $update;
 			$update = ($update > 0 ? 0 : 2);
 
 			$dettagli_abbonamento = '
@@ -180,6 +184,8 @@
 
 				<a href="modifica-utente.php?usr=' . $user . '&update=' . $update . '">Modifica</a>
 			';
+
+			$update = $oldUpdate;
 		} else {
 			$abbonamentoCorrente = $datiPersonali["nome_abbonamento"];
 			$abbonamentiOptions = "<option value='Nessuno'" . ($abbonamentoCorrente == null ? " selected='selected'" : "") . ">Nessuno</option>";
