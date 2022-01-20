@@ -26,7 +26,7 @@
 	}
 
 	function isAdmin($user, $connessione) {
-		$result = $connessione->doReadQuery("SELECT is_admin FROM utente", "s", $user);
+		$result = $connessione->doReadQuery("SELECT is_admin FROM utente WHERE username = ?", "s", $user);
 		if ($result != null) {
 			return $result[0]["is_admin"];
 		} else {
