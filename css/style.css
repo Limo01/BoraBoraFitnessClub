@@ -1284,3 +1284,28 @@ div div .gallery {
 #titolo-dettagli-allenamento {
 	margin-right: 10%;
 }
+
+/* tornaSu -------------------------------*/
+
+#tornaSu {
+    display: none;
+    position: fixed;
+    bottom: 2em;
+    right: 10%;
+    z-index: 99;
+    height: 4em;
+    width: 4em;
+    background-color: var(--colore-sfondo-article-p);
+    border-radius: 10px;
+    opacity: 0.9;
+}
+
+#tornaSu a img {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+#tornaSu:hover {
+    opacity: 1;
+}

@@ -1,3 +1,21 @@
+/* Feature Detection --------------------------------- */
+
+let passiveSupported = false;
+
+try {
+    const options = {
+        get passive() {
+            passiveSupported = true;
+            return false;
+        }
+    };
+
+    window.addEventListener("test", null, options);
+    window.removeEventListener("test", null, options);
+} catch (err) {
+    passiveSupported = false;
+}
+
 function menuClickEvent(){
 	if(sessionStorage.getItem('menuDisplay') == 'yes'){
 		window.sessionStorage.setItem('menuDisplay', 'no');
@@ -58,3 +76,12 @@ window.onload= function(){
 	//per il menu a comparsa
 	window.sessionStorage.setItem('menuDisplay', 'no');
 }
+
+window.addEventListener("scroll", function () {
+    elem = document.getElementById("tornaSu");
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        elem.style.display = "block";
+    } else {
+        elem.style.display = "none";
+    }
+}, passiveSupported ? {passive: true} : false);
