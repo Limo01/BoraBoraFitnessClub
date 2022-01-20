@@ -59,7 +59,7 @@
 		//Informazioni personali
 		$update = 1;
 		if(!$updatePersonalData){
-			$button .= '
+			$button = '
 				<a href="area-personale.php?&update=<update />">
 					<button id="buttonModDati">Modifica</button>
 				</a>

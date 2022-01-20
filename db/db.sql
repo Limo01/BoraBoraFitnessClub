@@ -1,6 +1,3 @@
-
--- creazione db
-
 drop table if exists abbonamento;
 drop table if exists utente;
 drop table if exists accesso;
@@ -111,8 +108,6 @@ create table esercizio(
     
     primary key(id_allenamento, nome)
 );
-
--- popolamento db
 
 insert into abbonamento(nome, prezzo)
 values ('Mensile', 80),

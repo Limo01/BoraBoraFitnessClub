@@ -74,7 +74,7 @@
 
 		//Informazioni personali
 		if(!$updatePersonalData){
-			$button .= '
+			$button = '
 				<a href="modifica-utente.php?usr=<username />&update=
 				<update />">
 					<button id="buttonModDati">Modifica</button>

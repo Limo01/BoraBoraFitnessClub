@@ -92,7 +92,7 @@
 		//Informazioni personali
 		$update = 1;
 		if(!$updatePersonalData){
-			$button .= '
+			$button = '
 				<a href="admin.php?&update=<update />">
 					<button id="buttonModDati">Modifica</button>
 				</a>
