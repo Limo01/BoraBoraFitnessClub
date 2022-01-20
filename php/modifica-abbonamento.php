@@ -39,27 +39,22 @@
 
 	if ($connessioneOK) {
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
-			$nome = $_POST["nome"];
-			$cognome = $_POST["cognome"];
-			$email = $_POST["email"];
-			$data_nascita = $_POST["data_nascita"];
-			$telefono = $_POST["telefono"];
+			$abbonamento = $_POST["abbonamento"];
+			$scadenza = $_POST["scadenza"];
+			$entrate = $_POST["entrate"];
 
 			$esito = false;
-
-			if(isNameValid($nome) && isNameValid($cognome) && isEmailValid($email) && isDateValid($data_nascita) && isPhoneNumberValid($telefono)){
-				$esito= $connessione->doWriteQuery("UPDATE utente SET nome=?, cognome=?, email=?, data_nascita=?, numero_telefono=?
-					WHERE username=?", "ssssss", 
-					$nome, $cognome, $email, $data_nascita, $telefono, $user);
-			}
+			//if(isScadenzaValid($scadenza) && isEntrateValid($entrate)) {		TODO: funzioni per il check
+				$esito = $connessione->doWriteQuery("UPDATE utente SET nome_abbonamento = ?, data_inizio = CURRENT_DATE(), data_fine = DATE_ADD(CURRENT_DATE(), INTERVAL 1 MONTH) entrate = ? WHERE username = ?", "is", $entrate, $user);
+			//}
 
 			$connessione->closeConnection();
 
 			if ($esito) {
 				if ($update == 0) {
-					header("location: ../" . ($hasUsr ? "modifica-utente.php?usr=" . $user . "&" : "area-personale.php?") . "update=2");
+					header("location: ../modifica-utente.php?usr=" . $user . "&update=1");
 				} else {
-					header("location: ../" . ($hasUsr ? "modifica-utente.php?usr=" . $user : "area-personale.php"));
+					header("location: ../modifica-utente.php?usr=" . $user);
 				}
 				return;
 			}
@@ -68,5 +63,5 @@
 			$connessione->closeConnection();
 		}
 	}
-	header("location: ../" . ($hasUsr ? "modifica-utente.php?usr=" . $user . "&" : "area-personale.php?") . "update=" . $update . "&form_error=1");
+	header("location: ../modifica-utente.php?usr=" . $user . "&update=" . $update . "&form_error=1");
 ?>

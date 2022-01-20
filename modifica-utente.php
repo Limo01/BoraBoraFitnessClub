@@ -75,78 +75,21 @@
 
 		//Informazioni personali
 		if(!$updatePersonalData){
-			$oldUpdate = $update;
-			$update = ($update > 0 ? 0 : 1);
-
-			$personalData= 
-			"<dl class=\"dl_inline\">
-				<dt>Nome</dt>
-				<dd>
-					<nome />
-				</dd>
-
-				<dt>Cognome</dt>
-				<dd>
-					<cognome />
-				</dd>
-
-				<dt>Email</dt>
-				<dd>
-					<email />
-				</dd>
-
-				<dt>Telefono</dt>
-				<dd>
-					<numero_telefono />
-				</dd>
-
-				<dt>Data di nascita</dt>
-				<dd>
-					<data_nascita />
-				</dd>
-
-				<dt>Badge ID</dt>
-				<dd>
-					<badge />
-				</dd>
-			</dl>
-			<a href=\"modifica-utente.php?usr=" . $user . "&update=" . $update . "\">
-				<button id=\"buttonModDati\">Modifica</button>
-			</a>";
-
-			$update = $oldUpdate;
+			$personalData = str_replace("<update />", ($update > 0 ? 0 : 1), file_get_contents("html/dati_personali.html"));
+			$personalData .= '
+			<a href="modifica-utente.php?usr=<username />&update=
+			<update />">
+				<button id="buttonModDati">Modifica</button>
+			</a>';
 		}
 		else{
-			$personalData= "";
+			$personalData = "";
 			
 			if($formError){
-				$personalData = $personalData . "<p id=\"errore_form\" class'alert'>Si è verificato un errore nella procedura, oppure i dati inseriti non sono validi.</p>";
+				$personalData .= "<p id=\"errore_form\" class'alert'>Si è verificato un errore nella procedura, oppure i dati inseriti non sono validi.</p>";
 			}
 
-			$personalData= $personalData . 
-				"<form action=\"php/modifica_dati_personali.php?update=" . $update . "&usr=" . $user . "\" method=\"post\">
-					<label for=\"nome\">Nome</label>
-					<input type=\"text\" id=\"nome\" name=\"nome\" value=\"<nome />\" required pattern=\"^[a-zA-Z-' àèìòùáéíóú]*$\" onblur=\"check_validity_nome(event)\" >
-					<p id=\"errore_nome\"class=\"errore_form\"></p>
-					
-					<label for=\"cognome\">Cognome</label>
-					<input type=\"text\" id=\"cognome\" name=\"cognome\" value=\"<cognome />\" required pattern=\"^[a-zA-Z-' àèìòùáéíóú]*$\" onblur=\"check_validity_cognome(event)\">
-					<p id=\"errore_cognome\"class=\"errore_form\"></p>
-					
-					<label for=\"email\">Email</label>
-					<input type=\"email\" id=\"email\" name=\"email\" value=\"<email />\" required onblur=\"check_validity_email(event)\">
-					<p id=\"errore_email\"class=\"errore_form\"></p>
-
-					<label for=\"telefono\">Numero di telefono</label>
-					<input type=\"text\" id=\"telefono\" name=\"telefono\" value=\"<numero_telefono />\" required pattern=\"^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$\" onblur=\"check_validity_telefono(event)\">
-					<p id=\"errore_telefono\"class=\"errore_form\"></p>
-
-					<label for=\"data_nascita\">Data di nascita</label>
-					<input type=\"date\" id=\"data_nascita\" name=\"data_nascita\" value=\"<data_nascita />\" required onblur=\"check_validity_data_nascita(event)\">
-					<p id=\"errore_data_nascita\"class=\"errore_form\"></p>
-					
-					<button>Conferma modifica</button>
-				</form>";
+			$personalData .= str_replace("<update />", $update, file_get_contents("html/dati_personali_update.html"));
 		}
 		
 		$paginaHTML = str_replace("<dati_personali />", $personalData, $paginaHTML);
@@ -156,7 +99,7 @@
 		$paginaHTML = str_replace("<email />", $datiPersonali["email"], $paginaHTML);
 		$paginaHTML = str_replace("<numero_telefono />", $datiPersonali["numero_telefono"], $paginaHTML);
 		$paginaHTML = str_replace("<data_nascita />", $datiPersonali["data_nascita"], $paginaHTML);
-		$paginaHTML = str_replace("<badge />", $datiPersonali["badge"], $paginaHTML);		
+		$paginaHTML = str_replace("<badge />", $datiPersonali["badge"], $paginaHTML);
 		
 		//Dettagli abbonamento
 		if (!$updateSubscription) {
@@ -170,7 +113,12 @@
 						<abbonamento />
 					</dd>
 
-					<dt>Scadenza</dt>
+					<dt>Data inizio abbonamento</dt>
+					<dd>
+						<inizio_abbonamento />
+					</dd>
+
+					<dt>Scadenza abbonamento</dt>
 					<dd>
 						<scadenza_abbonamento />
 					</dd>

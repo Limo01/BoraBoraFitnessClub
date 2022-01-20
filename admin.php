@@ -17,7 +17,6 @@
 	}
 
 	$paginaHTML = file_get_contents("html/admin.html");
-	$paginaHTML = str_replace("<username />", $user, $paginaHTML);
 	
 	$updatePersonalData = false;
 	if(isset($_GET["update"]) && $_GET["update"] === "1"){
@@ -82,78 +81,23 @@
 		$paginaHTML = str_replace("<lista_utenti />", $listaUtenti, $paginaHTML);
 
 		//Informazioni personali
+		$update = 1;
 		if(!$updatePersonalData){
-			$personalData= 
-			"<dl class=\"dl_inline\">
-				<dt>Nome</dt>
-				<dd>
-					<nome />
-				</dd>
-
-				<dt>Cognome</dt>
-				<dd>
-					<cognome />
-				</dd>
-
-				<dt>Email</dt>
-				<dd>
-					<email />
-				</dd>
-
-				<dt>Telefono</dt>
-				<dd>
-					<numero_telefono />
-				</dd>
-
-				<dt>Data di nascita</dt>
-				<dd>
-					<data_nascita />
-				</dd>
-
-				<dt>Badge ID</dt>
-				<dd>
-					<badge />
-				</dd>
-			</dl>
-			<a href=\"admin.php?update=1\">
-				<button id=\"buttonModDati\">Modifica</button>
-			</a>";
+			$personalData = str_replace("<update />", $update, file_get_contents("html/dati_personali.html"));
 		}
 		else{
-			$personalData= "";
+			$personalData = "";
 			
 			if($formError){
-				$personalData = $personalData . "<p id=\"errore_form\" class='alert'>Si è verificato un errore nella procedura, oppure i dati inseriti non sono validi.</p>";
+				$personalData .= "<p id=\"errore_form\" class'alert'>Si è verificato un errore nella procedura, oppure i dati inseriti non sono validi.</p>";
 			}
 
-			$personalData= $personalData . 
-				"<form action=\"php/modifica_dati_personali.php?update=1\" method=\"post\">
-					<label for=\"nome\">Nome</label>
-					<input type=\"text\" id=\"nome\" name=\"nome\" value=\"<nome />\" required pattern=\"^[a-zA-Z-' àèìòùáéíóú]*$\" onblur=\"check_validity_nome(event)\" >
-					<p id=\"errore_nome\"class=\"errore_form\"></p>
-					
-					<label for=\"cognome\">Cognome</label>
-					<input type=\"text\" id=\"cognome\" name=\"cognome\" value=\"<cognome />\" required pattern=\"^[a-zA-Z-' àèìòùáéíóú]*$\" onblur=\"check_validity_cognome(event)\">
-					<p id=\"errore_cognome\"class=\"errore_form\"></p>
-					
-					<label for=\"email\">Email</label>
-					<input type=\"email\" id=\"email\" name=\"email\" value=\"<email />\" required onblur=\"check_validity_email(event)\">
-					<p id=\"errore_email\"class=\"errore_form\"></p>
-
-					<label for=\"telefono\">Numero di telefono</label>
-					<input type=\"text\" id=\"telefono\" name=\"telefono\" value=\"<numero_telefono />\" required pattern=\"^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$\" onblur=\"check_validity_telefono(event)\">
-					<p id=\"errore_telefono\"class=\"errore_form\"></p>
-
-					<label for=\"data_nascita\">Data di nascita</label>
-					<input type=\"date\" id=\"data_nascita\" name=\"data_nascita\" value=\"<data_nascita />\" required onblur=\"check_validity_data_nascita(event)\">
-					<p id=\"errore_data_nascita\"class=\"errore_form\"></p>
-					
-					<button>Conferma modifica</button>
-				</form>";
+			$personalData .= str_replace("<update />", $update, file_get_contents("html/dati_personali_update.html"));
 		}
 
 		$paginaHTML = str_replace("<dati_personali />", $personalData, $paginaHTML);
 
+		$paginaHTML = str_replace("<username />", $user, $paginaHTML);
 		$paginaHTML = str_replace("<nome />", $datiPersonali["nome"], $paginaHTML);
 		$paginaHTML = str_replace("<cognome />", $datiPersonali["cognome"], $paginaHTML);
 		$paginaHTML = str_replace("<email />", $datiPersonali["email"], $paginaHTML);
