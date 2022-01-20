@@ -25,6 +25,15 @@
 		}
 	}
 
+	function isAdmin($user, $connessione) {
+		$result = $connessione->doReadQuery("SELECT is_admin FROM utente", "s", $user);
+		if ($result != null) {
+			return $result[0]["is_admin"];
+		} else {
+			return false;
+		}
+	}
+
 	function isNameValid ($name){
 		if (preg_match("/^[a-zA-Z-' àèìòùáéíóú]*$/",$name)){
 			return true;
@@ -86,11 +95,13 @@
 		if ($connessioneOK) {
 			$userOK = isUsernameCorrect($nomeUtente, $connessione);
 			$pwOK = isPasswordCorrect($nomeUtente, $password, $connessione);
+			$isAdmin = isAdmin($nomeUtente, $connessione);
 			$connessione->closeConnection();
 			
 			if($userOK == true && $pwOK == true){
 				$_SESSION["loggedin"] = true;
 				$_SESSION["username"] = $nomeUtente;
+				$_SESSION["isAdmin"] = $isAdmin;
 				
 				if(isset($_SESSION['previousPage'])){
 					$previous = $_SESSION['previousPage'];

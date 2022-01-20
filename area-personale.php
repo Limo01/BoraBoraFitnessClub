@@ -29,7 +29,8 @@
 	}
 
 	if ($connessioneOK) {
-		if ($connessione->doReadQuery("SELECT * FROM utente WHERE username=? and is_admin=true", "s", $user) != null) {
+		if ($_SESSION["isAdmin"] === true) {
+			$connessione->closeConnection();
 			header("Location: admin.php");
 			die("Errore: il redirect è stato disabilitato");
 		}
@@ -141,14 +142,14 @@
 		$paginaHTML= str_replace("<entrate />", $datiPersonali["entrate"], $paginaHTML);
 
 		if(isset($_GET["acquisto"]) && $_GET["acquisto"]==1){
-			$paginaHTML= str_replace("<avviso_acquisto />", "<p id=\"avviso_acquisto\">Hai appena effettutato un acquisto!</p>", $paginaHTML);
+			$paginaHTML= str_replace("<avviso_acquisto />", "<p class='notification'>Hai appena effettutato un acquisto!</p>", $paginaHTML);
 		}
 		else{
 			$paginaHTML= str_replace("<avviso_acquisto />", "", $paginaHTML);
 		}
 
 		if($datiPersonali["data_fine"]!=null && $datiPersonali["data_fine"] < date("Y-m-d")){
-			$paginaHTML= str_replace("<avviso_abbonamento />", "<p id=\"avviso_abbonamento\">Attenzione! Il tuo abbonamenoto è scaduto.</p>", $paginaHTML);
+			$paginaHTML= str_replace("<avviso_abbonamento />", "<p class='alert'>Attenzione! Il tuo abbonamenoto è scaduto.</p>", $paginaHTML);
 		}
 		else{
 			$paginaHTML= str_replace("<avviso_abbonamento />", "", $paginaHTML);
