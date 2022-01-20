@@ -33,6 +33,7 @@
 
 html,
 body {
+	scroll-behavior: smooth;
 	font-size: 95%;
 	font-family: sans-serif;
 	max-width: 1200px;
@@ -71,6 +72,7 @@ h1.hide:hover {
 }
 
 #breadcrumb {
+	font-size: 1.2em;
 	background-color: var(--colore-sfondo-div);
 	padding-top: 1em;
 }
@@ -291,7 +293,7 @@ input:checked + .slider:before {
 #content h1 {
 	text-align: center;
 	color: var(--colore-testo-principale);
-	padding-top: 0.5em;
+	padding-top: 0.1em;
 	font-size: 4em;
 }
 
