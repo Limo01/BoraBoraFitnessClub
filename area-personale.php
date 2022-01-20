@@ -11,6 +11,19 @@
 		header("location: autenticazione.php");
 		return;
 	}
+	if ($_SESSION["isAdmin"] == true) {
+		$params = "";
+		if (isset($_GET)) {
+			$params = "?";
+			foreach ($_GET as $name => $value) {
+				$params .= $name . "=" . $value . "&";
+			}
+			substr_replace($params ,"", -1); //Elimina l'ultimo '&'
+		}
+
+		header("Location: admin.php" . $params);
+		die("Errore: il redirect è stato disabilitato");
+	}
 
 	$paginaHTML = file_get_contents("html/area-personale.html");
 	$paginaHTML = str_replace("<username />", $user, $paginaHTML);
@@ -19,21 +32,16 @@
 	$connessioneOK = $connessione->openDBConnection();
 	
 	$updatePersonalData = false;
-	if(isset($_GET["update"]) && $_GET["update"]==1){
+	if(isset($_GET["update"]) && $_GET["update"] === "1"){
 		$updatePersonalData= true;
 	}
 
 	$formError = false;
-	if(isset($_GET["form_error"]) && $_GET["form_error"]==1){
+	if(isset($_GET["form_error"]) && $_GET["form_error"] === "1"){
 		$formError = true;
 	}
 
 	if ($connessioneOK) {
-		if ($_SESSION["isAdmin"] === true) {
-			$connessione->closeConnection();
-			header("Location: admin.php");
-			die("Errore: il redirect è stato disabilitato");
-		}
 		$result = $connessione->doReadQuery("SELECT * FROM utente WHERE username=?", "s", $user);
 		$datiPersonali = $result[0];
 
@@ -91,7 +99,7 @@
 			$personalData= "";
 			
 			if($formError){
-				$personalData = $personalData . "<p id=\"errore_form\">Si è verificato un errore nella procedura, oppure i dati inseriti non sono validi.</p>";
+				$personalData = $personalData . "<p id=\"errore_form\" class='alert'>Si è verificato un errore nella procedura, oppure i dati inseriti non sono validi.</p>";
 			}
 
 			$personalData= $personalData . 

@@ -4,33 +4,33 @@
 
 	session_start();
 
-	if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+	if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
 		$user = $_SESSION["username"];
 	}
 	else {
 		header("Location: autenticazione.php");
 		return;
 	}
-	if ($_SESSION["isAdmin"] === false) {
+	if ($_SESSION["isAdmin"] == false) {
 		header("Location: area-personale.php");
 		die("Accesso negato!");
 	}
 
 	$paginaHTML = file_get_contents("html/admin.html");
 	$paginaHTML = str_replace("<username />", $user, $paginaHTML);
-
-	$connessione = new DBAccess();
-	$connessioneOK = $connessione->openDBConnection();
 	
 	$updatePersonalData = false;
-	if(isset($_GET["update"]) && $_GET["update"]==1){
+	if(isset($_GET["update"]) && $_GET["update"] === "1"){
 		$updatePersonalData= true;
 	}
 
 	$formError = false;
-	if(isset($_GET["form_error"]) && $_GET["form_error"]==1){
+	if(isset($_GET["form_error"]) && $_GET["form_error"] === "1"){
 		$formError = true;
 	}
+
+	$connessione = new DBAccess();
+	$connessioneOK = $connessione->openDBConnection();
 
 	if ($connessioneOK) {
 		$result = $connessione->doReadQuery("SELECT * FROM utente WHERE username = ?", "s", $user);
@@ -123,7 +123,7 @@
 			$personalData= "";
 			
 			if($formError){
-				$personalData = $personalData . "<p id=\"errore_form\">Si è verificato un errore nella procedura, oppure i dati inseriti non sono validi.</p>";
+				$personalData = $personalData . "<p id=\"errore_form\" class='alert'>Si è verificato un errore nella procedura, oppure i dati inseriti non sono validi.</p>";
 			}
 
 			$personalData= $personalData . 

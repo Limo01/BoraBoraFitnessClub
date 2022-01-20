@@ -6,8 +6,7 @@
 
 	if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
 		$admin = $_SESSION["username"];
-	}
-	else{
+	} else{
 		header("location: autenticazione.php");
 		die("Errore: il redirect è stato disabilitato");
 	}
@@ -19,8 +18,7 @@
 
 	if (isset($_GET["usr"])) {
 		$user = $_GET["usr"];
-	}
-	else {
+	} else {
 		die("Errore: nessun utente selezionato");
 	}
 
@@ -122,7 +120,7 @@
 			$personalData= "";
 			
 			if($formError){
-				$personalData = $personalData . "<p id=\"errore_form\">Si è verificato un errore nella procedura, oppure i dati inseriti non sono validi.</p>";
+				$personalData = $personalData . "<p id=\"errore_form\" class'alert'>Si è verificato un errore nella procedura, oppure i dati inseriti non sono validi.</p>";
 			}
 
 			$personalData= $personalData . 
