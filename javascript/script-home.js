@@ -9,7 +9,7 @@ function initCounter(){
 		    }
 		};
 		
-		xhttp.open("GET", "number_generator.php?n="+n, true);
+		xhttp.open("GET", "php/number_generator.php?n="+n, true);
 		xhttp.send();
 	}, 8000);
 }
