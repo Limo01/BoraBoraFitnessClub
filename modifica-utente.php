@@ -12,6 +12,11 @@
 		die("Errore: il redirect è stato disabilitato");
 	}
 
+	if (!$_SESSION["isAdmin"]) {
+		header("location: area-personale.php");
+		die("Accesso negato!");
+	}
+
 	if (isset($_GET["usr"])) {
 		$user = $_GET["usr"];
 	}
@@ -51,10 +56,6 @@
 	$connessioneOK = $connessione->openDBConnection();
 	
 	if ($connessioneOK) {
-		if (!$connessione->doReadQuery("SELECT is_admin FROM utente WHERE username=?", "s", $admin)[0]["is_admin"]) {
-			header("location: area-personale.php");
-			die("Accesso negato!");
-		}
 		$result = $connessione->doReadQuery("SELECT * FROM utente WHERE username=?", "s", $user);
 		$datiPersonali = $result[0];
 

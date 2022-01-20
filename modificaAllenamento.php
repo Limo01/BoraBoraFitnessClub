@@ -35,12 +35,11 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
     $connessione = new DBAccess();
     $connessioneOK = $connessione->openDBConnection();
     if ($connessioneOK) {
-        $is_adminQuery = $connessione->doReadQuery("SELECT is_admin from utente where username=?","s",$_SESSION["username"]);
         $schedaQuery = $connessione->doReadQuery("SELECT * from allenamento where id=?", "i", $_GET["id"]);
         $eserciziQuery = $connessione->doReadQuery("SELECT * from allenamento_esercizio where id_allenamento=?", "i", $_GET["id"]);
 
         $connessione->closeConnection();
-        if(($schedaQuery != null) && ($is_adminQuery[0]["is_admin"] == true || $schedaQuery[0]["username_utente"] == $_SESSION["username"])){
+        if(($schedaQuery != null) && ($_SESSION["isAdmin"] || $schedaQuery[0]["username_utente"] == $_SESSION["username"])){
             //form aggiungi esercizio
             $aggiungiEsercizio = 
             "<form id=\"aggiungiEsercizioForm\" action=\"php/generatoreScheda.php?id=". $_GET["id"] ."\", method=\"post\">

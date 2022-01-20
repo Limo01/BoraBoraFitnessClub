@@ -19,10 +19,7 @@
 			$user = $_SESSION["username"];
 			$admin = $user;
 			$hasUsr = false;
-			if (
-				isset($_GET["usr"]) &&
-				$connessione->doReadQuery("SELECT is_admin FROM utente WHERE username=?", "s", $admin)[0]["is_admin"]
-			) {
+			if ($_SESSION["isAdmin"] && isset($_GET["usr"])) {
 				$hasUsr = true;
 				$user = $_GET["usr"];
 			}

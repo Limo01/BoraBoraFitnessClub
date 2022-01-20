@@ -24,7 +24,7 @@
 		if ($connessioneOK) {
 			$numeroAllenamenti = $connessione->doReadQuery("SELECT COUNT(*) AS numeroAllenamenti FROM allenamento")[0]['numeroAllenamenti'];
 			if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]){ // cliente = 0, admin = 1
-				$tipoUtente = $connessione->doReadQuery("SELECT is_admin FROM utente WHERE username = ?", "s", $_SESSION["username"])[0]['is_admin']? 1 : 0;
+				$tipoUtente = $_SESSION["isAdmin"];
 				$utente = $_SESSION['username'];
 			}
 			if (isset($_POST['segui'])) {

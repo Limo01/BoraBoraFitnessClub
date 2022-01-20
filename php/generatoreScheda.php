@@ -45,9 +45,8 @@
             $connessioneOK = $connessione->openDBConnection();
 
             if ($connessioneOK) {
-                $is_adminQuery = $connessione->doReadQuery("SELECT is_admin from utente where username=?","s",$_SESSION["username"]);
                 $schedaQuery = $connessione->doReadQuery("SELECT * from allenamento where id=?", "i", $_GET["id"]);
-                if(($schedaQuery != null) && ($is_adminQuery[0]["is_admin"] == true || $schedaQuery[0]["username_utente"] == $_SESSION["username"])){
+                if(($schedaQuery != null) && ($_SESSION["isAdmin"] || $schedaQuery[0]["username_utente"] == $_SESSION["username"])){
                     $idScheda = $_GET["id"];
                     $nomeEsercizio = $_POST["esercizioScheda"];
                     $connessione->doWriteQuery("DELETE FROM allenamento_esercizio WHERE id_allenamento = ? AND nome_esercizio = ?","is",$idScheda,$nomeEsercizio);
@@ -69,9 +68,8 @@
             $connessioneOK = $connessione->openDBConnection();
 
             if ($connessioneOK) {
-                $is_adminQuery = $connessione->doReadQuery("SELECT is_admin from utente where username=?","s",$_SESSION["username"]);
                 $schedaQuery = $connessione->doReadQuery("SELECT * from allenamento where id=?", "i", $_GET["id"]);
-                if(($schedaQuery != null) && ($is_adminQuery[0]["is_admin"] == true || $schedaQuery[0]["username_utente"] == $_SESSION["username"])){
+                if(($schedaQuery != null) && ($_SESSION["isAdmin"] || $schedaQuery[0]["username_utente"] == $_SESSION["username"])){
                     $idScheda = $_GET["id"];
                     $nomeEsercizio = htmlspecialchars($_POST["nomeEsercizio"]);
                     $peso = $_POST["pesoEsercizio"] == 0 ? null : $_POST["pesoEsercizio"];
