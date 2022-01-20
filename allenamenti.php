@@ -48,7 +48,7 @@
 		$copyContent = $content;
 		$itPrecedente = -1;
 		foreach ($queryAllenamentiResult as $row) {
-			$queryDettaglioAllenamentoResult = $connessione->doReadQuery("SELECT nome, descrizione, peso, serie, ripetizioni, durata FROM allenamento_esercizio JOIN esercizio ON allenamento_esercizio.nome_esercizio = esercizio.nome WHERE id_allenamento = ?", "i", $row['id']);
+			$queryDettaglioAllenamentoResult = $connessione->doReadQuery("SELECT nome, descrizione, peso, serie, ripetizioni, durata FROM esercizio WHERE id_allenamento = ?", "i", $row['id']);
 			$numeroEsercizi = count($queryDettaglioAllenamentoResult);
 			if ($precedente == $itPrecedente) {
 				$content .= "<div><p>Allenamento eliminato!</p></div>";

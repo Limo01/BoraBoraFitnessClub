@@ -8,21 +8,18 @@ create table esercizio(
             on update cascade
 );
 
-create table allenamento_esercizio(
+create table esercizio(
     id_allenamento int
         references allenamento(id)
             on delete cascade
             on update cascade,
-    nome_esercizio varchar(100)
-        references esercizio(nome)
-            on delete cascade
-            on update cascade,
+    nome_esercizio varchar(100),
     peso decimal(5,1) default 0 check (peso >= 0),
     ripetizioni tinyint unsigned default 1,
     serie tinyint unsigned default 1,
     durata time,
     
-    primary key(id_allenamento, nome_esercizio)
+    primary key(id_allenamento, nome)
 ); -->
 
 <?php
@@ -36,7 +33,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
     $connessioneOK = $connessione->openDBConnection();
     if ($connessioneOK) {
         $schedaQuery = $connessione->doReadQuery("SELECT * from allenamento where id=?", "i", $_GET["id"]);
-        $eserciziQuery = $connessione->doReadQuery("SELECT * from allenamento_esercizio where id_allenamento=?", "i", $_GET["id"]);
+        $eserciziQuery = $connessione->doReadQuery("SELECT * from esercizio where id_allenamento=?", "i", $_GET["id"]);
 
         $connessione->closeConnection();
         if(($schedaQuery != null) && ($_SESSION["isAdmin"] || $schedaQuery[0]["username_utente"] == $_SESSION["username"])){

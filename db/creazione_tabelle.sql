@@ -1,4 +1,3 @@
--- Nome database: BBFC
 drop table if exists abbonamento;
 drop table if exists utente;
 drop table if exists accesso;
@@ -6,17 +5,7 @@ drop table if exists personal_trainer;
 drop table if exists utente_personal_trainer;
 drop table if exists allenamento;
 drop table if exists utente_allenamento;
-drop table if exists sala;
-drop table if exists corso;
-drop table if exists utente_corso;
-drop table if exists personal_trainer_corso;
-drop table if exists persona_trainer_sala;
-drop table if exists attrezzatura;
 drop table if exists esercizio;
-drop table if exists esercizio_attrezzatura;
-drop table if exists allenamento_esercizio;
-drop table if exists corso_attrezzatura;
-drop table if exists sala_attrezzatura;
 
 create table abbonamento(
     nome varchar(50) primary key,
@@ -105,122 +94,17 @@ create table utente_allenamento(
     primary key(username_utente, id_allenamento)
 );
 
-create table sala(
-    nome varchar(50) primary key
-);
-
-create table corso(
-    nome varchar(50) primary key,
-    nome_sala varchar(50)
-        references sala(nome)
-            on delete set null
-            on update cascade
-);
-
-create table utente_corso(
-    username_utente varchar(50)
-        references utente(username)
-            on delete cascade
-            on update cascade,
-    nome_corso varchar(50)
-        references corso(nome)
-            on delete cascade
-            on update cascade,
-
-    primary key(username_utente, nome_corso)
-);
-
-create table personal_trainer_corso(
-    id_personal_trainer int
-        references personal_trainer(id)
-            on delete cascade
-            on update cascade,
-    nome_corso varchar(50)
-        references corso(nome)
-            on delete cascade
-            on update cascade,
-
-    primary key(id_personal_trainer, nome_corso)
-);
-
-create table persona_trainer_sala(
-    id_personal_trainer int
-        references personal_trainer(id)
-            on delete cascade
-            on update cascade,
-    nome_sala varchar(50)
-        references sala(nome)
-            on delete cascade
-            on update cascade,
-
-    primary key(id_personal_trainer, nome_sala)
-);
-
-create table attrezzatura(
-    nome varchar(50) primary key
-);
-
 create table esercizio(
-    nome varchar(100) primary key,
-    descrizione text,
-    nome_sala varchar(50)
-        references sala(nome)
-            on delete set null
-            on update cascade
-);
-
-create table esercizio_attrezzatura(
-    nome_esercizio varchar(100)
-        references esercizio(nome)
-            on delete cascade
-            on update cascade,
-    nome_attrezzatura varchar(50)
-        references attrezzatura(nome)
-            on delete cascade
-            on update cascade,
-
-    primary key(nome_esercizio, nome_attrezzatura)
-);
-
-create table allenamento_esercizio(
     id_allenamento int
         references allenamento(id)
             on delete cascade
             on update cascade,
-    nome_esercizio varchar(100)
-        references esercizio(nome)
-            on delete cascade
-            on update cascade,
+    nome varchar(100),
+    descrizione text,
     peso decimal(5,1) default 0 check (peso >= 0),
     ripetizioni tinyint unsigned default 1,
     serie tinyint unsigned default 1,
     durata time,
     
-    primary key(id_allenamento, nome_esercizio)
-);
-
-create table corso_attrezzatura(
-    nome_corso varchar(50)
-        references corso(nome)
-            on delete cascade
-            on update cascade,
-    nome_attrezzatura varchar(50)
-        references attrezzatura(nome)
-            on delete cascade
-            on update cascade,
-
-    primary key(nome_corso, nome_attrezzatura)
-);
-
-create table sala_attrezzatura(
-    nome_sala varchar(50)
-        references sala(nome)
-            on delete cascade
-            on update cascade,
-    nome_attrezzatura varchar(50)
-        references attrezzatura(nome)
-            on delete cascade
-            on update cascade,
-
-    primary key(nome_sala, nome_attrezzatura)
+    primary key(id_allenamento, nome)
 );

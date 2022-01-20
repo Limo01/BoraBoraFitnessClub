@@ -49,7 +49,7 @@
                 if(($schedaQuery != null) && ($_SESSION["isAdmin"] || $schedaQuery[0]["username_utente"] == $_SESSION["username"])){
                     $idScheda = $_GET["id"];
                     $nomeEsercizio = $_POST["esercizioScheda"];
-                    $connessione->doWriteQuery("DELETE FROM allenamento_esercizio WHERE id_allenamento = ? AND nome_esercizio = ?","is",$idScheda,$nomeEsercizio);
+                    $connessione->doWriteQuery("DELETE FROM esercizio WHERE id_allenamento = ? AND nome = ?","is",$idScheda,$nomeEsercizio);
                     $connessione->closeConnection();
                     header("location: ../modificaAllenamento.php?id=".$_GET["id"]);
                 } else {
@@ -82,7 +82,7 @@
                     if($esercizioQuery == null){
                         $connessione->doWriteQuery("INSERT into esercizio(nome) values(?)","s",$nomeEsercizio);
                     }
-                    $connessione->doWriteQuery("INSERT INTO allenamento_esercizio(id_allenamento,nome_esercizio,peso,ripetizioni,serie,durata) values(?,?,?,?,?,?)","isdiis",$idScheda,$nomeEsercizio,$peso,$ripetizioni,$serie,$durata);
+                    $connessione->doWriteQuery("INSERT INTO esercizio(id_allenamento,nome,peso,ripetizioni,serie,durata) values(?,?,?,?,?,?)","isdiis",$idScheda,$nomeEsercizio,$peso,$ripetizioni,$serie,$durata);
 
                     $connessione->closeConnection();
                     header("location: ../modificaAllenamento.php?id=".$_GET["id"]);
