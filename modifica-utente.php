@@ -48,7 +48,7 @@
 	}
 	
 	$formError = false;
-	if(isset($_GET["form_error"]) and $_GET["form_error"]==1){
+	if(isset($_GET["form_error"]) && $_GET["form_error"]==1){
 		$formError = true;
 	}
 

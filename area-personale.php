@@ -19,12 +19,12 @@
 	$connessioneOK = $connessione->openDBConnection();
 	
 	$updatePersonalData = false;
-	if(isset($_GET["update"]) and $_GET["update"]==1){
+	if(isset($_GET["update"]) && $_GET["update"]==1){
 		$updatePersonalData= true;
 	}
 
 	$formError = false;
-	if(isset($_GET["form_error"]) and $_GET["form_error"]==1){
+	if(isset($_GET["form_error"]) && $_GET["form_error"]==1){
 		$formError = true;
 	}
 
