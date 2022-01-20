@@ -3,7 +3,10 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>Area personale - Bora Bora Fitness Club</title>
+	<title>
+		Area personale
+		<admin /> - Bora Bora Fitness Club
+	</title>
 	<meta name="keywords" content="area personale, profilo, allenamenti, bora bora, fitness club" />
 	<meta name="description"
 		content="Area personale in cui visualizzare e modificare le proprie informazioni, abbonamenti e allenamenti" />
@@ -23,7 +26,9 @@
 	</header>
 
 	<nav id="breadcrumb">
-		<p>Ti trovi in: <a href="./" lang="en">Home</a> &gt;&gt; Area personale</p>
+		<p>Ti trovi in: <a href="./" lang="en">Home</a> &gt;&gt; Area personale
+			<admin />
+		</p>
 	</nav>
 
 	<a class="aiuti" href="#content">
@@ -58,10 +63,11 @@
 		<div id="titolo">
 			<h1>
 				<username /> - Area personale
+				<admin />
 			</h1>
 		</div>
 
-		<div id="widget_area_personale">
+		<div id="<widget />">
 			<div id="dati_personali" class="widget">
 				<h2>Dati personali</h2>
 
@@ -70,29 +76,8 @@
 
 			<div id="dettagli_abbonamento" class="widget">
 				<h2>Dettagli abbonamento</h2>
-				<dl class="dl_inline">
-					<dt>Tipo abbonamento</dt>
-					<dd>
-						<abbonamento />
-					</dd>
 
-					<dt>Data inizio abbonamento</dt>
-					<dd>
-						<inizio_abbonamento />
-					</dd>
-
-					<dt>Scadenza abbonamento</dt>
-					<dd>
-						<scadenza_abbonamento />
-					</dd>
-
-					<dt>Entrate singole disponibili</dt>
-					<dd>
-						<entrate />
-					</dd>
-				</dl>
-				<avviso_acquisto />
-				<avviso_abbonamento />
+				<dettagli_abbonamento />
 			</div>
 
 			<div id="ultimo-ingresso" class="widget">
@@ -109,6 +94,8 @@
 					</dd>
 				</dl>
 			</div>
+
+			<gestione_utenti />
 		</div>
 
 		<div id="schede_allenamento">
@@ -127,8 +114,8 @@
 	</div>
 
 	<div id="tornaSu">
-        <a href="#" target="_self"><img src="immagini/torna-su.svg" alt="Torna su"></a>
-    </div>
+		<a href="#" target="_self"><img src="immagini/torna-su.svg" alt="Torna su"></a>
+	</div>
 
 	<footer>
 		<h2 lang="en">BORA BORA FITNESS CLUB</h2>

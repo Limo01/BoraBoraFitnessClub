@@ -16,7 +16,7 @@
 		die("Accesso negato!");
 	}
 
-	$paginaHTML = file_get_contents("html/admin.html");
+	$paginaHTML = file_get_contents("html/area-personale.html");
 	
 	$updatePersonalData = false;
 	if(isset($_GET["update"]) && $_GET["update"] === "1"){
@@ -57,6 +57,14 @@
 		$connessione->closeConnection();
 
 		//Gestione utenti
+		$gestioneUtenti = '
+			<div id="gestione_utenti" class="widget">
+				<h2>Gestione utenti</h2>
+
+				<lista_utenti />
+			</div>
+		';
+
 		$listaUtenti = "<p>Nessun utente presente</p>";
 		
 		if ($utenti != null) {
@@ -78,12 +86,18 @@
 		if ($userRemoved) {
 			$listaUtenti = "<p class='alert'>Utente rimosso!</p>" . $listaUtenti;
 		}
-		$paginaHTML = str_replace("<lista_utenti />", $listaUtenti, $paginaHTML);
+		$gestioneUtenti = str_replace("<lista_utenti />", $listaUtenti, $gestioneUtenti);
+		$paginaHTML = str_replace("<gestione_utenti />", $gestioneUtenti, $paginaHTML);
 
 		//Informazioni personali
 		$update = 1;
 		if(!$updatePersonalData){
-			$personalData = str_replace("<update />", $update, file_get_contents("html/dati_personali.html"));
+			$button .= '
+				<a href="admin.php?&update=<update />">
+					<button id="buttonModDati">Modifica</button>
+				</a>
+			';
+			$personalData = str_replace("<update />", $update, file_get_contents("html/dati_personali.html") . $button);
 		}
 		else{
 			$personalData = "";
@@ -91,8 +105,8 @@
 			if($formError){
 				$personalData .= "<p id=\"errore_form\" class'alert'>Si è verificato un errore nella procedura, oppure i dati inseriti non sono validi.</p>";
 			}
-
-			$personalData .= str_replace("<update />", $update, file_get_contents("html/dati_personali_update.html"));
+			$form = '<form action="php/modifica_dati_personali.php?update=<update />" method="post">';
+			$personalData .= str_replace("<update />", $update, $form . file_get_contents("html/dati_personali_update.html"));
 		}
 
 		$paginaHTML = str_replace("<dati_personali />", $personalData, $paginaHTML);
@@ -106,6 +120,8 @@
 		$paginaHTML = str_replace("<badge />", $datiPersonali["badge"], $paginaHTML);		
 
 		//Riempimento dati abbonamento
+		$paginaHTML = str_replace("<dettagli_abbonamento />", file_get_contents("html/dettagli_abbonamento.html"), $paginaHTML);
+
 		if($datiPersonali["nome_abbonamento"] == null){
 			$paginaHTML = str_replace("<abbonamento />", "Nessuno", $paginaHTML);
 			$paginaHTML = str_replace("<scadenza_abbonamento />", "Nessuna", $paginaHTML);
@@ -172,6 +188,9 @@
 			$output= $output . "</div>";
 			$paginaHTML = str_replace("<allenamenti_creati />", $output, $paginaHTML);
 		}
+
+		$paginaHTML = str_replace("<admin />", "[admin]", $paginaHTML);
+		$paginaHTML = str_replace("<widget />", "widget_area_personale_admin", $paginaHTML);
 	}
 	else {
 		$paginaHTML = "<p>I sistemi sono al momento non disponibili, riprova più tardi!</p>";

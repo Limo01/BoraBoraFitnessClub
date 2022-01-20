@@ -27,8 +27,7 @@
 		die("Errore: il redirect è stato disabilitato");
 	}
 
-	$paginaHTML = file_get_contents("html/modifica-utente.html");
-	$paginaHTML = str_replace("<username />", $user, $paginaHTML);
+	$paginaHTML = file_get_contents("html/area-personale.html");
 	
 	$update = -1;
 	$updatePersonalData = false;
@@ -75,12 +74,12 @@
 
 		//Informazioni personali
 		if(!$updatePersonalData){
-			$personalData = str_replace("<update />", ($update > 0 ? 0 : 1), file_get_contents("html/dati_personali.html"));
-			$personalData .= '
-			<a href="modifica-utente.php?usr=<username />&update=
-			<update />">
-				<button id="buttonModDati">Modifica</button>
-			</a>';
+			$button .= '
+				<a href="modifica-utente.php?usr=<username />&update=
+				<update />">
+					<button id="buttonModDati">Modifica</button>
+				</a>';
+			$personalData = str_replace("<update />", ($update > 0 ? 0 : 1), file_get_contents("html/dati_personali.html") . $button);
 		}
 		else{
 			$personalData = "";
@@ -88,8 +87,8 @@
 			if($formError){
 				$personalData .= "<p id=\"errore_form\" class'alert'>Si è verificato un errore nella procedura, oppure i dati inseriti non sono validi.</p>";
 			}
-
-			$personalData .= str_replace("<update />", $update, file_get_contents("html/dati_personali_update.html"));
+			$form = '<form action="php/modifica_dati_personali.php?update=<update />&usr=<username />" method="post">';
+			$personalData .= str_replace("<update />", $update, $form . file_get_contents("html/dati_personali_update.html"));
 		}
 		
 		$paginaHTML = str_replace("<dati_personali />", $personalData, $paginaHTML);
@@ -103,36 +102,12 @@
 		
 		//Dettagli abbonamento
 		if (!$updateSubscription) {
-			$oldUpdate = $update;
-			$update = ($update > 0 ? 0 : 2);
-
-			$dettagli_abbonamento = '
-				<dl class="dl_inline">
-					<dt>Abbonamento attivo</dt>
-					<dd>
-						<abbonamento />
-					</dd>
-
-					<dt>Data inizio abbonamento</dt>
-					<dd>
-						<inizio_abbonamento />
-					</dd>
-
-					<dt>Scadenza abbonamento</dt>
-					<dd>
-						<scadenza_abbonamento />
-					</dd>
-
-					<dt>Entrate singole disponibili</dt>
-					<dd>
-						<entrate />
-					</dd>
-				</dl>
-
-				<a href="modifica-utente.php?usr=' . $user . '&update=' . $update . '">Modifica</a>
-			';
-
-			$update = $oldUpdate;
+			$button = '<a href="modifica-utente.php?usr=<username />&update=<update />">Modifica</a>';
+			$dettagliAbbonamento = str_replace(
+				"<update />",
+				($update > 0 ? 0 : 2),
+				file_get_contents("html/dettagli_abbonamento.html") . $button
+			);
 		} else {
 			$abbonamentoCorrente = $datiPersonali["nome_abbonamento"];
 			$abbonamentiOptions = "<option value='Nessuno'" . ($abbonamentoCorrente == null ? " selected='selected'" : "") . ">Nessuno</option>";
@@ -141,27 +116,13 @@
 				$abbonamentiOptions .= "<option value='" . $abbonamento . ($abbonamentoCorrente == $abbonamento ? "' selected='selected'" : "'") . ">" . $abbonamento . "</option>";
 			}
 
-			$dettagli_abbonamento = "
-				<form action=\"php/modifica_dati_personali.php?update=" . $update . "&usr=" . $user . "\" method=\"post\">
-					<label for=\"abbonamento\">Abbonamento attivo</label>
-					
-					<select name='abbonamento' id='abbonamento' required>
-						" . $abbonamentiOptions . "
-					</select>
-					
-					<label for=\"scadenza\">Scadenza</label>
-					<input type=\"date\" name=\"scadenza\" id=\"scadenza\" value=\"<scadenza_abbonamento />\" required >
-					<p id=\"errore_scadenza\"class=\"errore_form\"></p>
-					
-					<label for=\"entrate\">Entrate singole disponibili</label>
-					<input type=\"number\" name=\"entrate\" id=\"entrate\" value=\"<entrate />\" required >
-					<p id=\"errore_entrate\"class=\"errore_form\"></p>
+			$form = '<form action="php/modifica_dati_personali.php?update=<update /> &usr=<username /> " method="post">';
+			$dettagliAbbonamento = str_replace("<update />", $update, $form . file_get_contents("html/dettagli_abbonamento_update.html"));
 
-					<button>Conferma modifica</button>
-				</form>
-			";
+			$dettagliAbbonamento = str_replace("<abbonamenti />", $abbonamentiOptions, $dettagliAbbonamento);
 		}
-		$paginaHTML = str_replace("<dettagli_abbonamento />", $dettagli_abbonamento, $paginaHTML);
+		$paginaHTML = str_replace("<dettagli_abbonamento />", $dettagliAbbonamento, $paginaHTML);
+		$paginaHTML = str_replace("<username />", $user, $paginaHTML);
 		
 		//Riempimento dati abbonamento
 		if($datiPersonali["nome_abbonamento"] == null){
@@ -216,6 +177,9 @@
 			$paginaHTML = str_replace("<allenamenti_creati />", $output, $paginaHTML);
 		}
 
+		$paginaHTML = str_replace("<admin />", "", $paginaHTML);
+		$paginaHTML = str_replace("<gestione_utenti />", "", $paginaHTML);
+		$paginaHTML = str_replace("<widget />", "widget_area_personale", $paginaHTML);
 	} else {
 		$paginaHTML = "<p>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
 	}
