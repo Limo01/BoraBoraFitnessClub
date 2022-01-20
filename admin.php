@@ -107,6 +107,7 @@
 			}
 			$form = '<form action="php/modifica_dati_personali.php?update=<update />" method="post">';
 			$personalData .= str_replace("<update />", $update, $form . file_get_contents("html/dati_personali_update.html"));
+			$personalData = str_replace("<today />", date('Y-m-d'), $personalData);
 		}
 
 		$paginaHTML = str_replace("<dati_personali />", $personalData, $paginaHTML);
