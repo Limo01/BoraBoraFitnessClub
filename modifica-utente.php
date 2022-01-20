@@ -116,7 +116,7 @@
 				$abbonamentiOptions .= "<option value='" . $abbonamento . ($abbonamentoCorrente == $abbonamento ? "' selected='selected'" : "'") . ">" . $abbonamento . "</option>";
 			}
 
-			$form = '<form action="php/modifica_dati_personali.php?update=<update /> &usr=<username /> " method="post">';
+			$form = '<form action="php/modifica-abbonamento.php?update=<update />&usr=<username /> " method="post">';
 			$dettagliAbbonamento = str_replace("<update />", $update, $form . file_get_contents("html/dettagli_abbonamento_update.html"));
 
 			$dettagliAbbonamento = str_replace("<abbonamenti />", $abbonamentiOptions, $dettagliAbbonamento);

@@ -28,7 +28,7 @@
 		die("Errore: il redirect è stato disabilitato");
 	}
 
-	if (isset($_GET["update"]) && ($_GET["update"] === "2" || $_GET["update"] === "0")) {
+	if (isset($_GET["update"]) && ($_GET["update"] == 2 || $_GET["update"] == 0)) {
 		$update = $_GET["update"];
 	} else {
 		die("Si è verificato un errore");
@@ -40,14 +40,19 @@
 	if ($connessioneOK) {
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$abbonamento = $_POST["abbonamento"];
-			$scadenza = $_POST["scadenza"];
+			if ($abbonamento != "Nessuno") {
+				$scadenza = $_POST["scadenza"];
+			}
 			$entrate = $_POST["entrate"];
 
 			$esito = false;
 			//if(isScadenzaValid($scadenza) && isEntrateValid($entrate)) {		TODO: funzioni per il check
-				$esito = $connessione->doWriteQuery("UPDATE utente SET nome_abbonamento = ?, data_inizio = CURRENT_DATE(), data_fine = DATE_ADD(CURRENT_DATE(), INTERVAL 1 MONTH) entrate = ? WHERE username = ?", "is", $entrate, $user);
-			//}
-
+				if ($abbonamento != "Nessuno") {
+					$esito = $connessione->doWriteQuery("UPDATE utente SET nome_abbonamento = ?, data_fine = ?, entrate = ? WHERE username = ?", "ssis", $abbonamento, $scadenza, $entrate, $user);
+				} else {
+					$esito = $connessione->doWriteQuery("UPDATE utente SET nome_abbonamento = NULL, data_fine = NULL, entrate = ? WHERE username = ?", "is", $entrate, $user);
+				}
+			//}	
 			$connessione->closeConnection();
 
 			if ($esito) {
