@@ -73,7 +73,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
         $paginaHTML = str_replace("<selectAllenatore />", $out, $paginaHTML);
         $out = "";
 
-        if ($_SESSION["isAdmin"] == true) {
+        if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == true) {
             $out .= "<label>Username cliente</label><select name=\"usernameScheda\">";
             foreach ($queryUsername as $row) {
                 $out .= "<option value=\"" . $row["username"] . "\">" . $row["username"] . "</option>";

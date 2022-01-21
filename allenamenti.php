@@ -107,7 +107,7 @@
 		$content = "<p class='allenamento-avviso'>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
 	}
 	$init = "";
-	if ($_SESSION["loggedin"]) {
+	if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]) {
 		$init = "<a href='inserimentoAllenamento.php'>Crea allenamento</a>";
 	} else {
 		$init = "<a href='autenticazione.php?url=allenamenti.php?pagina=" . $pagina . "'>Effettua l'autenticazione</a>";

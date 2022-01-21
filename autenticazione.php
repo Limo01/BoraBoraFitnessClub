@@ -154,6 +154,7 @@
 					$username, password_hash($password1, PASSWORD_BCRYPT), $nome, $cognome, $email, $nascita, $badge, $tel);
 					$_SESSION["loggedin"] = true;
 					$_SESSION["username"] = $username;
+					$_SESSION["isAdmin"] = false;
 					
 					if(isset($_SESSION['previousPage'])){
 						$previous = $_SESSION['previousPage'];
