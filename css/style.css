@@ -904,13 +904,13 @@ div div .gallery {
 /*--- NASCONDI I FORM DI AGGIUNTA E ELIMINAZIONE ESERCIZIO ---*/
 
 #aggiungiEsercizioForm {
-	display: none;
+	display: block; 
 	margin-right: 80%;
 }
 
 #eliminaEsercizioForm {
-	display: none;
-}
+	display: block;
+} 
 
 /*==================== STILE AREA PERSONALE ====================*/
 #content dl[class="dl_inline"] {

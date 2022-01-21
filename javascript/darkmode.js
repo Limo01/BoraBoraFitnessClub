@@ -72,6 +72,10 @@ window.onload = function () {
 
 	//per il menu a comparsa
 	window.sessionStorage.setItem("menuDisplay", "no");
+
+	//per le form di aggiungere ed eliminare un esercizio
+	document.getElementById("eliminaEsercizioForm").style.display = "none";
+	document.getElementById("aggiungiEsercizioForm").style.display = "none";
 };
 
 //Torna su

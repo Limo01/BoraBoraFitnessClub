@@ -34,7 +34,6 @@
 	</a>
 
 	<button onclick="menuClickEvent()" id="displayMenuButton">Menu</button>
-	<!-- COMMENTATO PERCHÈ OSCURA I MESSAGGI DI ERRORE PHP
 
 		<div id="topbar">
 			<nav id="menu">
@@ -57,13 +56,15 @@
 				</label>
 			</div>
 		</div>
-	-->
+	
 
 	<div id="content">
 		<div class="titolo">
 			<h1>Modifica il tuo allenamento</h1>
 			<button id="aggiungiEsercizio" onclick="showAddEsercizioForm()">Aggiungi un esercizio</button>
 			<button id="eliminaEsercizio" onclick="showDeleteEsercizioForm()">Rimuovi un eserizio</button>
+
+			<confermaModifiche />
 
 			<insertEsercizio />
 

@@ -44,6 +44,30 @@ function check_validity_email(e){
 	}
 }
 
+function check_validity_password(e){
+	var spanErrore= document.getElementById("errore_password");
+
+	if(!e.target.checkValidity()){
+		spanErrore.innerHTML= "La password deve contenere almeno 4 caratteri.";
+	}
+	else {
+		spanErrore.innerHTML="";
+	}
+}
+
+function check_validity_conferma_password(){
+	var spanErrore= document.getElementById("errore_conferma_password");
+	var password = document.getElementById("password").value;
+	var confermaPassword = document.getElementById("confermaPassword").value;
+
+	if(password != confermaPassword){
+		spanErrore.innerHTML= "La password non corrisponde con quella inserita precedentemente.";
+	}
+	else {
+		spanErrore.innerHTML="";
+	}
+}
+
 function check_validity_telefono(e){
 	var spanErrore= document.getElementById("errore_telefono");
 

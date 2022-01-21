@@ -167,30 +167,47 @@
 				if(!$nomeValid){
 					// $out .= "<p>sono ammesse solamente lettere per il nome</p>";
 					$paginaHTML = str_replace("<erroreNome />","Il nome inserito non è valido. Deve contenere solo lettere, senza caratteri speciali (? , * ; + .).",$paginaHTML);
+				} else {
+					$paginaHTML = str_replace("id=\"nome\"","id=\"nome\" value=\"" . $nome . "\"", $paginaHTML);
 				}
+
 				if(!$cognomeValid){
 					// $out .= "<p>sono ammesse solamente lettere per il cognome</p>";
 					$paginaHTML = str_replace("<erroreCognome />","Il cognome inserito non è valido. Deve contenere solo lettere, senza caratteri speciali (? , * ; + .).",$paginaHTML);
+				} else {
+					$paginaHTML = str_replace("id=\"cognome\"","id=\"cognome\" value=\"" . $cognome . "\"", $paginaHTML);
 				}
+
 				if($userDoppio){
 					// $out .= "<p>username non disponibile</p>";
 					$paginaHTML = str_replace("<erroreUsername />","Lo username inserito non è disponibile.",$paginaHTML);
-				}
-				if(!$userValid){
+				} elseif(!$userValid){
 					// $out .= "<p>sono ammesse solamente lettere e numeri per lo username</p>";
 					$paginaHTML = str_replace("<erroreUsername />","Lo username inserito non è valido. Deve contenere solo lettere e numeri, senza caratteri speciali (? , * ; + .).",$paginaHTML);
+				} else {
+					$paginaHTML = str_replace("id=\"username\"","id=\"username\" value=\"" . $username . "\"", $paginaHTML);
 				}
+
 				if($password1 != $password2){
 					$out .= "<p>verifica di aver inserito correttamente la password</p>";
 				}
+
 				if(!$emailValid){
 					#$out .= "<p>inserisci una email valida</p>";
 					$paginaHTML = str_replace("<erroreEmail />","L'email inserita non è valida.",$paginaHTML);
+				} else {
+					$paginaHTML = str_replace("id=\"email\"","id=\"email\" value=\"" . $email . "\"", $paginaHTML);
 				}
+
 				if(!$telValid){
 					$out .= "<p>inserisci un numero di telefono valido</p>";
 					$paginaHTML = str_replace("<erroreTelefono />","Il numero di telefono inserito non è valida.",$paginaHTML);
+				} else {
+					$paginaHTML = str_replace("id=\"telefono\"","id=\"telefono\" value=\"" . $tel . "\"", $paginaHTML);
 				}
+
+				//da cambiare se ci sono controlli per la data
+				$paginaHTML = str_replace("id=\"dataNascita\"","id=\"dataNascita\" value=\"" . $nascita . "\"", $paginaHTML);
 			}
 
 			$connessione->closeConnection();

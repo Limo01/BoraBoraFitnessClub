@@ -72,17 +72,18 @@
                 if(($schedaQuery != null) && ($_SESSION["isAdmin"] || $schedaQuery[0]["username_utente"] == $_SESSION["username"])){
                     $idScheda = $_GET["id"];
                     $nomeEsercizio = htmlspecialchars($_POST["nomeEsercizio"]);
+                    $descrizioneEsercizio = (!empty($_POST["descrizioneEsercizio"])) ? htmlspecialchars($_POST["descrizioneEsercizio"]) : null;
                     $peso = $_POST["pesoEsercizio"] == 0 ? null : $_POST["pesoEsercizio"];
                     $ripetizioni = $_POST["ripetizioniEsercizio"] == 0 ? null : $_POST["ripetizioniEsercizio"];
                     $serie = $_POST["serieEsercizio"] == 0 ? null : $_POST["serieEsercizio"];
                     // $durata = $_POST["durataEsercizio"] == 0 ? null : $_POST["durataEsercizio"];
                     $durata = (!empty($_POST['durataEsercizio'])) ? $_POST["durataEsercizio"] : null;
 
-                    $esercizioQuery = $connessione->doReadQuery("SELECT nome from esercizio where nome=?","s",$nomeEsercizio);
-                    if($esercizioQuery == null){
-                        $connessione->doWriteQuery("INSERT into esercizio(nome) values(?)","s",$nomeEsercizio);
-                    }
-                    $connessione->doWriteQuery("INSERT INTO esercizio(id_allenamento,nome,peso,ripetizioni,serie,durata) values(?,?,?,?,?,?)","isdiis",$idScheda,$nomeEsercizio,$peso,$ripetizioni,$serie,$durata);
+                    // $esercizioQuery = $connessione->doReadQuery("SELECT nome from esercizio where nome=?","s",$nomeEsercizio);
+                    // if($esercizioQuery == null){
+                    //     $connessione->doWriteQuery("INSERT into esercizio(nome) values(?)","s",$nomeEsercizio);
+                    // }
+                    $connessione->doWriteQuery("INSERT INTO esercizio(id_allenamento,nome,descrizione,peso,ripetizioni,serie,durata) values(?,?,?,?,?,?,?)","issdiis",$idScheda,$nomeEsercizio,$descrizioneEsercizio,$peso,$ripetizioni,$serie,$durata);
 
                     $connessione->closeConnection();
                     header("location: ../modificaAllenamento.php?id=".$_GET["id"]);

@@ -1,27 +1,3 @@
-<!-- 
-create table esercizio(
-    nome varchar(100) primary key,
-    descrizione text,
-    nome_sala varchar(50)
-        references sala(nome)
-            on delete set null
-            on update cascade
-);
-
-create table esercizio(
-    id_allenamento int
-        references allenamento(id)
-            on delete cascade
-            on update cascade,
-    nome_esercizio varchar(100),
-    peso decimal(5,1) default 0 check (peso >= 0),
-    ripetizioni tinyint unsigned default 1,
-    serie tinyint unsigned default 1,
-    durata time,
-    
-    primary key(id_allenamento, nome)
-); -->
-
 <?php
 require_once "php/db.php";
 use DB\DBAccess;
@@ -36,12 +12,19 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
         $eserciziQuery = $connessione->doReadQuery("SELECT * from esercizio where id_allenamento=?", "i", $_GET["id"]);
 
         $connessione->closeConnection();
+
+        $confermaModifiche = "<a href=\"dettagli-allenamento.php?id=".$_GET["id"]."&nomeBreadcrumb=Allenamenti\">Conferma modifiche</a>";
+        $paginaHTML = str_replace("<confermaModifiche />",$confermaModifiche,$paginaHTML);
+
         if(($schedaQuery != null) && ($_SESSION["isAdmin"] || $schedaQuery[0]["username_utente"] == $_SESSION["username"])){
             //form aggiungi esercizio
             $aggiungiEsercizio = 
             "<form id=\"aggiungiEsercizioForm\" action=\"php/generatoreScheda.php?id=". $_GET["id"] ."\", method=\"post\">
                 <label>Nome</label>
                 <input type=\"text\" name=\"nomeEsercizio\" required>
+
+                <label>Descrizione</label>
+                <input type=\"textarea\" name=\"descrizioneEsercizio\">
                 
                 <label>Peso</label>
                 <input type=\"number\" name=\"pesoEsercizio\" min=\"0\" value=\"0\" step=\"0.1\">
@@ -62,38 +45,41 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
             //form elimina esercizio
             $optionEsercizio = "<form id=\"eliminaEsercizioForm\" action=\"php/generatoreScheda.php?id=".$_GET["id"]."\", method=\"post\"><select name=\"esercizioScheda\"><label>Seleziona esercizio</label>";
             foreach($eserciziQuery as $row){
-                $optionEsercizio .= "<option value=\"" . $row["nome_esercizio"] . "\">" . $row["nome_esercizio"] . "</option>";
+                $optionEsercizio .= "<option value=\"" . $row["nome"] . "\">" . $row["nome"] . "</option>";
             }
             $optionEsercizio .= "</select><button name=\"eliminaEsercizioSubmit\">Elimina</button></form>";
             $paginaHTML = str_replace("<deleteEsercizio />",$optionEsercizio,$paginaHTML);
             
             //dati scheda
-            $datiScheda = "<div id=\"abbonamenti\">";
+            $datiScheda = "<div class=\"dettagli-allenamento\">";
             $datiScheda .= "<h2>" . $schedaQuery[0]["nome"] . "</h2>"; 
             $datiScheda .= "<p>Descrizione: " . $schedaQuery[0]["descrizione"] ."</p>";
             $datiScheda .= "<p>Data creazione: " . $schedaQuery[0]["data_creazione"] . "</p>";
             
             foreach($eserciziQuery as $row){
                 //TODO: non mostrare serie, durata ecc se valore è null
-                $datiScheda .= "<div class=\"esercizio\"><h2>" . $row["nome_esercizio"] ."</h2>";
-                $row["peso"] . "</li><li>Serie: ". $row["serie"] ."</li><li>ripetizioni: ". $row["ripetizioni"] ."</li><li>durata: ". $row["durata"] ."</li>";
-                if($row["peso"] != null || $row["serie"] != null || $row["ripetizioni"] != null || $row["durata"] != null ){
-                    $datiScheda .= "<ul>";
-                    if($row["peso"] != null){
-                        $datiScheda .= "<li>Peso: " . $row["peso"] . "</li>";
-                    }
-                    if($row["serie"] != null){
-                        $datiScheda .= "<li>Serie: " . $row["serie"] . "</li>";
-                    }
-                    if($row["ripetizioni"] != null){
-                        $datiScheda .= "<li>Ripetizioni: " . $row["ripetizioni"] . "</li>";
-                    }
-                    if($row["durata"] != null){
-                        $datiScheda .= "<li>Durata: " . $row["durata"] . "</li>";
-                    }
-                    $datiScheda .= "</ul>";
+                $datiScheda .= "<article><h3>" . $row["nome"] ."</h3>";
+                if($row["descrizione"] != null) {
+                    $datiScheda .= "<p>" . $row["descrizione"] ."</p>";
                 }
-                $datiScheda .= "</div>";
+                
+                $datiScheda .= "<ul>";
+                if($row["peso"] != null){
+                    $datiScheda .= "<li>Peso: " . $row["peso"] . "</li>";
+                } else {
+                    $datiScheda .= "<li>Senza usare pesi</li>";
+                }
+                if($row["serie"] != null){
+                    $datiScheda .= "<li>Serie: " . $row["serie"] . "</li>";
+                }
+                if($row["ripetizioni"] != null){
+                    $datiScheda .= "<li>Ripetizioni: " . $row["ripetizioni"] . "</li>";
+                }
+                if($row["durata"] != null){
+                    $datiScheda .= "<li>Durata: " . $row["durata"] . "</li>";
+                }
+                $datiScheda .= "</ul>";
+                $datiScheda .= "</article>";
             }
             
             $datiScheda .= "</div>";
