@@ -30,9 +30,13 @@ function switchTheme(e) {
 	if (e.target.checked) {
 		document.documentElement.setAttribute("data-theme", "dark");
 		localStorage.setItem("theme", "dark");
+		document.getElementById("darkmode-switch-wrapper").title = "Passa a modalità giorno";
+		document.getElementById("darkmode-switch-wrapper").ariaLabel = "Passa a modalità giorno";
 	} else {
 		document.documentElement.setAttribute("data-theme", "light");
 		localStorage.setItem("theme", "light");
+		document.getElementById("darkmode-switch-wrapper").title = "Passa a modalità notte";
+		document.getElementById("darkmode-switch-wrapper").ariaLabel = "Passa a modalità notte";
 	}
 }
 
