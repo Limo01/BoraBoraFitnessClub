@@ -64,7 +64,7 @@
 				$content .= '.</p><ul id="specifiche-utente-dettaglio-allenamento"><li>' . $queryOverviewAllenamentoResult[0]['username_utente'] . '</li><li>' . $queryOverviewAllenamentoResult[0]['data_creazione'] . '</li><li>' . ($queryOverviewAllenamentoResult[0]['Followers'] == null ? 0 : $queryOverviewAllenamentoResult[0]['Followers']) . '</li></ul><div class="bottoni-allenamenti">';
 				if ($tipoUtente == 1 || ($tipoUtente == 0 && $queryOverviewAllenamentoResult[0]['username_utente'] == $utente)) {
 					$content .= "<ul><li><a href='modificaAllenamento.php?id=" . $id . "'>Modifica allenamento</a></li></ul>";
-					$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "' method='post'><button name='elimina' value='seguire'>Elimina allenamento</button></form>";
+					$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "' method='post'><button name='elimina'>Elimina allenamento</button></form>";
 				} elseif ($tipoUtente == 0) {
 					if ($connessione->doReadQuery("SELECT COUNT(*) AS isFollowing FROM utente_allenamento WHERE id_allenamento = ? AND username_utente = ?", "is", $id, $utente)[0]['isFollowing'] == 0) {
 						$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "' method='post'><button name='segui' value='seguire'>Segui</button></form>";
@@ -90,8 +90,8 @@
 				}
 				$content .= "</div>";
 			} elseif ($changes) {
-				$content .= "<p class='allenamento-avviso'>Allenamento eliminato!</p>";
-				$changes = false;
+				$content .= "<h2 id='titolo-dettagli-allenamento'>Allenamento eliminato</h2><p class='allenamento-avviso'>Allenamento eliminato!</p>";
+				$_SESSION['changes'] = false;
 			} else {
 				$content .= "<p class='allenamento-avviso'>Sembra che questo allenamento non esista!</p>";
 			}

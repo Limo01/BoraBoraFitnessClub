@@ -51,7 +51,8 @@
 			$queryDettaglioAllenamentoResult = $connessione->doReadQuery("SELECT nome, descrizione, peso, serie, ripetizioni, durata FROM esercizio WHERE id_allenamento = ?", "i", $row['id']);
 			$numeroEsercizi = count($queryDettaglioAllenamentoResult);
 			if ($precedente == $itPrecedente) {
-				$content .= "<div><p>Allenamento eliminato!</p></div>";
+				$content .= "<article><p class='allenamento-avviso'>Allenamento eliminato!</p></article>";
+				$_SESSION['precedente'] = 0;
 			}
 			$content .= '<article id="' . $row['id'] . '"><h3>' . $row['nome'] . '</h3><p>' . $row['descrizione'] . '. Questo allenamento comprende ' . $numeroEsercizi . ' esercizi';
 			if ($numeroEsercizi == 1) {
@@ -71,20 +72,20 @@
 			
 			if ($tipoUtente == 1 || ($tipoUtente == 0 && $row['username_utente'] == $utente)) {
 				$content .= "<li><a href='modificaAllenamento.php?id=" . $row['id'] . "'>Modifica allenamento</a></li></ul>";
-				$content .= "<form action='allenamenti.php?pagina=" . $pagina . "#" . $precedente . "' method='post'><input type='hidden' name='idPrecedente' value='" . $itPrecedente . "' readonly/><input type='hidden' name='id' value='" . $row['id'] . "' readonly/><button name='elimina' value='seguire'>Elimina allenamento</button></form>";
+				$content .= "<form action='allenamenti.php?pagina=" . $pagina . "#" . $precedente . "' method='post'><input type='hidden' name='idPrecedente' value='" . $itPrecedente . "' readonly/><input type='hidden' name='id' value='" . $row['id'] . "' readonly/><button name='elimina'>Elimina allenamento</button></form>";
 			} elseif ($tipoUtente == 0) {
 				if ($connessione->doReadQuery("SELECT COUNT(*) AS isFollowing FROM utente_allenamento WHERE id_allenamento = ? AND username_utente = ?", "is", $row['id'], $utente)[0]['isFollowing'] == 0) {
-					$content .= "</ul><form action='allenamenti.php?pagina=" . $pagina . "#" . $precedente . "' method='post'><input type='hidden' name='id' value='" . $row['id'] . "' readonly/><button name='segui' value='seguire'>Segui</button></form></div>";				
+					$content .= "</ul><form action='allenamenti.php?pagina=" . $pagina . "#" . $attuale . "' method='post'><input type='hidden' name='id' value='" . $row['id'] . "' readonly/><button name='segui' value='seguire'>Segui</button></form></div>";				
 					if ($row['id'] == $attuale) {
 						$_SESSION['attuale'] = 0;
 						$content .= "<p class='allenamento-avviso'>Hai smesso di seguire l'allenamento!</p>";
 					}
 				} else {
-					$content .= "</ul><form action='allenamenti.php?pagina=" . $pagina . "#" . $precedente . "' method='post'><input type='hidden' name='id' value='" . $row['id'] . "' readonly/><button name='segui' value='nonSeguire'>Smetti di seguire</button></form></div>";
+					$content .= "</ul><form action='allenamenti.php?pagina=" . $pagina . "#" . $attuale . "' method='post'><input type='hidden' name='id' value='" . $row['id'] . "' readonly/><button name='segui' value='nonSeguire'>Smetti di seguire</button></form></div>";
 					
 					if ($row['id'] == $attuale) {
 						$_SESSION['attuale'] = 0;
-						$content .= "<p class='allenamento-avviso'>Hai iniziato di seguire l'allenamento!</p>";
+						$content .= "<p class='allenamento-avviso'>Hai iniziato a seguire l'allenamento!</p>";
 					}
 				}
 			}
@@ -94,7 +95,8 @@
 		}
 		$connessione->closeConnection();
 		if ($precedente == $itPrecedente) {
-			$content .= "<article><p>Allenamento eliminato!</p></article>";
+			$content .= "<article><p class='allenamento-avviso'>Allenamento eliminato!</p></article>";
+			$_SESSION['precedente'] = 0;
 		}
 		if ($content == $copyContent) {
 			$content .= "<p class='allenamento-avviso'>Sembra che non ci siano allenamenti!</p>";
