@@ -1310,3 +1310,60 @@ div div .gallery {
 #tornaSu:hover {
 	opacity: 1;
 }
+
+/* form inserimento allenamento */
+#inserimentoAllenamentoForm label{
+	text-align: center;
+	display: block;
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+	font-size: 1.8em;
+}
+
+#inserimentoAllenamentoForm button{
+	display: block;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+#inserimentoAllenamentoForm form{
+	text-align: center;
+}
+
+#inserimentoAllenamentoForm fieldset{
+	border: 2px solid var(--colore-background-menu);
+	background-color: unset;
+}
+
+#inserimentoAllenamentoForm input{
+	border-style: none;
+	border-bottom: 2px solid var(--colore-background-menu);
+	border-left: 2px solid var(--colore-background-menu);
+	background-color: unset;
+	margin-top: 1em;
+	width: 75%;
+	font-size: 1.3em;
+	padding: 0.5em;
+}
+
+#inserimentoAllenamentoForm textarea{
+	border-style: none;
+	border-bottom: 2px solid var(--colore-background-menu);
+	border-left: 2px solid var(--colore-background-menu);
+	background-color: unset;
+	resize: none;
+	width: 75%;
+	font-size: 1.3em;
+	padding: 0.5em;
+}
+
+#inserimentoAllenamentoForm select{
+	border-style: none;
+	border-bottom: 2px solid var(--colore-background-menu);
+	border-left: 2px solid var(--colore-background-menu);
+	background-color: unset;
+	resize: none;
+	width: 75%;
+	font-size: 1.3em;
+	padding: 0.5em;
+}

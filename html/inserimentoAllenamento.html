@@ -32,60 +32,60 @@
 	</a>
 
 	<button onclick="menuClickEvent()" id="displayMenuButton">Menu</button>
-	<!-- COMMENTATO PERCHÈ OSCURA I MESSAGGI DI ERRORE PHP
-
-		<div id="topbar">
-			<nav id="menu">
-				<ul>
-					<li lang="en"><a href="./">Home</a></li>
-					<li><a href="abbonamenti.html">Abbonamenti</a></li>
-					<li lang="en"><a href="personal-trainer.html">Trainers</a></li>
-					<li><a href="attrezzature.html">Attrezzature</a></li>
-					<li><a href="allenamenti.php">Allenamenti</a></li>
-					<li><a href="storia.html">Storia</a></li>
-					<li><a href="galleria.html">Galleria</a></li>
-					<li id="userIcon" class="hide"><a href="area-personale.php" aria-label="Area personale" title="Area personale">Area personale</a></li>
-				</ul>
-			</nav>
-			
-			<div aria-label="Passa a modalità notte" title="Passa a modalità notte" id="darkmode-switch-wrapper">
-				<label id="darkmode-switch" for="checkbox">
-					<input type="checkbox" id="checkbox" />
-					<div class="slider round"></div>
-				</label>
-			</div>
+	<div id="topbar">
+		<nav id="menu">
+			<ul>
+				<li lang="en"><a href="./">Home</a></li>
+				<li><a href="abbonamenti.html">Abbonamenti</a></li>
+				<li lang="en"><a href="personal-trainer.html">Trainers</a></li>
+				<li><a href="attrezzature.html">Attrezzature</a></li>
+				<li><a href="allenamenti.php">Allenamenti</a></li>
+				<li><a href="storia.html">Storia</a></li>
+				<li><a href="galleria.html">Galleria</a></li>
+				<li id="userIcon" class="hide"><a href="area-personale.php" aria-label="Area personale" title="Area personale">Area personale</a></li>
+			</ul>
+		</nav>
+		
+		<div aria-label="Passa a modalità notte" title="Passa a modalità notte" id="darkmode-switch-wrapper">
+			<label id="darkmode-switch" for="checkbox">
+				<input type="checkbox" id="checkbox" />
+				<div class="slider round"></div>
+			</label>
 		</div>
-	-->
+	</div>
+	
 
 	<div id="content">
-		<div class="titolo">
+		<div id="titolo">
 			<h1>Crea il tuo allenamento</h1>
 			<p>
 				Compila il seguente <span lang="en">form </span>per creare la tua scheda di allenamento da poter
 				consultare sul nostro sito!
 			<p>
 		</div>
+		<div id="inserimentoAllenamentoForm">
 
-		<form action="php/generatoreScheda.php" method="post" autocomplete="on">
-			<fieldset>
-				<legend>
-					<h2>Creazione scheda di allenamento</h2>
-				</legend>
-
-				<label>Nome scheda</label>
-				<input type="text" name="nomeScheda" required maxlength="100">
-
-				<label>Descrizione</label>
-				<textarea rows="5" cols="30" name="descrizioneScheda"></textarea>
-
-				<label>Allenatore</label>
-				<select name="allenatoreScheda">
-					<selectAllenatore />
-				</select>
-
-				<selectUsername />
-				<button name="creaSchedaSubmit">Crea</button>
-		</form>
+			<form action="php/generatoreScheda.php" method="post" autocomplete="on">
+				<fieldset>
+					<legend>
+						<h2>Creazione scheda di allenamento</h2>
+					</legend>
+					
+					<label>Nome scheda</label>
+					<input type="text" name="nomeScheda" required maxlength="100">
+					
+					<label>Descrizione</label>
+					<textarea rows="5" cols="30" name="descrizioneScheda"></textarea>
+					
+					<label>Allenatore</label>
+					<select name="allenatoreScheda">
+						<selectAllenatore />
+					</select>
+					
+					<selectUsername />
+					<button name="creaSchedaSubmit">Crea</button>
+				</form>
+		</div>
 	</div>
 
 	<div id="tornaSu">

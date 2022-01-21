@@ -51,11 +51,11 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
             $paginaHTML = str_replace("<deleteEsercizio />",$optionEsercizio,$paginaHTML);
             
             //dati scheda
-            $datiScheda = "<div class=\"dettagli-allenamento\">";
+            $datiScheda = "<div>";
             $datiScheda .= "<h2>" . $schedaQuery[0]["nome"] . "</h2>"; 
             $datiScheda .= "<p>Descrizione: " . $schedaQuery[0]["descrizione"] ."</p>";
             $datiScheda .= "<p>Data creazione: " . $schedaQuery[0]["data_creazione"] . "</p>";
-            
+            $datiScheda .= "<div  class=\"dettagli-allenamento\">";
             foreach($eserciziQuery as $row){
                 //TODO: non mostrare serie, durata ecc se valore è null
                 $datiScheda .= "<article><h3>" . $row["nome"] ."</h3>";
@@ -82,7 +82,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
                 $datiScheda .= "</article>";
             }
             
-            $datiScheda .= "</div>";
+            $datiScheda .= "</div></div>";
             $paginaHTML = str_replace("<datiScheda />",$datiScheda,$paginaHTML);
             echo $paginaHTML;
         } else {
