@@ -1,6 +1,13 @@
 <?php
+	require_once "php/db.php";
+
 	function isNameValid($name){
 		return preg_match("/^[a-zA-Z-' àèìòùáéíóú]*$/", $name) && strlen($name)>0;
+	}
+
+	function isUsernameValid ($name){
+		return preg_match("/^[0-9a-zA-Z-' àèìòùáéíóú]*$/",$name) && strlen($name)>0;
+		
 	}
 
 	function isEmailValid($email){
@@ -22,5 +29,38 @@
 
 	function isPhoneNumberValid($phone_number){
 		return preg_match("/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/", $phone_number);
+	}
+
+
+
+	function isUsernameCorrect($submitted, $connessione) {
+		$queryResult = $connessione->doReadQuery("SELECT username FROM utente WHERE username = ?", "s", $submitted);
+
+		if($queryResult != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	function isPasswordCorrect($name, $password, $connessione) {
+		$queryResult = $connessione->doReadQuery("SELECT password FROM utente WHERE username = ?", "s", $name);
+
+		$row = $queryResult;
+
+		if(isset($row[0]["password"]) && password_verify($password,$row[0]["password"])) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	function isAdmin($user, $connessione) {
+		$result = $connessione->doReadQuery("SELECT is_admin FROM utente WHERE username = ?", "s", $user);
+		if ($result != null && $result[0]["is_admin"] == 1) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 ?>

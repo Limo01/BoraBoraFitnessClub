@@ -1,74 +1,8 @@
 <?php
 	require_once "php/db.php";
+	require_once "php/controlli_input.php";
 	use DB\DBAccess;
 	session_start();
-
-	function isUsernameCorrect($submitted, $connessione) {
-		$queryResult = $connessione->doReadQuery("SELECT username FROM utente WHERE username = ?", "s", $submitted);
-
-		if($queryResult != null) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	function isPasswordCorrect($name, $password, $connessione) {
-		$queryResult = $connessione->doReadQuery("SELECT password FROM utente WHERE username = ?", "s", $name);
-
-		$row = $queryResult;
-
-		if(isset($row[0]["password"]) && password_verify($password,$row[0]["password"])) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	function isAdmin($user, $connessione) {
-		$result = $connessione->doReadQuery("SELECT is_admin FROM utente WHERE username = ?", "s", $user);
-		if ($result != null && $result[0]["is_admin"] == 1) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	function isNameValid ($name){
-		if (preg_match("/^[a-zA-Z-' àèìòùáéíóú]*$/",$name)){
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-
-	function isUsernameValid ($name){
-		if (preg_match("/^[0-9a-zA-Z-' àèìòùáéíóú]*$/",$name)){
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-
-	function isEmailValid ($email){
-		if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-
-	function isTelValid ($tel){
-		if (preg_match("/^\+[0-9]+$|^[0-9]+$/",$tel)){
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
 
 	function getNewBadge ($connessione){
 		do{
@@ -146,7 +80,7 @@
 			$emailValid = isEmailValid($email);
 			$nomeValid = isNameValid($nome);
 			$cognomeValid = isNameValid($cognome);
-			$telValid = isTelValid($tel);
+			$telValid = isPhoneNumberValid($tel);
 
 			if(!$userDoppio && $userValid && $password1 == $password2 && $nomeValid && $cognomeValid && $emailValid && $telValid){
 				$connessione->doWriteQuery("INSERT INTO utente(username, password, nome, cognome, email, data_nascita, badge, entrate, numero_telefono, nome_abbonamento, data_inizio, data_fine)
