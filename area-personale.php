@@ -26,6 +26,11 @@
 	}
 
 	$paginaHTML = file_get_contents("html/area-personale.html");
+	$paginaHTML = str_replace("<logout />", "<a href='php/logout.php'>Logout</a>", $paginaHTML);
+	$paginaHTML = str_replace("<breadcrumb />", "Area personale", $paginaHTML);
+	$paginaHTML = str_replace("<admin />", "", $paginaHTML);
+	$paginaHTML = str_replace("<gestione_utenti />", "", $paginaHTML);
+	$paginaHTML = str_replace("<widget />", "widget_area_personale", $paginaHTML);
 
 	$connessione = new DBAccess();
 	$connessioneOK = $connessione->openDBConnection();
@@ -155,11 +160,6 @@
 			$output= $output . "</div>";
 			$paginaHTML = str_replace("<allenamenti_creati />", $output, $paginaHTML);
 		}
-
-		$paginaHTML = str_replace("<admin />", "", $paginaHTML);
-		$paginaHTML = str_replace("<gestione_utenti />", "", $paginaHTML);
-		$paginaHTML = str_replace("<widget />", "widget_area_personale", $paginaHTML);
-
 	} else {
 		$paginaHTML = "<p>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
 	}

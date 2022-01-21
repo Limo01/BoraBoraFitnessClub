@@ -28,6 +28,11 @@
 	}
 
 	$paginaHTML = file_get_contents("html/area-personale.html");
+	$paginaHTML = str_replace("<logout />", "", $paginaHTML);
+	$paginaHTML = str_replace("<breadcrumb />", "<a href='area-personale.php'>Area personale [admin]</a> &gt;&gt; Area personale (<username />)", $paginaHTML);
+	$paginaHTML = str_replace("<admin />", "", $paginaHTML);
+	$paginaHTML = str_replace("<gestione_utenti />", "", $paginaHTML);
+	$paginaHTML = str_replace("<widget />", "widget_area_personale", $paginaHTML);
 	
 	$update = -1;
 	$updatePersonalData = false;
@@ -177,10 +182,6 @@
 			$output= $output . "</div>";
 			$paginaHTML = str_replace("<allenamenti_creati />", $output, $paginaHTML);
 		}
-
-		$paginaHTML = str_replace("<admin />", "", $paginaHTML);
-		$paginaHTML = str_replace("<gestione_utenti />", "", $paginaHTML);
-		$paginaHTML = str_replace("<widget />", "widget_area_personale", $paginaHTML);
 	} else {
 		$paginaHTML = "<p>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
 	}
