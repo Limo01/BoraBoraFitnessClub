@@ -944,7 +944,7 @@ div div .gallery {
 		"c c b";
 }
 
-#widget_area_personale .widget {
+#widget_area_personale .widget, #widget_area_personale .dati_personali {
 	background-color: var(--colore-sfondo-div);
 	border-radius: 2em;
 	padding: 2em;
@@ -963,7 +963,7 @@ div div .gallery {
 	grid-area: b;
 }
 
-#dati_personali {
+.dati_personali {
 	text-align: center;
 	grid-area: c;
 }
@@ -1014,17 +1014,17 @@ div div .gallery {
 	opacity: 1;
 }
 
-#dati_personali form {
+.dati_personali form {
 	width: 60%;
 	text-align: left;
 	margin-bottom: 1em;
 }
 
-#dati_personali form label {
+.dati_personali form label {
 	font-weight: bold;
 }
 
-#dati_personali input {
+.dati_personali input {
 	width: 100%;
 	margin-top: 0.5em;
 	margin-bottom: 1em;
@@ -1036,20 +1036,20 @@ div div .gallery {
 	outline: none;
 }
 
-#dati_personali input[type="date"] {
+.dati_personali input[type="date"] {
 	font-size: 1.3em;
 	font-weight: bold;
 }
 
-#dati_personali input:invalid {
+.dati_personali input:invalid {
 	border-bottom: 2px solid red;
 }
 
-#dati_personali input:focus {
+.dati_personali input:focus {
 	border-bottom: 2px solid var(--colore-testo-principale);
 }
 
-#dati_personali .errore_form {
+.dati_personali .errore_form {
 	color: red;
 	margin: 0;
 	padding-bottom: 1em;
@@ -1062,12 +1062,12 @@ div div .gallery {
 	font-size: 1.5em;
 }
 
-#dati_personali button {
+.dati_personali button {
 	text-align: center;
 	display: block;
 }
 
-#dati_personali dl {
+.dati_personali dl {
 	margin-top: 3em;
 }
 
@@ -1139,7 +1139,7 @@ div div .gallery {
 		"a b";
 }
 
-#widget_area_personale_admin .widget {
+#widget_area_personale_admin .widget, #widget_area_personale_admin .dati_personali {
 	background-color: var(--colore-sfondo-div);
 	border-radius: 2em;
 	padding: 2em;
