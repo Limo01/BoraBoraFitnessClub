@@ -60,6 +60,13 @@ function check_validity_data_nascita(e){
 
 	if(!e.target.checkValidity()){
 		spanErrore.innerHTML= "La data di nascita non è in un formato corretto.";
+
+		if(new Date(e.target.value) > new Date().setFullYear(new Date().getFullYear() - 16)){
+			spanErrore.innerHTML = "Ti ricordiamo che devi avere minimo 16 anni!";
+		}
+		if(new Date(e.target.value) < new Date().setFullYear(new Date().getFullYear() - 110)){
+			spanErrore.innerHTML+= "Non pensiamo che tu abbia più di 110 anni! Nel caso ci sbaglissimo, complimenti! Scrivi subito ad un admin!";
+		}
 	}
 	else {
 		spanErrore.innerHTML="";

@@ -32,7 +32,7 @@
 
 			$esito = false;
 
-			if(isNameValid($nome) && isNameValid($cognome) && isEmailValid($email) && isDateValid($data_nascita) && isPhoneNumberValid($telefono)){
+			if(isNameValid($nome) && isNameValid($cognome) && isEmailValid($email) && isDateValid($data_nascita, $_SESSION["isAdmin"]) && isPhoneNumberValid($telefono)){
 				$esito= $connessione->doWriteQuery("UPDATE utente SET nome=?, cognome=?, email=?, data_nascita=?, numero_telefono=?
 					WHERE username=?", "ssssss", 
 					$nome, $cognome, $email, $data_nascita, $telefono, $user);
