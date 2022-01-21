@@ -96,11 +96,7 @@
 		//Informazioni personali
 		$update = 1;
 		if(!$updatePersonalData){
-			$button = '
-				<a href="admin.php?&update=<update />">
-					<button id="buttonModDati">Modifica</button>
-				</a>
-			';
+			$button = '<a href="area-personale.php?update=<update />">Modifica</a>';
 			$personalData = str_replace("<update />", $update, file_get_contents("html/dati_personali.html") . $button);
 		}
 		else{
@@ -114,6 +110,9 @@
 			
 			$personalData = str_replace("<today_min16anni />", "", $personalData);
 			$personalData = str_replace("<today_max110anni />", "", $personalData);
+
+			$annulla = '<a href="area-personale.php">Annulla</a>';
+			$personalData = str_replace("<annulla />", $annulla, $personalData);
 		}
 
 		$paginaHTML = str_replace("<dati_personali />", $personalData, $paginaHTML);

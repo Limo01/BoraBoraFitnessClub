@@ -1046,7 +1046,7 @@ div div .gallery {
 }
 
 #dati_personali input:focus {
-	border: 2px solid var(--colore-testo-principale);
+	border-bottom: 2px solid var(--colore-testo-principale);
 }
 
 #dati_personali .errore_form {

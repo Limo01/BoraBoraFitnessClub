@@ -79,11 +79,7 @@
 
 		//Informazioni personali
 		if(!$updatePersonalData){
-			$button = '
-				<a href="modifica-utente.php?usr=<username />&update=
-				<update />">
-					<button id="buttonModDati">Modifica</button>
-				</a>';
+			$button = '<a href="modifica-utente.php?usr=<username />&update=<update />">Modifica</a>';
 			$personalData = str_replace("<update />", ($update > 0 ? 0 : 1), file_get_contents("html/dati_personali.html") . $button);
 		}
 		else{
@@ -97,8 +93,10 @@
 			
 			$personalData = str_replace("<today_min16anni />", "", $personalData);
 			$personalData = str_replace("<today_max110anni />", "", $personalData);
+			$annulla = '<a href="modifica-utente.php?' . ($update == 0 ? 'update=2&' : '') . 'usr=<username />">Annulla</a>';
+			$personalData = str_replace("<annulla />", $annulla, $personalData);
 		}
-		
+
 		$paginaHTML = str_replace("<dati_personali />", $personalData, $paginaHTML);
 		
 		$paginaHTML = str_replace("<nome />", $datiPersonali["nome"], $paginaHTML);
@@ -126,6 +124,9 @@
 
 			$form = '<form action="php/modifica-abbonamento.php?update=<update />&usr=<username /> " method="post">';
 			$dettagliAbbonamento = str_replace("<update />", $update, $form . file_get_contents("html/dettagli_abbonamento_update.html"));
+
+			$annulla = '<a href="modifica-utente.php?' . ($update == 0 ? 'update=1&' : '') . 'usr=<username />">Annulla</a>';
+			$dettagliAbbonamento = str_replace("<annulla />", $annulla, $dettagliAbbonamento);
 
 			$dettagliAbbonamento = str_replace("<abbonamenti />", $abbonamentiOptions, $dettagliAbbonamento);
 		}
