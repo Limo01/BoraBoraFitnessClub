@@ -91,7 +91,7 @@
 		$password = $_POST["passwordAccesso"];
 		$out = "";
 		
-		//TODO: messaggio unico username o password errata
+		
 		if ($connessioneOK) {
 			$userOK = isUsernameCorrect($nomeUtente, $connessione);
 			$pwOK = isPasswordCorrect($nomeUtente, $password, $connessione);
@@ -112,13 +112,13 @@
 				}
 			}
 			else {
-				$out = "nome utente o password errato";
+				$out = "<p class=\"errore_form\">Username o password errata, ritenta il login!</p>";
 			}
 		} else {
-			$out = "<p>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
+			$out = "<p class=\"errore_form\">I sistemi sono al momento non disponibili, riprova più tardi!</p>";
 		}
 		
-		echo str_replace("<autenticazione/>", $out, $paginaHTML);
+		echo str_replace("<erroreLogin />", $out, $paginaHTML);
 	}
 	
 	function registration()
@@ -165,37 +165,39 @@
 					}
 			} else {
 				if(!$nomeValid){
-					// $out .= "<p>sono ammesse solamente lettere per il nome</p>";
 					$paginaHTML = str_replace("<erroreNome />","Il nome inserito non è valido. Deve contenere solo lettere, senza caratteri speciali (? , * ; + .).",$paginaHTML);
 				} else {
+					$paginaHTML = str_replace("<erroreNome />","",$paginaHTML);
 					$paginaHTML = str_replace("id=\"nome\"","id=\"nome\" value=\"" . $nome . "\"", $paginaHTML);
 				}
 
 				if(!$cognomeValid){
-					// $out .= "<p>sono ammesse solamente lettere per il cognome</p>";
 					$paginaHTML = str_replace("<erroreCognome />","Il cognome inserito non è valido. Deve contenere solo lettere, senza caratteri speciali (? , * ; + .).",$paginaHTML);
 				} else {
+					$paginaHTML = str_replace("<erroreCognome />","",$paginaHTML);
 					$paginaHTML = str_replace("id=\"cognome\"","id=\"cognome\" value=\"" . $cognome . "\"", $paginaHTML);
 				}
 
 				if($userDoppio){
-					// $out .= "<p>username non disponibile</p>";
 					$paginaHTML = str_replace("<erroreUsername />","Lo username inserito non è disponibile.",$paginaHTML);
 				} elseif(!$userValid){
-					// $out .= "<p>sono ammesse solamente lettere e numeri per lo username</p>";
 					$paginaHTML = str_replace("<erroreUsername />","Lo username inserito non è valido. Deve contenere solo lettere e numeri, senza caratteri speciali (? , * ; + .).",$paginaHTML);
 				} else {
+					$paginaHTML = str_replace("<erroreUsername />","",$paginaHTML);
 					$paginaHTML = str_replace("id=\"username\"","id=\"username\" value=\"" . $username . "\"", $paginaHTML);
 				}
 
 				if($password1 != $password2){
-					$out .= "<p>verifica di aver inserito correttamente la password</p>";
+					$paginaHTML = str_replace("<erroreConfermaPassword />","errore nell'inserimento della password",$paginaHTML);
+				}
+				else {
+					$paginaHTML = str_replace("<erroreConfermaPassword />","",$paginaHTML);
 				}
 
 				if(!$emailValid){
-					#$out .= "<p>inserisci una email valida</p>";
 					$paginaHTML = str_replace("<erroreEmail />","L'email inserita non è valida.",$paginaHTML);
 				} else {
+					$paginaHTML = str_replace("<erroreEmail />","",$paginaHTML);
 					$paginaHTML = str_replace("id=\"email\"","id=\"email\" value=\"" . $email . "\"", $paginaHTML);
 				}
 
@@ -203,6 +205,7 @@
 					$out .= "<p>inserisci un numero di telefono valido</p>";
 					$paginaHTML = str_replace("<erroreTelefono />","Il numero di telefono inserito non è valida.",$paginaHTML);
 				} else {
+					$paginaHTML = str_replace("<erroreTelefono />","",$paginaHTML);
 					$paginaHTML = str_replace("id=\"telefono\"","id=\"telefono\" value=\"" . $tel . "\"", $paginaHTML);
 				}
 
@@ -227,7 +230,10 @@
 	} elseif (isset($_POST['registrationSubmit'])){
 		registration();
 	} else {
-		echo file_get_contents("html/autenticazione.html");
+		$paginaHTML = file_get_contents("html/autenticazione.html");
+		$paginaHTML = str_replace("<today_min16anni />", date('Y-m-d', strtotime('-16 years')), $paginaHTML);
+		$paginaHTML = str_replace("<today_max110anni />", date('Y-m-d', strtotime('-110 years')), $paginaHTML);
+		echo $paginaHTML;
 	}
 
 		
