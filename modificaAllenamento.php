@@ -13,7 +13,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
 
         $connessione->closeConnection();
 
-        $confermaModifiche = "<a href=\"dettagli-allenamento.php?id=".$_GET["id"]."&nomeBreadcrumb=Allenamenti\">Conferma modifiche</a>";
+        $confermaModifiche = "<a href=\"dettagli-allenamento.php?id=".$_GET["id"]."&nomeBreadcrumb=Allenamenti&url=modificaAllenamento.php?id=" . $_GET['id'] . "\">Conferma modifiche</a>";
         $paginaHTML = str_replace("<confermaModifiche />",$confermaModifiche,$paginaHTML);
 
         if(($schedaQuery != null) && ($_SESSION["isAdmin"] || $schedaQuery[0]["username_utente"] == $_SESSION["username"])){

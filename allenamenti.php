@@ -68,7 +68,7 @@
 				}
 				$content .= ' e ' . $queryDettaglioAllenamentoResult[$j]['nome'];
 			}
-			$content .= '.</p><ul><li>Di ' . $row['username_utente'] . '</li><li>Creato il ' . $row['data_creazione'] . '</li><li>Seguito da ' . ($row['Followers'] == null ? 0 : $row['Followers']) . ' person' . ($row['Followers'] == 1 ? 'a' : 'e') . '</li></ul><div class="bottoni-allenamenti"><ul><li><a href="dettagli-allenamento.php?id=' . $row['id'] . '&nomeBreadcrumb=Allenamenti">Apri nel dettaglio</a></li>';
+			$content .= '.</p><ul><li>Di ' . $row['username_utente'] . '</li><li>Creato il ' . $row['data_creazione'] . '</li><li>Seguito da ' . ($row['Followers'] == null ? 0 : $row['Followers']) . ' person' . ($row['Followers'] == 1 ? 'a' : 'e') . '</li></ul><div class="bottoni-allenamenti"><ul><li><a href="dettagli-allenamento.php?id=' . $row['id'] . '&nomeBreadcrumb=Allenamenti&url=allenamenti.php?pagina=' . $pagina . '">Apri nel dettaglio</a></li>';
 			
 			if ($tipoUtente == 1 || ($tipoUtente == 0 && $row['username_utente'] == $utente)) {
 				$content .= "<li><a href='modificaAllenamento.php?id=" . $row['id'] . "'>Modifica allenamento</a></li></ul>";
@@ -113,24 +113,36 @@
 		$init = "<a href='autenticazione.php?url=allenamenti.php?pagina=" . $pagina . "'>Effettua l'autenticazione</a>";
 	}
 
-	$minNavPag = 2;
-	$minScorri = $minNavPag <= $pagina? $minNavPag : $pagina - 1;
-
+	$offset = 2;
+	$vIntSx = $pagina - $offset > 0 ? $pagina - $offset : 1;
+	$spacerSx = $vIntSx > 3;
+	$vIntDx = $pagina + $offset < $numeroPagine ? $pagina + $offset : $numeroPagine;
+	$spacerDx = $pagina + $offset < $numeroPagine;
 	$contentPagine = "";
-	/*for ($i = 1; $i < (($pagina - $minScorri > 0) ? $pagina - $minScorri : 1) && $i < $minNavPag; $i++) {
-		$j = $ + 1;
-		if ($j < $pagina - $minScorri > 0 ? $pagina - $minScorri : 1 && $j < $minNavPag) {
-	   		$contentPagine .= "<li><a href='allenamenti.php?pagina=" . $i . "'>" . $i . "</a></li>";
-		} else {
+
+	for ($i = 1; $i < $vIntSx && $i <= $offset; $i++) {
+		$contentPagine .= "<li><a href='allenamenti.php?pagina=" . $i . "'>" . $i . "</a></li>";
+	}
+	for ($i = $vIntSx; $i < $pagina; $i++) {
+		if ($spacerSx) {
 	   		$contentPagine .= "<li id='fine-pagine-iniziali'><a href='allenamenti.php?pagina=" . $i . "'>" . $i . "</a></li>";
-	    }
-	}*/
-	for ($i = $pagina - $minScorri > 0 ? $pagina - $minScorri : 1; $i < $pagina; $i++) {
-	   	$contentPagine .= "<li><a href='allenamenti.php?pagina=" . $i . "'>" . $i . "</a></li>";
+			$spacerSx = false;
+		} else {
+			$contentPagine .= "<li><a href='allenamenti.php?pagina=" . $i . "'>" . $i . "</a></li>";
+		}
 	}
 	$contentPagine .= "<li id='currentLink'>" . $pagina . "</li>";
-	for ($i = $pagina + 1; $i <= ($minNavPag + $pagina <= $numeroPagine ? $minNavPag + $pagina : $numeroPagine); $i++) {
+	for ($i = $pagina + 1; $i < $vIntDx; $i++) {
 	   	$contentPagine .= "<li><a href='allenamenti.php?pagina=" . $i . "'>" . $i . "</a></li>";
 	}
+	if ($spacerDx) {
+		$contentPagine .= "<li id='inizio-pagine-finali'><a href='allenamenti.php?pagina=" . $vIntDx . "'>" . $vIntDx . "</a></li>";
+	} elseif ($pagina < $vIntDx) {
+		$contentPagine .= "<li><a href='allenamenti.php?pagina=" . $vIntDx . "'>" . $vIntDx . "</a></li>";
+	}
+	for ($i = ($vIntDx >= ($numeroPagine - $offset) ? $vIntDx : $numeroPagine - $offset) + 1; $i <= $numeroPagine; $i++) {
+	   	$contentPagine .= "<li><a href='allenamenti.php?pagina=" . $i . "'>" . $i . "</a></li>";
+	}
+
 	echo str_replace("<bottone-iniziale-destra />", $init, str_replace("<pagine />", $contentPagine, str_replace("<allenamenti />", $content, file_get_contents("html/allenamenti.html"))));
 ?>
