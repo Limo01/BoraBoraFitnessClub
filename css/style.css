@@ -551,7 +551,7 @@ footer .social {
 	border-radius: 1em;
 }
 
-#content .personalTrainer > p > cite {
+#content .personalTrainer > p > q {
 	display: block;
 	padding: 0.5em 0em;
 	font-size: 1.5em;
@@ -1187,24 +1187,33 @@ div div .gallery {
 
 #content .allenamenti ul > li,
 #content .dettagli-allenamento ul > li,
-#content .bottoni-allenamenti ul > li,
-#content #specifiche-utente-dettaglio-allenamento > li {
-	color: var(--colore-testo-principale);
-	background-color: var(--colore-background-menu);
+#content #specifiche-utente-dettaglio-allenamento > li,
+#content .bottoni-allenamenti ul > li {
 	padding: 0.5em 1em;
 	margin: 0.5em 0.2em;
 	border-radius: 2em;
 	font-size: 1.3em;
 	list-style-type: none;
-	display: inline-block;
+	display: inline-block;	
+}
+
+#content .allenamenti ul > li,
+#content .dettagli-allenamento ul > li,
+#content #specifiche-utente-dettaglio-allenamento > li {
+	color: var(--colore-testo-principale);
+	background-color: var(--colore-background-menu);
+}
+
+#content .bottoni-allenamenti ul > li {
+	background-color: var(--colore-testo-principale);
+}
+
+#content .bottoni-allenamenti ul > li > a {
+	color: var(--colore-testo-contrasto-sfondi);
 }
 
 #content .bottoni-allenamenti > ul {
 	margin: 0em;
-}
-
-#content .bottoni-allenamenti li:hover {
-	background-color: var(--colore-testo-contrasto-sfondi);
 }
 
 #content .allenamento-avviso {
@@ -1285,6 +1294,14 @@ div div .gallery {
 
 #titolo-dettagli-allenamento {
 	margin-right: 10%;
+}
+
+#naviga-pagine > ul > li#fine-pagine-iniziali {
+	margin-left: 3em;
+}
+
+#naviga-pagine > ul > li#inizio-pagine-finali {
+	margin-right: 3em;
 }
 
 /* tornaSu -------------------------------*/
