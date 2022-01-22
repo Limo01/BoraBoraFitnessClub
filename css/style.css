@@ -528,8 +528,8 @@ footer .social {
 	border-radius: 5em;
 }
 
-small {
-	color: var(--colore-testo-principale);
+#clausolaIscrizione p{
+	font-size: 1em;
 }
 
 /*==================== PERSONAL TRAINER ====================*/
