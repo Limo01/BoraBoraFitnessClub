@@ -317,6 +317,7 @@ input:checked + .slider:before {
 	color: var(--colore-testo-principale);
 	font-size: 1.3em;
 	margin-top: 1em;
+	margin-bottom: 1em;
 }
 
 #content input {
@@ -528,7 +529,7 @@ footer .social {
 	border-radius: 5em;
 }
 
-#clausolaIscrizione p{
+#clausolaIscrizione p {
 	font-size: 1em;
 }
 
@@ -909,13 +910,13 @@ div div .gallery {
 /*--- NASCONDI I FORM DI AGGIUNTA E ELIMINAZIONE ESERCIZIO ---*/
 
 #aggiungiEsercizioForm {
-	display: block; 
+	display: block;
 	margin-right: 80%;
 }
 
 #eliminaEsercizioForm {
 	display: block;
-} 
+}
 
 /*==================== STILE AREA PERSONALE ====================*/
 #content dl[class="dl_inline"] {
@@ -949,11 +950,12 @@ div div .gallery {
 		"c c b";
 }
 
-#widget_area_personale .widget, #widget_area_personale .dati_personali {
+.widget,
+.dati_personali {
 	background-color: var(--colore-sfondo-div);
 	border-radius: 2em;
 	padding: 2em;
-	width: 90%;
+	width: 36em;
 }
 
 #dettagli_abbonamento {
@@ -970,6 +972,9 @@ div div .gallery {
 
 .dati_personali {
 	text-align: center;
+}
+
+#dati_personali_widget {
 	grid-area: c;
 }
 
@@ -1022,7 +1027,6 @@ div div .gallery {
 .dati_personali form {
 	width: 60%;
 	text-align: left;
-	margin-bottom: 1em;
 }
 
 .dati_personali form label {
@@ -1046,7 +1050,15 @@ div div .gallery {
 	font-weight: bold;
 }
 
-#widget_area_personale .dati_personali input:invalid, #widget_area_personale_admin .dati_personali input:invalid {
+.dati_personali select {
+	width: 100%;
+	margin-top: 0.5em;
+	margin-bottom: 2em;
+	padding-top: 0.2em;
+}
+
+#widget_area_personale .dati_personali input:invalid,
+#widget_area_personale_admin .dati_personali input:invalid {
 	border-bottom: 2px solid red;
 }
 
@@ -1062,13 +1074,7 @@ div div .gallery {
 	max-width: 320px;
 }
 
-#buttonModDati {
-	margin-top: 1.5em;
-	font-size: 1.5em;
-}
-
 .dati_personali button {
-	text-align: center;
 	display: block;
 }
 
@@ -1076,8 +1082,54 @@ div div .gallery {
 	margin-top: 3em;
 }
 
-#content #dettagli_abbonamento p {
+#dettagli_abbonamento {
 	text-align: center;
+}
+
+/*==================== STILE AREA PERSONALE ADMIN ====================*/
+#content #widget_area_personale_admin {
+	background-color: transparent;
+	display: grid;
+	grid-gap: 3em;
+	padding: 0;
+	grid-template-areas:
+		"c d"
+		"c d"
+		"a b";
+}
+
+#widget_area_personale_admin .dati_personali {
+	background-color: var(--colore-sfondo-div);
+	border-radius: 2em;
+	padding: 2em;
+	width: 36em;
+}
+
+#gestione_utenti {
+	grid-area: d;
+}
+
+#gestione_utenti ul {
+	border-top: solid 1px var(--colore-testo-principale);
+	width: 80%;
+	list-style: none;
+}
+
+#gestione_utenti li {
+	border-bottom: solid 1px var(--colore-testo-principale);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#gestione_utenti li a {
+	margin: 0;
+}
+
+#gestione_utenti form {
+	display: inline-block;
+	font-size: 1em;
+	margin: 0.5em 1em;
 }
 
 /*==================== STILE ACQUISTO ABBONAMENTO ====================*/
@@ -1131,32 +1183,7 @@ div div .gallery {
 	}
 }
 
-/*==================== STILE AREA PERSONALE ADMIN ====================*/
-
-#content #widget_area_personale_admin {
-	background-color: transparent;
-	display: grid;
-	grid-gap: 3em;
-	padding: 0;
-	grid-template-areas:
-		"c d"
-		"c d"
-		"a b";
-}
-
-#widget_area_personale_admin .widget, #widget_area_personale_admin .dati_personali {
-	background-color: var(--colore-sfondo-div);
-	border-radius: 2em;
-	padding: 2em;
-	width: 36em;
-}
-
-#gestione_utenti {
-	grid-area: d;
-}
-
 /*==================== ALLENAMENTI ====================*/
-
 .allenamenti,
 .dettagli-allenamento {
 	display: flex;
@@ -1199,7 +1226,7 @@ div div .gallery {
 	border-radius: 2em;
 	font-size: 1.3em;
 	list-style-type: none;
-	display: inline-block;	
+	display: inline-block;
 }
 
 #content .allenamenti ul > li,
@@ -1335,7 +1362,7 @@ div div .gallery {
 }
 
 /* form inserimento allenamento */
-#inserimentoAllenamentoForm label{
+#inserimentoAllenamentoForm label {
 	text-align: center;
 	display: block;
 	margin-top: 1em;
@@ -1343,22 +1370,22 @@ div div .gallery {
 	font-size: 1.8em;
 }
 
-#inserimentoAllenamentoForm button{
+#inserimentoAllenamentoForm button {
 	display: block;
 	margin-top: 1em;
 	margin-bottom: 1em;
 }
 
-#inserimentoAllenamentoForm form{
+#inserimentoAllenamentoForm form {
 	text-align: center;
 }
 
-#inserimentoAllenamentoForm fieldset{
+#inserimentoAllenamentoForm fieldset {
 	border: 2px solid var(--colore-background-menu);
 	background-color: unset;
 }
 
-#inserimentoAllenamentoForm input{
+#inserimentoAllenamentoForm input {
 	border-style: none;
 	border-bottom: 2px solid var(--colore-background-menu);
 	border-left: 2px solid var(--colore-background-menu);
@@ -1369,7 +1396,7 @@ div div .gallery {
 	padding: 0.5em;
 }
 
-#inserimentoAllenamentoForm textarea{
+#inserimentoAllenamentoForm textarea {
 	border-style: none;
 	border-bottom: 2px solid var(--colore-background-menu);
 	border-left: 2px solid var(--colore-background-menu);
@@ -1380,7 +1407,7 @@ div div .gallery {
 	padding: 0.5em;
 }
 
-#inserimentoAllenamentoForm select{
+#inserimentoAllenamentoForm select {
 	border-style: none;
 	border-bottom: 2px solid var(--colore-background-menu);
 	border-left: 2px solid var(--colore-background-menu);
