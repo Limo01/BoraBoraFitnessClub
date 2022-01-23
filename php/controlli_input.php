@@ -1,5 +1,5 @@
 <?php
-	require_once "php/db.php";
+	require_once "db.php";
 
 	function isNameValid($name){
 		return preg_match("/^[a-zA-Z-' àèìòùáéíóú]*$/", $name) && strlen($name)>0;
