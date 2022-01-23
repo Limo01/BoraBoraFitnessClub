@@ -63,28 +63,27 @@
 				consultare sul nostro sito!
 			<p>
 		</div>
-		<div id="inserimentoAllenamentoForm">
+		<div id="inserimentoForm">
 
 			<form action="php/generatoreScheda.php" method="post" autocomplete="on">
-				<fieldset>
-					<legend>
-						<h2>Creazione scheda di allenamento</h2>
-					</legend>
-					
-					<label>Nome scheda</label>
-					<input type="text" name="nomeScheda" required maxlength="100">
-					
-					<label>Descrizione</label>
-					<textarea rows="5" cols="30" name="descrizioneScheda"></textarea>
-					
-					<label>Allenatore</label>
-					<select name="allenatoreScheda">
-						<selectAllenatore />
-					</select>
-					
-					<selectUsername />
-					<button name="creaSchedaSubmit">Crea</button>
-				</form>
+				<legend>
+					<h2>Creazione scheda di allenamento</h2>
+				</legend>
+				
+				<label>Nome scheda</label>
+				<input type="text" name="nomeScheda" required maxlength="100">
+				
+				<label>Descrizione</label>
+				<textarea rows="5" cols="30" name="descrizioneScheda"></textarea>
+				
+				<label>Allenatore</label>
+				<select name="allenatoreScheda">
+					<selectAllenatore />
+				</select>
+				
+				<selectUsername />
+				<button name="creaSchedaSubmit">Crea</button>
+			</form>
 		</div>
 	</div>
 

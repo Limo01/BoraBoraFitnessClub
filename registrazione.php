@@ -120,6 +120,15 @@
 		$paginaHTML = file_get_contents("html/registrazione.html");
 		$paginaHTML = str_replace("<today_min16anni />", date('Y-m-d', strtotime('-16 years')), $paginaHTML);
 		$paginaHTML = str_replace("<today_max110anni />", date('Y-m-d', strtotime('-110 years')), $paginaHTML);
+		$paginaHTML = str_replace("<registrazione />", "", $paginaHTML);
+		$paginaHTML = str_replace("<erroreNome />", "", $paginaHTML);
+		$paginaHTML = str_replace("<erroreCognome />", "", $paginaHTML);
+		$paginaHTML = str_replace("<erroreData />", "", $paginaHTML);
+		$paginaHTML = str_replace("<erroreUsername />", "", $paginaHTML);
+		$paginaHTML = str_replace("<erroreConfermaPassword />", "", $paginaHTML);
+		$paginaHTML = str_replace("<erroreEmail />", "", $paginaHTML);
+		$paginaHTML = str_replace("<erroreTelefono />", "", $paginaHTML);
+		
 		echo $paginaHTML;
 	}
 ?>

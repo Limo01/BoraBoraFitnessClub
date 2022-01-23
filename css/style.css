@@ -1362,58 +1362,77 @@ div div .gallery {
 }
 
 /* form inserimento allenamento */
-#inserimentoAllenamentoForm label {
+#inserimentoForm label {
 	text-align: center;
 	display: block;
 	margin-top: 1em;
 	margin-bottom: 0.5em;
-	font-size: 1.8em;
+	font-size: 1.2em;
 }
 
-#inserimentoAllenamentoForm button {
-	display: block;
+#inserimentoForm button {
+	display: inline;
 	margin-top: 1em;
 	margin-bottom: 1em;
 }
 
-#inserimentoAllenamentoForm form {
+#inserimentoForm form {
 	text-align: center;
 }
 
-#inserimentoAllenamentoForm fieldset {
+#inserimentoForm fieldset {
 	border: 2px solid var(--colore-background-menu);
 	background-color: unset;
 }
 
-#inserimentoAllenamentoForm input {
+#inserimentoForm input {
+	display: block;
 	border-style: none;
 	border-bottom: 2px solid var(--colore-background-menu);
 	border-left: 2px solid var(--colore-background-menu);
 	background-color: unset;
-	margin-top: 1em;
-	width: 75%;
+	width: 60%;
 	font-size: 1.3em;
 	padding: 0.5em;
 }
 
-#inserimentoAllenamentoForm textarea {
+#inserimentoForm textarea {
 	border-style: none;
 	border-bottom: 2px solid var(--colore-background-menu);
 	border-left: 2px solid var(--colore-background-menu);
 	background-color: unset;
 	resize: none;
-	width: 75%;
+	width: 60%;
 	font-size: 1.3em;
 	padding: 0.5em;
 }
 
-#inserimentoAllenamentoForm select {
+#inserimentoForm select {
+	display: block;
 	border-style: none;
 	border-bottom: 2px solid var(--colore-background-menu);
 	border-left: 2px solid var(--colore-background-menu);
 	background-color: unset;
 	resize: none;
-	width: 75%;
+	width: 60%;
 	font-size: 1.3em;
 	padding: 0.5em;
+}
+
+#inserimentoForm .errore_form {
+	color: red;
+	margin: 0;
+	padding-bottom: 1em;
+	font-size: 0.8em;
+	text-align: left;
+	margin-left: 20%;
+	margin-right: 20%;
+}
+
+#inserimentoForm p {
+	text-align: center;
+}
+
+#submitButtons{
+	display: inline;
 }
