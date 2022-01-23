@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>Autenticazione - Bora Bora Fitness Club</title>
+	<title>Registrazione - Bora Bora Fitness Club</title>
 	<meta name="keywords" content="autenticazione, accesso, registrazione, bora bora, fitness club" />
 	<meta name="description"
 		content="Accedi per usufruire di tutte le funzionalità della palestra, o registrati se non hai ancora un profilo" />
@@ -23,7 +23,7 @@
 
 	<nav id="breadcrumb">
 		<p>Ti trovi in: <a lang="en" href="./">Home</a> &gt;&gt; <span id="breadcrumb-percorso"></span> &gt;&gt;
-			Autenticazione</p>
+			<a href="autenticazione.php">Autenticazione</a> &gt;&gt; Registrazione</p>
 	</nav>
 
 	<a class="aiuti" href="#content" aria-label="Vai al contenuto" title="Vai al contenuto">
@@ -55,36 +55,13 @@
 
 	<div id="content">
 		<div id="titolo">
-			<h1>Autenticazione</h1>
+			<h1>Registrazione</h1>
 			<p>
-				Accedi per usufruire di tutte le funzionalità di <strong lang="en">Bora Bora Fitness Club</strong>, o
-				registrati se non hai ancora un profilo!
+				Registrati ora per usufruire di tutte le funzionalità di <strong lang="en">Bora Bora Fitness Club</strong>
 			<p>
 		</div>
 
 		<div class="dati_personali">
-			<form id="accesso" class="autenticazione" action="autenticazione.php" method="post" autocomplete="on">
-				<fieldset>
-					<legend>
-						<h2>Accesso</h2>
-					</legend>
-
-					<label>Nome utente</label>
-					<input type="text" name="nomeUtenteAccesso" required
-						placeholder="es: MarioRossi23">
-
-					<label lang="en">Password</label>
-					<input type="password" name="passwordAccesso" required>
-
-					<erroreLogin />
-
-					<button name="loginSubmit">Accedi</button>
-				</fieldset>
-			</form>
-			<p>Non possiedi ancora un <span lang="en">account</span>? <a href="registrazione.php">Registrati ora!</a></p> <!-- da cambiare link con php-->
-		</div>
-
-		<!-- <div class="dati_personali">
 			<form id="registrazione" class="autenticazione" action="autenticazione.php" method="post" autocomplete="on">
 				<fieldset>
 					<legend>
@@ -150,7 +127,7 @@
 					<button name="registrationSubmit">Registrati</button>
 				</fieldset>
 			</form>
-		</div> -->
+		</div>
 	</div>
 
 	<div id="tornaSu">
