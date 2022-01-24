@@ -943,6 +943,7 @@ div div .gallery {
 #content #widget_area_personale {
 	background-color: transparent;
 	display: grid;
+	justify-items: stretch;
 	grid-gap: 3em;
 	padding: 0em;
 	grid-template-areas:
@@ -954,8 +955,8 @@ div div .gallery {
 .dati_personali {
 	background-color: var(--colore-sfondo-div);
 	border-radius: 2em;
-	padding: 2em;
-	width: 36em;
+	padding: 2em 0;
+	width: 100%;
 }
 
 #dettagli_abbonamento {
@@ -988,10 +989,12 @@ div div .gallery {
 	display: flex;
 	text-align: left;
 	flex-wrap: wrap;
+	gap: 2em;
 }
 
-#schede_allenamento article[class="article_allenamento"] {
+#schede_allenamento .article_allenamento {
 	text-align: center;
+	min-width: 13em;
 	width: 25%;
 	background-color: var(--colore-sfondo-article-p);
 	color: var(--colore-testo-principale);
@@ -1002,11 +1005,11 @@ div div .gallery {
 	transition: transform 0.17s ease-in-out;
 }
 
-#schede_allenamento article[class="article_allenamento"]:hover {
+#schede_allenamento .article_allenamento:hover {
 	transform: scale(1.02);
 }
 
-#schede_allenamento article[class="article_allenamento"]::after {
+#schede_allenamento .article_allenamento::after {
 	content: "";
 	position: absolute;
 	z-index: -1;
@@ -1020,7 +1023,7 @@ div div .gallery {
 	transition: opacity 0.2s ease-in-out;
 }
 
-#schede_allenamento article[class="article_allenamento"]:hover::after {
+#schede_allenamento .article_allenamento:hover::after {
 	opacity: 1;
 }
 
@@ -1090,19 +1093,13 @@ div div .gallery {
 #content #widget_area_personale_admin {
 	background-color: transparent;
 	display: grid;
+	justify-items: stretch;
 	grid-gap: 3em;
 	padding: 0;
 	grid-template-areas:
 		"c d"
 		"c d"
 		"a b";
-}
-
-#widget_area_personale_admin .dati_personali {
-	background-color: var(--colore-sfondo-div);
-	border-radius: 2em;
-	padding: 2em;
-	width: 36em;
 }
 
 #gestione_utenti {
@@ -1433,6 +1430,6 @@ div div .gallery {
 	text-align: center;
 }
 
-#submitButtons{
+#submitButtons {
 	display: inline;
 }
