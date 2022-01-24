@@ -57,9 +57,9 @@
 
 			if ($esito) {
 				if ($update == 0) {
-					header("location: ../modifica-utente.php?usr=" . $user . "&update=1");
+					header("location: ../visualizza-utente.php?usr=" . $user . "&update=1");
 				} else {
-					header("location: ../modifica-utente.php?usr=" . $user);
+					header("location: ../visualizza-utente.php?usr=" . $user);
 				}
 				return;
 			}
@@ -68,5 +68,5 @@
 			$connessione->closeConnection();
 		}
 	}
-	header("location: ../modifica-utente.php?usr=" . $user . "&update=" . $update . "&form_error=1");
+	header("location: ../visualizza-utente.php?usr=" . $user . "&update=" . $update . "&form_error=1");
 ?>

@@ -77,7 +77,7 @@
 				$utente = $utente["username"];
 				$listaUtenti .=
 					"<li class='utente'>
-						<a href='modifica-utente.php?usr=" . $utente ."'>" . $utente . "</a>
+						<a href='visualizza-utente.php?usr=" . $utente ."'>" . $utente . "</a>
 						<form action='admin.php' method='post'>
 							<input type='hidden' name='user' value='" . $utente . "' readonly/>
 							<button name='elimina'>Elimina</button>

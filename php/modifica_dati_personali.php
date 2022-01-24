@@ -42,9 +42,9 @@
 
 			if ($esito) {
 				if ($update == 0) {
-					header("location: ../" . ($hasUsr ? "modifica-utente.php?usr=" . $user . "&" : "area-personale.php?") . "update=2");
+					header("location: ../" . ($hasUsr ? "visualizza-utente.php?usr=" . $user . "&" : "area-personale.php?") . "update=2");
 				} else {
-					header("location: ../" . ($hasUsr ? "modifica-utente.php?usr=" . $user : "area-personale.php"));
+					header("location: ../" . ($hasUsr ? "visualizza-utente.php?usr=" . $user : "area-personale.php"));
 				}
 				return;
 			}
@@ -53,5 +53,5 @@
 			$connessione->closeConnection();
 		}
 	}
-	header("location: ../" . ($hasUsr ? "modifica-utente.php?usr=" . $user . "&" : "area-personale.php?") . "update=" . $update . "&form_error=1");
+	header("location: ../" . ($hasUsr ? "visualizza-utente.php?usr=" . $user . "&" : "area-personale.php?") . "update=" . $update . "&form_error=1");
 ?>
