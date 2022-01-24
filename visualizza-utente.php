@@ -163,9 +163,9 @@
 		else{
 			$output= "<div class=\"display_allenamenti\">";
 			foreach($schedeSeguite as $allenamento){
-				$output= $output . "<article class=\"article_allenamento\"><a href=\"dettagli-allenamento.php?id=" . $allenamento["id"] . "&url=area-personale.php?update=1&nomeBreadcrumb=Area%personale\">";
+				$output= $output . "<a class='scheda_allenamento' href=\"dettagli-allenamento.php?id=" . $allenamento["id"] . "&url=area-personale.php?update=1&nomeBreadcrumb=Area%personale\">";
 				$output= $output . "<h3>" . $allenamento["nome"] . "</h3>";
-				$output= $output . "<p>" . $allenamento["descrizione"] . "</p></a></article>";	
+				$output= $output . "<p>" . $allenamento["descrizione"] . "</p></a>";	
 			}
 			$output= $output . "</div>";
 			$paginaHTML = str_replace("<allenamenti_seguiti />", $output, $paginaHTML);
@@ -178,9 +178,9 @@
 		else{
 			$output= "<div class=\"display_allenamenti\">";
 			foreach($schedeCreate as $allenamento){
-				$output= $output . "<article class=\"article_allenamento\"><a href=\"dettagli-allenamento.php?id=" . $allenamento["id"] . "&url=area-personale.php?update=1&nomeBreadcrumb=Area%personale\">";
+				$output= $output . "<a class='scheda_allenamento' href=\"dettagli-allenamento.php?id=" . $allenamento["id"] . "&url=area-personale.php?update=1&nomeBreadcrumb=Area%personale\">";
 				$output= $output . "<h3>" . $allenamento["nome"] . "</h3>";
-				$output= $output . "<p>" . $allenamento["descrizione"] . "</p></a></article>";	
+				$output= $output . "<p>" . $allenamento["descrizione"] . "</p></a>";	
 			}
 			$output= $output . "</div>";
 			$paginaHTML = str_replace("<allenamenti_creati />", $output, $paginaHTML);

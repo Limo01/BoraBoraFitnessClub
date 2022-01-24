@@ -992,7 +992,7 @@ div div .gallery {
 	gap: 2em;
 }
 
-#schede_allenamento .article_allenamento {
+#schede_allenamento .scheda_allenamento {
 	text-align: center;
 	min-width: 13em;
 	width: 25%;
@@ -1005,11 +1005,11 @@ div div .gallery {
 	transition: transform 0.17s ease-in-out;
 }
 
-#schede_allenamento .article_allenamento:hover {
+#schede_allenamento .scheda_allenamento:hover {
 	transform: scale(1.02);
 }
 
-#schede_allenamento .article_allenamento::after {
+#schede_allenamento .scheda_allenamento::after {
 	content: "";
 	position: absolute;
 	z-index: -1;
@@ -1023,7 +1023,7 @@ div div .gallery {
 	transition: opacity 0.2s ease-in-out;
 }
 
-#schede_allenamento .article_allenamento:hover::after {
+#schede_allenamento .scheda_allenamento:hover::after {
 	opacity: 1;
 }
 
