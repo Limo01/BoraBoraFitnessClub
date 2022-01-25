@@ -30,20 +30,19 @@ function switchTheme(e) {
 	if (e.target.checked) {
 		document.documentElement.setAttribute("data-theme", "dark");
 		localStorage.setItem("theme", "dark");
-		document.getElementById("darkmode-switch-wrapper").title = "Passa a modalità giorno";
-		document.getElementById("darkmode-switch-wrapper").ariaLabel = "Passa a modalità giorno";
+		document.getElementById("checkbox").setAttribute("title", "Passa a modalità giorno");
+		document.getElementById("checkbox").setAttribute("aria-label", "Passa a modalità giorno");
 	} else {
 		document.documentElement.setAttribute("data-theme", "light");
 		localStorage.setItem("theme", "light");
-		document.getElementById("darkmode-switch-wrapper").title = "Passa a modalità notte";
-		document.getElementById("darkmode-switch-wrapper").ariaLabel = "Passa a modalità notte";
+		document.getElementById("checkbox").title = "Passa a modalità notte";
+		document.getElementById("checkbox").setAttribute("title", "Passa a modalità notte");
+		document.getElementById("checkbox").setAttribute("aria-label", "Passa a modalità notte");
 	}
 }
 
 function initDarkMode() {
-	toggleSwitch = document.querySelector(
-		'#darkmode-switch input[type="checkbox"]'
-	);
+	var toggleSwitch= document.getElementById("checkbox");
 	toggleSwitch.addEventListener("change", switchTheme);
 
 	if (localStorage.getItem("theme") == null) {
