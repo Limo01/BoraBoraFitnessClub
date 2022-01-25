@@ -77,7 +77,7 @@
 			$listaUtentiEnd =
 				"<li class='utente' id='last_user'>
 					<a href='visualizza-utente.php?usr=" . $utente ."'>" . $utente . "</a>
-					<form action='admin.php' method='post'>
+					<form action='area-personale.php" . ($updatePersonalData ? "?update=1" : "") . "#gestione_utenti' method='post'>
 						<input type='hidden' name='user' value='" . $utente . "' />
 						<button name='elimina'>Elimina</button>
 					</form>
@@ -88,7 +88,7 @@
 					$listaUtenti .=
 					"<li class='utente'>
 					<a href='visualizza-utente.php?usr=" . $utente ."'>" . $utente . "</a>
-					<form action='admin.php' method='post'>
+					<form action='area-personale.php" . ($updatePersonalData ? "?update=1" : "") . "#gestione_utenti' method='post'>
 					<input type='hidden' name='user' value='" . $utente . "' />
 					<button name='elimina'>Elimina</button>
 					</form>
