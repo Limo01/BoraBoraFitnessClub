@@ -5,7 +5,7 @@
         private $connection;
 
         public function openDBConnection() {
-            $file = fopen("db.conf", "r") or $file = fopen("../db.conf", "r") or die("Impossibile aprire il file di configurazione del database");
+            $file = fopen("db.conf", "r") || $file = fopen("../db.conf", "r") || die("Impossibile aprire il file di configurazione del database");
             
             $host_db = trim(fgets($file));
             $username = trim(fgets($file));
