@@ -5,3 +5,4 @@ debug.php
 sync
 upload
 connect
+sess_*
