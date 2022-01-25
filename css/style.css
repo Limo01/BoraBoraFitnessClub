@@ -1288,7 +1288,7 @@ div div .gallery {
 	display: flex;
 }
 
-#naviga-pagine #currentLink {
+#naviga-pagine #currentPage {
 	color: var(--colore-testo-contrasto-sfondi);
 	background-color: var(--colore-testo-principale);
 }
