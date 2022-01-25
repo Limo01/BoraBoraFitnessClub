@@ -7,23 +7,24 @@
 	if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
 		$admin = $_SESSION["username"];
 	} else{
-		header("location: autenticazione.php");
+		header("Location: autenticazione.php");
 		die("Errore: il redirect è stato disabilitato");
 	}
 
 	if (!$_SESSION["isAdmin"]) {
-		header("location: area-personale.php");
+		header("Location: area-personale.php");
 		die("Accesso negato!");
 	}
 
 	if (isset($_GET["usr"])) {
 		$user = $_GET["usr"];
 	} else {
-		die("Errore: nessun utente selezionato");
+		header("Location: 404.html");
+		die("Errore: pagina non trovata");
 	}
 
 	if ($admin == $user) {
-		header("location: area-personale.php");
+		header("Location: area-personale.php");
 		die("Errore: il redirect è stato disabilitato");
 	}
 
@@ -58,7 +59,13 @@
 	$connessioneOK = $connessione->openDBConnection();
 	
 	if ($connessioneOK) {
-		$result = $connessione->doReadQuery("SELECT * FROM utente WHERE username=?", "s", $user);
+		$result = $connessione->doReadQuery("SELECT * FROM utente WHERE username=? and is_admin=0", "s", $user);
+		if ($result == null) {
+			$connessione->closeConnection();
+			header("Location: 404.html");
+			die("Errore: pagina non trovata");
+		}
+
 		$datiPersonali = $result[0];
 
 		$ultimoIngresso = $connessione->doReadQuery("SELECT dataora_entrata FROM accesso WHERE username_utente=? order by dataora_entrata DESC limit 1", "s", $user);

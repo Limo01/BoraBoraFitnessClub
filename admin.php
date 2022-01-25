@@ -71,29 +71,29 @@
 
 		$listaUtenti = "<p>Nessun utente presente</p>";
 		
-		if ($utenti != null) {
+		if ($utenti != null && count($utenti) > 0) {
 			$listaUtenti = "<ul id='lista_utenti'>";
+			$utente = array_pop($utenti)["username"];
+			$listaUtentiEnd =
+				"<li class='utente' id='last_user'>
+					<a href='visualizza-utente.php?usr=" . $utente ."'>" . $utente . "</a>
+					<form action='admin.php' method='post'>
+						<input type='hidden' name='user' value='" . $utente . "' />
+						<button name='elimina'>Elimina</button>
+					</form>
+				</li>";
 			if (count($utenti) > 0) {
-				$utente = array_pop($utenti);
-				$listaUtentiEnd =
-					"<li class='utente' id='last_user'>
-						<a href='visualizza-utente.php?usr=" . $utente ."'>" . $utente . "</a>
-						<form action='admin.php' method='post'>
-							<input type='hidden' name='user' value='" . $utente . "' readonly/>
-							<button name='elimina'>Elimina</button>
-						</form>
-					</li>";
-			}
-			foreach ($utenti as $utente) {
-				$utente = $utente["username"];
-				$listaUtenti .=
+				foreach ($utenti as $utente) {
+					$utente = $utente["username"];
+					$listaUtenti .=
 					"<li class='utente'>
-						<a href='visualizza-utente.php?usr=" . $utente ."'>" . $utente . "</a>
-						<form action='admin.php' method='post'>
-							<input type='hidden' name='user' value='" . $utente . "' readonly/>
-							<button name='elimina'>Elimina</button>
-						</form>
+					<a href='visualizza-utente.php?usr=" . $utente ."'>" . $utente . "</a>
+					<form action='admin.php' method='post'>
+					<input type='hidden' name='user' value='" . $utente . "' />
+					<button name='elimina'>Elimina</button>
+					</form>
 					</li>";
+				}
 			}
 			$listaUtenti .= $listaUtentiEnd . "</ul>";
 		}

@@ -1110,6 +1110,10 @@ div div .gallery {
 	grid-area: d;
 }
 
+#gestione_utenti p {
+	text-align: center;
+}
+
 #gestione_utenti ul {
 	max-height: 35em;
 	border: solid 1px var(--colore-testo-principale);
