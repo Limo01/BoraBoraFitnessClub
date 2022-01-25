@@ -1102,9 +1102,12 @@ div div .gallery {
 }
 
 #gestione_utenti ul {
-	border-top: solid 1px var(--colore-testo-principale);
+	max-height: 35em;
+	border: solid 1px var(--colore-testo-principale);
 	width: 80%;
 	list-style: none;
+	overflow-y: scroll;
+	padding: 0 1.5em;
 }
 
 #gestione_utenti li {
@@ -1112,6 +1115,10 @@ div div .gallery {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+}
+
+#gestione_utenti #last_user {
+	border-bottom: none;
 }
 
 #gestione_utenti li a {
@@ -1331,21 +1338,21 @@ div div .gallery {
 /* tornaSu -------------------------------*/
 
 #tornaSu {
-    display: none;
-    position: fixed;
+	display: none;
+	position: fixed;
 	bottom: 2em;
 	right: 10%;
 	height: 4em;
 	width: 4em;
-    background-color: var(--colore-sfondo-article-p);
-    border-radius: 10px;
-    color: var(--colore-testo-principale);
-    opacity: 0.9;
-    background-image: url("../immagini/torna-su.svg");
-    background-repeat: no-repeat;
-    background-size: 48px;
-    text-indent: -999999em;
-    background-position: center;
+	background-color: var(--colore-sfondo-article-p);
+	border-radius: 10px;
+	color: var(--colore-testo-principale);
+	opacity: 0.9;
+	background-image: url("../immagini/torna-su.svg");
+	background-repeat: no-repeat;
+	background-size: 48px;
+	text-indent: -999999em;
+	background-position: center;
 }
 
 #tornaSu:hover {

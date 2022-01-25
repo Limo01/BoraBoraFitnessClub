@@ -18,7 +18,7 @@
 			foreach ($_GET as $name => $value) {
 				$params .= $name . "=" . $value . "&";
 			}
-			substr_replace($params ,"", -1); //Elimina l'ultimo '&'
+			$params = substr_replace($params ,"" , -1); //Elimina l'ultimo '&'
 		}
 
 		header("Location: admin.php" . $params);

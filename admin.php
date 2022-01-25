@@ -46,7 +46,7 @@
 
 		$datiPersonali = $result[0];
 
-		$utenti = $connessione->doReadQuery("SELECT username FROM utente WHERE username!=?", "s", $user);
+		$utenti = $connessione->doReadQuery("SELECT username FROM utente WHERE username != ? and is_admin = 0", "s", $user);
 
 		$ultimoIngresso = $connessione->doReadQuery("SELECT dataora_entrata FROM accesso WHERE username_utente=? order by dataora_entrata DESC limit 1", "s", $user);
 
@@ -73,6 +73,17 @@
 		
 		if ($utenti != null) {
 			$listaUtenti = "<ul id='lista_utenti'>";
+			if (count($utenti) > 0) {
+				$utente = array_pop($utenti);
+				$listaUtentiEnd =
+					"<li class='utente' id='last_user'>
+						<a href='visualizza-utente.php?usr=" . $utente ."'>" . $utente . "</a>
+						<form action='admin.php' method='post'>
+							<input type='hidden' name='user' value='" . $utente . "' readonly/>
+							<button name='elimina'>Elimina</button>
+						</form>
+					</li>";
+			}
 			foreach ($utenti as $utente) {
 				$utente = $utente["username"];
 				$listaUtenti .=
@@ -84,7 +95,7 @@
 						</form>
 					</li>";
 			}
-			$listaUtenti .= "</ul>";
+			$listaUtenti .= $listaUtentiEnd . "</ul>";
 		}
 
 		if ($userRemoved) {

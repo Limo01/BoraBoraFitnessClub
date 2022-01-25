@@ -114,9 +114,28 @@ values ('Mensile', 80),
 	   ('Annuale', 760),
 	   ('Resort Pass', 0);
 
-insert into utente(username, password, nome, cognome, email, data_nascita, badge, entrate, numero_telefono, nome_abbonamento, data_inizio, data_fine, is_admin)
-values ('admin', '$2y$10$C1t0K8PSME4joo94czYkUutjnjA3gyfwebXU6FT/aXviqpoUgidKy', 'Ad', 'Min', 'admin@gmail.com', '1970-01-01', 'BID61d8b7d0759a7', 2, '+39 377 541 2343', 'Annuale', '2021-01-01', '2021-12-31', true),
-	   ('user', '$2y$10$3zE3K.4w70zcoQLEQPvrouAoSuWn/Gnq7UAfhQKlNcUf5x50TV86S', 'Mario', 'Rossi', 'mariorossi@gmail.com', '2000-01-29', 'BID61d8b7d0759ac', 8, '+689 36 28 12 88', 'Mensile', '2021-01-13', '2021-02-13', false);
+insert into utente(username, password, nome, cognome, email, data_nascita, badge, entrate, numero_telefono, nome_abbonamento, data_inizio, data_fine, is_admin) values
+	('admin', '$2y$10$C1t0K8PSME4joo94czYkUutjnjA3gyfwebXU6FT/aXviqpoUgidKy', 'Ad', 'Min', 'admin@gmail.com', '1970-01-01', 'BID61d8b7d0759a7', 2, '+39 377 541 2343', 'Annuale', '2021-01-01', '2021-12-31', true),
+	('user', '$2y$10$3zE3K.4w70zcoQLEQPvrouAoSuWn/Gnq7UAfhQKlNcUf5x50TV86S', 'Mario', 'Rossi', 'mariorossi@gmail.com', '2000-01-29', 'BID61d8b7d0759ac', 8, '+689 36 28 12 88', 'Mensile', '2021-01-13', '2021-02-13', false),
+	('user1', '$2y$10$hIEVdyrQhBsPtqEePnaR0ObE17j8hQymy0r5i7CarssVV6tsQ6yPu', 'Alberto', 'a', 'h@h.c', '2000-01-01', 'BID61f005bb70050', '0', '1234567890', NULL, NULL, NULL, '0'),
+	('albertolazari', '$2y$10$bRFvXHh/gezgZLmszTRLzeVJ5AQXQ/GOB2LiJ0l.SrmAmG4FxL2VO', 'Alberto', 'Lazari', 'a@d.c', '2000-01-01', 'BID61f0059ac312f', '0', '2222222222', NULL, NULL, NULL, '0'),
+	('boh', '$2y$10$.T8vooS2ZX8QJ1skTAMR4Oxvm38NDKqMIQ5GVQifSSNlNNva32CgW', 'boh', 'boh', 's@m.s', '2000-01-01', 'BID61f00ba5452db', '0', '1234567890', NULL, NULL, NULL, '0'),
+	('user2', '$2y$10$5RWjwy1JfqZ/AFVCj/d.Cel/jrv98vnSa1ykgwh9T6ldE/nEB6MlW', 'kcgy', 'ukft', 'jhv@s.sc', '2000-01-01', 'BID61f00b109f482', '0', '1234567890', NULL, NULL, NULL, '0'),
+	('admin1', '$2y$10$bPcyBVbmkbswgAPQcCuUxuXWkPbrUFxOpMJgl2/GgDApB2Hx54j7G', 'jhv', 'khv', 'hgc@s.c', '2000-01-01', 'BID61f005f33666e', '0', '1234567890', NULL, NULL, NULL, '1'),
+	('admin2', '$2y$10$UgtDdbUeU2wrRkLuDf4goee.PuYP/8cLwCTi3X4CHbpePbH5wbt9a', 'kgcuvly', 'luyvulyv', 'a@j.c', '2000-01-01', 'BID61f00b312f11f', '0', '1234567890', NULL, NULL, NULL, '1'),
+	('user3', '$2y$10$DaFZLrsgzeh5XQjsWgGbh.dZ/65MUhL5x6AOxtQlwdO7HofdxGw12', 'hv', 'luyv', 'k2@s.s', '2000-01-01', 'BID61f006108cd54', '0', '1234567890', NULL, NULL, NULL, '0'),
+	('user4', '$2y$10$DaFZLrsgzeh5XQjsWgGbh.dZ/65MUhL5x6AOxtQlwdO7HofdxGw12', 'hv', 'luyv', 'k2@s.s', '2000-01-01', 'BID61f006108cd55', '0', '1234567890', NULL, NULL, NULL, '0'),
+	('user5', '$2y$10$DaFZLrsgzeh5XQjsWgGbh.dZ/65MUhL5x6AOxtQlwdO7HofdxGw12', 'hv', 'luyv', 'k2@s.s', '2000-01-01', 'BID61f006108cd56', '0', '1234567890', NULL, NULL, NULL, '0'),
+	('user6', '$2y$10$DaFZLrsgzeh5XQjsWgGbh.dZ/65MUhL5x6AOxtQlwdO7HofdxGw12', 'hv', 'luyv', 'k2@s.s', '2000-01-01', 'BID61f006108cd57', '0', '1234567890', NULL, NULL, NULL, '0'),
+	('user7', '$2y$10$DaFZLrsgzeh5XQjsWgGbh.dZ/65MUhL5x6AOxtQlwdO7HofdxGw12', 'hv', 'luyv', 'k2@s.s', '2000-01-01', 'BID61f006108cd58', '0', '1234567890', NULL, NULL, NULL, '0'),
+	('user8', '$2y$10$DaFZLrsgzeh5XQjsWgGbh.dZ/65MUhL5x6AOxtQlwdO7HofdxGw12', 'hv', 'luyv', 'k2@s.s', '2000-01-01', 'BID61f006108cd59', '0', '1234567890', NULL, NULL, NULL, '0'),
+	('user9', '$2y$10$DaFZLrsgzeh5XQjsWgGbh.dZ/65MUhL5x6AOxtQlwdO7HofdxGw12', 'hv', 'luyv', 'k2@s.s', '2000-01-01', 'BID61f006108cd50', '0', '1234567890', NULL, NULL, NULL, '0'),
+	('user10', '$2y$10$DaFZLrsgzeh5XQjsWgGbh.dZ/65MUhL5x6AOxtQlwdO7HofdxGw12', 'hv', 'luyv', 'k2@s.s', '2000-01-01', 'BID61f006108cd63', '0', '1234567890', NULL, NULL, NULL, '0'),
+	('user11', '$2y$10$DaFZLrsgzeh5XQjsWgGbh.dZ/65MUhL5x6AOxtQlwdO7HofdxGw12', 'hv', 'luyv', 'k2@s.s', '2000-01-01', 'BID61f006108cd73', '0', '1234567890', NULL, NULL, NULL, '0'),
+	('user12', '$2y$10$DaFZLrsgzeh5XQjsWgGbh.dZ/65MUhL5x6AOxtQlwdO7HofdxGw12', 'hv', 'luyv', 'k2@s.s', '2000-01-01', 'BID61f006108cd83', '0', '1234567890', NULL, NULL, NULL, '0'),
+	('user13', '$2y$10$DaFZLrsgzeh5XQjsWgGbh.dZ/65MUhL5x6AOxtQlwdO7HofdxGw12', 'hv', 'luyv', 'k2@s.s', '2000-01-01', 'BID61f006108cd93', '0', '1234567890', NULL, NULL, NULL, '0'),
+	('user14', '$2y$10$DaFZLrsgzeh5XQjsWgGbh.dZ/65MUhL5x6AOxtQlwdO7HofdxGw12', 'hv', 'luyv', 'k2@s.s', '2000-01-01', 'BID61f006108cd03', '0', '1234567890', NULL, NULL, NULL, '0'),
+	('user15', '$2y$10$DaFZLrsgzeh5XQjsWgGbh.dZ/65MUhL5x6AOxtQlwdO7HofdxGw12', 'hv', 'luyv', 'k2@s.s', '2000-01-01', 'BID61f006108cd43', '0', '1234567890', NULL, NULL, NULL, '0');
 
 insert into accesso(username_utente, dataora_entrata, dataora_uscita)
 values ('user', '2021-12-23 17:00', '2021-12-23 19:30'),
