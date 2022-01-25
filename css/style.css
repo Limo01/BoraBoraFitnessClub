@@ -351,7 +351,7 @@ footer {
 	color: var(--colore-testo-footer);
 }
 
-footer h2{
+footer h2 {
 	padding-top: 1em;
 }
 
@@ -362,7 +362,7 @@ footer .social {
 	margin-right: 1em;
 }
 
-footer[class="footer-bottom"]{
+footer[class="footer-bottom"] {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
@@ -1354,7 +1354,7 @@ div div .gallery {
 	display: none;
 	position: fixed;
 	bottom: 2em;
-	right: 10%;
+	right: 3em;
 	height: 4em;
 	width: 4em;
 	background-color: var(--colore-sfondo-article-p);
