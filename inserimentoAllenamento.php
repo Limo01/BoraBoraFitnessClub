@@ -16,6 +16,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
         $queryUsername = $connessione->doReadQuery("SELECT username FROM utente");
         $connessione->closeConnection();
 
+        $out .= "<option value=\"null\">Nessun allenatore</option>";
         foreach ($queryAllenatori as $row) {
             $out .= "<option value=\"" . $row["id"] . "\">" . $row["nome"] . " " . $row["cognome"] . "</option>";
         }
