@@ -149,7 +149,7 @@
 	function createDisplayAllenamenti($schede, $admin) {
 		$output= "<div class='display_allenamenti'>";
 			foreach($schede as $allenamento) {
-				$output= $output . "<a class='scheda_allenamento' href='dettagli-allenamento.php?id=<allenamento />&url=area-personale.php&nomeBreadcrumb=Area_personale" . ($admin? " [admin]" : "") . "'>";
+				$output= $output . "<a class='scheda_allenamento' href='dettagli-allenamento.php?id=<allenamento />&url=area-personale.php&nomeBreadcrumb=" . urlencode("Area personale" . ($admin? " [admin]" : "")) . "'>";
 				$output= $output . "<h3>" . $allenamento["nome"] . "</h3>";
 				$output= $output . "<p>" . $allenamento["descrizione"] . "</p></a>";
 				$output = str_replace("<allenamento />", $allenamento["id"], $output);
