@@ -59,7 +59,7 @@
 
 		$paginaHTML = initPage($admin);
 
-		$paginaHTML = replaceDatiPersonali($datiPersonali, $updatePersonalData, $paginaHTML);
+		$paginaHTML = replaceDatiPersonali($datiPersonali, $updatePersonalData, $formError, $admin, $paginaHTML);
 		$paginaHTML = replaceDatiAbbonamento($datiPersonali, $paginaHTML);
 		unset($datiPersonali);
 
@@ -70,7 +70,7 @@
 		unset($schedeSeguite, $schedeCreate);
 
 		if ($admin) {
-			$paginaHTML = replaceGestioneUtenti($utenti, $userRemoved, $paginaHTML);
+			$paginaHTML = replaceGestioneUtenti($utenti, $userRemoved, $updatePersonalData, $paginaHTML);
 			unset($utenti);
 		}
 	} else {

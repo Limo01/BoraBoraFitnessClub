@@ -4,8 +4,6 @@
 			$breadcrumb = "Area personale [admin]";
 			$admin = "[admin]";
 			$widget = "widget_area_personale_admin";
-			$personalData = str_replace("<today_min16anni />", "", $personalData);
-			$personalData = str_replace("<today_max110anni />", "", $personalData);
 		} else {
 			$breadcrumb = "Area personale";
 			$admin = "";
@@ -22,7 +20,7 @@
 		return $paginaHTML;
 	}
 
-	function replaceGestioneUtenti($utenti, $userRemoved, $paginaHTML) {
+	function replaceGestioneUtenti($utenti, $userRemoved, $updatePersonalData, $paginaHTML) {
 		$gestioneUtenti = '
 			<div id="gestione_utenti" class="widget">
 				<h2>Gestione utenti</h2>
@@ -68,7 +66,7 @@
 		return str_replace("<gestione_utenti />", $gestioneUtenti, $paginaHTML);
 	}
 
-	function replaceDatiPersonali($datiPersonali, $updatePersonalData, $paginaHTML) {
+	function replaceDatiPersonali($datiPersonali, $updatePersonalData, $formError, $admin, $paginaHTML) {
 		$update = 1;
 		if(!$updatePersonalData){
 			$button = '<a href="area-personale.php?update=<update />">Modifica</a>';
@@ -83,8 +81,13 @@
 			$form = '<form action="php/modifica_dati_personali.php?update=<update />" method="post">';
 			$personalData .= str_replace("<update />", $update, $form . file_get_contents("html/dati_personali_update.html"));
 			
-			$personalData = str_replace("<today_min16anni />", date('Y-m-d', strtotime('-16 years')), $personalData);
-			$personalData = str_replace("<today_max110anni />", date('Y-m-d', strtotime('-110 years')), $personalData);
+			if ($admin) {
+				$personalData = str_replace("<today_min16anni />", "", $personalData);
+				$personalData = str_replace("<today_max110anni />", "", $personalData);
+			} else {
+				$personalData = str_replace("<today_min16anni />", date('Y-m-d', strtotime('-16 years')), $personalData);
+				$personalData = str_replace("<today_max110anni />", date('Y-m-d', strtotime('-110 years')), $personalData);
+			}
 
 			$annulla = '<a href="area-personale.php">Annulla</a>';
 			$personalData = str_replace("<annulla />", $annulla, $personalData);
