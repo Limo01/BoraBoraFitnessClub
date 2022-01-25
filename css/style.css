@@ -158,7 +158,7 @@ small {
 	display: block;
 	color: var(--colore-testo-principale);
 	text-align: center;
-	padding: 1em 1.8em;
+	padding: 1em 1em;
 	text-decoration: none;
 	border-radius: 10px;
 }
@@ -196,19 +196,14 @@ small {
 	background-size: 2em;
 }
 
-/*Toggle dark mode*/
-#topbar #darkmode-switch-wrapper {
-	margin-top: 0.4em;
+/*==================== TOGGLE DARK MODE ====================*/
+#darkmode-switch {
+	margin-top: 0.35em;
 	position: absolute;
 	top: 0;
 	right: 0;
 	margin-right: 4em;
-}
-
-#darkmode-switch {
-	display: inline-block;
 	height: 2.3em;
-	position: relative;
 	width: 4.7em;
 }
 
