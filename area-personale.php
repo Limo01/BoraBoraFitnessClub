@@ -1,67 +1,77 @@
 <?php
 	require_once "php/db.php";
 	use DB\DBAccess;
-
-	session_start();
-
-	if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
-		$user = $_SESSION["username"];
-	}
-	else{
-		header("location: autenticazione.php");
-		return;
-	}
-	if ($_SESSION["isAdmin"] == true) {
-		$params = "";
-		if (count($_GET) != 0) {
-			$params = "?";
-			foreach ($_GET as $name => $value) {
-				$params .= $name . "=" . $value . "&";
-			}
-			$params = substr_replace($params ,"" , -1); //Elimina l'ultimo '&'
+	
+	function initPage($isAdmin) {
+		if ($isAdmin) {
+			$breadcrumb = "Area personale [admin]";
+			$admin = "[admin]";
+			$widget = "widget_area_personale_admin";
+			$personalData = str_replace("<today_min16anni />", "", $personalData);
+			$personalData = str_replace("<today_max110anni />", "", $personalData);
+		} else {
+			$breadcrumb = "Area personale";
+			$admin = "";
+			$paginaHTML = str_replace("<gestione_utenti />", "", $paginaHTML);
+			$widget = "widget_area_personale";
 		}
 
-		header("Location: admin.php" . $params);
-		die("Errore: il redirect è stato disabilitato");
+		$paginaHTML = file_get_contents("html/area-personale.html");
+		$paginaHTML = str_replace("<logout />", "<a href='php/logout.php'>Logout</a>", $paginaHTML);
+		$paginaHTML = str_replace("<breadcrumb />", $breadcrumb, $paginaHTML);
+		$paginaHTML = str_replace("<admin />", $admin, $paginaHTML);
+		$paginaHTML = str_replace("<widget />", $widget, $paginaHTML);
+
+		return $paginaHTML;
 	}
 
-	$paginaHTML = file_get_contents("html/area-personale.html");
-	$paginaHTML = str_replace("<logout />", "<a href='php/logout.php'>Logout</a>", $paginaHTML);
-	$paginaHTML = str_replace("<breadcrumb />", "Area personale", $paginaHTML);
-	$paginaHTML = str_replace("<admin />", "", $paginaHTML);
-	$paginaHTML = str_replace("<gestione_utenti />", "", $paginaHTML);
-	$paginaHTML = str_replace("<widget />", "widget_area_personale", $paginaHTML);
+	function replaceGestioneUtenti($utenti, $userRemoved, $paginaHTML) {
+		$gestioneUtenti = '
+			<div id="gestione_utenti" class="widget">
+				<h2>Gestione utenti</h2>
 
-	$connessione = new DBAccess();
-	$connessioneOK = $connessione->openDBConnection();
-	
-	$updatePersonalData = false;
-	if(isset($_GET["update"]) && $_GET["update"] === "1"){
-		$updatePersonalData= true;
+				<lista_utenti />
+			</div>
+		';
+
+		$listaUtenti = "<p>Nessun utente presente</p>";
+		
+		if ($utenti != null && count($utenti) > 0) {
+			$listaUtenti = "<ul id='lista_utenti'>";
+			$utente = array_pop($utenti)["username"];
+			$listaUtentiEnd =
+				"<li class='utente' id='last_user'>
+					<a href='visualizza-utente.php?usr=" . $utente ."'>" . $utente . "</a>
+					<form action='area-personale.php" . ($updatePersonalData ? "?update=1" : "") . "#gestione_utenti' method='post'>
+						<input type='hidden' name='user' value='" . $utente . "' />
+						<button name='elimina'>Elimina</button>
+					</form>
+				</li>";
+			if (count($utenti) > 0) {
+				foreach ($utenti as $utente) {
+					$utente = $utente["username"];
+					$listaUtenti .=
+					"<li class='utente'>
+					<a href='visualizza-utente.php?usr=" . $utente ."'>" . $utente . "</a>
+					<form action='area-personale.php" . ($updatePersonalData ? "?update=1" : "") . "#gestione_utenti' method='post'>
+					<input type='hidden' name='user' value='" . $utente . "' />
+					<button name='elimina'>Elimina</button>
+					</form>
+					</li>";
+				}
+			}
+			$listaUtenti .= $listaUtentiEnd . "</ul>";
+		}
+
+		if ($userRemoved) {
+			$listaUtenti = "<p class='alert'>Utente rimosso!</p>" . $listaUtenti;
+		}
+		$gestioneUtenti = str_replace("<lista_utenti />", $listaUtenti, $gestioneUtenti);
+		
+		return str_replace("<gestione_utenti />", $gestioneUtenti, $paginaHTML);
 	}
 
-	$formError = false;
-	if(isset($_GET["form_error"]) && $_GET["form_error"] === "1"){
-		$formError = true;
-	}
-
-	if ($connessioneOK) {
-		$result = $connessione->doReadQuery("SELECT * FROM utente WHERE username=?", "s", $user);
-		$datiPersonali = $result[0];
-
-		$ultimoIngresso = $connessione->doReadQuery("SELECT dataora_entrata FROM accesso WHERE username_utente=? order by dataora_entrata DESC limit 1", "s", $user);
-
-		if($ultimoIngresso!=null){
-			$ultimoIngresso = $ultimoIngresso[0];
- 		}
-
-		$schedeSeguite =  $connessione->doReadQuery("SELECT id, nome, descrizione FROM utente_allenamento JOIN allenamento ON (utente_allenamento.id_allenamento=allenamento.id) WHERE utente_allenamento.username_utente=? AND utente_allenamento.username_utente!=allenamento.username_utente", "s", $user);
-
-		$schedeCreate = $connessione->doReadQuery("SELECT id, nome, descrizione FROM allenamento WHERE allenamento.username_utente=?", "s", $user);
-
-		$connessione->closeConnection();
-
-		//Informazioni personali
+	function replaceDatiPersonali($datiPersonali, $updatePersonalData, $paginaHTML) {
 		$update = 1;
 		if(!$updatePersonalData){
 			$button = '<a href="area-personale.php?update=<update />">Modifica</a>';
@@ -71,7 +81,7 @@
 			$personalData = "";
 			
 			if($formError){
-				$personalData .= "<p id=\"errore_form\" class'alert'>Si è verificato un errore nella procedura, oppure i dati inseriti non sono validi.</p>";
+				$personalData .= "<p id='errore_form' class'alert'>Si è verificato un errore nella procedura, oppure i dati inseriti non sono validi.</p>";
 			}
 			$form = '<form action="php/modifica_dati_personali.php?update=<update />" method="post">';
 			$personalData .= str_replace("<update />", $update, $form . file_get_contents("html/dati_personali_update.html"));
@@ -85,15 +95,16 @@
 
 		$paginaHTML = str_replace("<dati_personali />", $personalData, $paginaHTML);
 
-		$paginaHTML = str_replace("<username />", $user, $paginaHTML);
+		$paginaHTML = str_replace("<username />", $datiPersonali["username"], $paginaHTML);
 		$paginaHTML = str_replace("<nome />", $datiPersonali["nome"], $paginaHTML);
 		$paginaHTML = str_replace("<cognome />", $datiPersonali["cognome"], $paginaHTML);
 		$paginaHTML = str_replace("<email />", $datiPersonali["email"], $paginaHTML);
 		$paginaHTML = str_replace("<numero_telefono />", $datiPersonali["numero_telefono"], $paginaHTML);
 		$paginaHTML = str_replace("<data_nascita />", $datiPersonali["data_nascita"], $paginaHTML);
-		$paginaHTML = str_replace("<badge />", $datiPersonali["badge"], $paginaHTML);		
+		return str_replace("<badge />", $datiPersonali["badge"], $paginaHTML);
+	}
 
-		//Riempimento dati abbonamento
+	function replaceDatiAbbonamento($datiPersonali, $paginaHTML) {
 		$paginaHTML = str_replace("<dettagli_abbonamento />", file_get_contents("html/dettagli_abbonamento.html"), $paginaHTML);
 
 		if($datiPersonali["nome_abbonamento"] == null){
@@ -114,13 +125,14 @@
 		}
 
 		if($datiPersonali["data_fine"]!=null && $datiPersonali["data_fine"] < date("Y-m-d")){
-			$paginaHTML= str_replace("<avviso_abbonamento />", "<p class='alert'>Attenzione! Il tuo abbonamenoto è scaduto.</p>", $paginaHTML);
+			$paginaHTML = str_replace("<avviso_abbonamento />", "<p class='alert'>Attenzione! Il tuo abbonamenoto è scaduto.</p>", $paginaHTML);
+		} else {
+			$paginaHTML = str_replace("<avviso_abbonamento />", "", $paginaHTML);
 		}
-		else{
-			$paginaHTML= str_replace("<avviso_abbonamento />", "", $paginaHTML);
-		}
+		return $paginaHTML;
+	}
 
-		//Riempimento dati ultimo ingresso
+	function replaceUltimoIngresso($ultimoIngresso, $paginaHTML) {
 		if($ultimoIngresso == null){
 			$paginaHTML = str_replace("<data_ingresso />", "Nessuna", $paginaHTML);
 			$paginaHTML = str_replace("<ora_ingresso />", "Nessuna", $paginaHTML);
@@ -131,19 +143,27 @@
 			$paginaHTML = str_replace("<data_ingresso />", $ultimoIngresso[0], $paginaHTML);
 			$paginaHTML = str_replace("<ora_ingresso />", $ultimoIngresso[1], $paginaHTML);
 		}
+		return $paginaHTML;
+	}
+	
+	function createDisplayAllenamenti($schede, $admin) {
+		$output= "<div class='display_allenamenti'>";
+			foreach($schede as $allenamento) {
+				$output= $output . "<a class='scheda_allenamento' href='dettagli-allenamento.php?id=<allenamento />&url=area-personale.php&nomeBreadcrumb=Area_personale" . ($admin? " [admin]" : "") . "'>";
+				$output= $output . "<h3>" . $allenamento["nome"] . "</h3>";
+				$output= $output . "<p>" . $allenamento["descrizione"] . "</p></a>";
+				$output = str_replace("<allenamento />", $allenamento["id"], $output);
+			}
+			return $output . "</div>";
+	}
 
+	function replaceSchedeAllenamento($schedeSeguite, $schedeCreate, $admin, $paginaHTML) {
 		//Riempimento dati schede seguite
 		if($schedeSeguite == null){
 			$paginaHTML = str_replace("<allenamenti_seguiti />", "<p>Nessuna scheda allenamento seguita</p>", $paginaHTML);
 		}
 		else{
-			$output= "<div class=\"display_allenamenti\">";
-			foreach($schedeSeguite as $allenamento){
-				$output= $output . "<a class='scheda_allenamento' href=\"dettagli-allenamento.php?id=" . $allenamento["id"] . "&url=area-personale.php&nomeBreadcrumb=Area%personale\">";
-				$output= $output . "<h3>" . $allenamento["nome"] . "</h3>";
-				$output= $output . "<p>" . $allenamento["descrizione"] . "</p></a>";
-			}
-			$output= $output . "</div>";
+			$output = createDisplayAllenamenti($schedeSeguite, $admin);
 			$paginaHTML = str_replace("<allenamenti_seguiti />", $output, $paginaHTML);
 		}
 
@@ -152,14 +172,82 @@
 			$paginaHTML = str_replace("<allenamenti_creati />", "<p>Nessun allenamento creato</p>", $paginaHTML);
 		}
 		else{
-			$output= "<div class=\"display_allenamenti\">";
-			foreach($schedeCreate as $allenamento){
-				$output= $output . "<a class='scheda_allenamento' href=\"dettagli-allenamento.php?id=" . $allenamento["id"] . "&url=area-personale.php&nomeBreadcrumb=Area%personale\">";
-				$output= $output . "<h3>" . $allenamento["nome"] . "</h3>";
-				$output= $output . "<p>" . $allenamento["descrizione"] . "</p></a>";	
-			}
-			$output= $output . "</div>";
+			$output = createDisplayAllenamenti($schedeCreate, $admin);
 			$paginaHTML = str_replace("<allenamenti_creati />", $output, $paginaHTML);
+		}
+
+		return $paginaHTML;
+	}
+
+	session_start();
+
+	if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
+		$user = $_SESSION["username"];
+		$admin = $_SESSION["isAdmin"];
+	}
+	else{
+		header("Location: autenticazione.php");
+		return;
+	}
+
+	$updatePersonalData = false;
+	if(isset($_GET["update"]) && $_GET["update"] == 1) {
+		$updatePersonalData = true;
+	}
+	
+	$formError = false;
+	if(isset($_GET["form_error"]) && $_GET["form_error"] == 1) {
+		$formError = true;
+	}
+
+	$connessione = new DBAccess();
+	$connessioneOK = $connessione->openDBConnection();
+	if ($connessioneOK) {
+		$result = $connessione->doReadQuery("SELECT * FROM utente WHERE username = ?", "s", $user);
+		if ($result == null) {
+			header("Location: autenticazione.php");
+			die("Errore: utente inesistente");
+		}
+		$datiPersonali = $result[0];
+
+		if ($admin) {
+			if (isset($_POST["elimina"])) {
+				$connessione->doWriteQuery("DELETE FROM utente WHERE username = ?", "s", $_POST["user"]);
+				$userRemoved = true;
+			} else {
+				$userRemoved = false;
+			}
+
+			$utenti = $connessione->doReadQuery("SELECT username FROM utente WHERE username != ? and is_admin = 0", "s", $user);
+		}
+
+		$ultimoIngresso = $connessione->doReadQuery("SELECT dataora_entrata FROM accesso WHERE username_utente=? order by dataora_entrata DESC limit 1", "s", $user);
+
+		if($ultimoIngresso != null){
+			$ultimoIngresso = $ultimoIngresso[0];
+ 		}
+
+		$schedeSeguite = $connessione->doReadQuery("SELECT id, nome, descrizione FROM utente_allenamento JOIN allenamento ON (utente_allenamento.id_allenamento=allenamento.id) WHERE utente_allenamento.username_utente=? AND utente_allenamento.username_utente!=allenamento.username_utente", "s", $user);
+
+		$schedeCreate = $connessione->doReadQuery("SELECT id, nome, descrizione FROM allenamento WHERE allenamento.username_utente=?", "s", $user);
+
+		$connessione->closeConnection();
+
+		$paginaHTML = initPage($admin);
+
+		$paginaHTML = replaceDatiPersonali($datiPersonali, $updatePersonalData, $paginaHTML);
+		$paginaHTML = replaceDatiAbbonamento($datiPersonali, $paginaHTML);
+		unset($datiPersonali);
+
+		$paginaHTML = replaceUltimoIngresso($ultimoIngresso, $paginaHTML);
+		unset($ultimoIngresso);
+
+		$paginaHTML = replaceSchedeAllenamento($schedeSeguite, $schedeCreate, $admin, $paginaHTML);
+		unset($schedeSeguite, $schedeCreate);
+
+		if ($admin) {
+			$paginaHTML = replaceGestioneUtenti($utenti, $userRemoved, $paginaHTML);
+			unset($utenti);
 		}
 	} else {
 		$paginaHTML = "<p>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
