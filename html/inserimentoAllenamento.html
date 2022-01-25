@@ -42,18 +42,17 @@
 				<li><a href="allenamenti.php">Allenamenti</a></li>
 				<li><a href="storia.html">Storia</a></li>
 				<li><a href="galleria.html">Galleria</a></li>
-				<li id="userIcon" class="hide"><a href="area-personale.php" aria-label="Area personale" title="Area personale">Area personale</a></li>
+				<li id="userIcon" class="hide"><a href="area-personale.php" aria-label="Area personale"
+						title="Area personale">Area personale</a></li>
 			</ul>
 		</nav>
-		
-		<div aria-label="Passa a modalità notte" title="Passa a modalità notte" id="darkmode-switch-wrapper">
-			<label id="darkmode-switch" for="checkbox">
-				<input type="checkbox" id="checkbox" />
-				<div class="slider round"></div>
-			</label>
-		</div>
+
+		<label id="darkmode-switch" for="checkbox">
+			<input aria-label="Passa a modalità notte" title="Passa a modalità notte" type="checkbox" id="checkbox" />
+			<span class="slider round"></span>
+		</label>
 	</div>
-	
+
 
 	<div id="content">
 		<div id="titolo">
@@ -69,18 +68,18 @@
 				<legend>
 					<h2>Creazione scheda di allenamento</h2>
 				</legend>
-				
+
 				<label>Nome scheda</label>
 				<input type="text" name="nomeScheda" required maxlength="100">
-				
+
 				<label>Descrizione</label>
 				<textarea rows="5" cols="30" name="descrizioneScheda"></textarea>
-				
+
 				<label>Allenatore</label>
 				<select name="allenatoreScheda">
 					<selectAllenatore />
 				</select>
-				
+
 				<selectUsername />
 				<button name="creaSchedaSubmit">Crea</button>
 			</form>
@@ -97,10 +96,10 @@
 			<a href="mailto:boraborafitnessclub@gmail.com">boraborafitnessclub@gmail.com</a>
 		</p>
 
-		<a href="https://www.instagram.com/" aria-label="La nostra pagina Instagram" title="La nostra pagina Instagram" target="_blank"><img class="social" src="immagini/logo/instagram.png"
-				alt="logo instagram" /></a>
-		<a href="https://www.facebook.com/" aria-label="La nostra pagina Facebook" title="La nostra pagina Facebook" target="_blank"><img class="social" src="immagini/logo/facebook.png"
-				alt="logo facebook" /></a>
+		<a href="https://www.instagram.com/" aria-label="La nostra pagina Instagram" title="La nostra pagina Instagram"
+			target="_blank"><img class="social" src="immagini/logo/instagram.png" alt="logo instagram" /></a>
+		<a href="https://www.facebook.com/" aria-label="La nostra pagina Facebook" title="La nostra pagina Facebook"
+			target="_blank"><img class="social" src="immagini/logo/facebook.png" alt="logo facebook" /></a>
 	</footer>
 </body>
 
