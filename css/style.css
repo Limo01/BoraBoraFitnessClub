@@ -530,11 +530,11 @@ footer .social {
 
 /*==================== PERSONAL TRAINER ====================*/
 
-#content .personalTrainer > h2 {
+#content .personalTrainer h2 {
 	margin: 0em 0em 0.7em 35%;
 }
 
-#content .personalTrainer > img {
+#content .personalTrainer img {
 	float: left;
 	width: 30%;
 }
@@ -547,7 +547,7 @@ footer .social {
 	border-radius: 0em 0em 1em 1em;
 }
 
-#content .personalTrainer > blockquote {
+#content .personalTrainer blockquote {
 	font-style: italic;
 	display: block;
 	padding: 1em 1em 0.5em 1em;
@@ -558,11 +558,11 @@ footer .social {
 	border-radius: 1em 1em 0em 0em;
 }
 
-#content .personalTrainer > div {
+#content .personalTrainer div {
 	margin: 2.5em 0em 1em 35%;
 }
 
-#content .personalTrainer > div > p {
+#content .personalTrainer div p {
 	display: inline;
 	color: var(--colore-testo-contrasto-sfondi);
 	background-color: var(--colore-testo-principale);
@@ -570,12 +570,12 @@ footer .social {
 	border-radius: 2em;
 }
 
-#content .personalTrainer > div > ul {
+#content .personalTrainer div ul {
 	margin-top: 1em;
 	margin-bottom: 1em;
 }
 
-#content .personalTrainer > div > ul > li {
+#content .personalTrainer div ul li {
 	color: var(--colore-testo-principale);
 	background-color: var(--colore-sfondo-article-p);
 	padding: 0.5em 1em;
@@ -1209,10 +1209,10 @@ div div .gallery {
 	box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);
 }
 
-#content .allenamenti ul > li,
-#content .dettagli-allenamento ul > li,
-#content #specifiche-utente-dettaglio-allenamento > li,
-#content .bottoni-allenamenti ul > li {
+#content .allenamenti ul li,
+#content .dettagli-allenamento ul li,
+#content #specifiche-utente-dettaglio-allenamento li,
+#content .bottoni-allenamenti ul li {
 	padding: 0.5em 1em;
 	margin: 0.5em 0.2em;
 	border-radius: 2em;
@@ -1221,22 +1221,22 @@ div div .gallery {
 	display: inline-block;
 }
 
-#content .allenamenti ul > li,
-#content .dettagli-allenamento ul > li,
-#content #specifiche-utente-dettaglio-allenamento > li {
+#content .allenamenti ul li,
+#content .dettagli-allenamento ul li,
+#content #specifiche-utente-dettaglio-allenamento li {
 	color: var(--colore-testo-principale);
 	background-color: var(--colore-background-menu);
 }
 
-#content .bottoni-allenamenti ul > li {
+#content .bottoni-allenamenti ul li {
 	background-color: var(--colore-testo-principale);
 }
 
-#content .bottoni-allenamenti ul > li > a {
+#content .bottoni-allenamenti ul li a {
 	color: var(--colore-testo-contrasto-sfondi);
 }
 
-#content .bottoni-allenamenti > ul {
+#content .bottoni-allenamenti ul {
 	margin: 0em;
 }
 
@@ -1249,7 +1249,7 @@ div div .gallery {
 	margin: 0.5em 0.2em;
 }
 
-#content .bottoni-allenamenti > form {
+#content .bottoni-allenamenti form {
 	margin: 0;
 }
 
@@ -1296,8 +1296,8 @@ div div .gallery {
 	float: left;
 }
 
-#bottone-iniziale > ul > li,
-#bottone-iniziale-sinistra > ul > li {
+#bottone-iniziale ul li,
+#bottone-iniziale-sinistra ul li {
 	color: var(--colore-testo-principale);
 	background-color: var(--colore-background-menu);
 	padding: 1em 1.5em;
@@ -1307,8 +1307,8 @@ div div .gallery {
 	transition: background-color 0.1s ease-in-out;
 }
 
-#bottone-iniziale > ul > li:hover,
-#bottone-iniziale-sinistra > ul > li:hover {
+#bottone-iniziale ul li:hover,
+#bottone-iniziale-sinistra ul li:hover {
 	background-color: var(--colore-hover-menu);
 }
 
@@ -1320,11 +1320,11 @@ div div .gallery {
 	margin-right: 10%;
 }
 
-#naviga-pagine > ul > li#fine-pagine-iniziali {
+#naviga-pagine ul li#fine-pagine-iniziali {
 	margin-left: 3em;
 }
 
-#naviga-pagine > ul > li#inizio-pagine-finali {
+#naviga-pagine ul li#inizio-pagine-finali {
 	margin-right: 3em;
 }
 
