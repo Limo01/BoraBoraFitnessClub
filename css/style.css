@@ -1432,3 +1432,7 @@ div div .gallery {
 #submitButtons {
 	display: inline;
 }
+
+#paginaNonTrovata {
+	display: block;
+}
