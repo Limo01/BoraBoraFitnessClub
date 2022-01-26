@@ -1323,11 +1323,6 @@ div div .gallery {
 	float: left;
 }
 
-#bottone-iniziale ul li,
-#bottone-iniziale-sinistra ul li {
-	list-style-type: none;
-}
-
 #titolo-allenamenti {
 	margin-left: 20%;
 }

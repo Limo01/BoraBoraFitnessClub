@@ -106,12 +106,6 @@
 	} else {
 		$content = "<p class='allenamento-avviso'>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
 	}
-	$init = "";
-	if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]) {
-		$init = "<a href='inserimentoAllenamento.php'>Crea allenamento</a>";
-	} else {
-		$init = "<a href='autenticazione.php?url=allenamenti.php?pagina=" . $pagina . "'>Effettua l'autenticazione</a>";
-	}
 
 	$offset = 2;
 	$vIntSx = $pagina - $offset > 0 ? $pagina - $offset : 1;
@@ -144,5 +138,5 @@
 	   	$contentPagine .= "<li><a href='allenamenti.php?pagina=" . $i . "'>" . $i . "</a></li>";
 	}
 
-	echo str_replace("<bottone-iniziale-destra />", $init, str_replace("<pagine />", $contentPagine, str_replace("<allenamenti />", $content, file_get_contents("html/allenamenti.html"))));
+	echo str_replace("<pagine />", $contentPagine, str_replace("<allenamenti />", $content, file_get_contents("html/allenamenti.html")));
 ?>
