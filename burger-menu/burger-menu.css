@@ -35,6 +35,7 @@ h1.hide{
 #menu li a, #currentLink, #userIcon{
 	color: var(--colore-testo-footer);
 	padding: 0.6em;
+	background-color: transparent;
 }
 
 #menu li a:hover{
@@ -75,7 +76,7 @@ h1.hide{
 	transition: 0.5s;
 }
 
-.overlay a {
+.overlay span {
   	text-decoration: none;
   	color: #818181;
   	display: block;
@@ -98,10 +99,12 @@ h1.hide{
   	transition: 0.3s;
 }
 
-.overlay .closebtn {
+#closebtn {
+	display: block;
   	position: absolute;
   	top: 0.5em;
   	right: 0.3em;
   	font-size: 4em;
   	z-index: 1;
+  	cursor: pointer;
 }
