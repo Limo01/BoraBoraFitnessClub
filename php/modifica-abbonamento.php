@@ -40,19 +40,26 @@
 	if ($connessioneOK) {
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$abbonamento = $_POST["abbonamento"];
-			if ($abbonamento != "Nessuno") {
+			if ($abbonamento != "") {
 				$scadenza = $_POST["scadenza"];
 			}
 			$entrate = $_POST["entrate"];
 
 			$esito = false;
-			//if(isScadenzaValid($scadenza) && isEntrateValid($entrate)) {		TODO: funzioni per il check
-				if ($abbonamento != "Nessuno") {
-					$esito = $connessione->doWriteQuery("UPDATE utente SET nome_abbonamento = ?, data_fine = ?, entrate = ? WHERE username = ?", "ssis", $abbonamento, $scadenza, $entrate, $user);
+			if(isAbbonamentoValid($abbonamento, $connessione) && isEntrateValid($entrate)) {
+				if ($abbonamento != "") {
+					if (isScadenzaValid($scadenza)) {
+						$esito = $connessione->doWriteQuery("UPDATE utente SET nome_abbonamento = ?, data_fine = ?, entrate = ? WHERE username = ?", "ssis", $abbonamento, $scadenza, $entrate, $user);
+					} else {
+						$esito = false;
+					}
 				} else {
 					$esito = $connessione->doWriteQuery("UPDATE utente SET nome_abbonamento = NULL, data_fine = NULL, entrate = ? WHERE username = ?", "is", $entrate, $user);
 				}
-			//}	
+			}
+			else {
+				$esito = false;
+			}	
 			$connessione->closeConnection();
 
 			if ($esito) {
@@ -68,5 +75,6 @@
 			$connessione->closeConnection();
 		}
 	}
-	header("location: ../visualizza-utente.php?usr=" . $user . "&update=" . $update . "&form_error=1");
+	header("location: ../visualizza-utente.php?usr=" . $user . "&update=" . $update . "&form_error=2");
+	die("Errore: dati inseriti non corretti!");
 ?>

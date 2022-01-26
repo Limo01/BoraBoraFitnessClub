@@ -51,9 +51,9 @@
 		}
 	}
 	
-	$formError = false;
-	if(isset($_GET["form_error"]) && $_GET["form_error"]==1){
-		$formError = true;
+	$formError = 0;
+	if(isset($_GET["form_error"])){
+		$formError = $_GET["form_error"];
 	}
 
 	$connessione = new DBAccess();
@@ -92,8 +92,8 @@
 		else{
 			$personalData = "";
 			
-			if($formError){
-				$personalData .= "<p id=\"errore_form\" class'alert'>Si è verificato un errore nella procedura, oppure i dati inseriti non sono validi.</p>";
+			if($formError == 1){
+				$personalData .= "<p id=\"errore_form\" class='alert'>Si è verificato un errore nella procedura, oppure i dati inseriti non sono validi.</p>";
 			}
 			$form = '<form action="php/modifica_dati_personali.php?update=<update />&usr=<username />" method="post">';
 			$personalData .= str_replace("<update />", $update, $form . file_get_contents("html/dati_personali_update.html"));
@@ -122,15 +122,19 @@
 				file_get_contents("html/dettagli_abbonamento.html") . $button
 			);
 		} else {
+			if($formError == 2){
+				$dettagliAbbonamento = "<p id='errore_form' class='alert'>Si è verificato un errore nella procedura, oppure i dati inseriti non sono validi.</p>";
+			}
+
 			$abbonamentoCorrente = $datiPersonali["nome_abbonamento"];
-			$abbonamentiOptions = "<option value='Nessuno'" . ($abbonamentoCorrente == null ? " selected='selected'" : "") . ">Nessuno</option>";
+			$abbonamentiOptions = "<option value=''" . ($abbonamentoCorrente == null ? " selected='selected'" : "") . ">Nessuno</option>";
 			foreach ($abbonamenti as $abbonamento) {
 				$abbonamento = $abbonamento["nome"];
 				$abbonamentiOptions .= "<option value='" . $abbonamento . ($abbonamentoCorrente == $abbonamento ? "' selected='selected'" : "'") . ">" . $abbonamento . "</option>";
 			}
 
 			$form = '<form action="php/modifica-abbonamento.php?update=<update />&usr=<username /> " method="post">';
-			$dettagliAbbonamento = str_replace("<update />", $update, $form . file_get_contents("html/dettagli_abbonamento_update.html"));
+			$dettagliAbbonamento .= str_replace("<update />", $update, $form . file_get_contents("html/dettagli_abbonamento_update.html"));
 
 			$annulla = '<a href="visualizza-utente.php?' . ($update == 0 ? 'update=1&' : '') . 'usr=<username />">Annulla</a>';
 			$dettagliAbbonamento = str_replace("<annulla />", $annulla, $dettagliAbbonamento);
