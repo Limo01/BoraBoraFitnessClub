@@ -196,6 +196,10 @@ small {
 	background-size: 2em;
 }
 
+#burger-menu, .closebtn{
+	display: none;
+}
+
 /*==================== TOGGLE DARK MODE ====================*/
 #darkmode-switch {
 	margin-top: 0.35em;
@@ -1277,7 +1281,7 @@ div div .gallery {
 	display: flex;
 }
 
-#naviga-pagine #currentLink {
+#naviga-pagine #currentPage {
 	color: var(--colore-testo-contrasto-sfondi);
 	background-color: var(--colore-testo-principale);
 }

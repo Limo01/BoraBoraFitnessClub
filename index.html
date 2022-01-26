@@ -10,12 +10,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="stylesheet" media="screen" href="css/style.css" />
-	<link rel="stylesheet" media="screen and (max-width:600px), only screen and (max-width:600px)"
-		href="css/mobile.css" />
+	<!--<link rel="stylesheet" media="screen and (max-width:600px), only screen and (max-width:600px)"
+		href="css/mobile.css" />-->
 	<link rel="shortcut icon" type="image/png" href="immagini/logo/island.png">
+
+	<link rel="stylesheet" media="screen and (max-width:600px), only screen and (max-width:600px)" href="burger-menu/burger-menu.css" />
 
 	<script src="javascript/darkmode.js"></script>
 	<script src="javascript/script-home.js"></script>
+	<script src="burger-menu/mobile-js.js"></script>
 </head>
 
 <body>
@@ -31,10 +34,13 @@
 		Salta la navigazione
 	</a>
 
-	<button onclick="menuClickEvent()" id="displayMenuButton">Menu</button>
+	<!--<button onclick="menuClickEvent()" id="displayMenuButton">Menu</button>-->
+	<span id="burger-menu" onclick="openNav()">&#9776;</span>
 
-	<div id="topbar">
-		<nav id="menu">
+	<div id="topbar" class="overlay">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+		<nav id="menu" class="overlay-content">
 			<ul>
 				<li lang="en" id="currentLink">Home</li>
 				<li><a href="abbonamenti.html">Abbonamenti</a></li>

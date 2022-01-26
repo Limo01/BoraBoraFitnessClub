@@ -1,5 +1,6 @@
 <?php
 	require_once "php/db.php";
+	require_once "php/funzioni-area-personale.php";
 	use DB\DBAccess;
 
 	session_start();
@@ -65,7 +66,6 @@
 			header("Location: 404.html");
 			die("Errore: pagina non trovata");
 		}
-
 		$datiPersonali = $result[0];
 
 		$ultimoIngresso = $connessione->doReadQuery("SELECT dataora_entrata FROM accesso WHERE username_utente=? order by dataora_entrata DESC limit 1", "s", $user);
@@ -150,48 +150,15 @@
 			$paginaHTML = str_replace("<scadenza_abbonamento />", $datiPersonali["data_fine"], $paginaHTML);
 		}
 		$paginaHTML= str_replace("<entrate />", $datiPersonali["entrate"], $paginaHTML);
+		$paginaHTML= str_replace("<avviso_acquisto />", "", $paginaHTML);
 		
-		//Riempimento dati ultimo ingresso
-		if($ultimoIngresso == null){
-			$paginaHTML = str_replace("<data_ingresso />", "Nessuna", $paginaHTML);
-			$paginaHTML = str_replace("<ora_ingresso />", "Nessuna", $paginaHTML);
-		}
-		else{
-			$ultimoIngresso = explode(" ", $ultimoIngresso["dataora_entrata"]);
+		unset($datiPersonali);
 
-			$paginaHTML = str_replace("<data_ingresso />", $ultimoIngresso[0], $paginaHTML);
-			$paginaHTML = str_replace("<ora_ingresso />", $ultimoIngresso[1], $paginaHTML);
-		}
+		$paginaHTML = replaceUltimoIngresso($ultimoIngresso, $paginaHTML);
+		unset($ultimoIngresso);
 
-		//Riempimento dati schede seguite
-		if($schedeSeguite == null){
-			$paginaHTML = str_replace("<allenamenti_seguiti />", "<p>Nessuna scheda allenamento seguita</p>", $paginaHTML);
-		}
-		else{
-			$output= "<div class=\"display_allenamenti\">";
-			foreach($schedeSeguite as $allenamento){
-				$output= $output . "<a class='scheda_allenamento' href=\"dettagli-allenamento.php?id=" . $allenamento["id"] . "&url=area-personale.php?update=1&nomeBreadcrumb=Area%personale\">";
-				$output= $output . "<h3>" . $allenamento["nome"] . "</h3>";
-				$output= $output . "<p>" . $allenamento["descrizione"] . "</p></a>";	
-			}
-			$output= $output . "</div>";
-			$paginaHTML = str_replace("<allenamenti_seguiti />", $output, $paginaHTML);
-		}
-
-		//Riempimento dati schede create
-		if($schedeCreate == null){
-			$paginaHTML = str_replace("<allenamenti_creati />", "<p>Nessun allenamento creato</p>", $paginaHTML);
-		}
-		else{
-			$output= "<div class=\"display_allenamenti\">";
-			foreach($schedeCreate as $allenamento){
-				$output= $output . "<a class='scheda_allenamento' href=\"dettagli-allenamento.php?id=" . $allenamento["id"] . "&url=area-personale.php?update=1&nomeBreadcrumb=Area%personale\">";
-				$output= $output . "<h3>" . $allenamento["nome"] . "</h3>";
-				$output= $output . "<p>" . $allenamento["descrizione"] . "</p></a>";	
-			}
-			$output= $output . "</div>";
-			$paginaHTML = str_replace("<allenamenti_creati />", $output, $paginaHTML);
-		}
+		$paginaHTML = replaceSchedeAllenamento($schedeSeguite, $schedeCreate, $admin, $paginaHTML);
+		unset($schedeSeguite, $schedeCreate);
 	} else {
 		$paginaHTML = "<p>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
 	}
