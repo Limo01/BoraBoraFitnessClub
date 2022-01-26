@@ -20,13 +20,14 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
         if(($schedaQuery != null) && ($_SESSION["isAdmin"] || $schedaQuery[0]["username_utente"] == $_SESSION["username"])){
             //form aggiungi esercizio
             $aggiungiEsercizio = 
-            "<form id=\"inserimentoEsercizio\" action=\"php/generatoreScheda.php?id=". $_GET["id"] ."\", method=\"post\">
+            "<form id=\"inserimentoEsercizio\" action=\"php/generatoreScheda.php?id=". $_GET["id"] ."\" method=\"post\">
                 <label id=\"nomeEsercizioL\">Nome</label>
                 <input id=\"nomeEsercizioI\" type=\"text\" name=\"nomeEsercizio\" required>
 
                 <label id=\"descrizioneEsercizioL\">Descrizione</label>
-                <input id=\"descrizioneEsercizioI\" type=\"textarea\" name=\"descrizioneEsercizio\">
                 
+                <textarea rows=\"5\" cols=\"30\" id=\"descrizioneEsercizioI\" name=\"descrizioneEsercizio\"></textarea
+
                 <label id=\"pesoEsercizioL\">Peso</label>
                 <input id=\"pesoEsercizioI\" type=\"number\" name=\"pesoEsercizio\" min=\"0\" value=\"0\" step=\"0.1\">
                 
