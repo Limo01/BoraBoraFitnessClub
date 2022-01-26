@@ -31,6 +31,8 @@
 		return preg_match("/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/", $phone_number);
 	}
 
+
+
 	function isUsernameCorrect($submitted, $connessione) {
 		$queryResult = $connessione->doReadQuery("SELECT username FROM utente WHERE username = ?", "s", $submitted);
 
@@ -60,20 +62,5 @@
 		} else {
 			return false;
 		}
-	}
-
-	//Controlli modifica abbonamento
-	function isAbbonamentoValid($abbonamento, $connessione) {
-		if ($abbonamento == "") return true;
-		return $connessione->doReadQuery("SELECT nome FROM abbonamento WHERE nome = ?", "s", $abbonamento) != null;
-	}
-
-	function isScadenzaValid($date, $format = 'Y-m-d') {
-		$d = DateTime::createFromFormat($format, $date);
-		return $d && $d->format($format) === $date && $date > date($format);
-	}
-
-	function isEntrateValid($entrate) {
-		return $entrate >= 0 && $entrate <= 2147483647;	//Il massimo è il massimo intero supportato in MySQL dal tipo integer
 	}
 ?>

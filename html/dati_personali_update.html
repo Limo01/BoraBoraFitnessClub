@@ -20,8 +20,7 @@
 
 <label for="data_nascita">Data di nascita</label>
 <input type="date" id="data_nascita" name="data_nascita" value="<data_nascita />" required
-	onblur="check_validity_data_nascita(event)" <today_min16anni />
-<today_max110anni />>
+	onblur="check_validity_data_nascita(event)" max="<today_min16anni />" min="<today_max110anni />">
 <p id="errore_data_nascita" class="errore_form"></p>
 
 <button>Conferma modifica</button>
