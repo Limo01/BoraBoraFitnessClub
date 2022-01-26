@@ -68,7 +68,6 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
             }
             $datiScheda .= "<div  class=\"dettagli-allenamento\">";
             foreach($eserciziQuery as $row){
-                //TODO: non mostrare serie, durata ecc se valore è null
                 $datiScheda .= "<article><h3>" . $row["nome"] ."</h3>";
                 if($row["descrizione"] != null) {
                     $datiScheda .= "<p>" . $row["descrizione"] ."</p>";
@@ -76,18 +75,18 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
                 
                 $datiScheda .= "<ul>";
                 if($row["peso"] != null){
-                    $datiScheda .= "<li>Peso: " . $row["peso"] . "</li>";
+                    $datiScheda .= "<li>Con +" . $row["peso"] . " di peso</li>";
                 } else {
                     $datiScheda .= "<li>Senza usare pesi</li>";
                 }
                 if($row["serie"] != null){
-                    $datiScheda .= "<li>Serie: " . $row["serie"] . "</li>";
+                    $datiScheda .= "<li>" . $row["serie"] . " serie</li>";
                 }
                 if($row["ripetizioni"] != null){
-                    $datiScheda .= "<li>Ripetizioni: " . $row["ripetizioni"] . "</li>";
+                    $datiScheda .= "<li>" . $row["ripetizioni"] . " ripetizioni</li>";
                 }
                 if($row["durata"] != null){
-                    $datiScheda .= "<li>Durata: " . $row["durata"] . "</li>";
+                    $datiScheda .= "<li>Durata di " . $row["durata"] . "</li>";
                 }
                 $datiScheda .= "</ul>";
                 $datiScheda .= "</article>";

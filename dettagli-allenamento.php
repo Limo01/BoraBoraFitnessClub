@@ -61,7 +61,7 @@
 					}
 					$content .= ' e ' . $queryDettaglioAllenamentoResult[$i]['nome'];
 				}
-				$content .= '.</p><ul id="specifiche-utente-dettaglio-allenamento"><li>' . $queryOverviewAllenamentoResult[0]['username_utente'] . '</li><li>' . $queryOverviewAllenamentoResult[0]['data_creazione'] . '</li><li>' . ($queryOverviewAllenamentoResult[0]['Followers'] == null ? 0 : $queryOverviewAllenamentoResult[0]['Followers']) . '</li></ul><div class="bottoni-allenamenti">';
+				$content .= '.</p><ul id="specifiche-utente-dettaglio-allenamento"><li>Di ' . $queryOverviewAllenamentoResult[0]['username_utente'] . '</li><li>Creato il ' . $queryOverviewAllenamentoResult[0]['data_creazione'] . '</li><li>Seguito da ' . ($queryOverviewAllenamentoResult[0]['Followers'] == null ? 0 : $queryOverviewAllenamentoResult[0]['Followers']) . ' person' . ($queryOverviewAllenamentoResult[0]['Followers'] == 1 ? 'a' : 'e') . '</li></ul><div class="bottoni-allenamenti">';
 				if ($tipoUtente == 1 || ($tipoUtente == 0 && $queryOverviewAllenamentoResult[0]['username_utente'] == $utente)) {
 					$content .= "<ul><li><a href='modificaAllenamento.php?id=" . $id . "'>Modifica allenamento</a></li></ul>";
 					$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "&url=" . $referer . "' method='post'><button name='elimina'>Elimina allenamento</button></form>";
@@ -85,9 +85,31 @@
 
 				$content .= "</div><div class='dettagli-allenamento'>";
 
-				foreach ($queryDettaglioAllenamentoResult as $esercizio) {
-					$content .= '<article><h3>' . $esercizio['nome'] . '</h3><p>' . $esercizio['descrizione'] . '</p><ul><li>Con +' . $esercizio['peso'] . 'kg</li><li>' . $esercizio['serie'] . ' serie</li><li>' . $esercizio['ripetizioni'] . ' ripetizioni</li><li>' . ($esercizio['durata'] == null ? "Durata non specificata" : "Durata di " . $esercizio['durata']) . '</li></ul></article>';
-				}
+				foreach($queryDettaglioAllenamentoResult as $row){
+	                $content .= "<article><h3>" . $row["nome"] ."</h3>";
+	                if($row["descrizione"] != null) {
+	                    $content .= "<p>" . $row["descrizione"] ."</p>";
+	                }
+	                
+	                $content .= "<ul>";
+	                if($row["peso"] != null){
+	                    $content .= "<li>Con +" . $row["peso"] . " di peso</li>";
+	                } else {
+	                    $content .= "<li>Senza usare pesi</li>";
+	                }
+	                if($row["serie"] != null){
+	                    $content .= "<li>" . $row["serie"] . " serie</li>";
+	                }
+	                if($row["ripetizioni"] != null){
+	                    $content .= "<li>" . $row["ripetizioni"] . " ripetizioni</li>";
+	                }
+	                if($row["durata"] != null){
+	                    $content .= "<li>Durata di " . $row["durata"] . "</li>";
+	                }
+	                $content .= "</ul>";
+	                $content .= "</article>";
+            	}
+            	
 				$content .= "</div>";
 			} elseif ($changes) {
 				$content .= "<h2 id='titolo-dettagli-allenamento'>Allenamento eliminato</h2><p class='allenamento-avviso'>Allenamento eliminato!</p>";
