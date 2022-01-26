@@ -6,11 +6,11 @@
 
 <label for="scadenza">Scadenza</label>
 <input type="date" name="scadenza" id="scadenza" value="<scadenza_abbonamento />">
-<p id="errore_scadenza" class="errore_form"></p>
+<p id="errore_scadenza" role="alert" class="errore_form"></p>
 
 <label for="entrate">Entrate singole disponibili</label>
 <input type="number" name="entrate" id="entrate" min="0" max="2147483647" value="<entrate />" required>
-<p id="errore_entrate" class="errore_form"></p>
+<p id="errore_entrate" role="alert" class="errore_form"></p>
 
 <button>Conferma modifica</button>
 </form>
