@@ -14,10 +14,9 @@
 		href="css/mobile.css" />-->
 	<link rel="shortcut icon" type="image/png" href="immagini/logo/island.png">
 
-	<link rel="stylesheet" media="screen and (max-width:600px), only screen and (max-width:600px)"
-		href="burger-menu/burger-menu.css" />
+	<link rel="stylesheet" media="screen and (max-width:600px), only screen and (max-width:600px)" href="burger-menu/burger-menu.css" />
 
-	<script src="javascript/script.js"></script>
+	<script src="javascript/darkmode.js"></script>
 	<script src="javascript/script-home.js"></script>
 	<script src="burger-menu/mobile-js.js"></script>
 </head>
@@ -39,7 +38,7 @@
 	<span id="burger-menu" onclick="openNav()">&#9776;</span>
 
 	<div id="topbar" class="overlay">
-		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<span id="closebtn" onclick="closeNav()">&times;</span>
 
 		<nav id="menu" class="overlay-content">
 			<ul>
@@ -55,8 +54,8 @@
 			</ul>
 		</nav>
 
-		<label aria-label="Passa a modalità notte" title="Passa a modalità notte" id="darkmode-switch" for="checkbox">
-			<input type="checkbox" id="checkbox" />
+		<label id="darkmode-switch" for="checkbox">
+			<input aria-label="Passa a modalità notte" title="Passa a modalità notte" type="checkbox" id="checkbox" />
 			<span class="slider round"></span>
 		</label>
 	</div>
@@ -80,7 +79,7 @@
 					"<span lang="ty">Tevairoa</span> e <span lang="ty">To'opua</span>, perché il molo per gli <span
 						lang="en">Yacht</span> si trova a pochi metri dalla palestra.
 				</p>
-				<a class="imgLink" title="Apri la mappa"
+				<a title="Apri la mappa"
 					href="https://www.google.com/maps/place/16%C2%B029'22.6%22S+151%C2%B045'25.7%22W/@-16.4911643,-151.7580425,18.54z/data=!4m5!3m4!1s0x0:0x4459b5b1172dba21!8m2!3d-16.4896089!4d-151.757139"
 					target="_blank"><img id="mappa" src="immagini/home/mappa.png"
 						alt="Mappa satellitare dell'isola tropicale di Bora Bora con il riferimento alla posizione della palestra" /></a>
@@ -160,7 +159,7 @@
 				ogni tua esigenza.
 			</p>
 
-			<a href="abbonamenti.html" class="button" id="abbonati_button">Abbonati</a>
+			<a href="abbonamenti.html">Abbonati</a>
 		</div>
 	</div>
 
@@ -174,12 +173,10 @@
 			<a href="mailto:boraborafitnessclub@gmail.com">boraborafitnessclub@gmail.com</a>
 		</p>
 
-		<a href="https://www.instagram.com/" class="imgLink" aria-label="La nostra pagina Instagram"
-			title="La nostra pagina Instagram" target="_blank"><img class="social" src="immagini/logo/instagram.png"
-				alt="logo instagram" /></a>
-		<a href="https://www.facebook.com/" class="imgLink" aria-label="La nostra pagina Facebook"
-			title="La nostra pagina Facebook" target="_blank"><img class="social" src="immagini/logo/facebook.png"
-				alt="logo facebook" /></a>
+		<a href="https://www.instagram.com/" aria-label="La nostra pagina Instagram" title="La nostra pagina Instagram"
+			target="_blank"><img class="social" src="immagini/logo/instagram.png" alt="logo instagram" /></a>
+		<a href="https://www.facebook.com/" aria-label="La nostra pagina Facebook" title="La nostra pagina Facebook"
+			target="_blank"><img class="social" src="immagini/logo/facebook.png" alt="logo facebook" /></a>
 	</footer>
 </body>
 

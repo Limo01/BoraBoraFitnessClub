@@ -75,28 +75,28 @@
 					<label>Nome</label>
 					<input type="text" id="nome" name="nomeRegistrazione" required placeholder="es: Mario"
 						pattern="^[a-zA-Z-' àèìòùáéíóú]*$" onblur="check_validity_nome(event)">
-					<p id="errore_nome" class="errore_form">
+					<p id="errore_nome" role="alert" class="errore_form">
 						<erroreNome />
 					</p>
 
 					<label>Cognome</label>
 					<input type="text" id="cognome" name="cognomeRegistrazione" required placeholder="es: Rossi"
 						pattern="^[a-zA-Z-' àèìòùáéíóú]*$" onblur="check_validity_cognome(event)">
-					<p id="errore_cognome" class="errore_form">
+					<p id="errore_cognome" role="alert" class="errore_form">
 						<erroreCognome />
 					</p>
 
 					<label>Data di nascita</label>
 					<input type="date" id="dataNascita" name="dataNascitaRegistrazione" required
 						onblur="check_validity_data_nascita(event)" max="<today_min16anni />" min="<today_max110anni />">
-					<p id="errore_data_nascita" class="errore_form">
+					<p id="errore_data_nascita" role="alert" class="errore_form">
 						<erroreData />
 					</p>
 
 					<label>Nome utente</label>
 					<input type="text" id="username" name="nomeUtenteRegistrazione" required placeholder="es: MarioRossi23"
 						pattern="^[0-9a-zA-Z-' àèìòùáéíóú]*$" onblur="check_validity_username(event)">
-					<p id="errore_username" class="errore_form">
+					<p id="errore_username" role="alert" class="errore_form">
 						<erroreUsername />
 					</p>
 
@@ -108,14 +108,14 @@
 					<label>Conferma <span lang="en">password</span></label>
 					<input type="password" id="confermaPassword" name="passwordConfermaRegistrazione" minlength="4" required
 						onblur="check_validity_conferma_password(event)">
-					<p id="errore_conferma_password" class="errore_form">
+					<p id="errore_conferma_password" role="alert" class="errore_form">
 						<erroreConfermaPassword />
 					</p>
 
 					<label lang="en">email</label>
 					<input type="email" id="email" name="emailRegistrazione" placeholder="es: mariorossi@gmail.com" required
 						onblur="check_validity_email(event)">
-					<p id="errore_email" class="errore_form">
+					<p id="errore_email" role="alert" class="errore_form">
 						<erroreEmail />
 					</p>
 
@@ -123,7 +123,7 @@
 					<input type="tel" id="telefono" name="telRegistrazione" required
 						pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$"
 						onblur="check_validity_telefono(event)">
-					<p id="errore_telefono" class="errore_form">
+					<p id="errore_telefono" role="alert" class="errore_form">
 						<erroreTelefono />
 					</p>
 

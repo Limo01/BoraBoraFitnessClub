@@ -1,22 +1,36 @@
-:root{
-	/*--colore-sfondo-div: rgba(247,249,251,0.93);
-	--colore-testo: #f7f9fb;
-	--colore-titoli: #687864;
-	--blu-scuro: #31708e;
-	--azzurro: #8fc1e3;
-	--blu: #5085a5;*/
-
-	--colore-sfondo-div: rgba(255,253,233,0.9);
-	--colore-testo: #FDF1CE;
-	--colore-titoli: #473603;
-	--blu-scuro: #473603;
-	--azzurro: #8fc1e3;
-	--blu: #473603;
+:root {
+	--colore-sfondo-div: rgba(255, 253, 233, 0.9);
+	--colore-testo-contrasto-sfondi: #fdf1ce;
+	--colore-testo-principale: #473603;
+	--colore-link-visitato: #006b2d;
+	--colore-sfondo-article-p: #d7c99e;
+	--colore-hover-menu: #d6c8a6;
+	--colore-background-menu: #bfb394;
+	--colore-sfondo-footer: rgba(0, 0, 0, 0.8);
+	--colore-testo-footer: #fdf1ce;
+	--immagine-background: url("../immagini/sfondo-light.jpg");
+	--icona-autenticazione: url("../immagini/logo/user.png");
+	--icona-autenticazione-current: url("../immagini/logo/user-light.png");
+	--icona-torna-su: url("../immagini/torna-su-light.svg");
 }
 
-header h1{
-	background-color: var(--colore-sfondo-div);
-	color: var(--blu-scuro);
+[data-theme="dark"] {
+	--colore-sfondo-div: rgba(0, 0, 0, 0.8);
+	--colore-testo-contrasto-sfondi: #473603;
+	--colore-testo-principale: #bfb394;
+	--colore-link-visitato: #a7e08c;
+	--colore-sfondo-article-p: #332a1f;
+	--colore-hover-menu: #332f26;
+	--colore-background-menu: #241f19;
+	--colore-sfondo-footer: rgba(0, 0, 0, 0.8);
+	--colore-testo-footer: #fdf1ce;
+	--immagine-background: url("../immagini/sfondo-dark.jpg");
+	--icona-autenticazione: url("../immagini/logo/user-light-darkmode.png");
+	--icona-autenticazione-current: url("../immagini/logo/user.png");
+	--icona-torna-su: url("../immagini/torna-su-dark.svg");
+}
+
+header h1 {
 	font-size: 2.2em;
 	padding-top: 0.8em;
 	padding-bottom: 0.5em;
@@ -24,20 +38,19 @@ header h1{
 	padding-right: 0.2em;
 
 	background-color: unset;
-
 }
-.hide{
+.hide {
 	text-indent: -9999em;
 }
-h1.hide{
+h1.hide {
 	height: auto;
 	margin-top: 0;
 }
 
 /*========= MENU =========*/
 
-#menu{
-    position: static;
+#menu {
+	position: static;
 	z-index: 2;
 	margin-bottom: 1em;
 	display: none;
@@ -64,7 +77,7 @@ h1.hide{
 }
 
 #currentLink {
-	background-color:unset;
+	background-color: unset;
 	color: var(--blu-scuro);
 	font-weight: bold;
 	border-radius: 0px;
@@ -76,7 +89,7 @@ h1.hide{
 	color: unset;
 }
 
-#displayMenuButton{
+#displayMenuButton {
 	display: inline;
 	margin-top: 0;
 	margin-bottom: 0.5em;
@@ -84,7 +97,7 @@ h1.hide{
 
 /*===========immagini===========*/
 
-#content img{
+#content img {
 	width: 100%;
 	height: auto;
 	margin: auto;
@@ -92,27 +105,26 @@ h1.hide{
 
 /*========content=========*/
 
-#content h1{
+#content h1 {
 	font-size: 2em;
 	color: var(--blu-scuro);
 }
 
-
-#content h2{
+#content h2 {
 	color: var(--blu);
 	margin-bottom: 0.5em;
 	margin-top: 0.5em;
 }
 
-#breadcrumb{
-	background-color:var(--colore-sfondo-div);
+#breadcrumb {
+	background-color: var(--colore-sfondo-div);
 	margin-bottom: 1em;
 	padding-bottom: 1em;
 	border-bottom-right-radius: 0.5em;
 	border-bottom-left-radius: 0.5em;
 }
 
-#content #titolo{
+#content #titolo {
 	border-top-left-radius: 0.5em;
 	border-top-right-radius: 0.5em;
 }
@@ -135,7 +147,7 @@ h1.hide{
 	height: 100%;
 }
 
-#content .gallery img{
+#content .gallery img {
 	margin-top: 1em;
 }
 
@@ -150,11 +162,10 @@ h1.hide{
 	transition: none;
 }
 
-.gallery_img_zoom:hover{
+.gallery_img_zoom:hover {
 	border: none;
 	transform: none;
 }
-
 
 /*========== ATTREZZATURE ==========*/
 
@@ -173,7 +184,7 @@ h1.hide{
 	border-radius: 0.5em;
 }
 
-#content .attrezzature article div{
+#content .attrezzature article div {
 	min-height: 0;
 }
 
@@ -187,56 +198,55 @@ h1.hide{
 /*========== PERSONAL TRAINER ==========*/
 
 #content .personalTrainer > h2 {
-    margin: auto;
+	margin: auto;
 	text-align: center;
-    padding: 0.5em;
+	padding: 0.5em;
 }
 
 #content .personalTrainer > img {
-    float: none;
-    width: 80%;
-    margin-left: 10%;
+	float: none;
+	width: 80%;
+	margin-left: 10%;
 	margin-right: 10%;
 	margin-bottom: 0.5em;
-    transition: none;
+	transition: none;
 }
 
 #content .personalTrainer > img:hover {
-    transform: none;
+	transform: none;
 }
 
 #content .personalTrainer > p {
-    margin: 0;
+	margin: 0;
 	margin-bottom: 1em;
-    border-radius: 0.5em;
-    transition:none;
+	border-radius: 0.5em;
+	transition: none;
 }
 
 #content .personalTrainer > p:hover {
-    box-shadow:none;
+	box-shadow: none;
 }
 
 #content .personalTrainer > div {
-    margin: 1em 0 0 0;
+	margin: 1em 0 0 0;
 }
 
 #content .personalTrainer > div > p {
-    padding: 0.5em 0.5em;
-    margin:  0;
-    border-radius: 0.5em;
+	padding: 0.5em 0.5em;
+	margin: 0;
+	border-radius: 0.5em;
 }
 
 #content .personalTrainer > div > ul > li {
-    padding: 0.5em 0.5em;
-    margin:  0.5em 0.2em;
-    border-radius: 0.5em;
-    transition: none;
+	padding: 0.5em 0.5em;
+	margin: 0.5em 0.2em;
+	border-radius: 0.5em;
+	transition: none;
 }
 
 #content .personalTrainer > div > ul > li:hover {
-    transform:none;
-    box-shadow:none;
-    
+	transform: none;
+	box-shadow: none;
 }
 
 /*============= ABBONAMENTI =============*/
@@ -244,34 +254,34 @@ h1.hide{
 #abbonamenti {
 	grid-gap: 0;
 	grid-template-areas:
-		'a'
-		'b'
-		'c'
-		'd'
-		'e';
+		"a"
+		"b"
+		"c"
+		"d"
+		"e";
 }
-
 
 .offertaAbbonamento {
 	display: inline;
-	background-color:unset;
+	background-color: unset;
 	box-shadow: none;
 	padding: 0.5em 0em;
 	width: auto;
 	border-radius: 0;
 	transition: none;
 	border-bottom: var(--colore-titoli) solid 0.3px;
-
 }
 
 .offertaAbbonamento:hover {
 	transform: none;
 }
-#resortPass > ul{
+#resortPass > ul {
 	margin-top: 0.5em;
 }
-#resortPass li{
-	color: var(--colore-titoli); /*!!!! da togliere quando si sistema in style.css !!!!!*/
+#resortPass li {
+	color: var(
+		--colore-titoli
+	); /*!!!! da togliere quando si sistema in style.css !!!!!*/
 	font-size: 1.2em;
 	margin-left: 1.2em;
 }
