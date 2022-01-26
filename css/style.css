@@ -11,6 +11,7 @@
 	--immagine-background: url("../immagini/sfondo-light.jpg");
 	--icona-autenticazione: url("../immagini/logo/user.png");
 	--icona-autenticazione-current: url("../immagini/logo/user-light.png");
+	--icona-torna-su: url("../immagini/torna-su-light.svg");
 }
 
 [data-theme="dark"] {
@@ -26,6 +27,7 @@
 	--immagine-background: url("../immagini/sfondo-dark.jpg");
 	--icona-autenticazione: url("../immagini/logo/user-light-darkmode.png");
 	--icona-autenticazione-current: url("../immagini/logo/user.png");
+	--icona-torna-su: url("../immagini/torna-su-dark.svg");
 }
 
 * {
@@ -1346,15 +1348,15 @@ div div .gallery {
 	position: fixed;
 	bottom: 2em;
 	right: 3em;
-	height: 4em;
-	width: 3.3em;
+	height: 3em;
+	width: 2em;
 	background-color: var(--colore-sfondo-article-p);
 	border-radius: 10px;
 	color: var(--colore-testo-principale);
 	opacity: 0.9;
-	background-image: url("../immagini/torna-su.svg");
+	background-image: var(--icona-torna-su);
 	background-repeat: no-repeat;
-	background-size: 75px;
+	background-size: 3em;
 	text-indent: -999999em;
 	background-position: center;
 }
