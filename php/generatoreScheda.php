@@ -77,7 +77,7 @@
                     $ripetizioni = $_POST["ripetizioniEsercizio"] == 0 ? null : $_POST["ripetizioniEsercizio"];
                     $serie = $_POST["serieEsercizio"] == 0 ? null : $_POST["serieEsercizio"];
                     
-                    $durata = (!empty($_POST['durataEsercizio'])) ? $_POST["durataEsercizio"] : null;
+                    $durata = $_POST['durataEsercizio'] != "00:00:00" ? $_POST["durataEsercizio"] : null;
 
                     $connessione->doWriteQuery("INSERT INTO esercizio(id_allenamento,nome,descrizione,peso,ripetizioni,serie,durata) values(?,?,?,?,?,?,?)","issdiis",$idScheda,$nomeEsercizio,$descrizioneEsercizio,$peso,$ripetizioni,$serie,$durata);
 

@@ -911,17 +911,6 @@ div div .gallery {
 	grid-area: f;
 }
 
-/*--- NASCONDI I FORM DI AGGIUNTA E ELIMINAZIONE ESERCIZIO ---*/
-
-#aggiungiEsercizioForm {
-	display: block;
-	margin-right: 80%;
-}
-
-#eliminaEsercizioForm {
-	display: block;
-}
-
 /*==================== STILE AREA PERSONALE ====================*/
 #content dl[class="dl_inline"] {
 	text-align: center;
@@ -1449,5 +1438,100 @@ div div .gallery {
 }
 
 #paginaNonTrovata {
+	display: block;
+}
+
+/* form inserimento esercizio */
+
+#inserimentoEsercizio{
+	display: grid;
+	grid-template-columns: 75% 25%;
+	grid-gap: 0.5em;
+	grid-template-areas:
+		"a e"
+		"b h"
+		"c f"
+		"d i"
+		"m g"
+		"n l"
+		"o o";
+}
+
+#inserimentoEsercizio input{
+	border-style: none;
+	border-bottom: 2px solid var(--colore-background-menu);
+	border-left: 2px solid var(--colore-background-menu);
+	background-color: unset;
+	
+	font-size: 1.3em;
+	padding: 0.5em;
+}
+
+#inserimentoEsercizio label{
+	text-align: center;
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+	font-size: 1.2em;
+}
+
+#nomeEsercizioL{
+	grid-area: a;
+}
+#nomeEsercizioI{
+	grid-area: b;
+	width: 75%;
+}
+
+#descrizioneEsercizioL{
+	grid-area: c;
+}
+#descrizioneEsercizioI{
+	grid-area: d;
+	width: 75%;
+}
+
+#pesoEsercizioL{
+	grid-area: e;
+}
+
+#serieEsercizioL{
+	grid-area: f;
+}
+
+#ripetizioniEsercizioL{
+	grid-area: g;
+}
+
+#pesoEsercizioI{
+	grid-area: h;
+	width: 25%;
+}
+
+#serieEsercizioI{
+	grid-area: i;
+	width: 25%;
+}
+
+#ripetizioniEsercizioI{
+	grid-area: l;
+	width: 25%;
+}
+
+#durataEsercizioL{
+	grid-area: m;
+}
+
+#durataEsercizioI{
+	grid-area: n;
+	width: 75%;
+}
+
+#buttonAddEsercizio{
+	grid-area: o;
+	margin: 1em auto;
+}
+
+#inserimentoForm #buttonDelEsercizio{
+	margin: 1em auto;
 	display: block;
 }

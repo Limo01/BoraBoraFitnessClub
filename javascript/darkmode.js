@@ -57,15 +57,15 @@ function initDarkMode() {
 	}
 }
 
-function showAddEsercizioForm() {
-	document.getElementById("eliminaEsercizioForm").style.display = "none";
-	document.getElementById("aggiungiEsercizioForm").style.display = "block";
-}
+// function showAddEsercizioForm() {
+// 	document.getElementById("eliminaEsercizioForm").style.display = "none";
+// 	document.getElementById("aggiungiEsercizioForm").style.display = "block";
+// }
 
-function showDeleteEsercizioForm() {
-	document.getElementById("aggiungiEsercizioForm").style.display = "none";
-	document.getElementById("eliminaEsercizioForm").style.display = "block";
-}
+// function showDeleteEsercizioForm() {
+// 	document.getElementById("aggiungiEsercizioForm").style.display = "none";
+// 	document.getElementById("eliminaEsercizioForm").style.display = "block";
+// }
 
 window.onload = function () {
 	initDarkMode();
@@ -77,14 +77,14 @@ window.onload = function () {
 	window.sessionStorage.setItem("menuDisplay", "no");
 
 	//per le form di aggiungere ed eliminare un esercizio
-	var eliminaEsercizio = document.getElementById("eliminaEsercizioForm");
-	if(eliminaEsercizio !=null){
-		eliminaEsercizio.style.display = "none";
-	}
-	var aggiungiEsercizio = document.getElementById("aggiungiEsercizioForm");
-	if(aggiungiEsercizio !=null){
-		aggiungiEsercizio.style.display = "none";
-	}
+	// var eliminaEsercizio = document.getElementById("eliminaEsercizioForm");
+	// if(eliminaEsercizio !=null){
+	// 	eliminaEsercizio.style.display = "none";
+	// }
+	// var aggiungiEsercizio = document.getElementById("aggiungiEsercizioForm");
+	// if(aggiungiEsercizio !=null){
+	// 	aggiungiEsercizio.style.display = "none";
+	// }
 	
 };
 
