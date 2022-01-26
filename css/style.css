@@ -303,6 +303,7 @@ input:checked + .slider:before {
 	border-radius: 2em;
 	margin-top: 3em;
 	margin-bottom: 3em;
+	overflow: auto;
 }
 
 #content #titolo {
@@ -669,14 +670,34 @@ footer[class="footer-bottom"] {
 
 #presente h3,
 #passato h3 {
+	clear: left;
 	padding-top: 1em;
 }
 
-#presente img,
-#passato img {
-	display: block;
-	margin-top: 2em;
-	margin-bottom: 2em;
+#palestraAnticaImg {
+	/* display: block; */
+	float: left;
+	width: 60%;
+	margin-right: 1.5em;
+	/* margin-top: 2em; */
+	margin-bottom: 1em;
+	border-radius: 2em;
+}
+
+#secondaGuerraImg {
+	float: right;
+	width: 50%;
+	margin-left: 1.5em;
+	margin-bottom: 1em;
+	border-radius: 2em;
+
+}
+
+#canoeImg {
+	float: left;
+	width: 60%;
+	margin-right: 1.5em;
+	margin-bottom: 1em;
 	border-radius: 2em;
 }
 
@@ -685,19 +706,14 @@ footer[class="footer-bottom"] {
 	padding: 0em 1.4em 1em 1.4em;
 }
 
-#secondaGuerra {
+/* #secondaGuerra {
 	float: right;
 	width: 50%;
 	padding-top: 0.3em;
-}
+} */
 
 #secondaGuerra p {
 	margin-top: 0em;
-}
-
-#secondaGuerraImg {
-	float: left;
-	padding-left: 1.4em;
 }
 
 #secondaGuerraImg img {
