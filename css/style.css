@@ -1387,6 +1387,7 @@ div div .gallery {
 #inserimentoForm fieldset {
 	border: 2px solid var(--colore-background-menu);
 	background-color: unset;
+	border: none;
 }
 
 #inserimentoForm input {

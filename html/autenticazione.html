@@ -63,19 +63,21 @@
 
 		<div id="inserimentoForm">
 			<form id="accesso" class="autenticazione" action="autenticazione.php" method="post" autocomplete="on">
-				<legend>
-					<h2>Accesso</h2>
-				</legend>
+				<fieldset>
+					<legend>
+						<h2>Accesso</h2>
+					</legend>
 
-				<label>Nome utente</label>
-				<input type="text" name="nomeUtenteAccesso" required placeholder="es: MarioRossi23">
+					<label>Nome utente</label>
+					<input type="text" name="nomeUtenteAccesso" required placeholder="es: MarioRossi23">
 
-				<label lang="en">Password</label>
-				<input type="password" name="passwordAccesso" required>
+					<label lang="en">Password</label>
+					<input type="password" name="passwordAccesso" required>
 
-				<erroreLogin />
+					<erroreLogin />
 
-				<button name="loginSubmit">Accedi</button>
+					<button name="loginSubmit">Accedi</button>
+				</fieldset>
 			</form>
 			<p>Non possiedi ancora un <span lang="en">account</span>? <a href="registrazione.php">Registrati ora!</a>
 			</p>
