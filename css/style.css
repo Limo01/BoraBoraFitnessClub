@@ -2,6 +2,7 @@
 	--colore-sfondo-div: rgba(255, 253, 233, 0.9);
 	--colore-testo-contrasto-sfondi: #fdf1ce;
 	--colore-testo-principale: #473603;
+	--colore-link-visitato: #006b2d;
 	--colore-sfondo-article-p: #d7c99e;
 	--colore-hover-menu: #d6c8a6;
 	--colore-background-menu: #bfb394;
@@ -16,8 +17,9 @@
 	--colore-sfondo-div: rgba(0, 0, 0, 0.8);
 	--colore-testo-contrasto-sfondi: #473603;
 	--colore-testo-principale: #bfb394;
+	--colore-link-visitato: #a7e08c;
 	--colore-sfondo-article-p: #332a1f;
-	--colore-hover-menu: #bfb39433;
+	--colore-hover-menu: #332f26;
 	--colore-background-menu: #241f19;
 	--colore-sfondo-footer: rgba(0, 0, 0, 0.8);
 	--colore-testo-footer: #fdf1ce;
@@ -83,6 +85,29 @@ h1.hide:hover {
 	width: 1px;
 	overflow: hidden;
 	clip: rect(1px, 1px, 1px, 1px);
+}
+
+a {
+	color: var(--colore-testo-principale);
+}
+a:visited {
+	color: var(--colore-link-visitato);
+}
+
+a {
+	background-color: var(--colore-background-menu);
+	padding: 0.4em 0.8em;
+	border-radius: 10px;
+	display: inline-block;
+	transition: background-color 0.1s ease-in-out;
+}
+a:hover {
+	background-color: var(--colore-hover-menu);
+}
+
+a.imgLink {
+	padding: 0;
+	background-color: transparent;
 }
 
 button {
@@ -156,10 +181,8 @@ small {
 #menu li a,
 #currentLink {
 	display: block;
-	color: var(--colore-testo-principale);
 	text-align: center;
 	padding: 1em 1em;
-	text-decoration: none;
 	border-radius: 10px;
 }
 
@@ -196,7 +219,8 @@ small {
 	background-size: 2em;
 }
 
-#burger-menu, .closebtn{
+#burger-menu,
+.closebtn {
 	display: none;
 }
 
@@ -468,6 +492,10 @@ footer[class="footer-bottom"] {
 	clear: both;
 	overflow: hidden;
 }
+
+#abbonati_button {
+	font-size: 1.5em;
+}
 /*==================== ABBONAMENTI ====================*/
 #abbonamenti {
 	display: flex;
@@ -514,11 +542,6 @@ footer[class="footer-bottom"] {
 }
 
 #link_compra_abbonamento {
-	display: block;
-	color: var(--colore-testo-contrasto-sfondi);
-	background-color: var(--colore-testo-principale);
-	padding: 1em;
-	border-radius: 2em;
 	font-size: 1.3em;
 	margin-top: 2em;
 }
@@ -1208,7 +1231,7 @@ div div .gallery {
 
 .allenamenti ul,
 .dettagli-allenamento ul,
-#content #specifiche-utente-dettaglio-allenamento {
+#specifiche-utente-dettaglio-allenamento {
 	margin: 0;
 }
 
@@ -1234,19 +1257,16 @@ div div .gallery {
 	display: inline-block;
 }
 
-#content .allenamenti ul li,
-#content .dettagli-allenamento ul li,
-#content #specifiche-utente-dettaglio-allenamento li {
+.allenamenti ul li,
+.dettagli-allenamento ul li,
+#specifiche-utente-dettaglio-allenamento li {
 	color: var(--colore-testo-principale);
 	background-color: var(--colore-background-menu);
 }
 
 #content .bottoni-allenamenti ul li {
-	background-color: var(--colore-testo-principale);
-}
-
-#content .bottoni-allenamenti ul li a {
-	color: var(--colore-testo-contrasto-sfondi);
+	padding: 0;
+	background-color: transparent;
 }
 
 #content .bottoni-allenamenti ul {
@@ -1284,21 +1304,15 @@ div div .gallery {
 #naviga-pagine #currentPage {
 	color: var(--colore-testo-contrasto-sfondi);
 	background-color: var(--colore-testo-principale);
+	padding: 1em 1.5em;
+	margin: 0em 0.2em;
+	border-radius: 10px;
 }
 
 #naviga-pagine li {
-	color: var(--colore-testo-principale);
-	background-color: var(--colore-background-menu);
-	padding: 1em 1.5em;
-	border-radius: 10px;
+	display: inline-block;
 	list-style-type: none;
 	margin: 0em 0.2em;
-	display: inline-block;
-	transition: background-color 0.1s ease-in-out;
-}
-
-#naviga-pagine li:hover {
-	background-color: var(--colore-hover-menu);
 }
 
 #bottone-iniziale {
@@ -1311,18 +1325,7 @@ div div .gallery {
 
 #bottone-iniziale ul li,
 #bottone-iniziale-sinistra ul li {
-	color: var(--colore-testo-principale);
-	background-color: var(--colore-background-menu);
-	padding: 1em 1.5em;
-	border-radius: 10px;
 	list-style-type: none;
-	display: inline-block;
-	transition: background-color 0.1s ease-in-out;
-}
-
-#bottone-iniziale ul li:hover,
-#bottone-iniziale-sinistra ul li:hover {
-	background-color: var(--colore-hover-menu);
 }
 
 #titolo-allenamenti {
@@ -1349,7 +1352,7 @@ div div .gallery {
 	bottom: 2em;
 	right: 3em;
 	height: 4em;
-	width: 4em;
+	width: 3.3em;
 	background-color: var(--colore-sfondo-article-p);
 	border-radius: 10px;
 	color: var(--colore-testo-principale);
@@ -1448,7 +1451,7 @@ div div .gallery {
 
 /* form inserimento esercizio */
 
-#inserimentoEsercizio{
+#inserimentoEsercizio {
 	display: grid;
 	grid-template-columns: 75% 25%;
 	grid-gap: 0.5em;
@@ -1462,81 +1465,81 @@ div div .gallery {
 		"o o";
 }
 
-#inserimentoEsercizio input{
+#inserimentoEsercizio input {
 	border-style: none;
 	border-bottom: 2px solid var(--colore-background-menu);
 	border-left: 2px solid var(--colore-background-menu);
 	background-color: unset;
-	
+
 	font-size: 1.3em;
 	padding: 0.5em;
 }
 
-#inserimentoEsercizio label{
+#inserimentoEsercizio label {
 	text-align: center;
 	margin-top: 1em;
 	margin-bottom: 0.5em;
 	font-size: 1.2em;
 }
 
-#nomeEsercizioL{
+#nomeEsercizioL {
 	grid-area: a;
 }
-#nomeEsercizioI{
+#nomeEsercizioI {
 	grid-area: b;
 	width: 75%;
 }
 
-#descrizioneEsercizioL{
+#descrizioneEsercizioL {
 	grid-area: c;
 }
-#descrizioneEsercizioI{
+#descrizioneEsercizioI {
 	grid-area: d;
 	width: 75%;
 }
 
-#pesoEsercizioL{
+#pesoEsercizioL {
 	grid-area: e;
 }
 
-#serieEsercizioL{
+#serieEsercizioL {
 	grid-area: f;
 }
 
-#ripetizioniEsercizioL{
+#ripetizioniEsercizioL {
 	grid-area: g;
 }
 
-#pesoEsercizioI{
+#pesoEsercizioI {
 	grid-area: h;
 	width: 25%;
 }
 
-#serieEsercizioI{
+#serieEsercizioI {
 	grid-area: i;
 	width: 25%;
 }
 
-#ripetizioniEsercizioI{
+#ripetizioniEsercizioI {
 	grid-area: l;
 	width: 25%;
 }
 
-#durataEsercizioL{
+#durataEsercizioL {
 	grid-area: m;
 }
 
-#durataEsercizioI{
+#durataEsercizioI {
 	grid-area: n;
 	width: 75%;
 }
 
-#buttonAddEsercizio{
+#buttonAddEsercizio {
 	grid-area: o;
 	margin: 1em auto;
 }
 
-#inserimentoForm #buttonDelEsercizio{
+#inserimentoForm #buttonDelEsercizio {
 	margin: 1em auto;
 	display: block;
 }
