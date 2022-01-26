@@ -1,5 +1,7 @@
 <?php	
 	function initPage($isAdmin) {
+		$paginaHTML = file_get_contents("html/area-personale.html");
+
 		if ($isAdmin) {
 			$breadcrumb = "Area personale [admin]";
 			$admin = "[admin]";
@@ -11,7 +13,6 @@
 			$widget = "widget_area_personale";
 		}
 
-		$paginaHTML = file_get_contents("html/area-personale.html");
 		$paginaHTML = str_replace("<logout />", "<a href='php/logout.php'>Logout</a>", $paginaHTML);
 		$paginaHTML = str_replace("<breadcrumb />", $breadcrumb, $paginaHTML);
 		$paginaHTML = str_replace("<admin />", $admin, $paginaHTML);
@@ -76,7 +77,7 @@
 			$personalData = "";
 			
 			if($formError){
-				$personalData .= "<p id='errore_form' class'alert'>Si è verificato un errore nella procedura, oppure i dati inseriti non sono validi.</p>";
+				$personalData .= "<p id='errore_form' class='alert'>Si è verificato un errore nella procedura, oppure i dati inseriti non sono validi.</p>";
 			}
 			$form = '<form action="php/modifica_dati_personali.php?update=<update />" method="post">';
 			$personalData .= str_replace("<update />", $update, $form . file_get_contents("html/dati_personali_update.html"));
@@ -85,8 +86,8 @@
 				$personalData = str_replace("<today_min16anni />", "", $personalData);
 				$personalData = str_replace("<today_max110anni />", "", $personalData);
 			} else {
-				$personalData = str_replace("<today_min16anni />", date('Y-m-d', strtotime('-16 years')), $personalData);
-				$personalData = str_replace("<today_max110anni />", date('Y-m-d', strtotime('-110 years')), $personalData);
+				$personalData = str_replace("<today_min16anni />", "max='" . date('Y-m-d', strtotime('-16 years')) . "'", $personalData);
+				$personalData = str_replace("<today_max110anni />", "min='" . date('Y-m-d', strtotime('-110 years')) . "'", $personalData);
 			}
 
 			$annulla = '<a href="area-personale.php">Annulla</a>';
