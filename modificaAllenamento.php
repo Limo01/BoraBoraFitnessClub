@@ -26,7 +26,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
 
                 <label id=\"descrizioneEsercizioL\">Descrizione</label>
                 
-                <textarea rows=\"5\" cols=\"30\" id=\"descrizioneEsercizioI\" name=\"descrizioneEsercizio\"></textarea
+                <textarea rows=\"3\" cols=\"30\" id=\"descrizioneEsercizioI\" name=\"descrizioneEsercizio\"></textarea>
 
                 <label id=\"pesoEsercizioL\">Peso</label>
                 <input id=\"pesoEsercizioI\" type=\"number\" name=\"pesoEsercizio\" min=\"0\" value=\"0\" step=\"0.1\">

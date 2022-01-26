@@ -48,7 +48,7 @@
                 $schedaQuery = $connessione->doReadQuery("SELECT * from allenamento where id=?", "i", $_GET["id"]);
                 if(($schedaQuery != null) && ($_SESSION["isAdmin"] || $schedaQuery[0]["username_utente"] == $_SESSION["username"])){
                     $idScheda = $_GET["id"];
-                    $nomeEsercizio = $_POST["esercizioScheda"];
+                    $nomeEsercizio = htmlspecialchars($_POST["esercizioScheda"]);
                     $connessione->doWriteQuery("DELETE FROM esercizio WHERE id_allenamento = ? AND nome = ?","is",$idScheda,$nomeEsercizio);
                     $connessione->closeConnection();
                     header("location: ../modificaAllenamento.php?id=".$_GET["id"]);

@@ -1455,8 +1455,9 @@ div div .gallery {
 		"b h"
 		"c f"
 		"d i"
-		"m g"
-		"n l"
+		"d g"
+		"m l"
+		"n ."
 		"o o";
 }
 
@@ -1466,6 +1467,17 @@ div div .gallery {
 	border-left: 2px solid var(--colore-background-menu);
 	background-color: unset;
 
+	font-size: 1.3em;
+	padding: 0.5em;
+}
+
+#inserimentoEsercizio textarea {
+	border-style: none;
+	border-bottom: 2px solid var(--colore-background-menu);
+	border-left: 2px solid var(--colore-background-menu);
+	background-color: unset;
+	resize: none;
+	/* width: 60%; */
 	font-size: 1.3em;
 	padding: 0.5em;
 }
