@@ -125,8 +125,16 @@ h1.hide {
 #content p {
 	margin-top: 0.5em;
 }
-/*=============== GALLERIA ===============*/
 
+/*=============== HOME ===============*/
+#vieniATrovarci {
+	grid-template-areas:
+		"a"
+		"b"
+		"c";
+}
+
+/*=============== GALLERIA ===============*/
 .gallery {
 	display: inline;
 	width: 100%;
