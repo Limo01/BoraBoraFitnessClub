@@ -1014,6 +1014,10 @@ div div .gallery {
 	width: 100%;
 }
 
+.widget > a {
+	font-size: 1.4em;
+}
+
 #dettagli_abbonamento {
 	grid-area: a;
 }
