@@ -1339,12 +1339,18 @@ div div .gallery {
 	display: flex;
 }
 
+#naviga-pagine a {
+	padding: 0.5em 0.8em;
+	font-size: 1.5em;
+}
+
 #naviga-pagine #currentPage {
 	color: var(--colore-testo-contrasto-sfondi);
 	background-color: var(--colore-testo-principale);
-	padding: 1em 1.5em;
+	padding: 0.6em 0.95em;
 	margin: 0em 0.2em;
 	border-radius: 10px;
+	font-size: 1.5em;
 }
 
 #naviga-pagine li {
@@ -1369,10 +1375,6 @@ div div .gallery {
 
 #titolo-dettagli-allenamento {
 	margin-top: 1.5em;
-}
-
-#naviga-pagine a {
-	font-size: 1.5em;
 }
 
 #naviga-pagine ul li#fine-pagine-iniziali {
