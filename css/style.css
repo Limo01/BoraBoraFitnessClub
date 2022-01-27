@@ -63,7 +63,6 @@ header,
 h1.hide {
 	background-image: url("../immagini/titolo.png");
 	height: 130px;
-	width: 100%;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
