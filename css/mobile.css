@@ -67,10 +67,8 @@ h1.hide {
 
 #menu li a,
 #currentLink {
-	color: var(--colore-titoli);
 	padding-top: 0.3em;
 	padding-bottom: 0.3em;
-	border-bottom: var(--colore-titoli) solid 0.3px;
 	margin-left: 10%;
 	margin-right: 10%;
 	border-radius: 0;
@@ -78,7 +76,6 @@ h1.hide {
 
 #currentLink {
 	background-color: unset;
-	color: var(--blu-scuro);
 	font-weight: bold;
 	border-radius: 0px;
 }
@@ -107,11 +104,9 @@ h1.hide {
 
 #content h1 {
 	font-size: 2em;
-	color: var(--blu-scuro);
 }
 
 #content h2 {
-	color: var(--blu);
 	margin-bottom: 0.5em;
 	margin-top: 0.5em;
 }
@@ -231,4 +226,13 @@ h1.hide {
 .offertaAbbonamento {
 	max-width: 100%;
 	width: 70%;
+}
+
+/*============= ALLENAMENTI =============*/
+.allenamenti article {
+	width: 100%;
+}
+
+.dettagli-allenamento article {
+	width: 100%;
 }
