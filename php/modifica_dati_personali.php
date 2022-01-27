@@ -27,7 +27,7 @@
 			$nome = $_POST["nome"];
 			$cognome = $_POST["cognome"];
 			$email = $_POST["email"];
-			$data_nascita = $_POST["data_nascita"];
+			$data_nascita = $_POST["dataNascita"];
 			$telefono = $_POST["telefono"];
 
 			$esito = false;
