@@ -119,6 +119,7 @@ h1.hide {
 	margin-top: 1em;
 	margin-bottom: 1em;
 	border-radius: 0.5em;
+	overflow: unset;
 }
 
 #content p {
