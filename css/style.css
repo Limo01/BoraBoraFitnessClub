@@ -594,47 +594,52 @@ footer[class="footer-bottom"] {
 	width: 30%;
 }
 
-#content .personalTrainer > p {
+#content .personalTrainer blockquote {
+	font-style: italic;
+	font-size: 1.5em;
+	color: var(--colore-testo-principale);
+	padding: 1.5em;
+}
+
+#content .personalTrainer .descrizioneTrainer p {
 	color: var(--colore-testo-principale);
 	background-color: var(--colore-sfondo-article-p);
-	margin: 0em 0em 1em 35%;
-	padding: 0.5em 1em 1em 1em;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 1.5em;
+	padding-top: 0;
 	border-radius: 0em 0em 1em 1em;
 }
 
-#content .personalTrainer blockquote {
-	font-style: italic;
-	display: block;
-	padding: 1em 1em 0.5em 1em;
-	font-size: 1.5em;
-	color: var(--colore-testo-principale);
+#content .personalTrainer .descrizioneTrainer {
 	background-color: var(--colore-sfondo-article-p);
-	margin: 1em 0em 0em 35%;
-	border-radius: 1em 1em 0em 0em;
+	border-radius: 1em;
 }
 
 #content .personalTrainer div {
-	margin: 2.5em 0em 1em 35%;
+	margin-left: 35%;
+	margin-bottom: 1em;
 }
 
-#content .personalTrainer div p {
-	display: inline;
+#content .personalTrainer .corsiTrainer p {
+	display: inline-block;
 	color: var(--colore-testo-contrasto-sfondi);
 	background-color: var(--colore-testo-principale);
 	padding: 0.5em 1em;
 	border-radius: 2em;
+	margin-bottom: 0.5em;
 }
 
-#content .personalTrainer div ul {
+#content .personalTrainer .corsiTrainer div ul {
 	margin-top: 1em;
 	margin-bottom: 1em;
 }
 
-#content .personalTrainer div ul li {
+#content .personalTrainer .corsiTrainer li {
 	color: var(--colore-testo-principale);
 	background-color: var(--colore-sfondo-article-p);
 	padding: 0.5em 1em;
-	margin: 0.5em 0em;
+	margin: 0.5em 0 0;
 	border-radius: 2em;
 	list-style-type: none;
 	display: inline-block;
