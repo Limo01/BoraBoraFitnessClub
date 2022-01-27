@@ -92,7 +92,7 @@ h1.hide {
 	margin-bottom: 0.5em;
 }
 
-/*===========immagini===========*/
+/*=========== IMMAGINI ===========*/
 
 #content img {
 	width: 100%;
@@ -100,7 +100,7 @@ h1.hide {
 	margin: auto;
 }
 
-/*========content=========*/
+/*======== CONTENT =========*/
 #breadcrumb {
 	background-color: var(--colore-sfondo-div);
 	margin-bottom: 1em;
@@ -188,4 +188,10 @@ h1.hide {
 
 .dettagli-allenamento article {
 	width: 100%;
+}
+
+/*============= STORIA =============*/
+#passato img,
+#presente img {
+	margin-bottom: 2em;
 }
