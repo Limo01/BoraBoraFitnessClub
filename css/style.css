@@ -642,28 +642,30 @@ footer[class="footer-bottom"] {
 	color: var(--colore-testo-principale);
 	font-size: 2.5em;
 	text-align: center;
-	margin: 0em 0em 0.7em 35%;
+	/* margin: 0em 0em 0.7em 35%; */
+	clear: both;
 }
 
 #content .attrezzature article img {
 	float: left;
-	width: 30%;
-	margin-right: 1em;
+	width: 280px;
+	margin-right: 2em;
+	margin-bottom: 2em;
 	border-radius: 2em;
 }
 
-#content .attrezzature article {
+/* #content .attrezzature article {
 	min-height: 600px;
-}
+} */
 
 #content .attrezzature article p {
 	clear: right;
-	margin-left: 35%;
 	margin-bottom: 1em;
 	color: var(--colore-testo-principale);
-	background-color: var(--colore-sfondo-article-p);
-	padding: 1.2em;
+	/* background-color: var(--colore-sfondo-article-p); */
+	/* padding: 1.2em; */
 	border-radius: 2em;
+	font-size: 1.8em;
 }
 
 #content .attrezzature h2 {
