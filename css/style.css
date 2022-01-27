@@ -463,9 +463,8 @@ footer[class="footer-bottom"] {
 	text-align: center;
 }
 
-#diventaMembro button {
-	margin-top: 1em;
-	font-size: 2em;
+#diventaMembro a {
+	font-size: 1.5em;
 }
 
 #vieniAtrovarci {
@@ -501,9 +500,6 @@ footer[class="footer-bottom"] {
 	overflow: hidden;
 }
 
-#abbonati_button {
-	font-size: 1.5em;
-}
 /*==================== ABBONAMENTI ====================*/
 #abbonamenti {
 	text-align: center;
