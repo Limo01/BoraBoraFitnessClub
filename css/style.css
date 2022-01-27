@@ -464,37 +464,37 @@ footer[class="footer-bottom"] {
 	font-size: 1.5em;
 }
 
-#vieniAtrovarci {
+#pannelloInfo {
 	text-align: center;
 }
 
+#vieniATrovarci {
+	display: grid;
+	grid-template-columns: 60% 30%;
+	align-items: start;
+	gap: 5em;
+	grid-template-areas:
+		"a b"
+		"a c"
+		"a d";
+}
+
 #mappa {
-	margin-top: 2em;
+	margin-top: 1em;
 	width: 100%;
 }
 
 #doveSiamo {
-	float: left;
-	width: 50%;
-	margin-bottom: 2em;
+	grid-area: a;
+	text-align: left;
 }
 
 #orari {
-	float: right;
-	width: 40%;
-	margin-bottom: 2em;
+	grid-area: b;
 }
 
 #contaPersone {
-	float: right;
-	width: 40%;
-	margin-top: 3em;
-	margin-bottom: 2em;
-}
-
-.clear {
-	clear: both;
-	overflow: hidden;
+	grid-area: c;
 }
 
 /*==================== ABBONAMENTI ====================*/
