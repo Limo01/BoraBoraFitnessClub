@@ -1355,15 +1355,17 @@ div div .gallery {
 }
 
 #bottone-iniziale {
+	font-size: 1.5em;
 	float: right;
 }
 
 #bottone-iniziale-sinistra {
+	font-size: 1.5em;
 	float: left;
 }
 
 #titolo-allenamenti {
-	margin-left: 20%;
+	margin-top: 1.5em;
 }
 
 #titolo-dettagli-allenamento {

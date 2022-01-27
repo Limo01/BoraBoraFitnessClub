@@ -169,7 +169,6 @@ h1.hide {
 }
 
 /*========== PERSONAL TRAINER ==========*/
-
 #content .personalTrainer > h2 {
 	margin: auto;
 	text-align: center;
@@ -181,45 +180,11 @@ h1.hide {
 	width: 80%;
 	margin-left: 10%;
 	margin-right: 10%;
-	margin-bottom: 0.5em;
-	transition: none;
-}
-
-#content .personalTrainer > img:hover {
-	transform: none;
-}
-
-#content .personalTrainer > p {
-	margin: 0;
-	margin-bottom: 1em;
-	border-radius: 0.5em;
-	transition: none;
-}
-
-#content .personalTrainer > p:hover {
-	box-shadow: none;
+	margin-bottom: 2em;
 }
 
 #content .personalTrainer > div {
-	margin: 1em 0 0 0;
-}
-
-#content .personalTrainer > div > p {
-	padding: 0.5em 0.5em;
-	margin: 0;
-	border-radius: 0.5em;
-}
-
-#content .personalTrainer > div > ul > li {
-	padding: 0.5em 0.5em;
-	margin: 0.5em 0.2em;
-	border-radius: 0.5em;
-	transition: none;
-}
-
-#content .personalTrainer > div > ul > li:hover {
-	transform: none;
-	box-shadow: none;
+	margin-left: 0;
 }
 
 /*============= ABBONAMENTI =============*/
