@@ -304,7 +304,6 @@ input:checked + .slider:before {
 	border-radius: 2em;
 	margin-top: 3em;
 	margin-bottom: 3em;
-	overflow: auto;
 }
 
 #content #titolo {
