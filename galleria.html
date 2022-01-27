@@ -29,10 +29,12 @@
 		Salta la navigazione
 	</a>
 
-	<button onclick="menuClickEvent()" id="displayMenuButton">Menu</button>
+	<span id="burger-menu">&#9776;</span>
 
-	<div id="topbar">
-		<nav id="menu">
+	<div id="topbar" class="overlay">
+		<span id="closebtn" onclick="closeNav()">&times;</span>
+
+		<nav id="menu" class="overlay-content">
 			<ul>
 				<li lang="en"><a href="./">Home</a></li>
 				<li><a href="abbonamenti.html">Abbonamenti</a></li>

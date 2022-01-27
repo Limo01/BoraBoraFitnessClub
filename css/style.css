@@ -393,9 +393,7 @@ footer .social {
 }
 
 footer[class="footer-bottom"] {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
+	margin-top: 15%;
 }
 
 /*======================= HOME ========================*/
@@ -1207,7 +1205,7 @@ div div .gallery {
 
 #annulla {
 	text-align: center;
-	display: block;
+	/*display: block;*/
 	margin-top: 2em;
 }
 
@@ -1216,6 +1214,10 @@ div div .gallery {
 }
 
 /*==================== STILE CONFERMA ACQUISTO =======================*/
+#avviso_pagamento{
+	font-size: 0em;
+} 
+
 #content #caricamento {
 	margin-top: 1em;
 	width: 100%;
@@ -1235,10 +1237,8 @@ div div .gallery {
 	animation-duration: 8s;
 }
 
-#content #avviso_pagamento {
+#content #acquisto_abbonamento{
 	text-align: center;
-	margin-top: 2em;
-	display: none;
 }
 
 @keyframes progressBarAnimation {

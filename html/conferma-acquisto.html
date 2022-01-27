@@ -22,6 +22,8 @@
 		<h1 lang="en" class="hide">BORA BORA FITNESS CLUB</h1>
 	</header>
 
+	<p id="avviso_pagamento" class="hide">Stiamo processando il pagamento</p>
+
 	<nav id="breadcrumb">
 		<p>Ti trovi in: <a lang="en" href="./">Home</a> &gt;&gt; <a lang="en" href="abbonamenti.html">Abbonamenti</a>
 			&gt;&gt; Compra abbonamento</p>
@@ -31,10 +33,12 @@
 		Salta la navigazione
 	</a>
 
-	<button onclick="menuClickEvent()" id="displayMenuButton">Menu</button>
+	<span id="burger-menu">&#9776;</span>
 
-	<div id="topbar">
-		<nav id="menu">
+	<div id="topbar" class="overlay">
+		<span id="closebtn" onclick="closeNav()">&times;</span>
+
+		<nav id="menu" class="overlay-content">
 			<ul>
 				<li lang="en"><a href="./">Home</a></li>
 				<li><a href="abbonamenti.html">Abbonamenti</a></li>
@@ -64,7 +68,6 @@
 
 			<p>Stiamo processando il pagamento!</p>
 
-			<p id="avviso_pagamento"></p>
 			<div id="caricamento">
 				<div id="progressBar"></div>
 			</div>

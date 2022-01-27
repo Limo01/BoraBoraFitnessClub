@@ -30,11 +30,13 @@
 	<a class="aiuti" href="#content" aria-label="Vai al contenuto" title="Vai al contenuto">
 		Salta la navigazione
 	</a>
+	
+	<span id="burger-menu">&#9776;</span>
 
-	<button onclick="menuClickEvent()" id="displayMenuButton">Menu</button>
+	<div id="topbar" class="overlay">
+		<span id="closebtn" onclick="closeNav()">&times;</span>
 
-	<div id="topbar">
-		<nav id="menu">
+		<nav id="menu" class="overlay-content">
 			<ul>
 				<li lang="en"><a href="./">Home</a></li>
 				<li id="currentLink">Abbonamenti</li>
