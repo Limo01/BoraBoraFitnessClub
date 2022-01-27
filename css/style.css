@@ -552,6 +552,9 @@ footer[class="footer-bottom"] {
 #link_compra_abbonamento {
 	font-size: 1.3em;
 	margin-top: 2em;
+	display: block;
+	text-align: center;
+	width: 25%;
 }
 
 #resortPass ul {
