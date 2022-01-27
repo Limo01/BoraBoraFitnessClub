@@ -59,7 +59,7 @@ function initDarkMode() {
 
 /*Funzioni di validazione dei campi*/
 function check_validity_nome(e){
-	var spanErrore= document.getElementById("errore_nome");
+	var pErrore= document.getElementById("errore_nome");
 
 	if(!e.target.checkValidity()){
 		pErrore.innerHTML= "Il nome inserito non è valido. Deve contenere solo lettere, senza caratteri speciali (? , * ; + .).";

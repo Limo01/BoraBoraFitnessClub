@@ -76,28 +76,27 @@
 
 					<label>Nome</label>
 					<input type="text" id="nome" name="nomeRegistrazione" required placeholder="es: Mario"
-						pattern="^[a-zA-Z-' àèìòùáéíóú]*$" title="inserire solo lettere senza caratteri speciali">
+						pattern="^[a-zA-Z-' àèìòùáéíóú]*$" title="deve contenere solo lettere, senza caratteri speciali (? , * ; + .).">
 					<p id="errore_nome" role="alert" class="errore_form">
 						<erroreNome />
 					</p>
 
 					<label>Cognome</label>
 					<input type="text" id="cognome" name="cognomeRegistrazione" required placeholder="es: Rossi"
-						pattern="^[a-zA-Z-' àèìòùáéíóú]*$" title="inserire solo lettere senza caratteri speciali">
+						pattern="^[a-zA-Z-' àèìòùáéíóú]*$" title="deve contenere solo lettere, senza caratteri speciali (? , * ; + .).">
 					<p id="errore_cognome" role="alert" class="errore_form">
 						<erroreCognome />
 					</p>
 
 					<label>Data di nascita</label>
-					<input type="date" id="dataNascita" name="dataNascitaRegistrazione" required
-						title="devi avere minimo 16 anni" max="<today_min16anni />" min="<today_max110anni />">
+					<input type="date" id="dataNascita" name="dataNascitaRegistrazione" required max="<today_min16anni />" min="<today_max110anni />">
 					<p id="errore_data_nascita" role="alert" class="errore_form">
 						<erroreData />
 					</p>
 
 					<label>Nome utente</label>
 					<input type="text" id="username" name="nomeUtenteRegistrazione" required placeholder="es: MarioRossi23"
-						pattern="^[0-9a-zA-Z-' àèìòùáéíóú]*$" title="inserire solo lettere senza caratteri speciali">
+						pattern="^[0-9a-zA-Z-' àèìòùáéíóú]*$" title="deve contenere solo lettere, senza caratteri speciali (? , * ; + .).">
 					<p id="errore_username" role="alert" class="errore_form">
 						<erroreUsername />
 					</p>
