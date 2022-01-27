@@ -101,16 +101,6 @@ h1.hide {
 }
 
 /*========content=========*/
-
-#content h1 {
-	font-size: 2em;
-}
-
-#content h2 {
-	margin-bottom: 0.5em;
-	margin-top: 0.5em;
-}
-
 #breadcrumb {
 	background-color: var(--colore-sfondo-div);
 	margin-bottom: 1em;
@@ -194,6 +184,10 @@ h1.hide {
 }
 
 /*============= ALLENAMENTI =============*/
+#titolo-allenamenti {
+	margin-top: 1.5em;
+}
+
 .allenamenti article {
 	width: 100%;
 }

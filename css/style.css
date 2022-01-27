@@ -1369,7 +1369,11 @@ div div .gallery {
 }
 
 #titolo-dettagli-allenamento {
-	margin-right: 10%;
+	margin-top: 1.5em;
+}
+
+#naviga-pagine a {
+	font-size: 1.5em;
 }
 
 #naviga-pagine ul li#fine-pagine-iniziali {
@@ -1378,6 +1382,14 @@ div div .gallery {
 
 #naviga-pagine ul li#inizio-pagine-finali {
 	margin-right: 3em;
+}
+
+#modificaAllenamento {
+	text-align: center;
+}
+
+#modificaAllenamento a {
+	font-size: 1.5em;
 }
 
 /* tornaSu -------------------------------*/
