@@ -506,6 +506,10 @@ footer[class="footer-bottom"] {
 }
 /*==================== ABBONAMENTI ====================*/
 #abbonamenti {
+	text-align: center;
+}
+
+#offerteAbbonamenti {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 2em 1.4em;
@@ -514,7 +518,7 @@ footer[class="footer-bottom"] {
 .offertaAbbonamento,
 .esercizio {
 	display: grid;
-	grid-template-rows: 5em 17em 2em;
+	grid-template-rows: auto;
 	grid-template-areas:
 		"a"
 		"b"
@@ -522,39 +526,43 @@ footer[class="footer-bottom"] {
 	background-color: var(--colore-sfondo-article-p);
 	color: var(--colore-testo-principale);
 	box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-	padding: 2em 1em;
-	width: 12em;
+	padding: 2em 2em;
+	max-width: 17em;
 	text-align: center;
 	border-radius: 40px;
 }
 
 #content .offertaAbbonamento h2,
-#content .esercizio h2 {
+.esercizio h2 {
 	grid-area: a;
 	align-self: start;
-	font-size: 2em;
+	font-size: 2.5em;
 }
 .offertaAbbonamento ul,
 .esercizio ul {
 	grid-area: b;
 	align-self: start;
 	list-style-type: none;
-	padding-top: 1em;
 }
-.offertaAbbonamento button {
-	margin-top: 1.5em;
+#content .offertaAbbonamento p {
+	display: inline-block;
+	padding: 0.4em 0.8em;
+	margin-top: 1em;
+	margin-bottom: 0;
 	font-size: 1.5em;
 	grid-area: c;
 	align-self: baseline;
-	margin-top: 0;
+}
+#content .offertaAbbonamento a {
+	margin-top: 1em;
+	font-size: 1.5em;
+	grid-area: c;
+	align-self: baseline;
 }
 
 #link_compra_abbonamento {
-	font-size: 1.3em;
-	margin-top: 2em;
-	display: block;
-	text-align: center;
-	width: 25%;
+	font-size: 2em;
+	margin-top: 1.5em;
 }
 
 #resortPass ul {

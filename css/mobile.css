@@ -250,38 +250,7 @@ h1.hide {
 }
 
 /*============= ABBONAMENTI =============*/
-
-#abbonamenti {
-	grid-gap: 0;
-	grid-template-areas:
-		"a"
-		"b"
-		"c"
-		"d"
-		"e";
-}
-
 .offertaAbbonamento {
-	display: inline;
-	background-color: unset;
-	box-shadow: none;
-	padding: 0.5em 0em;
-	width: auto;
-	border-radius: 0;
-	transition: none;
-	border-bottom: var(--colore-titoli) solid 0.3px;
-}
-
-.offertaAbbonamento:hover {
-	transform: none;
-}
-#resortPass > ul {
-	margin-top: 0.5em;
-}
-#resortPass li {
-	color: var(
-		--colore-titoli
-	); /*!!!! da togliere quando si sistema in style.css !!!!!*/
-	font-size: 1.2em;
-	margin-left: 1.2em;
+	max-width: 100%;
+	width: 70%;
 }
