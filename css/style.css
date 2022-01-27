@@ -42,7 +42,7 @@ body {
 	font-family: sans-serif;
 	max-width: 1200px;
 	background-image: var(--immagine-background);
-	background-repeat: none;
+	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
 }
@@ -413,7 +413,7 @@ footer[class="footer-bottom"] {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-  	margin: 0 -1em;
+	margin: 0 -1em;
 	/* display: grid;
 	grid-gap: 2.5em;
 	grid-template-areas:
@@ -697,7 +697,6 @@ footer[class="footer-bottom"] {
 	margin-left: 1.5em;
 	margin-bottom: 1em;
 	border-radius: 2em;
-
 }
 
 #canoeImg {
