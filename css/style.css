@@ -404,11 +404,9 @@ footer h2 {
 	padding-top: 1em;
 }
 
-footer .social {
-	margin-top: 1em;
-	width: 4em;
-	height: 4em;
-	margin-right: 1em;
+.social {
+	margin: 1em;
+	height: 3.5em;
 }
 
 footer[class="footer-bottom"] {
@@ -1623,4 +1621,9 @@ div div .gallery {
 #datiScheda p.notification {
     display: inline;
     margin-right: 1em;
+}
+
+.imgValidCode {
+	margin: 1em;
+	height: 3em;
 }
