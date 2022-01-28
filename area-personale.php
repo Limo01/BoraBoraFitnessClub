@@ -10,6 +10,10 @@
 		$admin = $_SESSION["isAdmin"];
 	}
 	else{
+		if (isset($_GET["allenamenti"]) && $_GET["allenamenti"] == 1) {
+			header("Location: autenticazione.php?url=area-personale.php%23schede_allenamento");
+			return;
+		}
 		header("Location: autenticazione.php");
 		return;
 	}
