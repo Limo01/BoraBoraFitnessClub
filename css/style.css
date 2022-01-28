@@ -746,9 +746,9 @@ footer[class="footer-bottom"] {
 	margin-top: 0em;
 }
 
-/*==================== STILE GALLERIA ====================*/
+/*==================== GALLERIA ====================*/
 div div .gallery {
-	width: 70%;
+	max-width: 1000px;
 }
 
 .gallery {
