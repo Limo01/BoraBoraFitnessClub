@@ -86,7 +86,7 @@
 
 		//Informazioni personali
 		if(!$updatePersonalData){
-			$button = '<a href="visualizza-utente.php?usr=<username />&update=<update />">Modifica</a>';
+			$button = '<a href="visualizza-utente.php?usr=<username />&update=<update />#dati_personali_widget">Modifica</a>';
 			$personalData = str_replace("<update />", ($update > 0 ? 0 : 1), file_get_contents("html/dati_personali.html") . $button);
 		}
 		else{
@@ -100,7 +100,7 @@
 			
 			$personalData = str_replace("<today_min16anni />", "", $personalData);
 			$personalData = str_replace("<today_max110anni />", "", $personalData);
-			$annulla = '<a href="visualizza-utente.php?' . ($update == 0 ? 'update=2&' : '') . 'usr=<username />">Annulla</a>';
+			$annulla = '<a href="visualizza-utente.php?' . ($update == 0 ? 'update=2&' : '') . 'usr=<username />#dati_personali_widget">Annulla</a>';
 			$personalData = str_replace("<annulla />", $annulla, $personalData);
 		}
 
@@ -115,7 +115,7 @@
 		
 		//Dettagli abbonamento
 		if (!$updateSubscription) {
-			$button = '<a href="visualizza-utente.php?usr=<username />&update=<update />">Modifica</a>';
+			$button = '<a href="visualizza-utente.php?usr=<username />&update=<update />#dettagli_abbonamento">Modifica</a>';
 			$dettagliAbbonamento = str_replace(
 				"<update />",
 				($update > 0 ? 0 : 2),
@@ -136,7 +136,7 @@
 			$form = '<form action="php/modifica-abbonamento.php?update=<update />&usr=<username /> " method="post">';
 			$dettagliAbbonamento .= str_replace("<update />", $update, $form . file_get_contents("html/dettagli_abbonamento_update.html"));
 
-			$annulla = '<a href="visualizza-utente.php?' . ($update == 0 ? 'update=1&' : '') . 'usr=<username />">Annulla</a>';
+			$annulla = '<a href="visualizza-utente.php?' . ($update == 0 ? 'update=1&' : '') . 'usr=<username />#dettagli_abbonamento">Annulla</a>';
 			$dettagliAbbonamento = str_replace("<annulla />", $annulla, $dettagliAbbonamento);
 
 			$dettagliAbbonamento = str_replace("<abbonamenti />", $abbonamentiOptions, $dettagliAbbonamento);

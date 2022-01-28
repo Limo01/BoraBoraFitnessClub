@@ -225,6 +225,11 @@ small {
 	display: none;
 }
 
+#titolo > a {
+	font-size: 1.5em;
+	margin-top: 1em;
+}
+
 /*==================== TOGGLE DARK MODE ====================*/
 #darkmode-switch {
 	margin-top: 0.35em;

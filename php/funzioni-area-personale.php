@@ -70,7 +70,7 @@
 	function replaceDatiPersonali($datiPersonali, $updatePersonalData, $formError, $admin, $paginaHTML) {
 		$update = 1;
 		if(!$updatePersonalData){
-			$button = '<a href="area-personale.php?update=<update />">Modifica</a>';
+			$button = '<a href="area-personale.php?update=<update />#dati_personali_widget">Modifica</a>';
 			$personalData = str_replace("<update />", $update, file_get_contents("html/dati_personali.html") . $button);
 		}
 		else{
@@ -90,7 +90,7 @@
 				$personalData = str_replace("<today_max110anni />", "min='" . date('Y-m-d', strtotime('-110 years')) . "'", $personalData);
 			}
 
-			$annulla = '<a href="area-personale.php">Annulla</a>';
+			$annulla = '<a href="area-personale.php#dati_personali_widget">Annulla</a>';
 			$personalData = str_replace("<annulla />", $annulla, $personalData);
 		}
 
