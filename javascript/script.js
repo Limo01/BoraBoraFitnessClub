@@ -199,7 +199,7 @@ function openNav() {
 	burger_menu.style.display= "none";
 
 	window.addEventListener("resize", function(){	
-		if(window.innerWidth > 600){
+		if(window.innerWidth > 768){
 			topbar.style.width= "100%";
 			burger_menu.style.display= "none";
 		}
