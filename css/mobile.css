@@ -325,3 +325,9 @@ h1.hide {
 #schede_allenamento .scheda_allenamento {
 	width: 70%;
 }
+
+/*============= STORIA =============*/
+#passato img,
+#presente img {
+	margin-bottom: 1.5em;
+}
