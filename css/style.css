@@ -747,6 +747,16 @@ footer[class="footer-bottom"] {
 }
 
 /*==================== GALLERIA ====================*/
+#subMenu ul {
+	text-align: left;
+	list-style: none;
+}
+
+#subMenu li {
+	display: inline-block;
+	margin: 0.5em 1em;
+}
+
 div div .gallery {
 	max-width: 1000px;
 }
