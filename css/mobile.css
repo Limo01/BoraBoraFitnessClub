@@ -200,9 +200,18 @@ h1.hide {
 	gap: 2em;
 	grid-template-areas:
 		"d"
+		"e"
 		"b"
 		"c"
 		"a";
+}
+
+#vieniATrovarci h2 {
+	margin-bottom: 0;
+}
+
+#gotoAllenamenti {
+	margin-bottom: 1em;
 }
 
 .motivazione {
