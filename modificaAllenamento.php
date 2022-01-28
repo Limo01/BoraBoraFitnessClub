@@ -14,9 +14,6 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
 
         $connessione->closeConnection();
 
-        $confermaModifiche = "<a href=\"dettagli-allenamento.php?id=".$_GET["id"]."&nomeBreadcrumb=Allenamenti&url=modificaAllenamento.php?id=" . $_GET['id'] . "\">Conferma modifiche</a>";
-        $paginaHTML = str_replace("<confermaModifiche />",$confermaModifiche,$paginaHTML);
-
         if(($schedaQuery != null) && ($_SESSION["isAdmin"] || $schedaQuery[0]["username_utente"] == $_SESSION["username"])){
             //form aggiungi esercizio
             $aggiungiEsercizio = 
@@ -57,8 +54,17 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
             }
             
             //dati scheda
-            $datiScheda = "<div>";
-            $datiScheda .= "<h2>" . $schedaQuery[0]["nome"] . "</h2>"; 
+            
+            $datiScheda = "<h2>" . $schedaQuery[0]["nome"] . "</h2>";
+            
+            if(isset($_GET["notifica"]) && $_GET["notifica"] == "1"){
+                $datiScheda.= "<p class=\"notification\">Esercizio aggiunto con successo!</p>";
+            } elseif (isset($_GET["notifica"]) && $_GET["notifica"] == "2"){
+                $datiScheda.= "<p class=\"notification\">Esercizio rimosso con successo!</p>";
+            }
+
+            $datiScheda .= "<a href=\"dettagli-allenamento.php?id=".$_GET["id"]."&nomeBreadcrumb=Allenamenti&url=modificaAllenamento.php?id=" . $_GET['id'] . "\">Torna ai dettagli</a>";
+
             if($schedaQuery[0]["descrizione"] != "") {
                 $datiScheda .= "<p>" . $schedaQuery[0]["descrizione"] ."</p>";
             }
@@ -92,7 +98,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
                 $datiScheda .= "</article>";
             }
             
-            $datiScheda .= "</div></div>";
+            $datiScheda .= "</div>";
             $paginaHTML = str_replace("<datiScheda />",$datiScheda,$paginaHTML);
             echo $paginaHTML;
         } else {

@@ -1599,3 +1599,8 @@ div div .gallery {
 	margin: 1em auto;
 	display: block;
 }
+
+#datiScheda p.notification {
+    display: inline;
+    margin-right: 1em;
+}
