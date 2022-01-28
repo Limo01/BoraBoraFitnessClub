@@ -42,12 +42,12 @@
 				header('Location: dettagli-allenamento.php?id=' . $id . '&nomeBreadcrumb=' . $nomeBreadcrumb . '&url=' . $referer);
 				return;
 			}
-			$queryOverviewAllenamentoResult = $connessione->doReadQuery("SELECT id, nome, descrizione, allenamento.username_utente, data_creazione, COUNT(id) AS Followers FROM allenamento LEFT JOIN utente_allenamento ON id = id_allenamento WHERE id = ?", "i", $id);
+			$queryOverviewAllenamentoResult = $connessione->doReadQuery("SELECT CONCAT(personal_trainer.nome, ' ', cognome) AS trainer, allenamento.id, allenamento.nome, descrizione, allenamento.username_utente, data_creazione, COUNT(allenamento.id) AS Followers FROM personal_trainer RIGHT JOIN allenamento ON personal_trainer.id = id_personal_trainer LEFT JOIN utente_allenamento ON allenamento.id = id_allenamento WHERE allenamento.id = ?", "i", $id);
 			$queryDettaglioAllenamentoResult = $connessione->doReadQuery("SELECT nome, descrizione, peso, serie, ripetizioni, durata FROM esercizio WHERE id_allenamento = ?", "i", $id);
 
 			if ($queryOverviewAllenamentoResult[0]['id'] != null) {
 				$numeroEsercizi = count($queryDettaglioAllenamentoResult);
-				$content .= '<h2 id="titolo-dettagli-allenamento">' . $queryOverviewAllenamentoResult[0]['nome'] . '</h2><p>' . $queryOverviewAllenamentoResult[0]['descrizione'] . '. Questo allenamento comprende ' . $numeroEsercizi . ' esercizi';			
+				$content .= '<h2 id="titolo-dettagli-allenamento">' . $queryOverviewAllenamentoResult[0]['nome'] . '</h2><p>' . $queryOverviewAllenamentoResult[0]['descrizione'] . '</p><p>Questo allenamento comprende ' . $numeroEsercizi . ' esercizi';			
 				if ($numeroEsercizi == 1) {
 					$content .= 'o';
 				}
@@ -61,7 +61,7 @@
 					}
 					$content .= ' e ' . $queryDettaglioAllenamentoResult[$i]['nome'];
 				}
-				$content .= '.</p><ul id="specifiche-utente-dettaglio-allenamento"><li>Di ' . $queryOverviewAllenamentoResult[0]['username_utente'] . '</li><li>Creato il ' . $queryOverviewAllenamentoResult[0]['data_creazione'] . '</li><li>Seguito da ' . ($queryOverviewAllenamentoResult[0]['Followers'] == null ? 0 : $queryOverviewAllenamentoResult[0]['Followers']) . ' person' . ($queryOverviewAllenamentoResult[0]['Followers'] == 1 ? 'a' : 'e') . '</li></ul><div class="bottoni-allenamenti">';
+				$content .= '.</p><ul id="specifiche-utente-dettaglio-allenamento"><li>Di ' . $queryOverviewAllenamentoResult[0]['username_utente'] . '</li>' . ($queryOverviewAllenamentoResult[0]['trainer'] == null ? ' ' : '<li>Creato da ' . $queryOverviewAllenamentoResult[0]['trainer'] . '</li>') . '<li>Creato il ' . $queryOverviewAllenamentoResult[0]['data_creazione'] . '</li><li>Seguito da ' . ($queryOverviewAllenamentoResult[0]['Followers'] == null ? 0 : $queryOverviewAllenamentoResult[0]['Followers']) . ' person' . ($queryOverviewAllenamentoResult[0]['Followers'] == 1 ? 'a' : 'e') . '</li></ul><div class="bottoni-allenamenti">';
 				if ($tipoUtente == 1 || ($tipoUtente == 0 && $queryOverviewAllenamentoResult[0]['username_utente'] == $utente)) {
 					$content .= "<ul><li><a href='modificaAllenamento.php?id=" . $id . "'>Modifica allenamento</a></li></ul>";
 					$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "&url=" . $referer . "' method='post'><button name='elimina'>Elimina allenamento</button></form>";

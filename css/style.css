@@ -1388,7 +1388,6 @@ div div .gallery {
 /* tornaSu -------------------------------*/
 
 #tornaSu {
-	display: none;
 	position: fixed;
 	bottom: 2em;
 	right: 3em;
