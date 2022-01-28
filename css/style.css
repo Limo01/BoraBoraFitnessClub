@@ -333,16 +333,26 @@ input:checked + .slider:before {
 	text-align: center;
 	margin-bottom: 1em;
 	font-size: 2em;
+}
+#content h3:not(a > h3) {
 	color: var(--colore-testo-principale);
 }
 
-#content p,
 #content dl,
 #content form {
 	color: var(--colore-testo-principale);
 	font-size: 1.3em;
 	margin-top: 1em;
 	margin-bottom: 1em;
+}
+
+#content p {
+	font-size: 1.3em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+#content p:not(a > p) {
+	color: var(--colore-testo-principale);
 }
 
 #content input {
@@ -554,8 +564,8 @@ footer[class="footer-bottom"] {
 }
 
 #link_compra_abbonamento {
-	font-size: 2em;
-	margin-top: 1.5em;
+	font-size: 1.7em;
+	margin-top: 2em;
 }
 
 #resortPass ul {
@@ -1054,7 +1064,6 @@ div div .gallery {
 	min-width: 13em;
 	width: 25%;
 	background-color: var(--colore-sfondo-article-p);
-	color: var(--colore-testo-principale);
 	padding: 2em;
 	border-radius: 2em;
 	margin-bottom: 2em;
@@ -1205,8 +1214,8 @@ div div .gallery {
 
 #annulla {
 	text-align: center;
-	/*display: block;*/
-	margin-top: 2em;
+	margin-top: 1.5em;
+	font-size: 1.3em;
 }
 
 #acquisto_abbonamento p {
@@ -1214,9 +1223,9 @@ div div .gallery {
 }
 
 /*==================== STILE CONFERMA ACQUISTO =======================*/
-#avviso_pagamento{
+#avviso_pagamento {
 	font-size: 0em;
-} 
+}
 
 #content #caricamento {
 	margin-top: 1em;
@@ -1237,7 +1246,7 @@ div div .gallery {
 	animation-duration: 8s;
 }
 
-#content #acquisto_abbonamento{
+#content #acquisto_abbonamento {
 	text-align: center;
 }
 

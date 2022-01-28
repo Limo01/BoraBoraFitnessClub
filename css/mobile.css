@@ -48,16 +48,16 @@ h1.hide {
 }
 
 /*========= MENU =========*/
-h1.hide{
+h1.hide {
 	margin-top: 0em;
 }
 
-#topbar{
+#topbar {
 	max-width: 600px;
 	width: 0%;
 }
 
-#burger-menu{
+#burger-menu {
 	display: block;
 	position: fixed;
 	top: 0%;
@@ -67,49 +67,51 @@ h1.hide{
 	color: var(--colore-testo-principale);
 }
 
-#darkmode-switch{
+#darkmode-switch {
 	top: 0;
 	margin-right: 0;
 	right: 1.2em;
 }
 
-#menu li{
+#menu li {
 	float: none;
 }
 
-#menu li a, #currentLink, #userIcon{
+#menu li a,
+#currentLink,
+#userIcon {
 	color: var(--colore-testo-footer);
 	padding: 0.6em;
 	background-color: transparent;
 }
 
-#menu li a:hover{
+#menu li a:hover {
 	background-color: transparent;
 }
 
-#menu ul{
+#menu ul {
 	background-color: transparent;
 }
 
-#menu #userIcon{
-	float: none;	
+#menu #userIcon {
+	float: none;
 }
 
 #userIcon a,
-#userIcon a:hover{
+#userIcon a:hover {
 	background-image: url("../immagini/logo/user-light.png");
 }
 
-#currentLink{
+#currentLink {
 	background-color: transparent;
 }
 
-#currentLink::before{
+#currentLink::before {
 	content: "\21E8";
 	margin-right: 0.3em;
 }
 
-.overlay { 
+.overlay {
 	height: 100%;
 	width: 0;
 	position: fixed;
@@ -122,36 +124,36 @@ h1.hide{
 }
 
 .overlay span {
-  	text-decoration: none;
-  	color: #818181;
-  	display: block;
-  	transition: 0.3s;
+	text-decoration: none;
+	color: #818181;
+	display: block;
+	transition: 0.3s;
 }
 
 .overlay-content {
-  	position: relative;
-  	top: 5%;
-  	width: 100%;
-  	text-align: center;
-  	margin-top: 1em;
+	position: relative;
+	top: 5%;
+	width: 100%;
+	text-align: center;
+	margin-top: 1em;
 }
 
 .overlay li {
-  	padding: 0em;
-  	text-decoration: none;
-  	font-size: 1.7em;
-  	display: block;
-  	transition: 0.3s;
+	padding: 0em;
+	text-decoration: none;
+	font-size: 1.7em;
+	display: block;
+	transition: 0.3s;
 }
 
 #closebtn {
 	display: block;
-  	position: absolute;
-  	top: 0.5em;
-  	right: 0.3em;
-  	font-size: 4em;
-  	z-index: 1;
-  	cursor: pointer;
+	position: absolute;
+	top: 0.5em;
+	right: 0.3em;
+	font-size: 4em;
+	z-index: 1;
+	cursor: pointer;
 }
 
 /*===========immagini===========*/
@@ -190,10 +192,16 @@ h1.hide{
 
 /*=============== HOME ===============*/
 #vieniATrovarci {
+	grid-template-columns: auto;
+	gap: 2em;
 	grid-template-areas:
-		"a"
 		"b"
-		"c";
+		"c"
+		"a";
+}
+
+.motivazione {
+	max-width: 70%;
 }
 
 /*=============== GALLERIA ===============*/
