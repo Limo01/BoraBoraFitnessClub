@@ -163,7 +163,7 @@ small {
 	top: 0;
 	width: 100%;
 	max-width: 1200px;
-	font-size: 1.2em;
+	font-size: 1.1em;
 }
 
 #menu ul {
@@ -183,7 +183,7 @@ small {
 #currentLink {
 	display: block;
 	text-align: center;
-	padding: 1em 1em;
+	padding: 1em 0.9em;
 	border-radius: 10px;
 	background-color: unset;
 }
