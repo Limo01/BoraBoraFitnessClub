@@ -1,0 +1,42 @@
+#darkmode-switch{
+	display: none;
+}
+
+@media screen and (max-width: 768px) {
+	#burger-menu,#closebtn{
+		display: none;
+	}
+
+	#topbar{
+		width: 100%;
+		position: static;
+		margin: 1em 0em;
+		background-color: var(--colore-sfondo-div);
+		border-radius: 0.5em;
+	}
+
+	#menu li a{
+		color: var(--colore-testo-principale);
+	}
+
+	#userIcon a{
+		background-image: var(--icona-autenticazione);
+	}
+
+	#currentLink[title="Area personale"]{
+		display: block;
+	}
+
+	#currentLink{
+		background-color: var(--colore-testo-principale);
+		display: inline-block;
+	}
+
+	#currentLink::before {
+  		content: none;
+	}
+
+	#breadcrumb{
+		margin-bottom: 0em;
+	}
+}

@@ -1,35 +1,3 @@
-:root {
-	--colore-sfondo-div: rgba(255, 253, 233, 0.9);
-	--colore-testo-contrasto-sfondi: #fdf1ce;
-	--colore-testo-principale: #473603;
-	--colore-link-visitato: #006b2d;
-	--colore-sfondo-article-p: #d7c99e;
-	--colore-hover-menu: #d6c8a6;
-	--colore-background-menu: #bfb394;
-	--colore-sfondo-footer: rgba(0, 0, 0, 0.8);
-	--colore-testo-footer: #fdf1ce;
-	--immagine-background: url("../immagini/sfondo-light.jpg");
-	--icona-autenticazione: url("../immagini/logo/user.png");
-	--icona-autenticazione-current: url("../immagini/logo/user-light.png");
-	--icona-torna-su: url("../immagini/torna-su-light.svg");
-}
-
-[data-theme="dark"] {
-	--colore-sfondo-div: rgba(0, 0, 0, 0.8);
-	--colore-testo-contrasto-sfondi: #473603;
-	--colore-testo-principale: #bfb394;
-	--colore-link-visitato: #a7e08c;
-	--colore-sfondo-article-p: #332a1f;
-	--colore-hover-menu: #332f26;
-	--colore-background-menu: #241f19;
-	--colore-sfondo-footer: rgba(0, 0, 0, 0.8);
-	--colore-testo-footer: #fdf1ce;
-	--immagine-background: url("../immagini/sfondo-dark.jpg");
-	--icona-autenticazione: url("../immagini/logo/user-light-darkmode.png");
-	--icona-autenticazione-current: url("../immagini/logo/user.png");
-	--icona-torna-su: url("../immagini/torna-su-dark.svg");
-}
-
 header h1 {
 	font-size: 2.2em;
 	padding-top: 0.8em;
@@ -39,121 +7,21 @@ header h1 {
 
 	background-color: unset;
 }
+
 .hide {
 	text-indent: -9999em;
 }
+
 h1.hide {
 	height: auto;
 	margin-top: 0;
 }
 
-/*========= MENU =========*/
-h1.hide {
-	margin-top: 0em;
-}
+/*=========== MENU ===========*/
 
 #topbar {
-	max-width: 600px;
+	max-width: 778px;
 	width: 0%;
-}
-
-#burger-menu {
-	display: block;
-	position: fixed;
-	top: 0%;
-	right: 2%;
-	cursor: pointer;
-	font-size: 2em;
-	color: var(--colore-testo-principale);
-}
-
-#darkmode-switch {
-	top: 0;
-	margin-right: 0;
-	right: 1.2em;
-}
-
-#menu li {
-	float: none;
-}
-
-#menu li a,
-#currentLink,
-#userIcon {
-	color: var(--colore-testo-footer);
-	padding: 0.6em;
-	background-color: transparent;
-}
-
-#menu li a:hover {
-	background-color: transparent;
-}
-
-#menu ul {
-	background-color: transparent;
-}
-
-#menu #userIcon {
-	float: none;
-}
-
-#userIcon a,
-#userIcon a:hover {
-	background-image: url("../immagini/logo/user-light.png");
-}
-
-#currentLink {
-	background-color: transparent;
-}
-
-#currentLink::before {
-	content: "\21E8";
-	margin-right: 0.3em;
-}
-
-.overlay {
-	height: 100%;
-	width: 0;
-	position: fixed;
-	z-index: 1;
-	right: 0;
-	top: 0;
-	background-color: var(--colore-sfondo-footer);
-	overflow-x: hidden;
-	transition: 0.5s;
-}
-
-.overlay span {
-	text-decoration: none;
-	color: #818181;
-	display: block;
-	transition: 0.3s;
-}
-
-.overlay-content {
-	position: relative;
-	top: 5%;
-	width: 100%;
-	text-align: center;
-	margin-top: 1em;
-}
-
-.overlay li {
-	padding: 0em;
-	text-decoration: none;
-	font-size: 1.7em;
-	display: block;
-	transition: 0.3s;
-}
-
-#closebtn {
-	display: block;
-	position: absolute;
-	top: 0.5em;
-	right: 0.3em;
-	font-size: 4em;
-	z-index: 1;
-	cursor: pointer;
 }
 
 /*=========== IMMAGINI ===========*/
@@ -161,7 +29,6 @@ h1.hide {
 #content img {
 	width: 100%;
 	height: auto;
-	margin: auto;
 }
 
 /*======== CONTENT =========*/
@@ -240,18 +107,17 @@ h1.hide {
 
 /*========== ATTREZZATURE ==========*/
 .attrezzature article {
-	grid-template-columns: auto;
-	grid-template-areas:
-		"a"
-		"b"
-		"c";
+	text-align: center;
 }
 
 #content .attrezzature p {
+	text-align: left;
 	width: 80%;
 }
 
 #content .attrezzature img {
+	float: none;
+	margin-right: 0;
 	width: 90%;
 }
 

@@ -1,0 +1,112 @@
+/*========= MENU =========*/
+h1.hide {
+	margin-top: 0em;
+}
+
+#topbar {
+	max-width: 768px;
+	width: 0%;
+}
+
+#burger-menu {
+	display: block;
+	position: fixed;
+	top: 0%;
+	right: 2%;
+	cursor: pointer;
+	font-size: 2em;
+	color: var(--colore-testo-principale);
+}
+
+#darkmode-switch {
+	top: 0;
+	margin-right: 0;
+	right: 1.2em;
+}
+
+#menu li {
+	float: none;
+}
+
+#menu li a,
+#currentLink,
+#userIcon {
+	color: var(--colore-testo-footer);
+	padding: 0.6em;
+	background-color: transparent;
+}
+
+#menu li a:hover {
+	background-color: transparent;
+}
+
+#menu ul {
+	background-color: transparent;
+}
+
+#menu #userIcon {
+	float: none;
+}
+
+#userIcon a,
+#userIcon a:hover {
+	background-image: url("../immagini/logo/user-light.png");
+}
+
+#currentLink {
+	background-color: transparent;
+}
+
+#currentLink::before {
+	content: "\21E8";
+	margin-right: 0.3em;
+}
+
+.overlay {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	right: 0;
+	top: 0;
+	background-color: var(--colore-sfondo-footer);
+	overflow-x: hidden;
+	transition: 0.5s;
+}
+
+.overlay span {
+	text-decoration: none;
+	color: #818181;
+	display: block;
+	transition: 0.3s;
+}
+
+.overlay-content {
+	position: relative;
+	top: 5%;
+	width: 100%;
+	text-align: center;
+	margin-top: 1em;
+}
+
+.overlay li {
+	padding: 0em;
+	text-decoration: none;
+	font-size: 1.7em;
+	display: block;
+	transition: 0.3s;
+}
+
+#closebtn {
+	display: block;
+	position: absolute;
+	top: 0.5em;
+	right: 0.3em;
+	font-size: 4em;
+	z-index: 1;
+	cursor: pointer;
+}
+
+#tornaSu{
+	right: 2%;
+}
