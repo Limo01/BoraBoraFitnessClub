@@ -185,6 +185,7 @@ small {
 	text-align: center;
 	padding: 1em 1em;
 	border-radius: 10px;
+	background-color: unset;
 }
 
 #currentLink {
@@ -325,6 +326,7 @@ input:checked + .slider:before {
 	color: var(--colore-testo-principale);
 	padding-top: 0.1em;
 	font-size: 4em;
+	word-wrap: break-word;
 }
 
 #content h2 {
@@ -332,12 +334,14 @@ input:checked + .slider:before {
 	margin-bottom: 1em;
 	font-size: 2.5em;
 	color: var(--colore-testo-principale);
+	word-wrap: break-word;
 }
 
 #content h3 {
 	text-align: center;
 	margin-bottom: 1em;
 	font-size: 2em;
+	word-wrap: break-word;
 }
 #content h3:not(a > h3) {
 	color: var(--colore-testo-principale);
@@ -464,8 +468,9 @@ footer[class="footer-bottom"] {
 	display: grid;
 	grid-template-columns: 60%;
 	align-items: start;
-	gap: 5em;
+	column-gap: 5em;
 	grid-template-areas:
+		"e e"
 		"a b"
 		"a c"
 		"a d";
@@ -487,6 +492,15 @@ footer[class="footer-bottom"] {
 
 #contaPersone {
 	grid-area: c;
+}
+
+#gotoAllenamenti {
+	grid-area: d;
+	font-size: 1.5em;
+}
+
+#vieniATrovarci h2 {
+	grid-area: e;
 }
 
 /*==================== ABBONAMENTI ====================*/
@@ -730,9 +744,19 @@ footer[class="footer-bottom"] {
 	margin-top: 0em;
 }
 
-/*==================== STILE GALLERIA ====================*/
+/*==================== GALLERIA ====================*/
+#subMenu ul {
+	text-align: left;
+	list-style: none;
+}
+
+#subMenu li {
+	display: inline-block;
+	margin: 0.5em 1em;
+}
+
 div div .gallery {
-	width: 70%;
+	max-width: 1000px;
 }
 
 .gallery {
@@ -1387,7 +1411,6 @@ div div .gallery {
 /* tornaSu -------------------------------*/
 
 #tornaSu {
-	display: none;
 	position: fixed;
 	bottom: 2em;
 	right: 3em;

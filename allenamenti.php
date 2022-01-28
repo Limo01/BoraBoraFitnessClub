@@ -42,7 +42,7 @@
 		}
 		$numeroAllenamentiPerPagina = 6;
 		$startRow = $pagina * $numeroAllenamentiPerPagina - $numeroAllenamentiPerPagina;
-		$queryAllenamentiResult = $connessione->doReadQuery("SELECT allenamento.id, nome, descrizione, allenamento.username_utente, data_creazione, Followers FROM allenamento LEFT JOIN (SELECT id_allenamento AS id, COUNT(id_allenamento) as Followers FROM utente_allenamento GROUP BY id_allenamento) AS TabellaFollowers USING(id) ORDER BY Followers DESC LIMIT ?, ?", "ii", $startRow, $numeroAllenamentiPerPagina);
+		$queryAllenamentiResult = $connessione->doReadQuery("SELECT allenamento.id, allenamento.nome, descrizione, username_utente, data_creazione, Followers, CONCAT(personal_trainer.nome, ' ', cognome) AS trainer FROM allenamento LEFT JOIN (SELECT id_allenamento AS id, COUNT(id_allenamento) as Followers FROM utente_allenamento GROUP BY id_allenamento) AS TabellaFollowers USING(id) LEFT JOIN personal_trainer on allenamento.id_personal_trainer = personal_trainer.id ORDER BY Followers DESC LIMIT ?, ?", "ii", $startRow, $numeroAllenamentiPerPagina);
 		$queryPagineResult = $connessione->doReadQuery("SELECT COUNT(*) AS numeroAllenamenti FROM allenamento");
 		$content = "";
 		$copyContent = $content;
@@ -54,7 +54,7 @@
 				$content .= "<article><p class='allenamento-avviso'>Allenamento eliminato!</p></article>";
 				$_SESSION['precedente'] = 0;
 			}
-			$content .= '<article id="' . $row['id'] . '"><h3>' . $row['nome'] . '</h3><p>' . $row['descrizione'] . '. Questo allenamento comprende ' . $numeroEsercizi . ' esercizi';
+			$content .= '<article id="' . $row['id'] . '"><h3>' . $row['nome'] . '</h3><p>' . $row['descrizione'] . '</p><p>Questo allenamento comprende ' . $numeroEsercizi . ' esercizi';
 			if ($numeroEsercizi == 1) {
 				$content .= 'o';
 			}
@@ -68,7 +68,7 @@
 				}
 				$content .= ' e ' . $queryDettaglioAllenamentoResult[$j]['nome'];
 			}
-			$content .= '.</p><ul><li>Di ' . $row['username_utente'] . '</li><li>Creato il ' . $row['data_creazione'] . '</li><li>Seguito da ' . ($row['Followers'] == null ? 0 : $row['Followers']) . ' person' . ($row['Followers'] == 1 ? 'a' : 'e') . '</li></ul><div class="bottoni-allenamenti"><ul><li><a href="dettagli-allenamento.php?id=' . $row['id'] . '&nomeBreadcrumb=Allenamenti&url=allenamenti.php?pagina=' . $pagina . '">Apri nel dettaglio</a></li>';
+			$content .= '.</p><ul><li>Di ' . $row['username_utente'] . '</li>' . ($row['trainer'] == null ? ' ' : '<li>Creato da ' . $row['trainer'] . '</li>') . '<li>Creato il ' . $row['data_creazione'] . '</li><li>Seguito da ' . ($row['Followers'] == null ? 0 : $row['Followers']) . ' person' . ($row['Followers'] == 1 ? 'a' : 'e') . '</li></ul><div class="bottoni-allenamenti"><ul><li><a href="dettagli-allenamento.php?id=' . $row['id'] . '&nomeBreadcrumb=Allenamenti&url=allenamenti.php?pagina=' . $pagina . '">Apri nel dettaglio</a></li>';
 			
 			if ($tipoUtente == 1 || ($tipoUtente == 0 && $row['username_utente'] == $utente)) {
 				$content .= "<li><a href='modificaAllenamento.php?id=" . $row['id'] . "'>Modifica allenamento</a></li></ul>";

@@ -60,7 +60,7 @@
 		}
 
 		if ($userRemoved) {
-			$listaUtenti = "<p class='alert'>Utente rimosso!</p>" . $listaUtenti;
+			$listaUtenti = "<p class='notification'>Utente rimosso!</p>" . $listaUtenti;
 		}
 		$gestioneUtenti = str_replace("<lista_utenti />", $listaUtenti, $gestioneUtenti);
 		
