@@ -42,7 +42,7 @@
 		}
 		$numeroAllenamentiPerPagina = 6;
 		$startRow = $pagina * $numeroAllenamentiPerPagina - $numeroAllenamentiPerPagina;
-		$queryAllenamentiResult = $connessione->doReadQuery("SELECT allenamento.id, allenamento.nome, descrizione, username_utente, data_creazione, Followers, personal_trainer.nome, CONCAT(personal_trainer.nome, ' ', cognome) AS trainer FROM allenamento LEFT JOIN (SELECT id_allenamento AS id, COUNT(id_allenamento) as Followers FROM utente_allenamento GROUP BY id_allenamento) AS TabellaFollowers USING(id) LEFT JOIN personal_trainer on allenamento.id_personal_trainer = personal_trainer.id ORDER BY Followers DESC LIMIT ?, ?", "ii", $startRow, $numeroAllenamentiPerPagina);
+		$queryAllenamentiResult = $connessione->doReadQuery("SELECT allenamento.id, allenamento.nome, descrizione, username_utente, data_creazione, Followers, CONCAT(personal_trainer.nome, ' ', cognome) AS trainer FROM allenamento LEFT JOIN (SELECT id_allenamento AS id, COUNT(id_allenamento) as Followers FROM utente_allenamento GROUP BY id_allenamento) AS TabellaFollowers USING(id) LEFT JOIN personal_trainer on allenamento.id_personal_trainer = personal_trainer.id ORDER BY Followers DESC LIMIT ?, ?", "ii", $startRow, $numeroAllenamentiPerPagina);
 		$queryPagineResult = $connessione->doReadQuery("SELECT COUNT(*) AS numeroAllenamenti FROM allenamento");
 		$content = "";
 		$copyContent = $content;
