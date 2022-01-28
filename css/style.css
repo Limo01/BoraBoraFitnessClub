@@ -631,39 +631,41 @@ footer[class="footer-bottom"] {
 }
 
 /*==================== STILE ATTREZZATURE ====================*/
-
-#content .attrezzature article {
-	margin-bottom: 4em;
+.attrezzature article {
+	display: grid;
+	gap: 2em;
+	align-items: start;
+	grid-template-columns: 30%;
+	grid-template-areas:
+		"a a"
+		"b c";
+	margin-bottom: 3em;
 }
 
 #content .attrezzature article h3 {
+	grid-area: a;
 	color: var(--colore-testo-principale);
 	font-size: 2.5em;
 	text-align: center;
-	/* margin: 0em 0em 0.7em 35%; */
-	clear: both;
 }
 
 .attrezzature img {
-	float: left;
-	width: 280px;
-	margin-right: 2em;
-	margin-bottom: 2em;
-	border-radius: 2em;
+	grid-area: b;
+	width: 100%;
 }
 
 /* #content .attrezzature article {
 	min-height: 600px;
 } */
 
-#content .attrezzature article p {
-	clear: right;
-	margin-bottom: 1em;
+#content .attrezzature p {
+	grid-area: c;
 	color: var(--colore-testo-principale);
-	/* background-color: var(--colore-sfondo-article-p); */
-	/* padding: 1.2em; */
+	background-color: var(--colore-sfondo-article-p);
+	padding: 1.5em;
 	border-radius: 2em;
-	font-size: 1.8em;
+	font-size: 1.2em;
+	margin-top: 0;
 }
 
 #content .attrezzature h2 {

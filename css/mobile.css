@@ -225,9 +225,20 @@ h1.hide {
 }
 
 /*========== ATTREZZATURE ==========*/
+.attrezzature article {
+	grid-template-columns: auto;
+	grid-template-areas:
+		"a"
+		"b"
+		"c";
+}
+
+#content .attrezzature p {
+	width: 80%;
+}
+
 #content .attrezzature img {
-	float: none;
-	width: 100%;
+	width: 90%;
 }
 
 /*========== PERSONAL TRAINER ==========*/
