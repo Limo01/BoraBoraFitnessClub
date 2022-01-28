@@ -267,15 +267,10 @@ window.onload = function () {
 	document.getElementById("burger-menu").addEventListener("click", openNav);
 	document.getElementById("closebtn").addEventListener("click", closebtn);
 
-	//per le form di aggiungere ed eliminare un esercizio
-	// var eliminaEsercizio = document.getElementById("eliminaEsercizioForm");
-	// if(eliminaEsercizio !=null){
-	// 	eliminaEsercizio.style.display = "none";
-	// }
-	// var aggiungiEsercizio = document.getElementById("aggiungiEsercizioForm");
-	// if(aggiungiEsercizio !=null){
-	// 	aggiungiEsercizio.style.display = "none";
-	// }
+	if(window.location.hash && window.innerWidth > 768){
+		var top = document.getElementById(window.location.hash.substring(1)).offsetTop; //Getting Y of target element
+    	window.scrollTo(0, top-56); 
+	}
 	
 };
 
