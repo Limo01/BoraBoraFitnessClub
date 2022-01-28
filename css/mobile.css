@@ -190,6 +190,10 @@ h1.hide {
 	margin-top: 0.5em;
 }
 
+#content h1 {
+	font-size: 3.5em;
+}
+
 /*=============== HOME ===============*/
 #vieniATrovarci {
 	grid-template-columns: auto;
@@ -225,9 +229,20 @@ h1.hide {
 }
 
 /*========== ATTREZZATURE ==========*/
+.attrezzature article {
+	grid-template-columns: auto;
+	grid-template-areas:
+		"a"
+		"b"
+		"c";
+}
+
+#content .attrezzature p {
+	width: 80%;
+}
+
 #content .attrezzature img {
-	float: none;
-	width: 100%;
+	width: 90%;
 }
 
 /*========== PERSONAL TRAINER ==========*/

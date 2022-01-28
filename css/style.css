@@ -185,6 +185,7 @@ small {
 	text-align: center;
 	padding: 1em 1em;
 	border-radius: 10px;
+	background-color: unset;
 }
 
 #currentLink {
