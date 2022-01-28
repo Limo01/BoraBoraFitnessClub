@@ -190,6 +190,10 @@ h1.hide {
 	margin-top: 0.5em;
 }
 
+#content h1 {
+	font-size: 3.5em;
+}
+
 /*=============== HOME ===============*/
 #vieniATrovarci {
 	grid-template-columns: auto;
