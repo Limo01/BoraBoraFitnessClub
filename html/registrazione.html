@@ -23,7 +23,8 @@
 	</header>
 
 	<nav id="breadcrumb">
-		<p>Ti trovi in: <a lang="en" href="./">Home</a><span id="breadcrumb-percorso"></span> &gt;&gt; <a href="autenticazione.php">Autenticazione</a> &gt;&gt; Registrazione
+		<p>Ti trovi in: <a lang="en" href="./">Home</a><span id="breadcrumb-percorso"></span> &gt;&gt; <a
+				href="autenticazione.php">Autenticazione</a> &gt;&gt; Registrazione
 		</p>
 	</nav>
 
@@ -39,7 +40,7 @@
 		<nav id="menu" class="overlay-content">
 			<ul>
 				<li lang="en"><a href="./">Home</a></li>
-				<li><a href="abbonamenti.html">Abbonamenti</a></li>
+				<li><a href="abbonati.html">Abbonati</a></li>
 				<li lang="en"><a href="personal-trainer.html">Trainers</a></li>
 				<li><a href="attrezzature.html">Attrezzature</a></li>
 				<li><a href="allenamenti.php">Allenamenti</a></li>
@@ -76,27 +77,31 @@
 
 					<label>Nome</label>
 					<input type="text" id="nome" name="nomeRegistrazione" required placeholder="es: Mario"
-						pattern="^[a-zA-Z-' àèìòùáéíóú]*$" title="deve contenere solo lettere, senza caratteri speciali (? , * ; + .).">
+						pattern="^[a-zA-Z-' àèìòùáéíóú]*$"
+						title="deve contenere solo lettere, senza caratteri speciali (? , * ; + .).">
 					<p id="errore_nome" role="alert" class="errore_form">
 						<erroreNome />
 					</p>
 
 					<label>Cognome</label>
 					<input type="text" id="cognome" name="cognomeRegistrazione" required placeholder="es: Rossi"
-						pattern="^[a-zA-Z-' àèìòùáéíóú]*$" title="deve contenere solo lettere, senza caratteri speciali (? , * ; + .).">
+						pattern="^[a-zA-Z-' àèìòùáéíóú]*$"
+						title="deve contenere solo lettere, senza caratteri speciali (? , * ; + .).">
 					<p id="errore_cognome" role="alert" class="errore_form">
 						<erroreCognome />
 					</p>
 
 					<label>Data di nascita</label>
-					<input type="date" id="dataNascita" name="dataNascitaRegistrazione" required max="<today_min16anni />" min="<today_max110anni />">
+					<input type="date" id="dataNascita" name="dataNascitaRegistrazione" required
+						max="<today_min16anni />" min="<today_max110anni />">
 					<p id="errore_data_nascita" role="alert" class="errore_form">
 						<erroreData />
 					</p>
 
 					<label>Nome utente</label>
-					<input type="text" id="username" name="nomeUtenteRegistrazione" required placeholder="es: MarioRossi23"
-						pattern="^[0-9a-zA-Z-' àèìòùáéíóú]*$" title="deve contenere solo lettere, senza caratteri speciali (? , * ; + .).">
+					<input type="text" id="username" name="nomeUtenteRegistrazione" required
+						placeholder="es: MarioRossi23" pattern="^[0-9a-zA-Z-' àèìòùáéíóú]*$"
+						title="deve contenere solo lettere, senza caratteri speciali (? , * ; + .).">
 					<p id="errore_username" role="alert" class="errore_form">
 						<erroreUsername />
 					</p>
@@ -107,14 +112,15 @@
 					<p id="errore_password" class="errore_form"></p>
 
 					<label>Conferma <span lang="en">password</span></label>
-					<input type="password" id="confermaPassword" name="passwordConfermaRegistrazione" minlength="4" required
-						title="deve corrispondere con la password scelta">
+					<input type="password" id="confermaPassword" name="passwordConfermaRegistrazione" minlength="4"
+						required title="deve corrispondere con la password scelta">
 					<p id="errore_conferma_password" role="alert" class="errore_form">
 						<erroreConfermaPassword />
 					</p>
 
 					<label lang="en">email</label>
-					<input type="email" id="email" name="emailRegistrazione" placeholder="es: mariorossi@gmail.com" required>
+					<input type="email" id="email" name="emailRegistrazione" placeholder="es: mariorossi@gmail.com"
+						required>
 					<p id="errore_email" role="alert" class="errore_form">
 						<erroreEmail />
 					</p>
