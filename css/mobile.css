@@ -199,9 +199,19 @@ h1.hide {
 	grid-template-columns: auto;
 	gap: 2em;
 	grid-template-areas:
+		"d"
+		"e"
 		"b"
 		"c"
 		"a";
+}
+
+#vieniATrovarci h2 {
+	margin-bottom: 0;
+}
+
+#gotoAllenamenti {
+	margin-bottom: 1em;
 }
 
 .motivazione {
@@ -314,4 +324,10 @@ h1.hide {
 
 #schede_allenamento .scheda_allenamento {
 	width: 70%;
+}
+
+/*============= STORIA =============*/
+#passato img,
+#presente img {
+	margin-bottom: 1.5em;
 }

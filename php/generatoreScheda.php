@@ -51,7 +51,7 @@
                     $nomeEsercizio = htmlspecialchars($_POST["esercizioScheda"]);
                     $connessione->doWriteQuery("DELETE FROM esercizio WHERE id_allenamento = ? AND nome = ?","is",$idScheda,$nomeEsercizio);
                     $connessione->closeConnection();
-                    header("location: ../modificaAllenamento.php?id=".$_GET["id"]);
+                    header("location: ../modificaAllenamento.php?id=".$_GET["id"]."&notifica=2#datiScheda");
                 } else {
                     echo "non puoi accedere a questa pagina";
                 }  
@@ -82,7 +82,7 @@
                     $connessione->doWriteQuery("INSERT INTO esercizio(id_allenamento,nome,descrizione,peso,ripetizioni,serie,durata) values(?,?,?,?,?,?,?)","issdiis",$idScheda,$nomeEsercizio,$descrizioneEsercizio,$peso,$ripetizioni,$serie,$durata);
 
                     $connessione->closeConnection();
-                    header("location: ../modificaAllenamento.php?id=".$_GET["id"]);
+                    header("location: ../modificaAllenamento.php?id=".$_GET["id"]."&notifica=1#datiScheda");
                 } else {
                     echo "non puoi accedere a questa pagina";
                 }  
