@@ -421,31 +421,8 @@ footer[class="footer-bottom"] {
 	flex-wrap: wrap;
 	justify-content: center;
 	margin: 0 -1em;
-	/* display: grid;
-	grid-gap: 2.5em;
-	grid-template-areas:
-		"a b c"
-		"d e f"; */
 }
 
-/* #motivazionePT {
-	grid-area: a;
-}
-#motivazioneClienti {
-	grid-area: b;
-}
-#motivazioneSale {
-	grid-area: c;
-}
-#motivazioneBar {
-	grid-area: d;
-}
-#motivazioneOutdoor {
-	grid-area: e;
-}
-#motivazioneZen {
-	grid-area: f;
-} */
 .motivazione {
 	text-align: center;
 	max-width: 325px;
@@ -480,7 +457,7 @@ footer[class="footer-bottom"] {
 
 #vieniATrovarci {
 	display: grid;
-	grid-template-columns: 60% 30%;
+	grid-template-columns: 60%;
 	align-items: start;
 	gap: 5em;
 	grid-template-areas:
@@ -1006,12 +983,12 @@ div div .gallery {
 #content #widget_area_personale {
 	background-color: transparent;
 	display: grid;
-	justify-items: stretch;
 	grid-gap: 3em;
 	padding: 0em;
+	grid-template-columns: 50%;
 	grid-template-areas:
-		"c c a"
-		"c c b";
+		"c a"
+		"c b";
 }
 
 .widget,
@@ -1159,11 +1136,10 @@ div div .gallery {
 #content #widget_area_personale_admin {
 	background-color: transparent;
 	display: grid;
-	justify-items: stretch;
 	grid-gap: 3em;
 	padding: 0;
+	grid-template-columns: 50%;
 	grid-template-areas:
-		"c d"
 		"c d"
 		"a b";
 }

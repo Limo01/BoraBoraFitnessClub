@@ -156,7 +156,7 @@ h1.hide {
 	cursor: pointer;
 }
 
-/*===========immagini===========*/
+/*=========== IMMAGINI ===========*/
 
 #content img {
 	width: 100%;
@@ -164,7 +164,7 @@ h1.hide {
 	margin: auto;
 }
 
-/*========content=========*/
+/*======== CONTENT =========*/
 #breadcrumb {
 	background-color: var(--colore-sfondo-div);
 	margin-bottom: 1em;
@@ -266,4 +266,37 @@ h1.hide {
 
 .dettagli-allenamento article {
 	width: 100%;
+}
+
+/*============= AREA PERSONALE =============*/
+#content #widget_area_personale {
+	gap: 1em;
+	grid-template-areas:
+		"c"
+		"a"
+		"b";
+	grid-template-columns: 100%;
+}
+
+#content #widget_area_personale_admin {
+	gap: 1em;
+	grid-template-areas:
+		"c"
+		"a"
+		"b"
+		"d";
+	grid-template-columns: 100%;
+}
+
+.widget,
+.dati_personali {
+	border-radius: 0.5em;
+}
+
+#gestione_utenti ul {
+	width: 65%;
+}
+
+#schede_allenamento .scheda_allenamento {
+	width: 70%;
 }
