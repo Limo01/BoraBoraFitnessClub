@@ -490,6 +490,11 @@ footer[class="footer-bottom"] {
 	grid-area: c;
 }
 
+#gotoAllenamenti {
+	grid-area: d;
+	font-size: 1.5em;
+}
+
 /*==================== ABBONAMENTI ====================*/
 #abbonamenti {
 	text-align: center;

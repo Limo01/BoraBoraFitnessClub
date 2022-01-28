@@ -199,6 +199,7 @@ h1.hide {
 	grid-template-columns: auto;
 	gap: 2em;
 	grid-template-areas:
+		"d"
 		"b"
 		"c"
 		"a";
