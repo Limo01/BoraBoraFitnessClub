@@ -161,7 +161,6 @@ h1.hide {
 #content img {
 	width: 100%;
 	height: auto;
-	margin: auto;
 }
 
 /*======== CONTENT =========*/
@@ -240,18 +239,17 @@ h1.hide {
 
 /*========== ATTREZZATURE ==========*/
 .attrezzature article {
-	grid-template-columns: auto;
-	grid-template-areas:
-		"a"
-		"b"
-		"c";
+	text-align: center;
 }
 
 #content .attrezzature p {
+	text-align: left;
 	width: 80%;
 }
 
 #content .attrezzature img {
+	float: none;
+	margin-right: 0;
 	width: 90%;
 }
 
