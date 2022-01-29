@@ -395,8 +395,7 @@ footer {
 	text-align: center;
 	max-width: 1200px;
 	background-color: var(--colore-sfondo-footer);
-	border-top-left-radius: 2em;
-	border-top-right-radius: 2em;
+	border-radius: 2em 2em 0 0;
 	color: var(--colore-testo-footer);
 }
 
@@ -455,7 +454,7 @@ footer[class="footer-bottom"] {
 
 #vieniATrovarci {
 	display: grid;
-	grid-template-columns: 60%;
+	grid-template-columns: 57%;
 	align-items: start;
 	column-gap: 5em;
 	grid-template-areas:
@@ -484,6 +483,7 @@ footer[class="footer-bottom"] {
 }
 
 #gotoAllenamenti {
+	text-align: center;
 	grid-area: d;
 	font-size: 1.5em;
 }
