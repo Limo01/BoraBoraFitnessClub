@@ -84,7 +84,7 @@
 
 					<label>Nome</label>
 					<input type="text" id="nome" name="nomeRegistrazione" required placeholder="es: Mario"
-						pattern="^[a-zA-Z-' àèìòùáéíóú]*$"
+						pattern="^[a-zA-Z-' àèìòùáéíóú]*$" maxlength="20"
 						title="deve contenere solo lettere, senza caratteri speciali (? , * ; + .).">
 					<p id="errore_nome" role="alert" class="errore_form">
 						<erroreNome />
@@ -92,7 +92,7 @@
 
 					<label>Cognome</label>
 					<input type="text" id="cognome" name="cognomeRegistrazione" required placeholder="es: Rossi"
-						pattern="^[a-zA-Z-' àèìòùáéíóú]*$"
+						pattern="^[a-zA-Z-' àèìòùáéíóú]*$" maxlength="20"
 						title="deve contenere solo lettere, senza caratteri speciali (? , * ; + .).">
 					<p id="errore_cognome" role="alert" class="errore_form">
 						<erroreCognome />
@@ -106,7 +106,7 @@
 					</p>
 
 					<label>Nome utente</label>
-					<input type="text" id="username" name="nomeUtenteRegistrazione" required
+					<input type="text" id="username" name="nomeUtenteRegistrazione" required maxlength="12"
 						placeholder="es: MarioRossi23" pattern="^[0-9a-zA-Z-' àèìòùáéíóú]*$"
 						title="deve contenere solo lettere, senza caratteri speciali (? , * ; + .).">
 					<p id="errore_username" role="alert" class="errore_form">

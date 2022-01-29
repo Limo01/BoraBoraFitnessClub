@@ -110,3 +110,8 @@ h1.hide {
 #tornaSu{
 	right: 2%;
 }
+
+/* allenamenti */
+.dettagli-allenamento article {
+	width: 60%;
+}
