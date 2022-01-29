@@ -2,12 +2,21 @@ html,
 body {
 	font-size: 95%;
 	font-family: serif;
+    text-align: justify;
 	max-width: 1200px;
 	background-image: none;
 }
 
-nav, footer, a.aiuti, #darkmode-switch, #burger-menu, #closebtn, #contaPersone, #tornaSu, #scorriPagine{
+nav, footer, a.aiuti, #darkmode-switch, #burger-menu, #closebtn, #contaPersone, #scorriPagine{
     display: none;
+}
+
+#tornaSu{
+    display: none !important;
+}
+
+#breadcrumb{
+    display: block;
 }
 
 img{
@@ -21,14 +30,50 @@ a[href^="http"]:after{
     content: " [" attr(href) "] ";
 }
 
+abbr:after{
+    content: " [" attr(title) "] ";
+}
+
+abbr[title]{
+    text-decoration: none;
+}
+
+div.galleryGroup{
+    page-break-before: always;
+}
+#salaPesi{
+    page-break-before: avoid;
+    
+}
+#salaPesi img{
+    width: 32%;
+    display: inline;
+}
+.gallery{
+    display: inline;
+}
+
+.personalTrainer img{
+    width: 15%;
+}
+
+article.personalTrainer{
+    break-inside: avoid;
+}
+
+.attrezzature img{
+    margin-right: 1em;
+    margin-bottom: 1em;
+    width: 25%;
+}
+
+.attrezzature article{
+    break-inside: avoid;
+}
+
+#content .attrezzature article h3, #content.attrezzature h2{
+    clear: both;
+}
 /* non mostrare il logo */
+
 /* abbreviaziooni */
-/* come sampare i link?
-a:link:after, a:visited:after {
-    content: " [" attr(href) "] ";
-    font-size:90%;
-    } … 
-    css3:
-    a[href^="/"]:after {
-content: " (http://www.sito.it" attr(href) ") ";
-}*/
