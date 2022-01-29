@@ -69,11 +69,16 @@ h1.hide {
 
 #menu #userIcon {
 	float: none;
+	width: auto;
 }
 
 #userIcon a,
 #userIcon a:hover {
 	background-image: url("../immagini/logo/user-light.png");
+}
+
+#userIcon #currentLink {
+	background-image: url("../immagini/logo/user.png");
 }
 
 #currentLink {
