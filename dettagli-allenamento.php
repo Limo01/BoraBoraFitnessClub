@@ -92,7 +92,7 @@
 	                
 	                $content .= "<ul>";
 	                if($row["peso"] != null){
-	                    $content .= "<li>Con +" . $row["peso"] . " di peso</li>";
+	                    $content .= "<li>Con " . $row["peso"] . " chili</li>";
 	                } else {
 	                    $content .= "<li>Senza usare pesi</li>";
 	                }

@@ -115,3 +115,16 @@ h1.hide {
 .dettagli-allenamento article {
 	width: 60%;
 }
+
+#errore {
+	display: block;
+}
+
+#errore div {
+	width: 80%;
+}
+
+#errore img {
+	float: none;
+	width: 40%;
+}

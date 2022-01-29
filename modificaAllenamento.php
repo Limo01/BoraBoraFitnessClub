@@ -81,7 +81,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
                 
                 $datiScheda .= "<ul>";
                 if($row["peso"] != null){
-                    $datiScheda .= "<li>Con +" . $row["peso"] . " di peso</li>";
+                    $datiScheda .= "<li>Con +" . $row["peso"] . " chili</li>";
                 } else {
                     $datiScheda .= "<li>Senza usare pesi</li>";
                 }

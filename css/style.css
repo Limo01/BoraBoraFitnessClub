@@ -26,7 +26,7 @@
 	--colore-link-visitato: #a7e08c;
 	--colore-sfondo-article-p: #332a1f;
 	--colore-hover-link: #332f26;
-	--colore-hover-menu: #332f26;
+	--colore-hover-menu: #3b362b;
 	--colore-background-menu: #241f19;
 	--colore-sfondo-footer: rgba(0, 0, 0, 0.8);
 	--colore-testo-footer: #fdf1ce;
@@ -1536,8 +1536,27 @@ fieldset {
 	display: inline;
 }
 
-#paginaNonTrovata {
-	display: block;
+#errore {
+	display: flex;
+	text-align: center;
+}
+
+#errore a {
+	font-size: 1.2em;
+}
+
+#errore p {
+	font-size: 1.5em;
+}
+
+#errore div {
+	display: inline-block;
+	width: 40%;
+}
+
+#errore img {
+	float: right;
+	width: 40%;
 }
 
 /* form inserimento esercizio */
