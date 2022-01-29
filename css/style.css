@@ -1511,7 +1511,9 @@ fieldset {
 	width: 75%;
 }
 
-#inserimentoForm textarea {
+#inserimentoForm input,
+#inserimentoForm textarea,
+#inserimentoForm select {
 	resize: none;
 	width: 60%;
 }
@@ -1553,15 +1555,6 @@ fieldset {
 		"m l"
 		"n ."
 		"o o";
-}
-
-#inserimentoEsercizio input {
-	border-style: none;
-	border: 2px solid var(--colore-background-menu);
-	background-color: unset;
-
-	font-size: 1.3em;
-	padding: 0.5em;
 }
 
 #nomeEsercizioL {
@@ -1642,5 +1635,5 @@ fieldset {
 
 /*==================== AUTENTICAZIONE ====================*/
 #accesso input:invalid {
-	border: 2px solid var(--colore-testo-principale);
+	border: 2px solid var(--colore-background-menu);
 }
