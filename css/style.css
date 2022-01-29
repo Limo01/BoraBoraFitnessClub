@@ -2,7 +2,7 @@
 	--colore-sfondo-div: rgba(255, 253, 233, 0.9);
 	--colore-testo-contrasto-sfondi: #fdf1ce;
 	--colore-testo-principale: #473603;
-	--colore-errore: #a80000;
+	--colore-errore: #db0000;
 	--colore-successo: green;
 	--colore-link-da-visitare: #002638;
 	--colore-sfondo-article-p: #d7c99e;
@@ -1638,4 +1638,9 @@ fieldset {
 .imgValidCode {
 	margin: 1em;
 	height: 3em;
+}
+
+/*==================== AUTENTICAZIONE ====================*/
+#accesso input:invalid {
+	border: 2px solid var(--colore-testo-principale);
 }
