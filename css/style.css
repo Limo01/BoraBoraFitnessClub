@@ -6,7 +6,8 @@
 	--colore-successo: green;
 	--colore-link-visitato: #002638;
 	--colore-sfondo-article-p: #d7c99e;
-	--colore-hover-menu: #cfbe96;
+	--colore-hover-link: #cfbe96;
+	--colore-hover-menu: #d6c8a6;
 	--colore-background-menu: #bfb394;
 	--colore-sfondo-footer: rgba(0, 0, 0, 0.8);
 	--colore-testo-footer: #fdf1ce;
@@ -24,6 +25,7 @@
 	--colore-successo: #00b800;
 	--colore-link-visitato: #a7e08c;
 	--colore-sfondo-article-p: #332a1f;
+	--colore-hover-link: #332f26;
 	--colore-hover-menu: #332f26;
 	--colore-background-menu: #241f19;
 	--colore-sfondo-footer: rgba(0, 0, 0, 0.8);
@@ -106,7 +108,7 @@ a:visited {
 	color: var(--colore-link-visitato);
 }
 a:hover {
-	background-color: var(--colore-hover-menu);
+	background-color: var(--colore-hover-link);
 }
 
 a.imgLink {
@@ -199,7 +201,6 @@ small {
 #menu li a {
 	transition: background-color 0.1s ease-in-out;
 }
-
 #menu li a:hover {
 	background-color: var(--colore-hover-menu);
 }
