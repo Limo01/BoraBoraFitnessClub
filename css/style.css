@@ -68,13 +68,17 @@ header,
 }
 
 h1.hide {
+	transition: transform 0.5s cubic-bezier(0.15, 1, 0.15, 1);
 	background-image: url("../immagini/titolo.png");
-	height: 130px;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
-	transition: transform 0.5s cubic-bezier(0.15, 1, 0.15, 1);
-	margin-top: 1.45em;
+	height: 130px;
+	margin: 0 2em;
+}
+
+#logo {
+	padding-top: 4em;
 }
 
 h1.hide:hover {
@@ -179,7 +183,7 @@ small {
 	padding: 0;
 	overflow: hidden;
 	background-color: var(--colore-background-menu);
-	border-radius: 10px;
+	border-radius: 0 0 10px 10px;
 }
 
 #menu li {
