@@ -2,7 +2,7 @@
 	--colore-sfondo-div: rgba(255, 253, 233, 0.9);
 	--colore-testo-contrasto-sfondi: #fdf1ce;
 	--colore-testo-principale: #473603;
-	--colore-errore: #A80000;
+	--colore-errore: #a80000;
 	--colore-successo: green;
 	--colore-link-visitato: #002638;
 	--colore-sfondo-article-p: #d7c99e;
@@ -21,7 +21,7 @@
 	--colore-testo-contrasto-sfondi: #473603;
 	--colore-testo-principale: #bfb394;
 	--colore-errore: red;
-	--colore-successo: #00B800;
+	--colore-successo: #00b800;
 	--colore-link-visitato: #a7e08c;
 	--colore-sfondo-article-p: #332a1f;
 	--colore-hover-menu: #332f26;
@@ -374,22 +374,10 @@ small {
 }
 
 #content input,
-#content textarea {
-	display: block;
-	color: var(--colore-testo-principale);
-	font-size: 1em;
-	width: 100%;
-	margin-top: 0.5em;
-	padding: 0.5em;
-	box-sizing: border-box;
-	border: 2px solid var(--colore-background-menu);
-	background-color: unset;
-	outline: none;
-	resize: none;
-}
-
+#content textarea,
 #content select {
 	display: block;
+	color: var(--colore-testo-principale);
 	font-size: 1em;
 	width: 100%;
 	margin-top: 0.5em;
@@ -1263,6 +1251,12 @@ div div .gallery {
 
 #acquisto_abbonamento p {
 	text-align: center;
+}
+
+#form_acquisto select {
+	display: inline;
+	width: auto;
+	margin-right: 1em;
 }
 
 /*==================== STILE CONFERMA ACQUISTO =======================*/
