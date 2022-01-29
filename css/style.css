@@ -2,10 +2,12 @@
 	--colore-sfondo-div: rgba(255, 253, 233, 0.9);
 	--colore-testo-contrasto-sfondi: #fdf1ce;
 	--colore-testo-principale: #473603;
-	--colore-errore: #A80000;
-	--colore-link-visitato: #002638;
+	--colore-errore: #db0000;
+	--colore-successo: green;
+	--colore-link-da-visitare: #002638;
 	--colore-sfondo-article-p: #d7c99e;
-	--colore-hover-menu: #cfbe96;
+	--colore-hover-link: #cfbe96;
+	--colore-hover-menu: #d6c8a6;
 	--colore-background-menu: #bfb394;
 	--colore-sfondo-footer: rgba(0, 0, 0, 0.8);
 	--colore-testo-footer: #fdf1ce;
@@ -19,8 +21,11 @@
 	--colore-sfondo-div: rgba(0, 0, 0, 0.8);
 	--colore-testo-contrasto-sfondi: #473603;
 	--colore-testo-principale: #bfb394;
+	--colore-errore: red;
+	--colore-successo: #00b800;
 	--colore-link-visitato: #a7e08c;
 	--colore-sfondo-article-p: #332a1f;
+	--colore-hover-link: #332f26;
 	--colore-hover-menu: #332f26;
 	--colore-background-menu: #241f19;
 	--colore-sfondo-footer: rgba(0, 0, 0, 0.8);
@@ -69,7 +74,7 @@ h1.hide {
 	background-position: center;
 	background-size: contain;
 	transition: transform 0.5s cubic-bezier(0.15, 1, 0.15, 1);
-	margin-top: 1.6em;
+	margin-top: 1.45em;
 }
 
 h1.hide:hover {
@@ -91,7 +96,7 @@ h1.hide:hover {
 }
 
 a {
-	color: var(--colore-testo-principale);
+	color: var(--colore-link-da-visitare);
 	background-color: var(--colore-background-menu);
 	padding: 0.4em 0.8em;
 	border-radius: 10px;
@@ -99,11 +104,13 @@ a {
 	text-align: center;
 	transition: background-color 0.1s ease-in-out;
 }
+
 a:visited {
-	color: var(--colore-link-visitato);
+	color: var(--colore-testo-principale);
 }
+
 a:hover {
-	background-color: var(--colore-hover-menu);
+	background-color: var(--colore-hover-link);
 }
 
 a.imgLink {
@@ -149,11 +156,11 @@ small {
 }
 
 #content p.alert {
-	color: red;
+	color: var(--colore-errore);
 }
 
 #content p.notification {
-	color: green;
+	color: var(--colore-successo);
 }
 
 /*==================== MENU ====================*/
@@ -196,7 +203,6 @@ small {
 #menu li a {
 	transition: background-color 0.1s ease-in-out;
 }
-
 #menu li a:hover {
 	background-color: var(--colore-hover-menu);
 }
@@ -272,7 +278,7 @@ small {
 	width: 1.72em;
 }
 
-input:checked + .slider {
+#darkmode-switch input:checked + .slider {
 	background-color: #66bb6a;
 	background-image: url("../immagini/moon.png");
 	background-size: contain;
@@ -280,7 +286,7 @@ input:checked + .slider {
 	background-position: left;
 }
 
-input:checked + .slider:before {
+#darkmode-switch input:checked + .slider:before {
 	transform: translateX(2.4em);
 }
 
@@ -361,9 +367,45 @@ input:checked + .slider:before {
 	color: var(--colore-testo-principale);
 }
 
-#content input {
+#content label {
+	text-align: center;
+	font-weight: bold;
+	display: block;
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+	font-size: 1em;
+}
+
+#content input,
+#content textarea,
+#content select {
+	display: block;
 	color: var(--colore-testo-principale);
 	font-size: 1em;
+	width: 100%;
+	margin-top: 0.5em;
+	padding: 0.5em;
+	box-sizing: border-box;
+	border: 2px solid var(--colore-background-menu);
+	background-color: unset;
+	outline: none;
+	resize: none;
+}
+
+#content input:focus,
+#content textarea:focus,
+#content select:focus {
+	border: 2px solid var(--colore-testo-principale);
+}
+
+#content input:invalid,
+#content textarea:invalid {
+	border: 2px solid var(--colore-errore);
+}
+
+#content input[type="date"] {
+	font-size: 1.3em;
+	font-weight: bold;
 }
 
 #content dt {
@@ -394,6 +436,7 @@ footer {
 	background-color: var(--colore-sfondo-footer);
 	border-radius: 2em 2em 0 0;
 	color: var(--colore-testo-footer);
+	padding-bottom: 1em;
 }
 
 footer h2 {
@@ -424,7 +467,7 @@ footer[class="footer-bottom"] {
 
 .motivazione {
 	text-align: center;
-	max-width: 325px;
+	max-width: 300px;
 	background-color: var(--colore-sfondo-article-p);
 	border-radius: 2em;
 	padding: 1em;
@@ -432,9 +475,17 @@ footer[class="footer-bottom"] {
 	margin: 1em;
 }
 
+.motivazione dt {
+	text-align: center;
+	font-size: 1.5em;
+}
 .motivazione .numero {
 	display: block;
 	font-size: 1.8em;
+}
+
+.motivazione dd {
+	padding: 1em;
 }
 
 #diventaMembro {
@@ -1120,7 +1171,7 @@ div div .gallery {
 
 #widget_area_personale .dati_personali input:invalid,
 #widget_area_personale_admin .dati_personali input:invalid {
-	border-bottom: 2px solid red;
+	border-bottom: 2px solid var(--colore-errore);
 }
 
 .dati_personali input:focus {
@@ -1128,7 +1179,7 @@ div div .gallery {
 }
 
 #content .dati_personali .errore_form {
-	color: red;
+	color: var(--colore-errore);
 	margin: 0;
 	padding-bottom: 1em;
 	font-size: 0.8em;
@@ -1194,7 +1245,7 @@ div div .gallery {
 #gestione_utenti form {
 	display: inline-block;
 	font-size: 1em;
-	margin: 0.5em 1em;
+	margin: 0.5em 0;
 }
 
 /*==================== STILE ACQUISTO ABBONAMENTO ====================*/
@@ -1211,6 +1262,16 @@ div div .gallery {
 
 #acquisto_abbonamento p {
 	text-align: center;
+}
+
+#form_acquisto select {
+	display: inline;
+	width: auto;
+	margin-right: 1em;
+}
+
+#form_acquisto button {
+	margin-top: 1em;
 }
 
 /*==================== STILE CONFERMA ACQUISTO =======================*/
@@ -1231,7 +1292,7 @@ div div .gallery {
 	margin: 0;
 	width: 0%;
 	height: 100%;
-	background-color: var(--colore-background-menu);
+	background-color: var(--colore-testo-principale);
 	animation-name: progressBarAnimation;
 	animation-iteration-count: 1;
 	animation-duration: 8s;
@@ -1363,10 +1424,15 @@ div div .gallery {
 	margin: 0em 0.2em;
 }
 
-#bottoni-allenamenti {
+#bottoni-allenamenti,
+#bottoni-dettagli-allenamento {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
+}
+
+#bottoni-allenamenti {
+	justify-content: right;
 }
 
 #bottone-iniziale {
@@ -1428,14 +1494,6 @@ div div .gallery {
 }
 
 /* form inserimento allenamento */
-#inserimentoForm label {
-	text-align: center;
-	display: block;
-	margin-top: 1em;
-	margin-bottom: 0.5em;
-	font-size: 1.2em;
-}
-
 #inserimentoForm button {
 	display: inline;
 	margin-top: 1em;
@@ -1446,47 +1504,30 @@ div div .gallery {
 	text-align: center;
 }
 
-#inserimentoForm fieldset {
+fieldset {
 	border: 2px solid var(--colore-background-menu);
 	background-color: unset;
 	border: none;
 }
 
-#inserimentoForm input {
-	display: block;
-	border-style: none;
-	border: 2px solid var(--colore-background-menu);
-	background-color: unset;
-	width: 60%;
-	font-size: 1.3em;
-	outline: none;
-	padding: 0.5em;
+#inserimentoForm input,
+#inserimentoEsercizio input,
+#inserimentoForm textarea,
+#inserimentoEsercizio textarea,
+#inserimentoForm select,
+#inserimentoEsercizio select {
+	width: 75%;
 }
 
-#inserimentoForm textarea {
-	border-style: none;
-	border: 2px solid var(--colore-background-menu);
-	outline: none;
-	background-color: unset;
-	resize: none;
-	width: 60%;
-	font-size: 1.3em;
-	padding: 0.5em;
-}
-
+#inserimentoForm input,
+#inserimentoForm textarea,
 #inserimentoForm select {
-	display: block;
-	border-style: none;
-	border: 2px solid var(--colore-background-menu);
-	background-color: unset;
 	resize: none;
 	width: 60%;
-	font-size: 1.3em;
-	padding: 0.5em;
 }
 
 #inserimentoForm .errore_form {
-	color: red;
+	color: var(--colore-errore);
 	margin: 0;
 	padding-bottom: 1em;
 	font-size: 0.8em;
@@ -1522,32 +1563,6 @@ div div .gallery {
 		"m l"
 		"n ."
 		"o o";
-}
-
-#inserimentoEsercizio input {
-	border-style: none;
-	border: 2px solid var(--colore-background-menu);
-	background-color: unset;
-
-	font-size: 1.3em;
-	padding: 0.5em;
-}
-
-#inserimentoEsercizio textarea {
-	border-style: none;
-	border: 2px solid var(--colore-background-menu);
-	background-color: unset;
-	resize: none;
-	/* width: 60%; */
-	font-size: 1.3em;
-	padding: 0.5em;
-}
-
-#inserimentoEsercizio label {
-	text-align: center;
-	margin-top: 1em;
-	margin-bottom: 0.5em;
-	font-size: 1.2em;
 }
 
 #nomeEsercizioL {
@@ -1617,7 +1632,16 @@ div div .gallery {
 	margin-right: 1em;
 }
 
+#datiScheda > a {
+	font-size: 1.5em;
+}
+
 .imgValidCode {
 	margin: 1em;
 	height: 3em;
+}
+
+/*==================== AUTENTICAZIONE ====================*/
+#accesso input:invalid {
+	border: 2px solid var(--colore-background-menu);
 }
