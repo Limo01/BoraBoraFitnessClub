@@ -1259,6 +1259,10 @@ div div .gallery {
 	margin-right: 1em;
 }
 
+#form_acquisto button{
+	margin-top: 1em;
+}
+
 /*==================== STILE CONFERMA ACQUISTO =======================*/
 #avviso_pagamento {
 	font-size: 0em;
@@ -1277,7 +1281,7 @@ div div .gallery {
 	margin: 0;
 	width: 0%;
 	height: 100%;
-	background-color: var(--colore-background-menu);
+	background-color: var(--colore-testo-principale);
 	animation-name: progressBarAnimation;
 	animation-iteration-count: 1;
 	animation-duration: 8s;
