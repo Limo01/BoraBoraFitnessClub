@@ -13,10 +13,12 @@ header h1 {
 }
 
 h1.hide {
+	background-image: url("../immagini/logo/island.png");
 	height: auto;
 	margin-top: 0;
 	transition: none;
 }
+
 h1.hide:hover {
 	transform: none;
 }
