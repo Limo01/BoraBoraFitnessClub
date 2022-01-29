@@ -6,3 +6,4 @@ sync
 upload
 connect
 sess_*
+.htaccess
