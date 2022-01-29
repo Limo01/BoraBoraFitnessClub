@@ -4,7 +4,7 @@
 	--colore-testo-principale: #473603;
 	--colore-errore: #db0000;
 	--colore-successo: green;
-	--colore-link-da-visitare: #002638;
+	--colore-link-da-visitare: #01490a;
 	--colore-sfondo-article-p: #d7c99e;
 	--colore-hover-link: #cfbe96;
 	--colore-hover-menu: #d6c8a6;
@@ -23,7 +23,7 @@
 	--colore-testo-principale: #bfb394;
 	--colore-errore: red;
 	--colore-successo: #00b800;
-	--colore-link-visitato: #a7e08c;
+	--colore-link-da-visitare: #a7e08c;
 	--colore-sfondo-article-p: #332a1f;
 	--colore-hover-link: #332f26;
 	--colore-hover-menu: #3b362b;
@@ -68,13 +68,17 @@ header,
 }
 
 h1.hide {
+	transition: transform 0.5s cubic-bezier(0.15, 1, 0.15, 1);
 	background-image: url("../immagini/titolo.png");
-	height: 130px;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
-	transition: transform 0.5s cubic-bezier(0.15, 1, 0.15, 1);
-	margin-top: 1.45em;
+	height: 4em;
+	margin: 0 2em;
+}
+
+#logo {
+	padding-top: 4em;
 }
 
 h1.hide:hover {
@@ -179,7 +183,7 @@ small {
 	padding: 0;
 	overflow: hidden;
 	background-color: var(--colore-background-menu);
-	border-radius: 10px;
+	border-radius: 0 0 10px 10px;
 }
 
 #menu li {
@@ -190,7 +194,7 @@ small {
 #currentLink {
 	display: block;
 	text-align: center;
-	padding: 1em 0.9em;
+	padding: 1em 0.8em;
 	border-radius: 10px;
 	background-color: unset;
 }
