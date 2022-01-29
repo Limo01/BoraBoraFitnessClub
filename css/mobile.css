@@ -151,16 +151,29 @@ h1.hide {
 }
 
 /*============= ALLENAMENTI =============*/
-#titolo-allenamenti {
-	margin-top: 1.5em;
-}
-
 .allenamenti article {
 	width: 100%;
 }
 
 .dettagli-allenamento article {
 	width: 80%;
+}
+
+#bottoni-allenamenti {
+	justify-content: space-evenly;
+	margin-bottom: -1em;
+}
+
+#bottone-iniziale {
+	margin-bottom: 1em;
+	margin-left: 0.5em;
+	font-size: 1.3em;
+}
+
+#bottone-iniziale-sinistra {
+	margin-bottom: 1em;
+	margin-right: 0.5em;
+	font-size: 1.3em;
 }
 
 /*============= AREA PERSONALE =============*/

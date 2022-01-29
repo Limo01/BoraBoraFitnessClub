@@ -34,6 +34,7 @@
 * {
 	padding: 0;
 	margin: 0 auto;
+	word-wrap: break-word;
 }
 
 html,
@@ -91,17 +92,15 @@ h1.hide:hover {
 
 a {
 	color: var(--colore-testo-principale);
-}
-a:visited {
-	color: var(--colore-link-visitato);
-}
-
-a {
 	background-color: var(--colore-background-menu);
 	padding: 0.4em 0.8em;
 	border-radius: 10px;
 	display: inline-block;
+	text-align: center;
 	transition: background-color 0.1s ease-in-out;
+}
+a:visited {
+	color: var(--colore-link-visitato);
 }
 a:hover {
 	background-color: var(--colore-hover-menu);
@@ -327,7 +326,6 @@ input:checked + .slider:before {
 	color: var(--colore-testo-principale);
 	padding-top: 0.1em;
 	font-size: 4em;
-	word-wrap: break-word;
 }
 
 #content h2 {
@@ -335,14 +333,12 @@ input:checked + .slider:before {
 	margin-bottom: 1em;
 	font-size: 2.5em;
 	color: var(--colore-testo-principale);
-	word-wrap: break-word;
 }
 
 #content h3 {
 	text-align: center;
 	margin-bottom: 1em;
 	font-size: 2em;
-	word-wrap: break-word;
 }
 #content h3:not(a > h3) {
 	color: var(--colore-testo-principale);
@@ -1367,22 +1363,28 @@ div div .gallery {
 	margin: 0em 0.2em;
 }
 
+#bottoni-allenamenti {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
 #bottone-iniziale {
+	margin: 0;
 	font-size: 1.5em;
-	float: right;
 }
 
 #bottone-iniziale-sinistra {
+	margin: 0;
 	font-size: 1.5em;
-	float: left;
 }
 
 #titolo-allenamenti {
-	margin-top: 1.5em;
+	margin-top: 1em;
 }
 
 #titolo-dettagli-allenamento {
-	margin-top: 1.5em;
+	margin-top: 0.5em;
 }
 
 #naviga-pagine ul li#fine-pagine-iniziali {
