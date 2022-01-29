@@ -397,7 +397,7 @@ small {
 
 #content input:invalid,
 #content textarea:invalid {
-	border: 2px solid red;
+	border: 2px solid var(--colore-errore);
 }
 
 #content input[type="date"] {
@@ -1200,7 +1200,6 @@ div div .gallery {
 }
 
 #gestione_utenti {
-	min-width: 20em;
 	grid-area: d;
 }
 
@@ -1235,7 +1234,7 @@ div div .gallery {
 #gestione_utenti form {
 	display: inline-block;
 	font-size: 1em;
-	margin: 0.5em 1em;
+	margin: 0.5em 0;
 }
 
 /*==================== STILE ACQUISTO ABBONAMENTO ====================*/
@@ -1260,7 +1259,7 @@ div div .gallery {
 	margin-right: 1em;
 }
 
-#form_acquisto button{
+#form_acquisto button {
 	margin-top: 1em;
 }
 
