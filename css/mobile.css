@@ -206,3 +206,28 @@ h1.hide {
 footer {
 	border-radius: 0.5em;
 }
+
+/* FORM ESERCIZIO */
+
+#inserimentoEsercizio{
+	/* grid-template-areas:
+		"a e"
+		"b h"
+		"c f"
+		"d i"
+		"d g"
+		"m l"
+		"n ."
+		"o o"; */
+		grid-template-columns: 33% 33% 33%;
+		grid-template-areas:
+		"a a a"
+		"b b b"
+		"c c c"
+		"d d d"
+		"e f g"
+		"h i l"
+		"m m m"
+		"n n n"
+		"o o o";
+}
