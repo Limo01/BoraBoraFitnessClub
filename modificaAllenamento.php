@@ -63,7 +63,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
                 $datiScheda.= "<p class=\"notification\">Esercizio rimosso con successo!</p>";
             }
 
-            $datiScheda .= "<a href=\"dettagli-allenamento.php?id=".$_GET["id"]."&nomeBreadcrumb=Allenamenti&url=modificaAllenamento.php?id=" . $_GET['id'] . "\">Torna ai dettagli</a>";
+            $datiScheda .= "<a href=\"dettagli-allenamento.php?id=".$_GET["id"]."&nomeBreadcrumb=Modifica allenamento&url=modificaAllenamento.php?id=" . $_GET['id'] . "\">Torna ai dettagli</a>";
 
             if($schedaQuery[0]["descrizione"] != "") {
                 $datiScheda .= "<p>" . $schedaQuery[0]["descrizione"] ."</p>";

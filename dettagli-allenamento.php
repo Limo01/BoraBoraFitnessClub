@@ -4,7 +4,6 @@
 	use DB\DBAccess;
 	$nomeBreadcrumb = isset($_GET['url'])? (isset($_GET['nomeBreadcrumb'])? $_GET['nomeBreadcrumb'] : strtoupper(basename($_GET['url'])[0]) . substr(basename($_GET['url']), 1)) : "Allenamenti";
 	$referer = isset($_GET['url'])? $_GET['url'] : "allenamenti.php";
-	$tornaIndietro = "<a id='bottone-iniziale-sinistra' href='" . $referer . "'>Torna indietro</a>";
 	$id = isset($_GET['id'])? $_GET['id'] : 0;
 	$tipoUtente = 2;
 	$utente = "";
@@ -140,6 +139,8 @@
 	if ($id < $numeroAllenamenti) {
 		$paginePrecedenteProssimo .= "<li><a href='dettagli-allenamento.php?id=" . ($id + 1) . "&nomeBreadcrumb=" . $nomeBreadcrumb . "&url=" . $referer . "'>Prossimo</a></li>";
 	}
+	
+	$tornaIndietro = "<a id='bottone-iniziale-sinistra' href='" . $referer . "'>Torna indietro</a>";
 
 	echo str_replace("<paginePrecedenteProssimo />", $paginePrecedenteProssimo, str_replace("<bottone-iniziale />", $tornaIndietro, str_replace("<dettagli-allenamento />", $content, str_replace("<genitore-breadcrumb />", "<a href='" . $referer . "'>" . $nomeBreadcrumb . "</a>", file_get_contents("html/dettagli-allenamento.html")))));
 ?>
