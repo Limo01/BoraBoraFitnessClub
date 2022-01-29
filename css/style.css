@@ -2,7 +2,7 @@
 	--colore-sfondo-div: rgba(255, 253, 233, 0.9);
 	--colore-testo-contrasto-sfondi: #fdf1ce;
 	--colore-testo-principale: #473603;
-	--colore-errore: #A80000;
+	--colore-errore: #a80000;
 	--colore-link-visitato: #002638;
 	--colore-sfondo-article-p: #d7c99e;
 	--colore-hover-menu: #cfbe96;
@@ -272,7 +272,7 @@ small {
 	width: 1.72em;
 }
 
-input:checked + .slider {
+#darkmode-switch input:checked + .slider {
 	background-color: #66bb6a;
 	background-image: url("../immagini/moon.png");
 	background-size: contain;
@@ -280,7 +280,7 @@ input:checked + .slider {
 	background-position: left;
 }
 
-input:checked + .slider:before {
+#darkmode-switch input:checked + .slider:before {
 	transform: translateX(2.4em);
 }
 
@@ -361,9 +361,57 @@ input:checked + .slider:before {
 	color: var(--colore-testo-principale);
 }
 
-#content input {
+#content label {
+	text-align: center;
+	font-weight: bold;
+	display: block;
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+	font-size: 1em;
+}
+
+#content input,
+#content textarea {
+	display: block;
 	color: var(--colore-testo-principale);
 	font-size: 1em;
+	width: 100%;
+	margin-top: 0.5em;
+	padding: 0.5em;
+	box-sizing: border-box;
+	border: 2px solid var(--colore-background-menu);
+	background-color: unset;
+	outline: none;
+	resize: none;
+}
+
+#content select {
+	display: block;
+	font-size: 1em;
+	width: 100%;
+	margin-top: 0.5em;
+	padding: 0.5em;
+	box-sizing: border-box;
+	border: 2px solid var(--colore-background-menu);
+	background-color: unset;
+	outline: none;
+	resize: none;
+}
+
+#content input:focus,
+#content textarea:focus,
+#content select:focus {
+	border: 2px solid var(--colore-testo-principale);
+}
+
+#content input:invalid,
+#content textarea:invalid {
+	border: 2px solid red;
+}
+
+#content input[type="date"] {
+	font-size: 1.3em;
+	font-weight: bold;
 }
 
 #content dt {
@@ -1091,43 +1139,6 @@ div div .gallery {
 	text-align: left;
 }
 
-.dati_personali form label {
-	font-weight: bold;
-}
-
-.dati_personali input {
-	width: 100%;
-	margin-top: 0.5em;
-	margin-bottom: 1em;
-	padding-top: 0.2em;
-	box-sizing: border-box;
-	border: none;
-	border-bottom: 2px solid var(--colore-background-menu);
-	background-color: transparent;
-	outline: none;
-}
-
-.dati_personali input[type="date"] {
-	font-size: 1.3em;
-	font-weight: bold;
-}
-
-.dati_personali select {
-	width: 100%;
-	margin-top: 0.5em;
-	margin-bottom: 2em;
-	padding-top: 0.2em;
-}
-
-#widget_area_personale .dati_personali input:invalid,
-#widget_area_personale_admin .dati_personali input:invalid {
-	border-bottom: 2px solid red;
-}
-
-.dati_personali input:focus {
-	border-bottom: 2px solid var(--colore-testo-principale);
-}
-
 #content .dati_personali .errore_form {
 	color: red;
 	margin: 0;
@@ -1429,14 +1440,6 @@ div div .gallery {
 }
 
 /* form inserimento allenamento */
-#inserimentoForm label {
-	text-align: center;
-	display: block;
-	margin-top: 1em;
-	margin-bottom: 0.5em;
-	font-size: 1.2em;
-}
-
 #inserimentoForm button {
 	display: inline;
 	margin-top: 1em;
@@ -1447,43 +1450,24 @@ div div .gallery {
 	text-align: center;
 }
 
-#inserimentoForm fieldset {
+fieldset {
 	border: 2px solid var(--colore-background-menu);
 	background-color: unset;
 	border: none;
 }
 
-#inserimentoForm input {
-	display: block;
-	border-style: none;
-	border: 2px solid var(--colore-background-menu);
-	background-color: unset;
-	width: 60%;
-	font-size: 1.3em;
-	outline: none;
-	padding: 0.5em;
+#inserimentoForm input,
+#inserimentoEsercizio input,
+#inserimentoForm textarea,
+#inserimentoEsercizio textarea,
+#inserimentoForm select,
+#inserimentoEsercizio select {
+	width: 75%;
 }
 
 #inserimentoForm textarea {
-	border-style: none;
-	border: 2px solid var(--colore-background-menu);
-	outline: none;
-	background-color: unset;
 	resize: none;
 	width: 60%;
-	font-size: 1.3em;
-	padding: 0.5em;
-}
-
-#inserimentoForm select {
-	display: block;
-	border-style: none;
-	border: 2px solid var(--colore-background-menu);
-	background-color: unset;
-	resize: none;
-	width: 60%;
-	font-size: 1.3em;
-	padding: 0.5em;
 }
 
 #inserimentoForm .errore_form {
@@ -1532,23 +1516,6 @@ div div .gallery {
 
 	font-size: 1.3em;
 	padding: 0.5em;
-}
-
-#inserimentoEsercizio textarea {
-	border-style: none;
-	border: 2px solid var(--colore-background-menu);
-	background-color: unset;
-	resize: none;
-	/* width: 60%; */
-	font-size: 1.3em;
-	padding: 0.5em;
-}
-
-#inserimentoEsercizio label {
-	text-align: center;
-	margin-top: 1em;
-	margin-bottom: 0.5em;
-	font-size: 1.2em;
 }
 
 #nomeEsercizioL {
@@ -1616,6 +1583,10 @@ div div .gallery {
 #datiScheda p.notification {
 	display: inline;
 	margin-right: 1em;
+}
+
+#datiScheda > a {
+	font-size: 1.5em;
 }
 
 .imgValidCode {
