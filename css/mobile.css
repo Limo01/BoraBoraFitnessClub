@@ -12,6 +12,10 @@ header h1 {
 	background-color: unset;
 }
 
+#logo {
+	padding-top: 0.7em;
+}
+
 .hide {
 	text-indent: -9999em;
 }
@@ -25,10 +29,6 @@ h1.hide {
 
 h1.hide:hover {
 	transform: none;
-}
-
-#logo {
-	padding: 0.5em;
 }
 
 #inserimentoForm input,
@@ -46,7 +46,7 @@ h1.hide:hover {
 
 /*======== CONTENT =========*/
 #breadcrumb {
-	padding-top: 0;
+	padding-top: 0.5em;
 	background-color: var(--colore-sfondo-div);
 	margin-bottom: 1em;
 	padding-bottom: 1em;

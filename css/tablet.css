@@ -1,6 +1,10 @@
 /*========= MENU =========*/
 h1.hide {
-	margin-top: 0em;
+	margin: 0 3em;
+}
+
+#logo {
+	padding: 0;
 }
 
 #topbar {
@@ -73,12 +77,7 @@ h1.hide {
 }
 
 #currentLink {
-	background-color: transparent;
-}
-
-#currentLink::before {
-	content: "\21E8";
-	margin-right: 0.3em;
+	background-color: #fdf1ce44;
 }
 
 .overlay {
@@ -103,7 +102,7 @@ h1.hide {
 .overlay-content {
 	position: relative;
 	top: 5%;
-	width: 100%;
+	width: 25em;
 	text-align: center;
 	margin-top: 1em;
 }
@@ -114,6 +113,7 @@ h1.hide {
 	font-size: 1.7em;
 	display: block;
 	transition: 0.3s;
+	margin: 0 22%;
 }
 
 #tornaSu {
