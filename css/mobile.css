@@ -17,6 +17,10 @@ h1.hide {
 	margin-top: 0;
 }
 
+#inserimentoForm input {
+	width: 85%;
+}
+
 /*=========== MENU ===========*/
 
 #topbar {
@@ -58,7 +62,7 @@ h1.hide {
 }
 
 #content h1 {
-	font-size: 3.5em;
+	font-size: 3em;
 }
 
 /*=============== HOME ===============*/
@@ -140,7 +144,7 @@ h1.hide {
 	margin-left: 0;
 }
 
-/*============= ABBONAMENTI =============*/
+/*============= ABBONATI =============*/
 .offertaAbbonamento {
 	max-width: 100%;
 	width: 70%;
@@ -196,4 +200,9 @@ h1.hide {
 #passato img,
 #presente img {
 	margin-bottom: 1.5em;
+}
+
+/*============= FOOTER =============*/
+footer {
+	border-radius: 0.5em;
 }
