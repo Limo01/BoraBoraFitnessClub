@@ -1375,10 +1375,15 @@ div div .gallery {
 	margin: 0em 0.2em;
 }
 
-#bottoni-allenamenti {
+#bottoni-allenamenti,
+#bottoni-dettagli-allenamento {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
+}
+
+#bottoni-allenamenti {
+	justify-content: right;
 }
 
 #bottone-iniziale {
