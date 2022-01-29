@@ -10,18 +10,37 @@ h1.hide {
 
 #burger-menu {
 	display: block;
-	position: fixed;
-	top: 0%;
-	right: 2%;
+	position: absolute;
+	top: 0.3em;
+	left: 0.4em;
 	cursor: pointer;
-	font-size: 2em;
+	font-size: 3em;
 	color: var(--colore-testo-principale);
 }
 
-#darkmode-switch {
+#closebtn {
+	display: block;
+	position: absolute;
 	top: 0;
+	left: 0.2em;
+	font-size: 5em;
+	z-index: 1;
+	cursor: pointer;
+	color: #fdf1ce;
+}
+
+#darkmode-switch {
+	top: 0.7em;
 	margin-right: 0;
-	right: 1.2em;
+	right: 1em;
+	font-size: 1.3em;
+}
+
+.slider {
+	background-color: var(--colore-sfondo-article-p);
+}
+.slider:before {
+	background-color: #473603;
 }
 
 #menu li {
@@ -67,7 +86,7 @@ h1.hide {
 	width: 0;
 	position: fixed;
 	z-index: 1;
-	right: 0;
+	left: 0;
 	top: 0;
 	background-color: var(--colore-sfondo-footer);
 	overflow-x: hidden;
@@ -97,17 +116,7 @@ h1.hide {
 	transition: 0.3s;
 }
 
-#closebtn {
-	display: block;
-	position: absolute;
-	top: 0.5em;
-	right: 0.3em;
-	font-size: 4em;
-	z-index: 1;
-	cursor: pointer;
-}
-
-#tornaSu{
+#tornaSu {
 	right: 2%;
 }
 
