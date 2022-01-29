@@ -3,6 +3,7 @@
 	--colore-testo-contrasto-sfondi: #fdf1ce;
 	--colore-testo-principale: #473603;
 	--colore-errore: #A80000;
+	--colore-successo: green;
 	--colore-link-visitato: #002638;
 	--colore-sfondo-article-p: #d7c99e;
 	--colore-hover-menu: #cfbe96;
@@ -19,6 +20,8 @@
 	--colore-sfondo-div: rgba(0, 0, 0, 0.8);
 	--colore-testo-contrasto-sfondi: #473603;
 	--colore-testo-principale: #bfb394;
+	--colore-errore: red;
+	--colore-successo: #00B800;
 	--colore-link-visitato: #a7e08c;
 	--colore-sfondo-article-p: #332a1f;
 	--colore-hover-menu: #332f26;
@@ -69,7 +72,7 @@ h1.hide {
 	background-position: center;
 	background-size: contain;
 	transition: transform 0.5s cubic-bezier(0.15, 1, 0.15, 1);
-	margin-top: 1.6em;
+	margin-top: 1.45em;
 }
 
 h1.hide:hover {
@@ -149,11 +152,11 @@ small {
 }
 
 #content p.alert {
-	color: red;
+	color: var(--colore-errore);
 }
 
 #content p.notification {
-	color: green;
+	color: var(--colore-successo);
 }
 
 /*==================== MENU ====================*/
@@ -1120,7 +1123,7 @@ div div .gallery {
 
 #widget_area_personale .dati_personali input:invalid,
 #widget_area_personale_admin .dati_personali input:invalid {
-	border-bottom: 2px solid red;
+	border-bottom: 2px solid var(--colore-errore);
 }
 
 .dati_personali input:focus {
@@ -1128,7 +1131,7 @@ div div .gallery {
 }
 
 #content .dati_personali .errore_form {
-	color: red;
+	color: var(--colore-errore);
 	margin: 0;
 	padding-bottom: 1em;
 	font-size: 0.8em;
@@ -1486,7 +1489,7 @@ div div .gallery {
 }
 
 #inserimentoForm .errore_form {
-	color: red;
+	color: var(--colore-errore);
 	margin: 0;
 	padding-bottom: 1em;
 	font-size: 0.8em;
