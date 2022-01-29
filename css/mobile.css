@@ -228,6 +228,10 @@ footer {
 	border-radius: 0.5em 0.5em 0 0;
 }
 
+.social {
+	height: 3em;
+}
+
 /* FORM ESERCIZIO */
 
 #inserimentoEsercizio {
