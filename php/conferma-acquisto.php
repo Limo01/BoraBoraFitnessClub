@@ -13,9 +13,10 @@
 		$_SESSION["tipo-abbonamento"] = $_POST["tipo-abbonamento"];
 
 		$paginaHTML = file_get_contents("../html/conferma-acquisto.html");
-		echo $paginaHTML;
 
-		header ("Refresh: 7.5;URL='acquisto.php'");
+		header("Refresh: 7.5;URL='acquisto.php'");
+		
+		echo $paginaHTML;
 	}
 	else{
 		die("Si è verificato un errore nel server!");

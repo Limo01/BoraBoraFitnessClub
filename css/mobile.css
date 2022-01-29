@@ -15,9 +15,15 @@ header h1 {
 h1.hide {
 	height: auto;
 	margin-top: 0;
+	transition: none;
+}
+h1.hide:hover {
+	transform: none;
 }
 
-#inserimentoForm input, #inserimentoForm textarea, #inserimentoForm select {
+#inserimentoForm input,
+#inserimentoForm textarea,
+#inserimentoForm select {
 	width: 85%;
 }
 
@@ -165,14 +171,16 @@ h1.hide {
 }
 
 #bottone-iniziale {
-	margin-bottom: 1em;
-	margin-left: 0.5em;
+	margin: 0 0.5em 1em;
 	font-size: 1.3em;
 }
 
 #bottone-iniziale-sinistra {
-	margin-bottom: 1em;
-	margin-right: 0.5em;
+	margin: 0 0.5em 1em;
+	font-size: 1.3em;
+}
+
+#datiScheda > a {
 	font-size: 1.3em;
 }
 
@@ -217,12 +225,12 @@ h1.hide {
 
 /*============= FOOTER =============*/
 footer {
-	border-radius: 0.5em;
+	border-radius: 0.5em 0.5em 0 0;
 }
 
 /* FORM ESERCIZIO */
 
-#inserimentoEsercizio{
+#inserimentoEsercizio {
 	/* grid-template-areas:
 		"a e"
 		"b h"
@@ -232,8 +240,8 @@ footer {
 		"m l"
 		"n ."
 		"o o"; */
-		grid-template-columns: 33% 33% 33%;
-		grid-template-areas:
+	grid-template-columns: 33% 33% 33%;
+	grid-template-areas:
 		"a a a"
 		"b b b"
 		"c c c"
