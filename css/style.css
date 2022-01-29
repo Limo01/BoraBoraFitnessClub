@@ -4,7 +4,7 @@
 	--colore-testo-principale: #473603;
 	--colore-link-visitato: #006b2d;
 	--colore-sfondo-article-p: #d7c99e;
-	--colore-hover-menu: #d6c8a6;
+	--colore-hover-menu: #cfbe96;
 	--colore-background-menu: #bfb394;
 	--colore-sfondo-footer: rgba(0, 0, 0, 0.8);
 	--colore-testo-footer: #fdf1ce;
@@ -89,10 +89,10 @@ h1.hide:hover {
 }
 
 a {
-	color: var(--colore-testo-principale);
+	color: var(--colore-link-visitato);
 }
 a:visited {
-	color: var(--colore-link-visitato);
+	color: var(--colore-testo-principale);
 }
 
 a {
