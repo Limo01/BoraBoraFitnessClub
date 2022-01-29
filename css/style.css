@@ -4,9 +4,10 @@
 	--colore-testo-principale: #473603;
 	--colore-errore: #A80000;
 	--colore-successo: green;
-	--colore-link-visitato: #002638;
+	--colore-link-da-visitare: #002638;
 	--colore-sfondo-article-p: #d7c99e;
-	--colore-hover-menu: #cfbe96;
+	--colore-hover-a: #cfbe96;
+	--colore-hover-menu: #d7c9a8;
 	--colore-background-menu: #bfb394;
 	--colore-sfondo-footer: rgba(0, 0, 0, 0.8);
 	--colore-testo-footer: #fdf1ce;
@@ -22,9 +23,10 @@
 	--colore-testo-principale: #bfb394;
 	--colore-errore: red;
 	--colore-successo: #00B800;
-	--colore-link-visitato: #a7e08c;
+	--colore-link-da-visitare: #a7e08c;
 	--colore-sfondo-article-p: #332a1f;
-	--colore-hover-menu: #332f26;
+	--colore-hover-a: #332f26;
+	--colore-hover-menu: #3b362b;
 	--colore-background-menu: #241f19;
 	--colore-sfondo-footer: rgba(0, 0, 0, 0.8);
 	--colore-testo-footer: #fdf1ce;
@@ -94,7 +96,7 @@ h1.hide:hover {
 }
 
 a {
-	color: var(--colore-testo-principale);
+	color: var(--colore-link-da-visitare);
 	background-color: var(--colore-background-menu);
 	padding: 0.4em 0.8em;
 	border-radius: 10px;
@@ -102,11 +104,13 @@ a {
 	text-align: center;
 	transition: background-color 0.1s ease-in-out;
 }
+
 a:visited {
-	color: var(--colore-link-visitato);
+	color: var(--colore-testo-principale);
 }
+
 a:hover {
-	background-color: var(--colore-hover-menu);
+	background-color: var(--colore-hover-a);
 }
 
 a.imgLink {
