@@ -1,0 +1,34 @@
+html,
+body {
+	font-size: 95%;
+	font-family: serif;
+	max-width: 1200px;
+	background-image: none;
+}
+
+nav, footer, a.aiuti, #darkmode-switch, #burger-menu, #closebtn, #contaPersone, #tornaSu, #scorriPagine{
+    display: none;
+}
+
+img{
+    width: 35%;
+}
+
+a:after {
+    content: " (http://localhost:30080/agazi/" attr(href) ") ";
+}
+a[href^="http"]:after{
+    content: " [" attr(href) "] ";
+}
+
+/* non mostrare il logo */
+/* abbreviaziooni */
+/* come sampare i link?
+a:link:after, a:visited:after {
+    content: " [" attr(href) "] ";
+    font-size:90%;
+    } … 
+    css3:
+    a[href^="/"]:after {
+content: " (http://www.sito.it" attr(href) ") ";
+}*/
