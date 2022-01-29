@@ -2,9 +2,12 @@ html,
 body {
 	font-size: 95%;
 	font-family: serif;
-    text-align: justify;
 	max-width: 1200px;
 	background-image: none;
+}
+
+p{
+    text-align: justify;
 }
 
 nav, footer, a.aiuti, #darkmode-switch, #burger-menu, #closebtn, #contaPersone, #scorriPagine{
@@ -38,6 +41,8 @@ abbr[title]{
     text-decoration: none;
 }
 
+/* galleria */
+
 div.galleryGroup{
     page-break-before: always;
 }
@@ -53,6 +58,8 @@ div.galleryGroup{
     display: inline;
 }
 
+/* trainer */
+
 .personalTrainer img{
     width: 15%;
 }
@@ -60,6 +67,8 @@ div.galleryGroup{
 article.personalTrainer{
     break-inside: avoid;
 }
+
+/* attrezzature */
 
 .attrezzature img{
     margin-right: 1em;
@@ -74,6 +83,77 @@ article.personalTrainer{
 #content .attrezzature article h3, #content.attrezzature h2{
     clear: both;
 }
-/* non mostrare il logo */
 
-/* abbreviaziooni */
+/* storia */
+
+#presente{
+    page-break-before: always;
+}
+
+/* dettagli allenamento */
+
+#dettagliAllenamento a, #dettagliAllenamento button, #dettagliAllenamento #breadcrumb, #dettagliAllenamento #titolo, #dettagliAllenamento #autoDescrizione, #bottoni-allenamenti{
+    display: none;
+}
+
+#titolo-dettagli-allenamento{
+    font-size: 2em;
+}
+
+#dettagliAllenamento h1.hide:after{
+    content: " - Scheda di Allenamento";
+}
+
+#dettagliAllenamento article.dettaglioEsercizio{
+    clear: left;
+}
+
+#dettagliAllenamento .dettaglioEsercizio h3{
+    float: left;
+
+    margin-bottom: 0;
+}
+#dettagliAllenamento .dettaglioEsercizio p{
+    padding-top: 1.3em;
+}
+
+#dettagliAllenamento .dettaglioEsercizio h3:after{
+    content: ":\00a0";
+}
+
+#dettagliAllenamento ul{
+    list-style-type: none;
+}
+
+#dettagliAllenamento .dettaglioEsercizio ul{
+    clear: left;
+    padding-left: 0;
+}
+
+#dettagliAllenamento .dettaglioEsercizio li{
+    float: left;
+}
+
+#dettagliAllenamento .dettaglioEsercizio li:after{
+    content: "\00a0-\00a0";
+}
+
+#dettagliAllenamento .dettaglioEsercizio li.first:before{
+    content: "-\00a0";
+}
+
+ul#specifiche-utente-dettaglio-allenamento {
+    padding-left: 0;
+}
+
+ul#specifiche-utente-dettaglio-allenamento li {
+    float: left;
+}
+
+ul#specifiche-utente-dettaglio-allenamento li:after {
+    content: ",\00a0";
+}
+
+ul#specifiche-utente-dettaglio-allenamento li.last:after {
+    content: ".";
+}

@@ -46,7 +46,7 @@
 
 			if ($queryOverviewAllenamentoResult[0]['id'] != null) {
 				$numeroEsercizi = count($queryDettaglioAllenamentoResult);
-				$content .= '<h2 id="titolo-dettagli-allenamento">' . $queryOverviewAllenamentoResult[0]['nome'] . '</h2><p>' . $queryOverviewAllenamentoResult[0]['descrizione'] . '</p><p>Questo allenamento comprende ' . $numeroEsercizi . ' esercizi';			
+				$content .= '<h2 id="titolo-dettagli-allenamento">' . $queryOverviewAllenamentoResult[0]['nome'] . '</h2><p>' . $queryOverviewAllenamentoResult[0]['descrizione'] . '</p><p id="autoDescrizione">Questo allenamento comprende ' . $numeroEsercizi . ' esercizi';			
 				if ($numeroEsercizi == 1) {
 					$content .= 'o';
 				}
@@ -60,7 +60,7 @@
 					}
 					$content .= ' e ' . $queryDettaglioAllenamentoResult[$i]['nome'];
 				}
-				$content .= '.</p><ul id="specifiche-utente-dettaglio-allenamento"><li>Di ' . $queryOverviewAllenamentoResult[0]['username_utente'] . '</li>' . ($queryOverviewAllenamentoResult[0]['trainer'] == null ? ' ' : '<li>Creato da ' . $queryOverviewAllenamentoResult[0]['trainer'] . '</li>') . '<li>Creato il ' . $queryOverviewAllenamentoResult[0]['data_creazione'] . '</li><li>Seguito da ' . ($queryOverviewAllenamentoResult[0]['Followers'] == null ? 0 : $queryOverviewAllenamentoResult[0]['Followers']) . ' person' . ($queryOverviewAllenamentoResult[0]['Followers'] == 1 ? 'a' : 'e') . '</li></ul><div class="bottoni-allenamenti">';
+				$content .= '.</p><ul id="specifiche-utente-dettaglio-allenamento"><li>Di ' . $queryOverviewAllenamentoResult[0]['username_utente'] . '</li>' . ($queryOverviewAllenamentoResult[0]['trainer'] == null ? ' ' : '<li>Creato da ' . $queryOverviewAllenamentoResult[0]['trainer'] . '</li>') . '<li>Creato il ' . $queryOverviewAllenamentoResult[0]['data_creazione'] . '</li><li class="last">Seguito da ' . ($queryOverviewAllenamentoResult[0]['Followers'] == null ? 0 : $queryOverviewAllenamentoResult[0]['Followers']) . ' person' . ($queryOverviewAllenamentoResult[0]['Followers'] == 1 ? 'a' : 'e') . '</li></ul><div class="bottoni-allenamenti">';
 				if ($tipoUtente == 1 || ($tipoUtente == 0 && $queryOverviewAllenamentoResult[0]['username_utente'] == $utente)) {
 					$content .= "<ul><li><a href='modificaAllenamento.php?id=" . $id . "'>Modifica allenamento</a></li></ul>";
 					$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "&url=" . $referer . "' method='post'><button name='elimina'>Elimina allenamento</button></form>";
@@ -85,16 +85,16 @@
 				$content .= "</div><div class='dettagli-allenamento'>";
 
 				foreach($queryDettaglioAllenamentoResult as $row){
-	                $content .= "<article><h3>" . $row["nome"] ."</h3>";
+	                $content .= "<article class=\"dettaglioEsercizio\"><h3>" . $row["nome"] ."</h3>";
 	                if($row["descrizione"] != null) {
 	                    $content .= "<p>" . $row["descrizione"] ."</p>";
 	                }
 	                
 	                $content .= "<ul>";
 	                if($row["peso"] != null){
-	                    $content .= "<li>Con " . $row["peso"] . " chili</li>";
+	                    $content .= "<li class=\"first\">Con " . $row["peso"] . " chili</li>";
 	                } else {
-	                    $content .= "<li>Senza usare pesi</li>";
+	                    $content .= "<li class=\"first\">Senza usare pesi</li>";
 	                }
 	                if($row["serie"] != null){
 	                    $content .= "<li>" . $row["serie"] . " serie</li>";
