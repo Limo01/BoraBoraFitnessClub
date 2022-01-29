@@ -17,7 +17,7 @@ h1.hide {
 	margin-top: 0;
 }
 
-#inserimentoForm input {
+#inserimentoForm input, #inserimentoForm textarea, #inserimentoForm select {
 	width: 85%;
 }
 

@@ -1455,18 +1455,18 @@ div div .gallery {
 #inserimentoForm input {
 	display: block;
 	border-style: none;
-	border-bottom: 2px solid var(--colore-background-menu);
-	border-left: 2px solid var(--colore-background-menu);
+	border: 2px solid var(--colore-background-menu);
 	background-color: unset;
 	width: 60%;
 	font-size: 1.3em;
+	outline: none;
 	padding: 0.5em;
 }
 
 #inserimentoForm textarea {
 	border-style: none;
-	border-bottom: 2px solid var(--colore-background-menu);
-	border-left: 2px solid var(--colore-background-menu);
+	border: 2px solid var(--colore-background-menu);
+	outline: none;
 	background-color: unset;
 	resize: none;
 	width: 60%;
@@ -1477,8 +1477,7 @@ div div .gallery {
 #inserimentoForm select {
 	display: block;
 	border-style: none;
-	border-bottom: 2px solid var(--colore-background-menu);
-	border-left: 2px solid var(--colore-background-menu);
+	border: 2px solid var(--colore-background-menu);
 	background-color: unset;
 	resize: none;
 	width: 60%;
@@ -1527,8 +1526,7 @@ div div .gallery {
 
 #inserimentoEsercizio input {
 	border-style: none;
-	border-bottom: 2px solid var(--colore-background-menu);
-	border-left: 2px solid var(--colore-background-menu);
+	border: 2px solid var(--colore-background-menu);
 	background-color: unset;
 
 	font-size: 1.3em;
@@ -1537,8 +1535,7 @@ div div .gallery {
 
 #inserimentoEsercizio textarea {
 	border-style: none;
-	border-bottom: 2px solid var(--colore-background-menu);
-	border-left: 2px solid var(--colore-background-menu);
+	border: 2px solid var(--colore-background-menu);
 	background-color: unset;
 	resize: none;
 	/* width: 60%; */
