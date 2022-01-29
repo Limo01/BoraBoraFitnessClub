@@ -418,10 +418,6 @@ footer[class="footer-bottom"] {
 	padding-top: 0.5em;
 }
 
-#scegliNoi > h2 {
-	font-size: 4em;
-}
-
 #motivazioni {
 	color: var(--colore-testo-principale);
 	display: flex;
@@ -440,14 +436,9 @@ footer[class="footer-bottom"] {
 	margin: 1em;
 }
 
-.motivazione > span {
-	font-size: 5em;
-	padding-bottom: 1em;
-}
-
-.motivazione h3 {
-	font-size: 2em;
-	padding-top: 0.5em;
+.motivazione .numero {
+	display: block;
+	font-size: 1.8em;
 }
 
 #diventaMembro {
