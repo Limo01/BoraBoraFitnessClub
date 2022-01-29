@@ -40,7 +40,7 @@
 
 		$connessione->closeConnection();
 
-		header("location: ../area-personale.php?acquisto=1");
+		header("location: ../area-personale.php?acquisto=1#dettagli_abbonamento");
 		return;
 	}
 
