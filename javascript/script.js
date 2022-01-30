@@ -154,8 +154,8 @@ function check_validity_data_nascita(e){
 				spanErrore.innerHTML = "Ti ricordiamo che devi avere minimo 16 anni!";
 			}
 		}
-		else if(data_input < new Date().setFullYear(new Date().getFullYear() - 110)){
-			spanErrore.innerHTML+= "Non pensiamo che tu abbia più di 110 anni! Nel caso ci sbaglissimo, complimenti! Scrivi subito ad un admin!";
+		else if(data_input < new Date().setFullYear(new Date().getFullYear() - 120)){
+			spanErrore.innerHTML+= " Secondo <span lang='en'>Wikipedia</span> non esistono persone con più di 120 anni!";
 		}
 	}
 	else {
