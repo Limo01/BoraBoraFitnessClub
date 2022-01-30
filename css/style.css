@@ -89,6 +89,7 @@ h1.hide:hover {
 	font-size: 1.2em;
 	background-color: var(--colore-sfondo-div);
 	padding-top: 1em;
+	padding-bottom: 0.5em;
 }
 
 .aiuti {
