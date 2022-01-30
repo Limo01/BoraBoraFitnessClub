@@ -1404,6 +1404,7 @@ div div .gallery {
 
 #content .bottoni-allenamenti ul {
 	margin: 0em;
+	margin-right: 0.5em;
 }
 
 #content .allenamento-avviso {
@@ -1421,13 +1422,9 @@ div div .gallery {
 
 .bottoni-allenamenti {
 	display: flex;
+	align-items: center;
 	flex-wrap: wrap;
 	margin: 0em 0em 1em 0em;
-}
-
-.bottoni-allenamenti button {
-	padding: 0.5em 1em;
-	margin: 0.5em 0.2em;
 }
 
 #naviga-pagine {
