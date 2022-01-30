@@ -54,4 +54,5 @@
 		}
 	}
 	header("location: ../" . ($hasUsr ? "visualizza-utente.php?usr=" . $user . "&" : "area-personale.php?") . "update=" . $update . "&form_error=1");
+	return;
 ?>

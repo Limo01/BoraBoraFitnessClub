@@ -3,4 +3,5 @@
     $_SESSION["loggedin"] = false;
     unset($_SESSION["username"]);
     header("location: ../");
+    return;
 ?>

@@ -267,9 +267,13 @@ window.onload = function () {
 	document.getElementById("burger-menu").addEventListener("click", openNav);
 	document.getElementById("closebtn").addEventListener("click", closebtn);
 
+	//per evitare che i link alle ancore siano in parte coperti dal menu
 	if(window.location.hash && window.innerWidth > 768){
-		var top = document.getElementById(window.location.hash.substring(1)).offsetTop; //Getting Y of target element
-    	window.scrollTo(0, top-56); 
+		var id = document.getElementById(window.location.hash.substring(1));
+		if(id != null){
+			var top = id.offsetTop;
+    		window.scrollTo(0, top-56); 
+		}
 	}
 	
 };

@@ -41,8 +41,10 @@
 					$previous = $_SESSION['previousPage'];
 					unset($_SESSION['previousPage']);
 					header("location: " . $previous);
+					return;
 				} else{
 					header("location: area-personale.php");
+					return;
 				}
 			}
 			else {
@@ -65,6 +67,29 @@
 		$paginaHTML = str_replace("<today_min16anni />", date('Y-m-d', strtotime('-16 years')), $paginaHTML);
 		$paginaHTML = str_replace("<today_max110anni />", date('Y-m-d', strtotime('-110 years')), $paginaHTML);
 		$paginaHTML = str_replace("<erroreLogin />","",$paginaHTML);
+		if(isset($_GET["msg"])){
+			$msg = "<p>";
+			switch($_GET["msg"]){
+				case 0: 
+					$msg .= "Per guardare i tuoi allenamenti devi prima effettuare l'autenticazione.";
+					break;
+				case 1:
+					$msg .= "Per creare un allenamento devi prima effettuare l'autenticazione.";
+					break;
+				case 2:
+					$msg .= "Per entrare all'interno dell'area personale devi prima effettuare l'autenticazione.";
+					break;
+				case 3:
+					$msg .= "Per acquistare un abbonamento devi prima effettuare l'autenticazione.";
+					break;
+			}
+			$msg .= ' Una volta effettuato il <span lang="en">login</span> o la registrazione verrai reindirizzato alla pagina che desiseri</p>';
+			$paginaHTML = str_replace("<messaggioRedirect />", $msg, $paginaHTML);
+		} else {
+			$paginaHTML = str_replace("<messaggioRedirect />", 
+			'<p>Accedi per usufruire di tutte le funzionalità di <strong lang="en">Bora Bora Fitness Club</strong>, o registrati se non hai ancora un profilo!<p>',
+			$paginaHTML);
+		}
 		echo $paginaHTML;
 	}
 

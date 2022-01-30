@@ -39,7 +39,8 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
     }
     echo $paginaHTML;
 } else {
-    header("location: autenticazione.php?url=inserimentoAllenamento.php");
+    header("location: autenticazione.php?url=inserimentoAllenamento.php&msg=1");
+    return;
 }
 
 ?>

@@ -52,8 +52,10 @@
 						$previous = $_SESSION['previousPage'];
 						unset($_SESSION['previousPage']);
 						header("location: " . $previous);
+						return;
 					} else{
 						header("location: area-personale.php");
+						return;
 					}
 			} else {
 				if(!$nomeValid){

@@ -110,8 +110,8 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
     }
     
 } else {
-    //TODO: DA CHE PAGINA ARRIVO?
     header("location: autenticazione.php?");
+    return;
 }
 
 ?>

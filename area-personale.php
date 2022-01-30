@@ -11,10 +11,10 @@
 	}
 	else{
 		if (isset($_GET["allenamenti"]) && $_GET["allenamenti"] == 1) {
-			header("Location: autenticazione.php?url=area-personale.php%23schede_allenamento");
+			header("Location: autenticazione.php?url=area-personale.php%23schede_allenamento&msg=0#");
 			return;
 		}
-		header("Location: autenticazione.php");
+		header("Location: autenticazione.php?msg=2");
 		return;
 	}
 

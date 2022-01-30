@@ -77,4 +77,5 @@
 	}
 	header("location: ../visualizza-utente.php?usr=" . $user . "&update=" . $update . "&form_error=2");
 	die("Errore: dati inseriti non corretti!");
+	return;
 ?>

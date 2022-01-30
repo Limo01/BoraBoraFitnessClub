@@ -8,7 +8,7 @@
 		$user = $_SESSION["username"];
 	}
 	else{
-		header("location: autenticazione.php?url=compra-abbonamento.php");
+		header("location: autenticazione.php?url=compra-abbonamento.php&msg=4");
 		return;
 	}
 

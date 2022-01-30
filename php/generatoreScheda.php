@@ -38,6 +38,7 @@
             }
         } else {
             header("location: ../autenticaione.php");
+            return;
         }
     } elseif (isset($_POST['eliminaEsercizioSubmit'])) {
         if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
@@ -60,6 +61,7 @@
             }
         } else {
             header("location: ../autenticaione.php");
+            return;
         }
         
     } elseif (isset($_POST['aggiungiEsercizioSubmit'])){
@@ -83,6 +85,7 @@
 
                     $connessione->closeConnection();
                     header("location: ../modificaAllenamento.php?id=".$_GET["id"]."&notifica=1#datiScheda");
+                    return;
                 } else {
                     echo "non puoi accedere a questa pagina";
                 }  
@@ -91,6 +94,7 @@
             }
         } else {
             header("location: ../autenticaione.php");
+            return;
         }
     }
 ?>
