@@ -19,7 +19,8 @@
 		color: var(--colore-testo-principale);
 	}
 
-	#userIcon a{
+	#userIcon a,
+	#userIcon a:hover{
 		background-image: var(--icona-autenticazione);
 	}
 
@@ -29,6 +30,7 @@
 
 	#currentLink{
 		background-color: var(--colore-testo-principale);
+		color: var(--colore-testo-contrasto-sfondi);
 		display: inline-block;
 	}
 
