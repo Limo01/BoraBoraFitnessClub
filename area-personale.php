@@ -46,7 +46,10 @@
 				$userRemoved = false;
 			}
 
-			$utenti = $connessione->doReadQuery("SELECT username FROM utente WHERE username != ? and is_admin = 0", "s", $user);
+			if(isset($_GET["nome-ricerca"]))
+				$utenti = $connessione->doReadQuery("SELECT username FROM utente WHERE username != ? and is_admin = 0 and username like ?", "ss", $user, "%" . $_GET["nome-ricerca"] . "%");
+			else
+				$utenti = $connessione->doReadQuery("SELECT username FROM utente WHERE username != ? and is_admin = 0", "s", $user);
 		}
 
 		$ultimoIngresso = $connessione->doReadQuery("SELECT dataora_entrata FROM accesso WHERE username_utente=? order by dataora_entrata DESC limit 1", "s", $user);
@@ -74,7 +77,10 @@
 		unset($schedeSeguite, $schedeCreate);
 
 		if ($admin) {
-			$paginaHTML = replaceGestioneUtenti($utenti, $userRemoved, $updatePersonalData, $paginaHTML);
+			if(isset($_GET["nome-ricerca"]))
+				$paginaHTML = replaceGestioneUtenti($utenti, $userRemoved, $updatePersonalData, $paginaHTML, $_GET["nome-ricerca"]);
+			else
+				$paginaHTML = replaceGestioneUtenti($utenti, $userRemoved, $updatePersonalData, $paginaHTML);
 			unset($utenti);
 		}
 	} else {

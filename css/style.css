@@ -1216,6 +1216,7 @@ div div .gallery {
 
 #gestione_utenti {
 	grid-area: d;
+	text-align: center;
 }
 
 #gestione_utenti p {
@@ -1223,6 +1224,7 @@ div div .gallery {
 }
 
 #gestione_utenti ul {
+	margin-top: 1em;
 	max-height: 35em;
 	border: solid 1px var(--colore-testo-principale);
 	width: 80%;
@@ -1250,6 +1252,21 @@ div div .gallery {
 	display: inline-block;
 	font-size: 1em;
 	margin: 0.5em 0;
+}
+
+#ricerca-utente + a{
+	font-size: 1.1em;
+}
+
+#ricerca-utente{
+	width: 50%;
+	text-align: left;
+}
+
+#ricerca-utente input{
+	width: 70%;
+	display: inline;
+	border: solid 1px var(--colore-testo-principale);
 }
 
 /*==================== STILE ACQUISTO ABBONAMENTO ====================*/

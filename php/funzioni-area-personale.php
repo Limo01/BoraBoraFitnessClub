@@ -21,10 +21,16 @@
 		return $paginaHTML;
 	}
 
-	function replaceGestioneUtenti($utenti, $userRemoved, $updatePersonalData, $paginaHTML) {
+	function replaceGestioneUtenti($utenti, $userRemoved, $updatePersonalData, $paginaHTML, $nomeRicerca="") {
 		$gestioneUtenti = '
 			<div id="gestione_utenti" class="widget">
 				<h2>Gestione utenti</h2>
+				
+				<form id="ricerca-utente" action="area-personale.php">
+					<input type="text" placeholder="Cerca..." name="nome-ricerca" value="' . $nomeRicerca . '">
+					<button>Cerca</button>
+				</form>
+				<a href="area-personale.php">Pulisci filtro</a>
 
 				<lista_utenti />
 			</div>
