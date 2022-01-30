@@ -627,7 +627,6 @@ footer[class="footer-bottom"] {
 }
 
 /*==================== PERSONAL TRAINER ====================*/
-
 #content .personalTrainer h2 {
 	margin: 0em 0em 0.7em 35%;
 }
@@ -688,7 +687,7 @@ footer[class="footer-bottom"] {
 	display: inline-block;
 }
 
-/*==================== STILE ATTREZZATURE ====================*/
+/*==================== ATTREZZATURE ====================*/
 
 #content .attrezzature article {
 	margin-bottom: 4em;
@@ -728,7 +727,7 @@ footer[class="footer-bottom"] {
 	font-size: 3.2em;
 }
 
-/*==================== STILE STORIA ======================*/
+/*==================== STORIA ======================*/
 
 #presente h2,
 #passato h2 {
@@ -1031,7 +1030,7 @@ div div .gallery {
 	grid-area: f;
 }
 
-/*==================== STILE AREA PERSONALE ====================*/
+/*==================== AREA PERSONALE ====================*/
 #content dl[class="dl_inline"] {
 	text-align: center;
 	width: 80%;
@@ -1188,7 +1187,7 @@ div div .gallery {
 	text-align: center;
 }
 
-/*==================== STILE AREA PERSONALE ADMIN ====================*/
+/*==================== AREA PERSONALE ADMIN ====================*/
 #content #widget_area_personale_admin {
 	background-color: transparent;
 	display: grid;
@@ -1269,7 +1268,7 @@ div div .gallery {
 	margin: 0;
 }
 
-/*==================== STILE ACQUISTO ABBONAMENTO ====================*/
+/*==================== ACQUISTO ABBONAMENTO ====================*/
 #acquisto_abbonamento form {
 	text-align: center;
 	margin-top: 1.5em;
@@ -1295,7 +1294,7 @@ div div .gallery {
 	margin-top: 1em;
 }
 
-/*==================== STILE CONFERMA ACQUISTO =======================*/
+/*==================== CONFERMA ACQUISTO =======================*/
 #avviso_pagamento {
 	font-size: 0em;
 }

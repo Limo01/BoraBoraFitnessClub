@@ -1,4 +1,4 @@
-/*========= MENU =========*/
+/*==================== MENU ====================*/
 h1.hide {
 	margin: 0 3em;
 }
@@ -126,7 +126,7 @@ h1.hide {
 	right: 2%;
 }
 
-/* allenamenti */
+/*==================== ALLENAMENTI ====================*/
 .dettagli-allenamento article {
 	width: 60%;
 }
@@ -142,4 +142,14 @@ h1.hide {
 #errore img {
 	float: none;
 	width: 40%;
+}
+
+/*==================== AREA PERSONALE ADMIN ====================*/
+#content #widget_area_personale_admin {
+	gap: 2em;
+}
+
+/*==================== PERSONAL TRAINER ====================*/
+#content .personalTrainer .corsiTrainer {
+	margin-left: unset;
 }
