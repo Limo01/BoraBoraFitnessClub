@@ -26,18 +26,18 @@
 			<div id="gestione_utenti" class="widget">
 				<h2>Gestione utenti</h2>
 				
-				<form id="ricerca-utente" action="area-personale.php">
+				<form id="ricerca-utente" action="area-personale.php#gestione_utenti" role="search">
 					<label for="nome-ricerca">Cerca utenti</label>
 					<input type="text" placeholder="Cerca..." name="nome-ricerca" value="' . $nomeRicerca . '">
 					<button>Cerca</button>
+					<a href="area-personale.php#gestione_utenti">Pulisci filtro</a>
 				</form>
-				<a href="area-personale.php">Pulisci filtro</a>
 
 				<lista_utenti />
 			</div>
 		';
 
-		$listaUtenti = "<p>Nessun utente presente</p>";
+		$listaUtenti = isset($_GET["nome-ricerca"]) ? "<p>Non è stato trovato nessun utente</p>" : "<p>Nessun utente presente</p>";
 		
 		if ($utenti != null && count($utenti) > 0) {
 			$listaUtenti = "<ul id='lista_utenti'>";

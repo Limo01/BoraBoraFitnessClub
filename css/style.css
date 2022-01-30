@@ -403,7 +403,9 @@ small {
 	border: 2px solid var(--colore-testo-principale);
 }
 
-#content input:invalid,
+#content
+	form:not(#accesso, #registrazione, #inserimentoEsercizio, #inserimentoAllenamento)
+	input:invalid,
 #content textarea:invalid {
 	border: 2px solid var(--colore-errore);
 }
@@ -1150,18 +1152,6 @@ div div .gallery {
 	font-weight: bold;
 }
 
-.dati_personali input {
-	width: 100%;
-	margin-top: 0.5em;
-	margin-bottom: 1em;
-	padding-top: 0.2em;
-	box-sizing: border-box;
-	border: none;
-	border-bottom: 2px solid var(--colore-background-menu);
-	background-color: transparent;
-	outline: none;
-}
-
 .dati_personali input[type="date"] {
 	font-size: 1.3em;
 	font-weight: bold;
@@ -1172,11 +1162,6 @@ div div .gallery {
 	margin-top: 0.5em;
 	margin-bottom: 2em;
 	padding-top: 0.2em;
-}
-
-#widget_area_personale .dati_personali input:invalid,
-#widget_area_personale_admin .dati_personali input:invalid {
-	border-bottom: 2px solid var(--colore-errore);
 }
 
 .dati_personali input:focus {
@@ -1250,24 +1235,35 @@ div div .gallery {
 }
 
 #gestione_utenti form {
-	display: inline-block;
 	font-size: 1em;
 	margin: 0.5em 0;
 }
 
-#ricerca-utente + a{
-	font-size: 1.1em;
+#gestione_utenti > form {
+	text-align: center;
+	display: block;
+	width: 80%;
+	margin: 0.5em auto;
 }
 
-#ricerca-utente{
-	width: 50%;
+#ricerca-utente label {
+	font-size: 1.2em;
 	text-align: left;
 }
 
-#ricerca-utente input{
-	width: 70%;
+#ricerca-utente a {
+	font-size: 1.2em;
+	margin: 0.5em 0.2em;
+}
+
+#ricerca-utente button {
+	font-size: 1.2em;
+	margin: 0.5em 0.2em 0;
+}
+
+#ricerca-utente input {
+	width: 100%;
 	display: inline;
-	border: solid 1px var(--colore-testo-principale);
 }
 
 /*==================== STILE ACQUISTO ABBONAMENTO ====================*/
@@ -1680,9 +1676,4 @@ fieldset {
 .imgValidCode {
 	margin: 1em;
 	height: 3em;
-}
-
-/*==================== AUTENTICAZIONE ====================*/
-#accesso input:invalid {
-	border: 2px solid var(--colore-background-menu);
 }

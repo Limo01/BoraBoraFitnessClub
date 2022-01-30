@@ -200,7 +200,8 @@ h1.hide:hover {
 	border-radius: 0.5em;
 }
 
-#gestione_utenti ul {
+#gestione_utenti ul,
+#gestione_utenti > form {
 	width: 65%;
 }
 
