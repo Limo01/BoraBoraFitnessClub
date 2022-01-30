@@ -118,11 +118,6 @@ a:hover {
 	background-color: var(--colore-hover-link);
 }
 
-a.imgLink {
-	padding: 0;
-	background-color: transparent;
-}
-
 button {
 	padding: 0.3em 1em;
 	border-radius: 1em;
@@ -450,6 +445,14 @@ footer h2 {
 	padding-top: 1em;
 }
 
+footer a {
+	padding: 0;
+	background-color: unset;
+}
+footer a:hover {
+	background-color: unset;
+}
+
 .social {
 	margin: 1em;
 	height: 3.5em;
@@ -526,7 +529,14 @@ footer[class="footer-bottom"] {
 
 #doveSiamo {
 	grid-area: a;
+	text-align: center;
+}
+#doveSiamo p {
 	text-align: left;
+}
+#doveSiamo a {
+	font-size: 1.5em;
+	margin-top: 1em;
 }
 
 #orari {
