@@ -45,19 +45,6 @@ h1.hide:hover {
 }
 
 /*======== CONTENT =========*/
-#breadcrumb {
-	padding-top: 0.5em;
-	background-color: var(--colore-sfondo-div);
-	margin-bottom: 1em;
-	padding-bottom: 1em;
-	border-bottom-right-radius: 0.5em;
-	border-bottom-left-radius: 0.5em;
-}
-
-#content #titolo {
-	border-top-left-radius: 0.5em;
-	border-top-right-radius: 0.5em;
-}
 
 #content > div,
 #content > article {

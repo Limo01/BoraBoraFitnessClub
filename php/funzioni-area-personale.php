@@ -27,6 +27,7 @@
 				<h2>Gestione utenti</h2>
 				
 				<form id="ricerca-utente" action="area-personale.php">
+					<label for="nome-ricerca">Cerca utenti</label>
 					<input type="text" placeholder="Cerca..." name="nome-ricerca" value="' . $nomeRicerca . '">
 					<button>Cerca</button>
 				</form>

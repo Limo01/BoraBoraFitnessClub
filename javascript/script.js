@@ -198,6 +198,8 @@ function openNav() {
 	topbar.style.width= "100%";
 	burger_menu.style.display= "none";
 
+	document.getElementsByTagName("body")[0].style.overflow = "hidden";
+
 	window.addEventListener("resize", function(){	
 		if(window.innerWidth > 768){
 			topbar.style.width= "100%";
@@ -215,6 +217,8 @@ function closeNav() {
 	var burger_menu= document.getElementById("burger-menu");
 
 	topbar.style.width = "0%";
+
+	document.getElementsByTagName("body")[0].style.overflow = "visible";
 
 	topbar.addEventListener("transitionend", function(){
 		if(topbar.style.width == "0%"){
