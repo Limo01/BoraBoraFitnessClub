@@ -35,14 +35,14 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
                 <input id=\"ripetizioniEsercizioI\" type=\"number\" name=\"ripetizioniEsercizio\" min=\"0\" value=\"0\">
 
                 <label id=\"durataEsercizioL\">Durata</label>
-                <input id=\"durataEsercizioI\" type=\"time\" name=\"durataEsercizio\" min=\"0\", value=\"00:00:00\", step=\"1\">
+                <input id=\"durataEsercizioI\" type=\"time\" name=\"durataEsercizio\" min=\"00:00:00\" value=\"00:00:00\" step=\"1\">
                 
                 <button id=\"buttonAddEsercizio\" name=\"aggiungiEsercizioSubmit\">Aggiungi</button>
             </form>";
             $paginaHTML = str_replace("<insertEsercizio />",$aggiungiEsercizio,$paginaHTML);
 
             //form elimina esercizio
-            $optionEsercizio = "<form id=\"inserimentoForm\" action=\"php/generatoreScheda.php?id=".$_GET["id"]."\", method=\"post\"><label>Seleziona esercizio da eliminare</label><select name=\"esercizioScheda\">";
+            $optionEsercizio = "<form id=\"inserimentoForm\" action=\"php/generatoreScheda.php?id=".$_GET["id"]."\" method=\"post\"><label>Seleziona esercizio da eliminare</label><select name=\"esercizioScheda\">";
             foreach($eserciziQuery as $row){
                 $optionEsercizio .= "<option value=\"" . $row["nome"] . "\">" . $row["nome"] . "</option>";
             }
@@ -63,7 +63,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
                 $datiScheda.= "<p class=\"notification\">Esercizio rimosso con successo!</p>";
             }
 
-            $datiScheda .= "<a href=\"dettagli-allenamento.php?id=".$_GET["id"]."&nomeBreadcrumb=Modifica allenamento&url=modificaAllenamento.php?id=" . $_GET['id'] . "\">Torna ai dettagli</a>";
+            $datiScheda .= "<a href=\"dettagli-allenamento.php?id=".$_GET["id"]."&nomeBreadcrumb=Modifica+allenamento&url=modificaAllenamento.php?id=" . $_GET['id'] . "\">Torna ai dettagli</a>";
 
             if($schedaQuery[0]["descrizione"] != "") {
                 $datiScheda .= "<p>" . $schedaQuery[0]["descrizione"] ."</p>";
