@@ -11,6 +11,7 @@
 	--colore-background-menu: #bfb394;
 	--colore-sfondo-footer: #000000cc;
 	--colore-testo-footer: #fdf1ce;
+	--colore-bordi-form: #a19263;
 	--immagine-background: url("../immagini/sfondo-light.jpg");
 	--icona-autenticazione: url("../immagini/logo/user.png");
 	--icona-autenticazione-current: url("../immagini/logo/user-light.png");
@@ -20,16 +21,17 @@
 [data-theme="dark"] {
 	--colore-sfondo-div: #000000cc;
 	--colore-testo-contrasto-sfondi: #473603;
-	--colore-testo-principale: #bfb394;
+	--colore-testo-principale: #dfd0ab;
 	--colore-errore: red;
 	--colore-successo: #00b800;
 	--colore-link-da-visitare: #a7e08c;
-	--colore-sfondo-article-p: #241f19;
-	--colore-hover-link: #332f26;
-	--colore-hover-menu: #3b362b;
-	--colore-background-menu: #332a1f;
+	--colore-sfondo-article-p: #382c1f;
+	--colore-hover-link: #5f4a31;
+	--colore-hover-menu: #5f4a31;
+	--colore-background-menu: #473725;
 	--colore-sfondo-footer: #000000cc;
 	--colore-testo-footer: #fdf1ce;
+	--colore-bordi-form: #796544;
 	--immagine-background: url("../immagini/sfondo-dark.jpg");
 	--icona-autenticazione: url("../immagini/logo/user-light-darkmode.png");
 	--icona-autenticazione-current: url("../immagini/logo/user.png");
@@ -386,7 +388,7 @@ small {
 	margin-top: 0.5em;
 	padding: 0.5em;
 	box-sizing: border-box;
-	border: 2px solid var(--colore-background-menu);
+	border: 2px solid var(--colore-bordi-form);
 	background-color: unset;
 	outline: none;
 	resize: none;
@@ -1171,10 +1173,6 @@ div div .gallery {
 	margin-top: 0.5em;
 	margin-bottom: 2em;
 	padding-top: 0.2em;
-}
-
-.dati_personali input:focus {
-	border-bottom: 2px solid var(--colore-testo-principale);
 }
 
 #content .dati_personali .errore_form {
