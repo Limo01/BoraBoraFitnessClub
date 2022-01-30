@@ -42,25 +42,23 @@
 		if ($utenti != null && count($utenti) > 0) {
 			$listaUtenti = "<ul id='lista_utenti'>";
 			$utente = array_pop($utenti)["username"];
-			$listaUtentiEnd =
-				"<li class='utente' id='last_user'>
-					<a href='visualizza-utente.php?usr=" . $utente ."'>" . $utente . "</a>
-					<form action='area-personale.php" . ($updatePersonalData ? "?update=1" : "") . "#gestione_utenti' method='post'>
-						<input type='hidden' name='user' value='" . $utente . "' />
+
+			$form =
+				"	<form action='area-personale.php" . ($updatePersonalData ? "?update=1" : "") . "#gestione_utenti' method='post'>
+						<label for='user'>
+							<a href='visualizza-utente.php?usr=<username />'><username /></a>
+						</label>
+						<input type='hidden' name='user' value='<username />' />
 						<button name='elimina'>Elimina</button>
 					</form>
 				</li>";
+
+			$listaUtentiEnd = str_replace("<username />", $utente, "<li class='utente' id='last_user'>" . $form);
+
 			if (count($utenti) > 0) {
 				foreach ($utenti as $utente) {
 					$utente = $utente["username"];
-					$listaUtenti .=
-					"<li class='utente'>
-					<a href='visualizza-utente.php?usr=" . $utente ."'>" . $utente . "</a>
-					<form action='area-personale.php" . ($updatePersonalData ? "?update=1" : "") . "#gestione_utenti' method='post'>
-					<input type='hidden' name='user' value='" . $utente . "' />
-					<button name='elimina'>Elimina</button>
-					</form>
-					</li>";
+					$listaUtenti .= str_replace("<username />", $utente, "<li class='utente'>" . $form);
 				}
 			}
 			$listaUtenti .= $listaUtentiEnd . "</ul>";

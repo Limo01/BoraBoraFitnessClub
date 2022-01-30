@@ -1,5 +1,5 @@
 :root {
-	--colore-sfondo-div: rgba(255, 253, 233, 0.9);
+	--colore-sfondo-div: #fffde9e6;
 	--colore-testo-contrasto-sfondi: #fdf1ce;
 	--colore-testo-principale: #473603;
 	--colore-errore: #db0000;
@@ -9,7 +9,7 @@
 	--colore-hover-link: #cfbe96;
 	--colore-hover-menu: #d6c8a6;
 	--colore-background-menu: #bfb394;
-	--colore-sfondo-footer: rgba(0, 0, 0, 0.8);
+	--colore-sfondo-footer: #000000cc;
 	--colore-testo-footer: #fdf1ce;
 	--immagine-background: url("../immagini/sfondo-light.jpg");
 	--icona-autenticazione: url("../immagini/logo/user.png");
@@ -18,17 +18,17 @@
 }
 
 [data-theme="dark"] {
-	--colore-sfondo-div: rgba(0, 0, 0, 0.8);
+	--colore-sfondo-div: #000000cc;
 	--colore-testo-contrasto-sfondi: #473603;
 	--colore-testo-principale: #bfb394;
 	--colore-errore: red;
 	--colore-successo: #00b800;
 	--colore-link-da-visitare: #a7e08c;
-	--colore-sfondo-article-p: #332a1f;
+	--colore-sfondo-article-p: #241f19;
 	--colore-hover-link: #332f26;
 	--colore-hover-menu: #3b362b;
-	--colore-background-menu: #241f19;
-	--colore-sfondo-footer: rgba(0, 0, 0, 0.8);
+	--colore-background-menu: #332a1f;
+	--colore-sfondo-footer: #000000cc;
 	--colore-testo-footer: #fdf1ce;
 	--immagine-background: url("../immagini/sfondo-dark.jpg");
 	--icona-autenticazione: url("../immagini/logo/user-light-darkmode.png");
@@ -1200,15 +1200,36 @@ div div .gallery {
 		"a b";
 }
 
+#gestione_utenti #ricerca-utente {
+	text-align: center;
+	display: block;
+	width: 80%;
+	margin: 0.5em auto;
+}
+#ricerca-utente label {
+	font-size: 1.2em;
+	text-align: left;
+}
+#ricerca-utente a {
+	font-size: 1.2em;
+	margin: 0.5em 0.2em;
+}
+#ricerca-utente button {
+	font-size: 1.2em;
+	margin: 0.5em 0.2em 0;
+}
+#ricerca-utente input {
+	width: 100%;
+	display: inline;
+}
+
 #gestione_utenti {
 	grid-area: d;
 	text-align: center;
 }
-
 #gestione_utenti p {
 	text-align: center;
 }
-
 #gestione_utenti ul {
 	margin-top: 1em;
 	max-height: 35em;
@@ -1218,52 +1239,34 @@ div div .gallery {
 	overflow-y: scroll;
 	padding: 0 1.5em;
 }
-
 #gestione_utenti li {
 	border-bottom: solid 1px var(--colore-testo-principale);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 }
-
 #gestione_utenti #last_user {
 	border-bottom: none;
 }
-
-#gestione_utenti li a {
-	margin: 0;
-}
-
 #gestione_utenti form {
 	font-size: 1em;
 	margin: 0.5em 0;
 }
 
-#gestione_utenti > form {
-	text-align: center;
-	display: block;
-	width: 80%;
-	margin: 0.5em auto;
-}
-
-#ricerca-utente label {
-	font-size: 1.2em;
-	text-align: left;
-}
-
-#ricerca-utente a {
-	font-size: 1.2em;
-	margin: 0.5em 0.2em;
-}
-
-#ricerca-utente button {
-	font-size: 1.2em;
-	margin: 0.5em 0.2em 0;
-}
-
-#ricerca-utente input {
+#lista_utenti form {
 	width: 100%;
-	display: inline;
+	display: flex;
+	justify-content: space-between;
+}
+#lista_utenti label {
+	display: inline-block;
+	margin: 0;
+}
+#lista_utenti label:after {
+	content: unset;
+}
+#lista_utenti button {
+	margin: 0;
 }
 
 /*==================== STILE ACQUISTO ABBONAMENTO ====================*/
