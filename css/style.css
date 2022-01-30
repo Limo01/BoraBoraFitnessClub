@@ -1267,12 +1267,8 @@ div div .gallery {
 	display: flex;
 	justify-content: space-between;
 }
-#lista_utenti label {
-	display: inline-block;
+#lista_utenti li form a {
 	margin: 0;
-}
-#lista_utenti label:after {
-	content: unset;
 }
 #lista_utenti button {
 	margin: 0;

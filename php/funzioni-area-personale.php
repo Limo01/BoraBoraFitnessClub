@@ -28,7 +28,7 @@
 				
 				<form id="ricerca-utente" action="area-personale.php#gestione_utenti" role="search">
 					<label for="nome-ricerca">Cerca utenti</label>
-					<input type="text" placeholder="Cerca..." name="nome-ricerca" value="' . $nomeRicerca . '">
+					<input type="text" placeholder="Cerca..." id="nome-ricerca" name="nome-ricerca" value="' . $nomeRicerca . '">
 					<button>Cerca</button>
 					<a href="area-personale.php#gestione_utenti">Pulisci filtro</a>
 				</form>
@@ -45,21 +45,19 @@
 
 			$form =
 				"	<form action='area-personale.php" . ($updatePersonalData ? "?update=1" : "") . "#gestione_utenti' method='post'>
-						<label for='user'>
-							<a href='visualizza-utente.php?usr=<username />'><username /></a>
-						</label>
-						<input type='hidden' name='user' value='<username />' />
+						<a href='visualizza-utente.php?usr=<username />'><username /></a>
+						<input type='hidden' id='user<number />' name='user<number />' value='<username />' />
 						<button name='elimina'>Elimina</button>
 					</form>
 				</li>";
 
 			$listaUtentiEnd = str_replace("<username />", $utente, "<li class='utente' id='last_user'>" . $form);
+			$listaUtentiEnd = str_replace("<number />", "_last", $listaUtentiEnd);
 
-			if (count($utenti) > 0) {
-				foreach ($utenti as $utente) {
-					$utente = $utente["username"];
-					$listaUtenti .= str_replace("<username />", $utente, "<li class='utente'>" . $form);
-				}
+			for ($i = 0; $i < count($utenti); ++$i) {
+				$utente = $utenti[$i]["username"];
+				$listaUtenti .= str_replace("<username />", $utente, "<li class='utente'>" . $form);
+				$listaUtenti = str_replace("<number />", $i, $listaUtenti);
 			}
 			$listaUtenti .= $listaUtentiEnd . "</ul>";
 		}
