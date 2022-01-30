@@ -13,7 +13,7 @@
 			$widget = "widget_area_personale";
 		}
 
-		$paginaHTML = str_replace("<logout />", "<a href='php/logout.php'>Logout</a>", $paginaHTML);
+		$paginaHTML = str_replace("<logout />", "<a href='php/logout.php' id=\"logOut\">Logout</a>", $paginaHTML);
 		$paginaHTML = str_replace("<breadcrumb />", $breadcrumb, $paginaHTML);
 		$paginaHTML = str_replace("<admin />", $admin, $paginaHTML);
 		$paginaHTML = str_replace("<widget />", $widget, $paginaHTML);
@@ -73,7 +73,7 @@
 	function replaceDatiPersonali($datiPersonali, $updatePersonalData, $formError, $admin, $paginaHTML) {
 		$update = 1;
 		if(!$updatePersonalData){
-			$button = '<a href="area-personale.php?update=<update />#dati_personali_widget">Modifica</a>';
+			$button = '<a href="area-personale.php?update=<update />#dati_personali_widget" id="buttonModifica">Modifica</a>';
 			$personalData = str_replace("<update />", $update, file_get_contents("html/dati_personali.html") . $button);
 		}
 		else{

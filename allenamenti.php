@@ -72,7 +72,7 @@
 			
 			if ($tipoUtente == 1 || ($tipoUtente == 0 && $row['username_utente'] == $utente)) {
 				$content .= "<li><a href='modificaAllenamento.php?id=" . $row['id'] . "'>Modifica allenamento</a></li></ul>";
-				$content .= "<form action='allenamenti.php?pagina=" . $pagina . "#" . $precedente . "' method='post'><input type='hidden' name='idPrecedente' value='" . $itPrecedente . "' /><input type='hidden' name='id' value='" . $row['id'] . "' /><button name='elimina'>Elimina allenamento</button></form>";
+				$content .= "<form action='allenamenti.php?pagina=" . $pagina . "#" . $precedente . "' method='post'><input type='hidden' name='idPrecedente' value='" . $itPrecedente . "' /><input type='hidden' name='id' value='" . $row['id'] . "' /><button name='elimina' class='eliminaAllenamentoButton'>Elimina allenamento</button></form>";
 			} elseif ($tipoUtente == 0) {
 				if ($connessione->doReadQuery("SELECT COUNT(*) AS isFollowing FROM utente_allenamento WHERE id_allenamento = ? AND username_utente = ?", "is", $row['id'], $utente)[0]['isFollowing'] == 0) {
 					$content .= "</ul><form action='allenamenti.php?pagina=" . $pagina . "#" . $attuale . "' method='post'><input type='hidden' name='id' value='" . $row['id'] . "' /><button name='segui' value='seguire'>Segui</button></form></div>";				

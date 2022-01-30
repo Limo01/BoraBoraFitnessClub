@@ -10,7 +10,23 @@ p{
     text-align: justify;
 }
 
-nav, footer, a.aiuti, #darkmode-switch, #burger-menu, #closebtn, #contaPersone, #scorriPagine{
+a{
+    color: black;
+}
+
+dt {
+    float: left;
+}
+
+dt:after{
+    content: ":\00a0";
+}
+
+dd{
+    margin: 0;
+}
+
+nav, footer, a.aiuti, #darkmode-switch, #burger-menu, #closebtn, #contaPersone, #scorriPagine, #logOut, #buttonModifica, #ricerca-utente, #gestione_utenti button, button.eliminaAllenamentoButton{
     display: none;
 }
 
@@ -39,6 +55,10 @@ abbr:after{
 
 abbr[title]{
     text-decoration: none;
+}
+/* home */
+img#mappa {
+    display: block;
 }
 
 /* galleria */
@@ -156,4 +176,8 @@ ul#specifiche-utente-dettaglio-allenamento li:after {
 
 ul#specifiche-utente-dettaglio-allenamento li.last:after {
     content: ".";
+}
+
+#modificaAllenamento label,#modificaAllenamento select {
+    display: block;
 }
