@@ -722,7 +722,6 @@ footer[class="footer-bottom"] {
 	color: var(--colore-testo-principale);
 	font-size: 2.5em;
 	text-align: center;
-	/* margin: 0em 0em 0.7em 35%; */
 	clear: both;
 }
 
@@ -734,16 +733,11 @@ footer[class="footer-bottom"] {
 	border-radius: 2em;
 }
 
-/* #content .attrezzature article {
-	min-height: 600px;
-} */
 
 #content .attrezzature article p {
 	clear: right;
 	margin-bottom: 1em;
 	color: var(--colore-testo-principale);
-	/* background-color: var(--colore-sfondo-article-p); */
-	/* padding: 1.2em; */
 	border-radius: 2em;
 	font-size: 1.8em;
 }
@@ -767,11 +761,9 @@ footer[class="footer-bottom"] {
 }
 
 #palestraAnticaImg {
-	/* display: block; */
 	float: left;
 	width: 60%;
 	margin-right: 1.5em;
-	/* margin-top: 2em; */
 	margin-bottom: 1em;
 	border-radius: 2em;
 }
@@ -796,12 +788,6 @@ footer[class="footer-bottom"] {
 #passato p {
 	padding: 0em 1.4em 1em 1.4em;
 }
-
-/* #secondaGuerra {
-	float: right;
-	width: 50%;
-	padding-top: 0.3em;
-} */
 
 #secondaGuerra p {
 	margin-top: 0em;
@@ -849,13 +835,10 @@ div div .gallery {
 
 /*CSS Gallery sala pesi*/
 #gallerySalaPesi {
-	grid-template-areas:
-		"a a b b c c"
-		"a a b b c c"
+		grid-template-areas: 
 		"a a b b c c"
 		"d d d e e e"
-		"d d d e e e"
-		"d d d e e e";
+		"f f f g g g";
 	padding-bottom: 3em;
 }
 #gallerySalaPesi #pesi1 {
@@ -867,35 +850,26 @@ div div .gallery {
 #gallerySalaPesi #pesi3 {
 	grid-area: c;
 }
-#gallerySalaPesi #pesi4 {
+
+#gallerySalaPesi #pesi5 {
 	grid-area: d;
 }
-#gallerySalaPesi #gallerySalaPesiQuadrato {
+#gallerySalaPesi #pesi6 {
 	grid-area: e;
 }
-#gallerySalaPesiQuadrato {
-	width: 100%;
+#gallerySalaPesi #pesi7 {
+	grid-area: f;
 }
-#gallerySalaPesiQuadrato #pesi5 {
-	grid-area: x;
-}
-#gallerySalaPesiQuadrato #pesi6 {
-	grid-area: y;
-}
-#gallerySalaPesiQuadrato #pesi7 {
-	grid-area: z;
-}
-#gallerySalaPesiQuadrato #pesi8 {
-	grid-area: w;
+#gallerySalaPesi #pesi8 {
+	grid-area: g;
 }
 
 /*CSS Gallery Sala Cardio*/
 #gallerySalaCardio {
-	grid-template-areas:
-		"a a a a"
-		"a a a a"
-		"b b c d"
-		"b b e f";
+	grid-template-areas: 
+	"a a"
+	"b c"
+	"d e";
 	padding-bottom: 3em;
 }
 
@@ -915,12 +889,9 @@ div div .gallery {
 	grid-area: d;
 }
 
-#gallerySalaCardio #cardio5 {
-	grid-area: e;
-}
 
 #gallerySalaCardio #cardio6 {
-	grid-area: f;
+	grid-area: e;
 }
 
 /*CSS Gallery Sala Fitness*/
@@ -960,10 +931,9 @@ div div .gallery {
 /*CSS Gallery Outdoor*/
 #galleryOutdoor {
 	grid-template-areas:
-		"a a b c"
-		"a a d e"
-		"f f f f"
-		"f f f f";
+	"a b"
+	"c d"
+	"e e";
 	padding-bottom: 3em;
 }
 #galleryOutdoor #outdoor1 {
@@ -978,11 +948,9 @@ div div .gallery {
 #galleryOutdoor #outdoor4 {
 	grid-area: d;
 }
-#galleryOutdoor #outdoor5 {
-	grid-area: e;
-}
+
 #galleryOutdoor #outdoor6 {
-	grid-area: f;
+	grid-area: e;
 }
 
 /*CSS Gallery Cocktail-bar*/
@@ -1021,29 +989,23 @@ div div .gallery {
 /*CSS Gallery Spogliatoio*/
 #gallerySpogliatoio {
 	grid-template-areas:
-		"a a b b"
-		"a a b b"
-		"a a c d"
-		"a a e f";
+		"a b"
+		"c d";
 	padding-bottom: 3em;
 }
-#gallerySpogliatoio #spogliatoio1 {
+
+#gallerySpogliatoio #spogliatoio2 {
 	grid-area: a;
 }
-#gallerySpogliatoio #spogliatoio2 {
+
+#gallerySpogliatoio #spogliatoio4 {
 	grid-area: b;
 }
-#gallerySpogliatoio #spogliatoio3 {
+#gallerySpogliatoio #spogliatoio5 {
 	grid-area: c;
 }
-#gallerySpogliatoio #spogliatoio4 {
-	grid-area: d;
-}
-#gallerySpogliatoio #spogliatoio5 {
-	grid-area: e;
-}
 #gallerySpogliatoio #spogliatoio6 {
-	grid-area: f;
+	grid-area: d;
 }
 
 /*==================== AREA PERSONALE ====================*/
