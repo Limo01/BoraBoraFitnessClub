@@ -21,7 +21,7 @@ header h1 {
 }
 
 h1.hide {
-	background-image: url("immagini/logo/island.png");
+	background-image: url("immagini/titolo-mobile.png");
 	height: 1em;
 	margin-top: 0;
 	transition: none;
