@@ -35,6 +35,8 @@
 	$paginaHTML = str_replace("<admin />", "", $paginaHTML);
 	$paginaHTML = str_replace("<gestione_utenti />", "", $paginaHTML);
 	$paginaHTML = str_replace("<widget />", "widget_area_personale", $paginaHTML);
+	$paginaHTML = str_replace("<link_menu />", '<a href="area-personale.php" aria-label="Area personale"
+						title="Area personale">Area personale</a>', $paginaHTML);
 	
 	$update = -1;
 	$updatePersonalData = false;

@@ -1,4 +1,4 @@
-<?php	
+<?php
 	function initPage($isAdmin) {
 		$paginaHTML = file_get_contents("html/area-personale.html");
 
@@ -17,6 +17,7 @@
 		$paginaHTML = str_replace("<breadcrumb />", $breadcrumb, $paginaHTML);
 		$paginaHTML = str_replace("<admin />", $admin, $paginaHTML);
 		$paginaHTML = str_replace("<widget />", $widget, $paginaHTML);
+		$paginaHTML = str_replace("<link_menu />", '<span id="currentLink" title="Area personale">Area personale</span>', $paginaHTML);
 
 		return $paginaHTML;
 	}
