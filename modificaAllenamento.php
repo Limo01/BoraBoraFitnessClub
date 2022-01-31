@@ -70,7 +70,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
             }
             $datiScheda .= "<p>Data creazione: " . $schedaQuery[0]["data_creazione"] . "</p>";
             if($schedaQuery[0]["id_personal_trainer"] != null){
-                $datiScheda .= "<p>Allenatore di riferimento: " . $allenatoreQuery[$schedaQuery[0]["id_personal_trainer"]]["nome"] . " " . $allenatoreQuery[$schedaQuery[0]["id_personal_trainer"]]["cognome"] . "</p>";
+                $datiScheda .= "<p>Allenatore di riferimento: " . $allenatoreQuery[$schedaQuery[0]["id_personal_trainer"]-1]["nome"] . " " . $allenatoreQuery[$schedaQuery[0]["id_personal_trainer"]-1]["cognome"] . "</p>";
             }
             $datiScheda .= "<div  class=\"dettagli-allenamento\">";
             foreach($eserciziQuery as $row){
