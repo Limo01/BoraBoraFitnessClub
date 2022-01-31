@@ -218,6 +218,7 @@ small {
 #menu li a {
 	transition: background-color 0.1s ease-in-out;
 }
+
 #menu li a:hover {
 	background-color: var(--colore-hover-menu);
 }
@@ -361,6 +362,7 @@ small {
 	margin-bottom: 1em;
 	font-size: 2em;
 }
+
 #content h3:not(a > h3) {
 	color: var(--colore-testo-principale);
 }
@@ -378,6 +380,7 @@ small {
 	margin-top: 1em;
 	margin-bottom: 1em;
 }
+
 #content p:not(a > p) {
 	color: var(--colore-testo-principale);
 }
@@ -550,9 +553,11 @@ footer[class="footer-bottom"] {
 	grid-area: a;
 	text-align: center;
 }
+
 #doveSiamo p {
 	text-align: left;
 }
+
 #doveSiamo a {
 	font-size: 1.5em;
 	margin-top: 1em;
@@ -610,12 +615,14 @@ footer[class="footer-bottom"] {
 	align-self: start;
 	font-size: 2.5em;
 }
+
 .offertaAbbonamento ul,
 .esercizio ul {
 	grid-area: b;
 	align-self: start;
 	list-style-type: none;
 }
+
 #content .offertaAbbonamento p {
 	display: inline-block;
 	padding: 0.4em 0.8em;
@@ -625,6 +632,7 @@ footer[class="footer-bottom"] {
 	grid-area: c;
 	align-self: baseline;
 }
+
 #content .offertaAbbonamento a {
 	margin-top: 1em;
 	font-size: 1.5em;
@@ -642,6 +650,7 @@ footer[class="footer-bottom"] {
 	margin-top: 1.5em;
 	color: var(--colore-testo-principale);
 }
+
 #resortPass li {
 	float: left;
 	background-color: var(--colore-sfondo-article-p);
@@ -655,7 +664,7 @@ footer[class="footer-bottom"] {
 	font-size: 1em;
 }
 
-/*==================== PERSONAL TRAINER ====================*/
+/*==================== TRAINER ====================*/
 #content .personalTrainer h2 {
 	margin: 0em 0em 0.7em 35%;
 }
@@ -836,7 +845,7 @@ div div .gallery {
 		"z w";
 }
 
-/*CSS Gallery sala pesi*/
+/*==================== GALLERIA SALA PESI ====================*/
 #gallerySalaPesi {
 	grid-template-areas:
 		"a a b b c c"
@@ -844,12 +853,15 @@ div div .gallery {
 		"f f f g g g";
 	padding-bottom: 3em;
 }
+
 #gallerySalaPesi #pesi1 {
 	grid-area: a;
 }
+
 #gallerySalaPesi #pesi2 {
 	grid-area: b;
 }
+
 #gallerySalaPesi #pesi3 {
 	grid-area: c;
 }
@@ -857,17 +869,20 @@ div div .gallery {
 #gallerySalaPesi #pesi5 {
 	grid-area: d;
 }
+
 #gallerySalaPesi #pesi6 {
 	grid-area: e;
 }
+
 #gallerySalaPesi #pesi7 {
 	grid-area: f;
 }
+
 #gallerySalaPesi #pesi8 {
 	grid-area: g;
 }
 
-/*CSS Gallery Sala Cardio*/
+/*==================== GALLERIA SALA CARDIO ====================*/
 #gallerySalaCardio {
 	grid-template-areas:
 		"a a"
@@ -896,41 +911,49 @@ div div .gallery {
 	grid-area: e;
 }
 
-/*CSS Gallery Sala Fitness*/
+/*==================== GALLERIA SALA FITNESS ====================*/
 #gallerySalaFitness {
 	padding-bottom: 3em;
 }
+
 #gallerySalaFitness #fitness1 {
 	grid-area: x;
 }
+
 #gallerySalaFitness #fitness2 {
 	grid-area: y;
 }
+
 #gallerySalaFitness #fitness3 {
 	grid-area: z;
 }
+
 #gallerySalaFitness #fitness4 {
 	grid-area: w;
 }
 
-/*CSS Gallery Piscina*/
+/*==================== GALLERIA PISCINA ====================*/
 #galleryPiscina {
 	padding-bottom: 3em;
 }
+
 #galleryPiscina #piscina1 {
 	grid-area: x;
 }
+
 #galleryPiscina #piscina2 {
 	grid-area: y;
 }
+
 #galleryPiscina #piscina3 {
 	grid-area: z;
 }
+
 #galleryPiscina #piscina4 {
 	grid-area: w;
 }
 
-/*CSS Gallery Outdoor*/
+/*==================== GALLERIA OUTDOOR ====================*/
 #galleryOutdoor {
 	grid-template-areas:
 		"a b"
@@ -938,15 +961,19 @@ div div .gallery {
 		"e e";
 	padding-bottom: 3em;
 }
+
 #galleryOutdoor #outdoor1 {
 	grid-area: a;
 }
+
 #galleryOutdoor #outdoor2 {
 	grid-area: b;
 }
+
 #galleryOutdoor #outdoor3 {
 	grid-area: c;
 }
+
 #galleryOutdoor #outdoor4 {
 	grid-area: d;
 }
@@ -955,40 +982,49 @@ div div .gallery {
 	grid-area: e;
 }
 
-/*CSS Gallery Cocktail-bar*/
+/*==================== GALLERIA COCKTAIL BAR ====================*/
 #galleryCocktailBar {
 	padding-bottom: 3em;
 }
+
 #galleryCocktailBar #cocktailbar1 {
 	grid-area: x;
 }
+
 #galleryCocktailBar #cocktailbar2 {
 	grid-area: y;
 }
+
 #galleryCocktailBar #cocktailbar3 {
 	grid-area: z;
 }
+
 #galleryCocktailBar #cocktailbar4 {
 	grid-area: w;
 }
 
-/*CSS Gallery Zen*/
+/*==================== GALLERIA GIARDINO ZEN ====================*/
 #galleryGiardinoZen {
 	padding-bottom: 3em;
 }
+
 #galleryGiardinoZen #zen1 {
 	grid-area: x;
 }
+
 #galleryGiardinoZen #zen2 {
 	grid-area: y;
 }
+
 #galleryGiardinoZen #zen3 {
 	grid-area: z;
 }
+
 #galleryGiardinoZen #zen4 {
 	grid-area: w;
 }
-/*CSS Gallery Spogliatoio*/
+
+/*==================== GALLERIA SPOGLIATOI ====================*/
 #gallerySpogliatoio {
 	grid-template-areas:
 		"a b"
@@ -1003,9 +1039,11 @@ div div .gallery {
 #gallerySpogliatoio #spogliatoio4 {
 	grid-area: b;
 }
+
 #gallerySpogliatoio #spogliatoio5 {
 	grid-area: c;
 }
+
 #gallerySpogliatoio #spogliatoio6 {
 	grid-area: d;
 }
@@ -1181,18 +1219,22 @@ div div .gallery {
 	width: 80%;
 	margin: 0.5em auto;
 }
+
 #ricerca-utente label {
 	font-size: 1.2em;
 	text-align: left;
 }
+
 #ricerca-utente a {
 	font-size: 1.2em;
 	margin: 0.5em 0.2em;
 }
+
 #ricerca-utente button {
 	font-size: 1.2em;
 	margin: 0.5em 0.2em 0;
 }
+
 #ricerca-utente input {
 	width: 100%;
 	display: inline;
@@ -1205,6 +1247,7 @@ div div .gallery {
 #gestione_utenti p {
 	text-align: center;
 }
+
 #gestione_utenti ul {
 	margin-top: 1em;
 	max-height: 35em;
@@ -1214,15 +1257,18 @@ div div .gallery {
 	overflow-y: scroll;
 	padding: 0 1.5em;
 }
+
 #gestione_utenti li {
 	border-bottom: solid 1px var(--colore-testo-principale);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 }
+
 #gestione_utenti #last_user {
 	border-bottom: none;
 }
+
 #gestione_utenti form {
 	font-size: 1em;
 	margin: 0.5em 0;
@@ -1233,9 +1279,11 @@ div div .gallery {
 	display: flex;
 	justify-content: space-between;
 }
+
 #lista_utenti li form a {
 	margin: 0;
 }
+
 #lista_utenti button {
 	margin: 0;
 }
@@ -1476,7 +1524,7 @@ div div .gallery {
 	opacity: 1;
 }
 
-/* form inserimento allenamento */
+/*==================== FORM INSERIMENTO ALLENAMENTO ====================*/
 #inserimentoForm button {
 	display: inline;
 	margin-top: 1em;
@@ -1550,8 +1598,7 @@ fieldset {
 	width: 40%;
 }
 
-/* form inserimento esercizio */
-
+/*==================== FORM INSERIMENTO ESERCIZIO ====================*/
 #inserimentoEsercizio {
 	display: grid;
 	grid-template-columns: 75% 25%;
@@ -1570,6 +1617,7 @@ fieldset {
 #nomeEsercizioL {
 	grid-area: a;
 }
+
 #nomeEsercizioI {
 	grid-area: b;
 	width: 75%;
@@ -1578,6 +1626,7 @@ fieldset {
 #descrizioneEsercizioL {
 	grid-area: c;
 }
+
 #descrizioneEsercizioI {
 	grid-area: d;
 	width: 75%;

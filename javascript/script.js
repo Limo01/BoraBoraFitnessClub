@@ -1,5 +1,4 @@
-/* Feature Detection --------------------------------- */
-
+/*Feature Detection*/
 let passiveSupported = false;
 
 try {
@@ -238,7 +237,6 @@ window.onload = function () {
 	addOnBlurEventInput();
 	initCounter();
 
-	//Nasconde subito il torna su
 	document.getElementById("tornaSu").style.display = "none";
 
 	//per il menu a comparsa

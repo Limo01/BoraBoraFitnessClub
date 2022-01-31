@@ -41,14 +41,12 @@ h1.hide:hover {
 }
 
 /*=========== IMMAGINI ===========*/
-
 #content img {
 	width: 100%;
 	height: auto;
 }
 
 /*======== CONTENT =========*/
-
 #content > div,
 #content > article {
 	margin-top: 1em;
@@ -121,7 +119,7 @@ h1.hide:hover {
 	width: 90%;
 }
 
-/*========== PERSONAL TRAINER ==========*/
+/*========== TRAINER ==========*/
 #content .personalTrainer > h2 {
 	margin: auto;
 	text-align: center;
@@ -185,18 +183,8 @@ footer {
 	border-radius: 0.5em 0.5em 0 0;
 }
 
-/* FORM ESERCIZIO */
-
+/*============= FORM ESERCIZIO =============*/
 #inserimentoEsercizio {
-	/* grid-template-areas:
-		"a e"
-		"b h"
-		"c f"
-		"d i"
-		"d g"
-		"m l"
-		"n ."
-		"o o"; */
 	grid-template-columns: 33% 33% 33%;
 	grid-template-areas:
 		"a a a"

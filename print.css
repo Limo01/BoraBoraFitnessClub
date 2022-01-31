@@ -45,6 +45,7 @@ img{
 a:after {
     content: " (http://localhost:30080/agazi/" attr(href) ") ";
 }
+
 a[href^="http"]:after{
     content: " [" attr(href) "] ";
 }
@@ -56,30 +57,32 @@ abbr:after{
 abbr[title]{
     text-decoration: none;
 }
-/* home */
+
+/*==================== HOME ====================*/
 img#mappa {
     display: block;
 }
 
-/* galleria */
-
+/*==================== GALLERIA ====================*/
 div.galleryGroup{
     page-break-before: always;
 }
+
 #salaPesi{
     page-break-before: avoid;
     
 }
+
 #salaPesi img{
     width: 32%;
     display: inline;
 }
+
 .gallery{
     display: inline;
 }
 
-/* trainer */
-
+/*==================== TRAINER====================*/
 .personalTrainer img{
     width: 15%;
 }
@@ -88,8 +91,7 @@ article.personalTrainer{
     break-inside: avoid;
 }
 
-/* attrezzature */
-
+/*==================== ATTREZZATURE ====================*/
 .attrezzature img{
     margin-right: 1em;
     margin-bottom: 1em;
@@ -104,14 +106,12 @@ article.personalTrainer{
     clear: both;
 }
 
-/* storia */
-
+/*==================== STORIA ====================*/
 #presente{
     page-break-before: always;
 }
 
-/* dettagli allenamento */
-
+/*==================== DETTAGLI ALLENAMENTO ====================*/
 #dettagliAllenamento a, #dettagliAllenamento button, #dettagliAllenamento #breadcrumb, #dettagliAllenamento #titolo, #dettagliAllenamento #autoDescrizione, #bottoni-allenamenti{
     display: none;
 }
@@ -133,6 +133,7 @@ article.personalTrainer{
 
     margin-bottom: 0;
 }
+
 #dettagliAllenamento .dettaglioEsercizio p{
     padding-top: 1.3em;
 }
