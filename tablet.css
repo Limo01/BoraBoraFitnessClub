@@ -74,11 +74,11 @@ h1.hide {
 
 #userIcon a,
 #userIcon a:hover {
-	background-image: var(--icona-autenticazione-current);
+	background-image: url("immagini/logo/user-light.png");
 }
 
 #userIcon #currentLink {
-	background-image: var(--icona-autenticazione);
+	background-image: url("immagini/logo/user.png");
 }
 
 #currentLink {
