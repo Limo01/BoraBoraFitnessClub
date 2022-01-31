@@ -1374,6 +1374,10 @@ div div .gallery {
 	margin: 0;
 }
 
+#titolo button {
+	font-size: 1.3em;
+}
+
 .dettagli-allenamento article {
 	width: 20em;
 	background-color: var(--colore-sfondo-article-p);
@@ -1494,8 +1498,7 @@ div div .gallery {
 	font-size: 1.5em;
 }
 
-/* tornaSu -------------------------------*/
-
+/*==================== TORNA SU ====================*/
 #tornaSu {
 	position: fixed;
 	bottom: 2em;
