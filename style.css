@@ -391,6 +391,10 @@ small {
 	font-size: 1em;
 }
 
+#content select option {
+	background-color: var(--colore-sfondo-div);
+}
+
 #content input,
 #content textarea,
 #content select {
@@ -733,7 +737,6 @@ footer[class="footer-bottom"] {
 	border-radius: 2em;
 }
 
-
 #content .attrezzature article p {
 	clear: right;
 	margin-bottom: 1em;
@@ -835,7 +838,7 @@ div div .gallery {
 
 /*CSS Gallery sala pesi*/
 #gallerySalaPesi {
-		grid-template-areas: 
+	grid-template-areas:
 		"a a b b c c"
 		"d d d e e e"
 		"f f f g g g";
@@ -866,10 +869,10 @@ div div .gallery {
 
 /*CSS Gallery Sala Cardio*/
 #gallerySalaCardio {
-	grid-template-areas: 
-	"a a"
-	"b c"
-	"d e";
+	grid-template-areas:
+		"a a"
+		"b c"
+		"d e";
 	padding-bottom: 3em;
 }
 
@@ -888,7 +891,6 @@ div div .gallery {
 #gallerySalaCardio #cardio4 {
 	grid-area: d;
 }
-
 
 #gallerySalaCardio #cardio6 {
 	grid-area: e;
@@ -931,9 +933,9 @@ div div .gallery {
 /*CSS Gallery Outdoor*/
 #galleryOutdoor {
 	grid-template-areas:
-	"a b"
-	"c d"
-	"e e";
+		"a b"
+		"c d"
+		"e e";
 	padding-bottom: 3em;
 }
 #galleryOutdoor #outdoor1 {
