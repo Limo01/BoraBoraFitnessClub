@@ -264,7 +264,7 @@ small {
 }
 
 #darkmode-switch input {
-	display: none;
+	opacity: 0;
 }
 
 .slider {
