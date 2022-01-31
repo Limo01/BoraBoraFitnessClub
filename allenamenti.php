@@ -9,7 +9,7 @@
 		$_SESSION['attuale'] = 0;
 	}
 	if (!isset($_SESSION['precedente'])) {
-		$_SESSION['precedente'] = 0;
+		$_SESSION['precedente'] = false;
 	}
 	$pagina = isset($_GET['pagina'])? $_GET['pagina'] : 1;
 	$numeroPagine = $_SESSION['numeroPagine'];
@@ -36,7 +36,7 @@
 			return;
 		} elseif (isset($_POST['elimina'])) {
 			$connessione->doWriteQuery("DELETE FROM allenamento WHERE id = ?", "i", $_POST['id']);
-			$_SESSION['precedente'] = $_POST['idPrecedente'];
+			$_SESSION['precedente'] = true;
 			header('Location: allenamenti.php?pagina=' . $pagina);
 			return;
 		}
@@ -45,18 +45,14 @@
 		$queryAllenamentiResult = $connessione->doReadQuery("SELECT allenamento.id, allenamento.nome, descrizione, username_utente, data_creazione, Followers, CONCAT(personal_trainer.nome, ' ', cognome) AS trainer FROM allenamento LEFT JOIN (SELECT id_allenamento AS id, COUNT(id_allenamento) as Followers FROM utente_allenamento GROUP BY id_allenamento) AS TabellaFollowers USING(id) LEFT JOIN personal_trainer on allenamento.id_personal_trainer = personal_trainer.id ORDER BY Followers DESC LIMIT ?, ?", "ii", $startRow, $numeroAllenamentiPerPagina);
 		$queryPagineResult = $connessione->doReadQuery("SELECT COUNT(*) AS numeroAllenamenti FROM allenamento");
 		$content = "";
+		if ($precedente) {
+			$content .= "<p class='notification'>Allenamento eliminato!</p>";
+			$_SESSION['precedente'] = false;
+		}
 		$copyContent = $content;
-		$itPrecedente = -1;
 		foreach ($queryAllenamentiResult as $row) {
 			$queryDettaglioAllenamentoResult = $connessione->doReadQuery("SELECT nome, descrizione, peso, serie, ripetizioni, durata FROM esercizio WHERE id_allenamento = ?", "i", $row['id']);
 			$numeroEsercizi = count($queryDettaglioAllenamentoResult);
-			if ($precedente == $itPrecedente) {
-				$content .= "
-					<article>
-						<p class='allenamento-avviso'>Allenamento eliminato!</p>
-					</article>";
-				$_SESSION['precedente'] = 0;
-			}
 			$content .= '
 				<article id="' . $row['id'] . '">
 					<h3>' . $row['nome'] . '</h3>
@@ -94,8 +90,7 @@
 						</li>
 					</ul>";
 				$content .= "
-					<form action='allenamenti.php?pagina=" . $pagina . "#" . $precedente . "' method='post'>
-						<input type='hidden' name='idPrecedente' value='" . $itPrecedente . "' />
+					<form action='allenamenti.php?pagina=" . $pagina . "#' method='post'>
 						<input type='hidden' name='id' value='" . $row['id'] . "' />
 						<button name='elimina' class='eliminaAllenamentoButton'>Elimina allenamento</button>
 					</form>
@@ -111,7 +106,7 @@
 				</div>";
 					if ($row['id'] == $attuale) {
 						$_SESSION['attuale'] = 0;
-						$content .= "<p class='allenamento-avviso'>Hai smesso di seguire l'allenamento!</p>";
+						$content .= "<p class='notification'>Hai smesso di seguire l'allenamento!</p>";
 					}
 				} else {
 					$content .= "
@@ -124,29 +119,21 @@
 					
 					if ($row['id'] == $attuale) {
 						$_SESSION['attuale'] = 0;
-						$content .= "<p class='allenamento-avviso'>Hai iniziato a seguire l'allenamento!</p>";
+						$content .= "<p class='notification'>Hai iniziato a seguire l'allenamento!</p>";
 					}
 				}
 			}
 
 			$content .= "</article>";
-			$itPrecedente = $row['id'];
 		}
 		$connessione->closeConnection();
-		if ($precedente == $itPrecedente) {
-			$content .= "
-				<article>
-					<p class='allenamento-avviso'>Allenamento eliminato!</p>
-				</article>";
-			$_SESSION['precedente'] = 0;
-		}
 		if ($content == $copyContent) {
-			$content .= "<p class='allenamento-avviso'>Sembra che non ci siano allenamenti!</p>";
+			$content .= "<p class='notification'>Sembra che non ci siano allenamenti!</p>";
 		}
 		$_SESSION['numeroPagine'] = ceil($queryPagineResult[0]['numeroAllenamenti'] / $numeroAllenamentiPerPagina);
 		$numeroPagine = $_SESSION['numeroPagine'];
 	} else {
-		$content = "<p class='allenamento-avviso'>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
+		$content = "<p class='notification'>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
 	}
 
 	$offset = 2;
