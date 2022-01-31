@@ -16,16 +16,6 @@ try {
 	passiveSupported = false;
 }
 
-/*function menuClickEvent() {
-	if (sessionStorage.getItem("menuDisplay") == "yes") {
-		window.sessionStorage.setItem("menuDisplay", "no");
-		document.getElementById("menu").style.display = "none";
-	} else {
-		window.sessionStorage.setItem("menuDisplay", "yes");
-		document.getElementById("menu").style.display = "block";
-	}
-}*/
-
 /*Funzioni per darkmode*/
 function switchTheme(e) {
 	if (e.target.checked) {
@@ -242,16 +232,6 @@ function initCounter(){
 		xhttp.send();
 	}, 8000);
 }
-
-// function showAddEsercizioForm() {
-// 	document.getElementById("eliminaEsercizioForm").style.display = "none";
-// 	document.getElementById("aggiungiEsercizioForm").style.display = "block";
-// }
-
-// function showDeleteEsercizioForm() {
-// 	document.getElementById("aggiungiEsercizioForm").style.display = "none";
-// 	document.getElementById("eliminaEsercizioForm").style.display = "block";
-// }
 
 window.onload = function () {
 	initDarkMode();
