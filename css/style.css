@@ -163,6 +163,7 @@ small {
 
 #content p.notification {
 	color: var(--colore-successo);
+	flex-basis: 95%;
 }
 
 /*==================== MENU ====================*/
