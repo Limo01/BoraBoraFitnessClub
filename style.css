@@ -12,10 +12,10 @@
 	--colore-sfondo-footer: #000000cc;
 	--colore-testo-footer: #fdf1ce;
 	--colore-bordi-form: #8f8156;
-	--immagine-background: url("../immagini/sfondo-light.jpg");
-	--icona-autenticazione: url("../immagini/logo/user.png");
-	--icona-autenticazione-current: url("../immagini/logo/user-light.png");
-	--icona-torna-su: url("../immagini/torna-su-light.svg");
+	--immagine-background: url("immagini/sfondo-light.jpg");
+	--icona-autenticazione: url("immagini/logo/user.png");
+	--icona-autenticazione-current: url("immagini/logo/user-light.png");
+	--icona-torna-su: url("immagini/torna-su-light.svg");
 }
 
 [data-theme="dark"] {
@@ -32,10 +32,10 @@
 	--colore-sfondo-footer: #000000cc;
 	--colore-testo-footer: #fdf1ce;
 	--colore-bordi-form: #796544;
-	--immagine-background: url("../immagini/sfondo-dark.jpg");
-	--icona-autenticazione: url("../immagini/logo/user-light-darkmode.png");
-	--icona-autenticazione-current: url("../immagini/logo/user.png");
-	--icona-torna-su: url("../immagini/torna-su-dark.svg");
+	--immagine-background: url("immagini/sfondo-dark.jpg");
+	--icona-autenticazione: url("immagini/logo/user-light-darkmode.png");
+	--icona-autenticazione-current: url("immagini/logo/user.png");
+	--icona-torna-su: url("immagini/torna-su-dark.svg");
 }
 
 * {
@@ -71,7 +71,7 @@ header,
 
 h1.hide {
 	transition: transform 0.5s cubic-bezier(0.15, 1, 0.15, 1);
-	background-image: url("../immagini/titolo.png");
+	background-image: url("immagini/titolo.png");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
@@ -264,7 +264,7 @@ small {
 	right: 0;
 	top: 0;
 	transition: 0.4s;
-	background-image: url("../immagini/toggle-darkmode/sun.png");
+	background-image: url("immagini/toggle-darkmode/sun.png");
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: right;
@@ -283,7 +283,7 @@ small {
 
 #darkmode-switch input:checked + .slider {
 	background-color: #66bb6a;
-	background-image: url("../immagini/toggle-darkmode/moon.png");
+	background-image: url("immagini/toggle-darkmode/moon.png");
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: left;
