@@ -175,40 +175,6 @@ h1.hide:hover {
 	font-size: 1.3em;
 }
 
-/*============= AREA PERSONALE =============*/
-#content #widget_area_personale {
-	gap: 1em;
-	grid-template-areas:
-		"c"
-		"a"
-		"b";
-	grid-template-columns: 100%;
-}
-
-#content #widget_area_personale_admin {
-	gap: 1em;
-	grid-template-areas:
-		"c"
-		"a"
-		"b"
-		"d";
-	grid-template-columns: 100%;
-}
-
-.widget,
-.dati_personali {
-	border-radius: 0.5em;
-}
-
-#gestione_utenti ul,
-#gestione_utenti > form {
-	width: 65%;
-}
-
-#schede_allenamento .scheda_allenamento {
-	width: 70%;
-}
-
 /*============= STORIA =============*/
 #passato img,
 #presente img {

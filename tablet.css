@@ -144,12 +144,41 @@ h1.hide {
 	width: 40%;
 }
 
-/*==================== AREA PERSONALE ADMIN ====================*/
-#content #widget_area_personale_admin {
-	gap: 2em;
-}
-
 /*==================== PERSONAL TRAINER ====================*/
 #content .personalTrainer .corsiTrainer {
 	margin-left: unset;
+}
+
+/*============= AREA PERSONALE =============*/
+#content #widget_area_personale {
+	gap: 1em;
+	grid-template-areas:
+		"c"
+		"a"
+		"b";
+	grid-template-columns: 100%;
+}
+
+#content #widget_area_personale_admin {
+	gap: 1em;
+	grid-template-areas:
+		"c"
+		"a"
+		"b"
+		"d";
+	grid-template-columns: 100%;
+}
+
+.widget,
+.dati_personali {
+	border-radius: 0.5em;
+}
+
+#gestione_utenti ul,
+#gestione_utenti > form {
+	width: 65%;
+}
+
+#schede_allenamento .scheda_allenamento {
+	width: 70%;
 }
