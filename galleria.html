@@ -30,11 +30,7 @@
 		</div>
 	</header>
 
-	<nav id="breadcrumb" aria-label="Breadcrumb">
-		<p>Ti trovi in: <a href="./" lang="en">Home</a> &gt;&gt; Galleria</p>
-	</nav>
-
-	<a class="aiuti" href="#content" aria-label="Vai al contenuto" title="Vai al contenuto">
+	<a class="aiuti" href="#content" aria-label="Vai al contenuto" title="Vai al contenuto" tabindex="1">
 		Salta la navigazione
 	</a>
 
@@ -46,23 +42,27 @@
 
 		<nav id="menu" class="overlay-content">
 			<ul>
-				<li lang="en"><a href="./">Home</a></li>
-				<li><a href="abbonati.html">Abbonati</a></li>
-				<li lang="en"><a href="personal-trainer.html">Trainers</a></li>
-				<li><a href="attrezzature.html">Attrezzature</a></li>
-				<li><a href="allenamenti.php">Allenamenti</a></li>
-				<li><a href="storia.html">Storia</a></li>
+				<li lang="en"><a href="./" tabindex="2">Home</a></li>
+				<li><a href="abbonati.html" tabindex="3">Abbonati</a></li>
+				<li lang="en"><a href="personal-trainer.html" tabindex="4">Trainers</a></li>
+				<li><a href="attrezzature.html" tabindex="5">Attrezzature</a></li>
+				<li><a href="allenamenti.php" tabindex="6">Allenamenti</a></li>
+				<li><a href="storia.html" tabindex="7">Storia</a></li>
 				<li id="currentLink">Galleria</li>
 				<li id="userIcon" class="hide"><a href="area-personale.php" aria-label="Area personale"
-						title="Area personale">Area personale</a></li>
+						title="Area personale" tabindex="10">Area personale</a></li>
 			</ul>
 		</nav>
 
 		<label aria-label="Passa a modalità notte" title="Passa a modalità notte" id="darkmode-switch" for="checkbox">
-			<input type="checkbox" id="checkbox" />
+			<input type="checkbox" id="checkbox" tabindex="9" />
 			<span class="slider round"></span>
 		</label>
 	</div>
+
+	<nav id="breadcrumb" aria-label="Breadcrumb">
+		<p>Ti trovi in: <a href="./" lang="en">Home</a> &gt;&gt; Galleria</p>
+	</nav>
 
 	<div id="content">
 		<div id="titolo">
@@ -96,7 +96,7 @@
 					alt="Una nostra Leg Press: una macchina usata per allenare le gambe" />
 
 
-				
+
 				<img id="pesi5" class="gallery_img gallery_img_zoom" src="immagini/sala-pesi/pesi5.jpg"
 					alt="Una nostra Panca Piana: uno strumento di supporto per gli esercizi con il bilanciere" />
 				<img id="pesi6" class="gallery_img gallery_img_zoom" src="immagini/sala-pesi/pesi6.jpg"
@@ -105,7 +105,7 @@
 					alt="Le nostre panche piane: uno strumento di supporto per gli esercizi con i manubri" />
 				<img id="pesi8" class="gallery_img gallery_img_zoom" src="immagini/sala-pesi/pesi8.jpg"
 					alt="La nostra sala pesi nel complesso" />
-				
+
 			</div>
 		</div>
 

@@ -30,11 +30,7 @@
 		</div>
 	</header>
 
-	<nav id="breadcrumb" aria-label="Breadcrumb">
-		<p>Ti trovi in: <span lang="en">Home</span></p>
-	</nav>
-
-	<a class="aiuti" href="#content" aria-label="Vai al contenuto" title="Vai al contenuto">
+	<a class="aiuti" href="#content" aria-label="Vai al contenuto" title="Vai al contenuto" tabindex="1">
 		Salta la navigazione
 	</a>
 
@@ -47,22 +43,27 @@
 		<nav id="menu" class="overlay-content">
 			<ul>
 				<li lang="en" id="currentLink">Home</li>
-				<li><a href="abbonati.html">Abbonati</a></li>
-				<li lang="en"><a href="personal-trainer.html">Trainers</a></li>
-				<li><a href="attrezzature.html">Attrezzature</a></li>
-				<li><a href="allenamenti.php">Allenamenti</a></li>
-				<li><a href="storia.html">Storia</a></li>
-				<li><a href="galleria.html">Galleria</a></li>
+				<li><a href="abbonati.html" tabindex="2">Abbonati</a></li>
+				<li lang="en"><a href="personal-trainer.html" tabindex="3">Trainers</a></li>
+				<li><a href="attrezzature.html" tabindex="4">Attrezzature</a></li>
+				<li><a href="allenamenti.php" tabindex="5">Allenamenti</a></li>
+				<li><a href="storia.html" tabindex="6">Storia</a></li>
+				<li><a href="galleria.html" tabindex="7">Galleria</a></li>
 				<li id="userIcon" class="hide"><a href="area-personale.php" aria-label="Area personale"
-						title="Area personale">Area personale</a></li>
+						title="Area personale" tabindex="9">Area personale</a></li>
 			</ul>
 		</nav>
 
 		<label id="darkmode-switch" for="checkbox">
-			<input aria-label="Passa a modalità notte" title="Passa a modalità notte" type="checkbox" id="checkbox" />
+			<input aria-label="Passa a modalità notte" title="Passa a modalità notte" type="checkbox" id="checkbox"
+				tabindex="8" />
 			<span class="slider round"></span>
 		</label>
 	</div>
+
+	<nav id="breadcrumb" aria-label="Breadcrumb">
+		<p>Ti trovi in: <span lang="en">Home</span></p>
+	</nav>
 
 	<div id="content">
 		<div id="titolo">
@@ -88,7 +89,7 @@
 				<img id="mappa" src="immagini/home/mappa.jpg"
 					alt="Mappa satellitare dell'isola tropicale di Bora Bora con il riferimento alla posizione della palestra" />
 				<a href="https://www.google.com/maps/place/16%C2%B029'22.6%22S+151%C2%B045'25.7%22W/@-16.4911643,-151.7580425,18.54z/data=!4m5!3m4!1s0x0:0x4459b5b1172dba21!8m2!3d-16.4896089!4d-151.757139"
-					target="_blank">Vai alla mappa</a>
+					target="_blank" tabindex="11">Vai alla mappa</a>
 			</div>
 
 			<div id="orari">
@@ -105,7 +106,7 @@
 				<p>In questo momento si stanno allenando <span id="contatorePersone">110</span> persone!</p>
 			</div>
 
-			<a href="area-personale.php?allenamenti=1#schede_allenamento" id="gotoAllenamenti">I tuoi
+			<a href="area-personale.php?allenamenti=1#schede_allenamento" id="gotoAllenamenti" tabindex="10">I tuoi
 				allenamenti</a>
 		</div>
 
