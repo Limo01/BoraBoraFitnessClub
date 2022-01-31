@@ -841,15 +841,6 @@ div div .gallery {
 	border-radius: 2em;
 }
 
-.gallery_img_zoom {
-	transition: transform 0.2s; /* Animation */
-}
-
-.gallery_img_zoom:hover {
-	border: 0.3em solid var(--colore-testo-principale);
-	transform: scale(2);
-}
-
 .gridQuadrata {
 	grid-template-areas:
 		"x y"
