@@ -1,242 +1,204 @@
 <!DOCTYPE html>
 <html lang="it">
-
-<head>
-	<meta charset="utf-8" />
-	<title>Galleria - Bora Bora Fitness Club</title>
-	<meta name="keywords"
-		content="galleria, sala, pesi, cardio, piscina, spazio outdoor, cocktail bar, giardino, zen, spogliatoi, bora bora, fitness, club" />
-	<meta name="description" content="Scopri la meravigliosa struttura di Bora Bora Fitness Club" />
-	<meta name="author" content="Adnan Latif Gazi, Alberto Lazari, Marco Andrea Limongelli, Francesco Protopapa" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<link rel="stylesheet" media="screen" href="style.css" />
-	<link rel="stylesheet" media="screen and (max-width:768px), only screen and (max-width:768px)" href="tablet.css" />
-	<link rel="stylesheet" media="screen and (max-width:600px), only screen and (max-width:600px)" href="mobile.css" />
-	<link rel="stylesheet" media="print" href="print.css" type="text/css" />
-	<noscript>
-		<link rel="stylesheet" media="screen" href="noscript.css" />
-	</noscript>
-
-	<link rel="shortcut icon" type="image/png" href="immagini/logo/island.png">
-
-	<script src="javascript/script.js"></script>
-</head>
-
-<body>
-	<header>
-		<div id="logo">
-			<h1 lang="en" class="hide">BORA BORA FITNESS CLUB</h1>
-		</div>
-	</header>
-
-	<a class="aiuti" href="#content" aria-label="Vai al contenuto" title="Vai al contenuto" tabindex="1">
-		Salta la navigazione
-	</a>
-
-	<span id="burger-menu" aria-label="Apri il burger menu" title="Apri il burger menu">&#9776;</span>
-
-	<div id="topbar" class="overlay">
-		<span id="closebtn" aria-label="Chiudi il burger menu" title="Chiudi il burger menu"
-			onclick="closeNav()">&times;</span>
-
-		<nav id="menu" class="overlay-content">
-			<ul>
-				<li lang="en"><a href="./" tabindex="2">Home</a></li>
-				<li><a href="abbonati.html" tabindex="3">Abbonati</a></li>
-				<li lang="en"><a href="personal-trainer.html" tabindex="4">Trainers</a></li>
-				<li><a href="attrezzature.html" tabindex="5">Attrezzature</a></li>
-				<li><a href="allenamenti.php" tabindex="6">Allenamenti</a></li>
-				<li><a href="storia.html" tabindex="7">Storia</a></li>
-				<li id="currentLink">Galleria</li>
-				<li id="userIcon" class="hide"><a href="area-personale.php" aria-label="Area personale"
-						title="Area personale">Area personale</a></li>
-			</ul>
-		</nav>
-
-		<label aria-label="Passa a modalità notte" title="Passa a modalità notte" id="darkmode-switch" for="checkbox">
-			<input type="checkbox" id="checkbox" tabindex="8" />
-			<span class="slider round"></span>
-		</label>
-	</div>
-
-	<nav id="breadcrumb" aria-label="Breadcrumb">
-		<p>Ti trovi in: <a href="./" lang="en">Home</a> &gt;&gt; Galleria</p>
-	</nav>
-
-	<div id="content">
-		<div id="titolo">
-			<h1>Gallery</h1>
-			<p>
-				Scopria la meravigliosa struttura di <strong lang="en">Bora Bora Fitness Club</strong>!
-			</p>
-
-			<nav id="subMenu">
-				<ul>
-					<li><a href="galleria.html#salaPesi">Sala pesi</a></li>
-					<li><a href="galleria.html#salaCardio">Sala cardio</a></li>
-					<li><a href="galleria.html#salaFitness">Sala <span lang="en">fitness</span></a></li>
-					<li><a href="galleria.html#piscina">Piscina</a></li>
-					<li><a href="galleria.html#outdoor" lang="en">Outdoor</a></li>
-					<li><a href="galleria.html#bar"><span lang="en">Cocktail</span> bar</a></li>
-					<li><a href="galleria.html#giardinoZen">Giardino zen</a></li>
-					<li><a href="galleria.html#spogliatoi">Spogliatoi</a></li>
-				</ul>
-			</nav>
-		</div>
-
-		<div id="salaPesi" class="galleryGroup">
-			<h2>La nostra sala pesi</h2>
-			<div class="gallery" id="gallerySalaPesi">
-				<img id="pesi1" class="gallery_img" src="immagini/sala-pesi/pesi1.jpg"
-					alt="Una nostra Chest Press: una macchina usata per allenare i pettorali" />
-				<img id="pesi2" class="gallery_img" src="immagini/sala-pesi/pesi2.jpg"
-					alt="Una nostra Leg Extension: una macchina usata per allenare i quadricipiti" />
-				<img id="pesi3" class="gallery_img" src="immagini/sala-pesi/pesi3.jpg"
-					alt="Una nostra Leg Press: una macchina usata per allenare le gambe" />
-
-
-
-				<img id="pesi5" class="gallery_img gallery_img_zoom" src="immagini/sala-pesi/pesi5.jpg"
-					alt="Una nostra Panca Piana: uno strumento di supporto per gli esercizi con il bilanciere" />
-				<img id="pesi6" class="gallery_img gallery_img_zoom" src="immagini/sala-pesi/pesi6.jpg"
-					alt="Le nostra panche per addominali: un attrezzo di supporto per allenare l'addome" />
-				<img id="pesi7" class="gallery_img gallery_img_zoom" src="immagini/sala-pesi/pesi7.jpg"
-					alt="Le nostre panche piane: uno strumento di supporto per gli esercizi con i manubri" />
-				<img id="pesi8" class="gallery_img gallery_img_zoom" src="immagini/sala-pesi/pesi8.jpg"
-					alt="La nostra sala pesi nel complesso" />
-
-			</div>
-		</div>
-
-		<div id="salaCardio" class="galleryGroup">
-			<h2>La nostra sala cardio</h2>
-			<div class="gallery" id="gallerySalaCardio">
-				<img id="cardio1" class="gallery_img" src="immagini/sala-cardio/cardio1.jpg"
-					alt="I nostri tapis roulant: le macchine per bruciare calorie camminando o correndo" />
-				<img id="cardio2" class="gallery_img" src="immagini/sala-cardio/cardio2.jpg"
-					alt="Le nostre cyclette: le macchine per bruciare calorie pedalando" />
-				<img id="cardio3" class="gallery_img gallery_img_zoom" src="immagini/sala-cardio/cardio3.jpg"
-					alt="I nostri tapis roulant sono moderni e dotati di uno scalino per salire" />
-				<img id="cardio4" class="gallery_img gallery_img_zoom" src="immagini/sala-cardio/cardio4.jpg"
-					alt="I nostri numerosi tapis roulant" />
-				<img id="cardio6" class="gallery_img gallery_img_zoom" src="immagini/sala-cardio/cardio6.jpg"
-					alt="I nostri tapis roulant messi in sicurezza dal contagio di coronavirus inserendo dei pannelli di plexiglas tra una macchina e l'altra" />
-			</div>
-		</div>
-
-		<div id="salaFitness" class="galleryGroup">
-			<h2>La nostra sala <span lang="en">fitness</span></h2>
-			<div class="gallery gridQuadrata" id="gallerySalaFitness">
-				<img id="fitness1" class="gallery_img" src="immagini/sala-fitness/fitness1.jpg"
-					alt="Il nostro set di kettlebell: pesi a forma sferica con una maniglia" />
-				<img id="fitness2" class="gallery_img" src="immagini/sala-fitness/fitness2.jpg"
-					alt="La nostra sala fitness è dotata di uno specchio lungo come tutta la parete" />
-				<img id="fitness3" class="gallery_img" src="immagini/sala-fitness/fitness3.jpg"
-					alt="La nostra sala fitness è dotata di sacchi da boxe e altre attrezzature per l'allenamento a corpo libero" />
-				<img id="fitness4" class="gallery_img" src="immagini/sala-fitness/fitness4.jpg"
-					alt="Il nostro set di palle mediche: ideali per esercizi di riabilitazione e potenziamento muscolare" />
-			</div>
-		</div>
-
-		<div id="piscina" class="galleryGroup">
-			<h2>La nostra piscina</h2>
-			<div class="gallery gridQuadrata" id="galleryPiscina">
-				<img id="piscina1" class="gallery_img" src="immagini/piscina/piscina1.jpg"
-					alt="La nostra piscina grande è dotata di più blocchi di partenza" />
-				<img id="piscina2" class="gallery_img" src="immagini/piscina/piscina2.jpg"
-					alt="La nostra piscina grande è affiancata da un'altra piscina per i più piccoli" />
-				<img id="piscina3" class="gallery_img" src="immagini/piscina/piscina3.jpg"
-					alt="La nostra piscina grande ha sei corsie" />
-				<img id="piscina4" class="gallery_img" src="immagini/piscina/piscina4.jpg"
-					alt="La nostra piscina è dotata di blocchi di partenza sicuri ed antiscivolo" />
-			</div>
-		</div>
-
-		<div id="outdoor" class="galleryGroup">
-			<h2>Il nostro paradisiaco spazio <span lang="en">outdoor</span></h2>
-			<div class="gallery" id="galleryOutdoor">
-				<img id="outdoor1" class="gallery_img" src="immagini/outdoor/outdoor1.jpg"
-					alt="Nel nostro spazio outdoor è presente una panca piana con un sostegno per il bilanciere" />
-				<img id="outdoor2" class="gallery_img gallery_img_zoom" src="immagini/outdoor/outdoor2.jpg"
-					alt="Nel nostro spazio outdoor abbiamo diverse panche per fare esercizi" />
-				<img id="outdoor3" class="gallery_img gallery_img_zoom" src="immagini/outdoor/outdoor3.jpg"
-					alt="Nel nostro spazio outdoor abbiamo una selezione di manubri in legno con pesi diversi" />
-				<img id="outdoor4" class="gallery_img gallery_img_zoom" src="immagini/outdoor/outdoor4.jpg"
-					alt="Nel nostro spazio outdoor è presente una postazione per fare squat con sostegno per il bilanciere" />
-				<img id="outdoor6" class="gallery_img" src="immagini/outdoor/outdoor6.jpg"
-					alt="Il nostro spazio outdoor è vicinissimo al bagnasciuga e ha una vista su un panorama fantastico" />
-			</div>
-		</div>
-
-		<div id="bar" class="galleryGroup">
-			<h2>I nostri <span lang="en">Cocktail Bar</span></h2>
-			<div class="gallery gridQuadrata" id="galleryCocktailBar">
-				<img id="cocktailbar1" class="gallery_img" src="immagini/bar/banco.jpg"
-					alt="Il nostro cocktail bar è una tradizionale capanna circolare in legno, con sgabelli circolari per sedersi al banco, posti sopra la pedana in legno che lo circonda. È situato sul bagnasciuga delle nostre bellissime spiagge" />
-				<img id="cocktailbar2" class="gallery_img" src="immagini/bar/tavoli.jpg"
-					alt="I cocktail possono essere consumati attorno a dei tavolini circolari in legno sulla spiaggia, seduti su delle comode sedie con schienale. Quasi tutti i tavoli sono posti sotto un telo, per potersi riparare dal sole" />
-				<img id="cocktailbar3" class="gallery_img" src="immagini/bar/cocktails.png"
-					alt="I nostri cocktail vengono serviti in bicchieri di diverse forme e dimensioni, con decorazioni e abbellimenti" />
-				<img id="cocktailbar4" class="gallery_img" src="immagini/bar/cocktail-bar.jpg"
-					alt="Il nostro cocktail bar è sulla spiaggia e all'ombre di molte palme" />
-			</div>
-		</div>
-
-		<div id="giardinoZen" class="galleryGroup">
-			<h2>I nostro giardino zen</h2>
-			<div class="gallery gridQuadrata" id="galleryGiardinoZen">
-				<img id="zen1" class="gallery_img" src="immagini/giardino/zen1.jpg"
-					alt="Il nostro giardino zen ha un laghetto dove vivono dei grossi pesci rossi" />
-				<img id="zen2" class="gallery_img" src="immagini/giardino/zen2.jpg"
-					alt="Il nostro giardino zen ha un laghetto con un ponte che lo attraversa" />
-				<img id="zen3" class="gallery_img" src="immagini/giardino/zen3.jpg"
-					alt="Il nostro giardino zen ha una zona in cui ci sono sassolini per terra e dove si trovano degli alberi colorati di rosso" />
-				<img id="zen4" class="gallery_img" src="immagini/giardino/zen4.jpg"
-					alt="Il nostro giardino zen ha una bellissima cascata che emette suoni rilassanti, pefetti come sottofondo per la meditazione" />
-			</div>
-		</div>
-
-		<div id="spogliatoi" class="galleryGroup">
-			<h2>Il nostri spogliatoi</h2>
-			<div class="gallery" id="gallerySpogliatoio">
-				<img id="spogliatoio2" class="gallery_img" src="immagini/spogliatoio/spogliatoio2.jpg"
-					alt="I nostri spogliatoi sono dotati di numerose panche e armadietti" />
-				<img id="spogliatoio4" class="gallery_img gallery_img_zoom" src="immagini/spogliatoio/spogliatoio4.jpg"
-					alt="I nostri spogliatoi sono dotati di lavandini e di un asciugacapelli" />
-				<img id="spogliatoio5" class="gallery_img gallery_img_zoom" src="immagini/spogliatoio/spogliatoio5.jpg"
-					alt="I nostri spogliatoi sono dotati di tutti i sanitari necessari" />
-				<img id="spogliatoio6" class="gallery_img gallery_img_zoom" src="immagini/spogliatoio/spogliatoio6.jpg"
-					alt="Davanti alle docce è presente una panca in legno dove appoggiare gli asciugamani" />
-			</div>
-		</div>
-	</div>
-
-	<a id="tornaSu" aria-label="Torna su" title="Torna su" href="#">Torna su</a>
-
-	<footer>
-		<h2 lang="en">BORA BORA FITNESS CLUB</h2>
-
-		<address>BP 502 Vaitape - 98730 - Bora Bora, Polinesia Francese</address>
-
-		<a href="tel:+68940603300" aria-label="Il nostro numero di telefono" title="Il nostro numero di telefono"
-			target="_blank"><img class="social" src="immagini/logo/phone.png" alt="logo telefono" /></a>
-		<a href="mailto:boraborafitnessclub@gmail.com" aria-label="La nostra email" title="La nostra email"
-			target="_blank"><img class="social" src="immagini/logo/gmail.png" alt="logo gmail" /></a>
-		<a href="https://www.instagram.com/" aria-label="La nostra pagina Instagram" title="La nostra pagina Instagram"
-			target="_blank"><img class="social" src="immagini/logo/instagram.png" alt="logo instagram" /></a>
-		<a href="https://www.facebook.com/" aria-label="La nostra pagina Facebook" title="La nostra pagina Facebook"
-			target="_blank"><img class="social" src="immagini/logo/facebook.png" alt="logo facebook" /></a>
-
-		<p lang="en">All rights reserved, &#169; copyright 2022</p>
-
-
-		<img src="immagini/logo/html5.png" class="imgValidCode" alt="HTML valido">
-		<img src="immagini/logo/css.png" class="imgValidCode" alt="CSS valido">
-
-		<p>Creato da Adnan Latif Gazi, Alberto Lazari, Marco Andrea Limongelli, Francesco Protopapa</p>
-
-	</footer>
-</body>
-
+    <head>
+        <meta charset="utf-8" />
+        <title>Galleria - Bora Bora Fitness Club</title>
+        <meta name="keywords"
+            content="galleria, sala, pesi, cardio, piscina, spazio outdoor, cocktail bar, giardino, zen, spogliatoi, bora bora, fitness, club" />
+        <meta name="description" content="Scopri la meravigliosa struttura di Bora Bora Fitness Club" />
+        <meta name="author" content="Adnan Latif Gazi, Alberto Lazari, Marco Andrea Limongelli, Francesco Protopapa" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" media="screen" href="style.css" />
+        <link rel="stylesheet" media="screen and (max-width:768px), only screen and (max-width:768px)" href="tablet.css" />
+        <link rel="stylesheet" media="screen and (max-width:600px), only screen and (max-width:600px)" href="mobile.css" />
+        <link rel="stylesheet" media="print" href="print.css" type="text/css" />
+        <noscript>
+            <link rel="stylesheet" media="screen" href="noscript.css" />
+        </noscript>
+        <link rel="shortcut icon" type="image/png" href="immagini/logo/island.png">
+        <script src="javascript/script.js"></script>
+    </head>
+    <body>
+        <header>
+            <div id="logo">
+                <h1 lang="en" class="hide">BORA BORA FITNESS CLUB</h1>
+            </div>
+        </header>
+        <a class="aiuti" href="#content" aria-label="Vai al contenuto" title="Vai al contenuto" tabindex="1">
+        Salta la navigazione</a>
+        <span id="burger-menu" aria-label="Apri il burger menu" title="Apri il burger menu">&#9776;</span>
+        <div id="topbar" class="overlay">
+            <span id="closebtn" aria-label="Chiudi il burger menu" title="Chiudi il burger menu"
+                onclick="closeNav()">&times;</span>
+            <nav id="menu" class="overlay-content">
+                <ul>
+                    <li lang="en"><a href="./" tabindex="2">Home</a></li>
+                    <li><a href="abbonati.html" tabindex="3">Abbonati</a></li>
+                    <li lang="en"><a href="personal-trainer.html" tabindex="4">Trainers</a></li>
+                    <li><a href="attrezzature.html" tabindex="5">Attrezzature</a></li>
+                    <li><a href="allenamenti.php" tabindex="6">Allenamenti</a></li>
+                    <li><a href="storia.html" tabindex="7">Storia</a></li>
+                    <li id="currentLink">Galleria</li>
+                    <li id="userIcon" class="hide"><a href="area-personale.php" aria-label="Area personale"
+                        title="Area personale">Area personale</a></li>
+                </ul>
+            </nav>
+            <label aria-label="Passa a modalità notte" title="Passa a modalità notte" id="darkmode-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" tabindex="8" />
+            <span class="slider round"></span>
+            </label>
+        </div>
+        <nav id="breadcrumb" aria-label="Breadcrumb">
+            <p>Ti trovi in: <a href="./" lang="en">Home</a> &gt;&gt; Galleria</p>
+        </nav>
+        <div id="content">
+            <div id="titolo">
+                <h1>Gallery</h1>
+                <p>Scopria la meravigliosa struttura di <strong lang="en">Bora Bora Fitness Club</strong>!</p>
+                <nav id="subMenu">
+                    <ul>
+                        <li><a href="galleria.html#salaPesi">Sala pesi</a></li>
+                        <li><a href="galleria.html#salaCardio">Sala cardio</a></li>
+                        <li><a href="galleria.html#salaFitness">Sala <span lang="en">fitness</span></a></li>
+                        <li><a href="galleria.html#piscina">Piscina</a></li>
+                        <li><a href="galleria.html#outdoor" lang="en">Outdoor</a></li>
+                        <li><a href="galleria.html#bar"><span lang="en">Cocktail</span> bar</a></li>
+                        <li><a href="galleria.html#giardinoZen">Giardino zen</a></li>
+                        <li><a href="galleria.html#spogliatoi">Spogliatoi</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div id="salaPesi" class="galleryGroup">
+                <h2>La nostra sala pesi</h2>
+                <div class="gallery" id="gallerySalaPesi">
+                    <img id="pesi1" class="gallery_img" src="immagini/sala-pesi/pesi1.jpg"
+                        alt="Una nostra Chest Press: una macchina usata per allenare i pettorali" />
+                    <img id="pesi2" class="gallery_img" src="immagini/sala-pesi/pesi2.jpg"
+                        alt="Una nostra Leg Extension: una macchina usata per allenare i quadricipiti" />
+                    <img id="pesi3" class="gallery_img" src="immagini/sala-pesi/pesi3.jpg"
+                        alt="Una nostra Leg Press: una macchina usata per allenare le gambe" />
+                    <img id="pesi5" class="gallery_img gallery_img_zoom" src="immagini/sala-pesi/pesi5.jpg"
+                        alt="Una nostra Panca Piana: uno strumento di supporto per gli esercizi con il bilanciere" />
+                    <img id="pesi6" class="gallery_img gallery_img_zoom" src="immagini/sala-pesi/pesi6.jpg"
+                        alt="Le nostra panche per addominali: un attrezzo di supporto per allenare l'addome" />
+                    <img id="pesi7" class="gallery_img gallery_img_zoom" src="immagini/sala-pesi/pesi7.jpg"
+                        alt="Le nostre panche piane: uno strumento di supporto per gli esercizi con i manubri" />
+                    <img id="pesi8" class="gallery_img gallery_img_zoom" src="immagini/sala-pesi/pesi8.jpg"
+                        alt="La nostra sala pesi nel complesso" />
+                </div>
+            </div>
+            <div id="salaCardio" class="galleryGroup">
+                <h2>La nostra sala cardio</h2>
+                <div class="gallery" id="gallerySalaCardio">
+                    <img id="cardio1" class="gallery_img" src="immagini/sala-cardio/cardio1.jpg"
+                        alt="I nostri tapis roulant: le macchine per bruciare calorie camminando o correndo" />
+                    <img id="cardio2" class="gallery_img" src="immagini/sala-cardio/cardio2.jpg"
+                        alt="Le nostre cyclette: le macchine per bruciare calorie pedalando" />
+                    <img id="cardio3" class="gallery_img gallery_img_zoom" src="immagini/sala-cardio/cardio3.jpg"
+                        alt="I nostri tapis roulant sono moderni e dotati di uno scalino per salire" />
+                    <img id="cardio4" class="gallery_img gallery_img_zoom" src="immagini/sala-cardio/cardio4.jpg"
+                        alt="I nostri numerosi tapis roulant" />
+                    <img id="cardio6" class="gallery_img gallery_img_zoom" src="immagini/sala-cardio/cardio6.jpg"
+                        alt="I nostri tapis roulant messi in sicurezza dal contagio di coronavirus inserendo dei pannelli di plexiglas tra una macchina e l'altra" />
+                </div>
+            </div>
+            <div id="salaFitness" class="galleryGroup">
+                <h2>La nostra sala <span lang="en">fitness</span></h2>
+                <div class="gallery gridQuadrata" id="gallerySalaFitness">
+                    <img id="fitness1" class="gallery_img" src="immagini/sala-fitness/fitness1.jpg"
+                        alt="Il nostro set di kettlebell: pesi a forma sferica con una maniglia" />
+                    <img id="fitness2" class="gallery_img" src="immagini/sala-fitness/fitness2.jpg"
+                        alt="La nostra sala fitness è dotata di uno specchio lungo come tutta la parete" />
+                    <img id="fitness3" class="gallery_img" src="immagini/sala-fitness/fitness3.jpg"
+                        alt="La nostra sala fitness è dotata di sacchi da boxe e altre attrezzature per l'allenamento a corpo libero" />
+                    <img id="fitness4" class="gallery_img" src="immagini/sala-fitness/fitness4.jpg"
+                        alt="Il nostro set di palle mediche: ideali per esercizi di riabilitazione e potenziamento muscolare" />
+                </div>
+            </div>
+            <div id="piscina" class="galleryGroup">
+                <h2>La nostra piscina</h2>
+                <div class="gallery gridQuadrata" id="galleryPiscina">
+                    <img id="piscina1" class="gallery_img" src="immagini/piscina/piscina1.jpg"
+                        alt="La nostra piscina grande è dotata di più blocchi di partenza" />
+                    <img id="piscina2" class="gallery_img" src="immagini/piscina/piscina2.jpg"
+                        alt="La nostra piscina grande è affiancata da un'altra piscina per i più piccoli" />
+                    <img id="piscina3" class="gallery_img" src="immagini/piscina/piscina3.jpg"
+                        alt="La nostra piscina grande ha sei corsie" />
+                    <img id="piscina4" class="gallery_img" src="immagini/piscina/piscina4.jpg"
+                        alt="La nostra piscina è dotata di blocchi di partenza sicuri ed antiscivolo" />
+                </div>
+            </div>
+            <div id="outdoor" class="galleryGroup">
+                <h2>Il nostro paradisiaco spazio <span lang="en">outdoor</span></h2>
+                <div class="gallery" id="galleryOutdoor">
+                    <img id="outdoor1" class="gallery_img" src="immagini/outdoor/outdoor1.jpg"
+                        alt="Nel nostro spazio outdoor è presente una panca piana con un sostegno per il bilanciere" />
+                    <img id="outdoor2" class="gallery_img gallery_img_zoom" src="immagini/outdoor/outdoor2.jpg"
+                        alt="Nel nostro spazio outdoor abbiamo diverse panche per fare esercizi" />
+                    <img id="outdoor3" class="gallery_img gallery_img_zoom" src="immagini/outdoor/outdoor3.jpg"
+                        alt="Nel nostro spazio outdoor abbiamo una selezione di manubri in legno con pesi diversi" />
+                    <img id="outdoor4" class="gallery_img gallery_img_zoom" src="immagini/outdoor/outdoor4.jpg"
+                        alt="Nel nostro spazio outdoor è presente una postazione per fare squat con sostegno per il bilanciere" />
+                    <img id="outdoor6" class="gallery_img" src="immagini/outdoor/outdoor6.jpg"
+                        alt="Il nostro spazio outdoor è vicinissimo al bagnasciuga e ha una vista su un panorama fantastico" />
+                </div>
+            </div>
+            <div id="bar" class="galleryGroup">
+                <h2>I nostri <span lang="en">Cocktail Bar</span></h2>
+                <div class="gallery gridQuadrata" id="galleryCocktailBar">
+                    <img id="cocktailbar1" class="gallery_img" src="immagini/bar/banco.jpg"
+                        alt="Il nostro cocktail bar è una tradizionale capanna circolare in legno, con sgabelli circolari per sedersi al banco, posti sopra la pedana in legno che lo circonda. È situato sul bagnasciuga delle nostre bellissime spiagge" />
+                    <img id="cocktailbar2" class="gallery_img" src="immagini/bar/tavoli.jpg"
+                        alt="I cocktail possono essere consumati attorno a dei tavolini circolari in legno sulla spiaggia, seduti su delle comode sedie con schienale. Quasi tutti i tavoli sono posti sotto un telo, per potersi riparare dal sole" />
+                    <img id="cocktailbar3" class="gallery_img" src="immagini/bar/cocktails.png"
+                        alt="I nostri cocktail vengono serviti in bicchieri di diverse forme e dimensioni, con decorazioni e abbellimenti" />
+                    <img id="cocktailbar4" class="gallery_img" src="immagini/bar/cocktail-bar.jpg"
+                        alt="Il nostro cocktail bar è sulla spiaggia e all'ombre di molte palme" />
+                </div>
+            </div>
+            <div id="giardinoZen" class="galleryGroup">
+                <h2>I nostro giardino zen</h2>
+                <div class="gallery gridQuadrata" id="galleryGiardinoZen">
+                    <img id="zen1" class="gallery_img" src="immagini/giardino/zen1.jpg"
+                        alt="Il nostro giardino zen ha un laghetto dove vivono dei grossi pesci rossi" />
+                    <img id="zen2" class="gallery_img" src="immagini/giardino/zen2.jpg"
+                        alt="Il nostro giardino zen ha un laghetto con un ponte che lo attraversa" />
+                    <img id="zen3" class="gallery_img" src="immagini/giardino/zen3.jpg"
+                        alt="Il nostro giardino zen ha una zona in cui ci sono sassolini per terra e dove si trovano degli alberi colorati di rosso" />
+                    <img id="zen4" class="gallery_img" src="immagini/giardino/zen4.jpg"
+                        alt="Il nostro giardino zen ha una bellissima cascata che emette suoni rilassanti, pefetti come sottofondo per la meditazione" />
+                </div>
+            </div>
+            <div id="spogliatoi" class="galleryGroup">
+                <h2>Il nostri spogliatoi</h2>
+                <div class="gallery" id="gallerySpogliatoio">
+                    <img id="spogliatoio2" class="gallery_img" src="immagini/spogliatoio/spogliatoio2.jpg"
+                        alt="I nostri spogliatoi sono dotati di numerose panche e armadietti" />
+                    <img id="spogliatoio4" class="gallery_img gallery_img_zoom" src="immagini/spogliatoio/spogliatoio4.jpg"
+                        alt="I nostri spogliatoi sono dotati di lavandini e di un asciugacapelli" />
+                    <img id="spogliatoio5" class="gallery_img gallery_img_zoom" src="immagini/spogliatoio/spogliatoio5.jpg"
+                        alt="I nostri spogliatoi sono dotati di tutti i sanitari necessari" />
+                    <img id="spogliatoio6" class="gallery_img gallery_img_zoom" src="immagini/spogliatoio/spogliatoio6.jpg"
+                        alt="Davanti alle docce è presente una panca in legno dove appoggiare gli asciugamani" />
+                </div>
+            </div>
+        </div>
+        <a id="tornaSu" aria-label="Torna su" title="Torna su" href="#">Torna su</a>
+        <footer>
+            <h2 lang="en">BORA BORA FITNESS CLUB</h2>
+            <address>BP 502 Vaitape - 98730 - Bora Bora, Polinesia Francese</address>
+            <a href="tel:+68940603300" aria-label="Il nostro numero di telefono" title="Il nostro numero di telefono"
+                target="_blank"><img class="social" src="immagini/logo/phone.png" alt="logo telefono" /></a>
+            <a href="mailto:boraborafitnessclub@gmail.com" aria-label="La nostra email" title="La nostra email"
+                target="_blank"><img class="social" src="immagini/logo/gmail.png" alt="logo gmail" /></a>
+            <a href="https://www.instagram.com/" aria-label="La nostra pagina Instagram" title="La nostra pagina Instagram"
+                target="_blank"><img class="social" src="immagini/logo/instagram.png" alt="logo instagram" /></a>
+            <a href="https://www.facebook.com/" aria-label="La nostra pagina Facebook" title="La nostra pagina Facebook"
+                target="_blank"><img class="social" src="immagini/logo/facebook.png" alt="logo facebook" /></a>
+            <p lang="en">All rights reserved, &#169; copyright 2022</p>
+            <img src="immagini/logo/html5.png" class="imgValidCode" alt="HTML valido">
+            <img src="immagini/logo/css.png" class="imgValidCode" alt="CSS valido">
+            <p>Creato da Adnan Latif Gazi, Alberto Lazari, Marco Andrea Limongelli, Francesco Protopapa</p>
+        </footer>
+    </body>
 </html>

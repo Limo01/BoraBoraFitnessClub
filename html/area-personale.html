@@ -1,156 +1,111 @@
 <!DOCTYPE html>
 <html lang="it">
-
-<head>
-	<meta charset="utf-8" />
-	<title>
-		Area personale
-		<admin /> - Bora Bora Fitness Club
-	</title>
-	<meta name="keywords"
-		content="area personale, dati personali, gestione utenti, detagli abbonamento, ultimo accesso, schede, allenamento, seguite, create, bora bora, fitness, club" />
-	<meta name="description"
-		content="Area personale in cui visualizzare e modificare le proprie informazioni, abbonamenti e allenamenti" />
-	<meta name="author" content="Adnan Latif Gazi, Alberto Lazari, Marco Andrea Limongelli, Francesco Protopapa" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<link rel="stylesheet" media="screen" href="style.css" />
-	<link rel="stylesheet" media="screen and (max-width:768px), only screen and (max-width:768px)" href="tablet.css" />
-	<link rel="stylesheet" media="screen and (max-width:600px), only screen and (max-width:600px)" href="mobile.css" />
-	<link rel="stylesheet" media="print" href="print.css" type="text/css" />
-	<noscript>
-		<link rel="stylesheet" media="screen" href="noscript.css" />
-	</noscript>
-
-	<link rel="shortcut icon" type="image/png" href="immagini/logo/island.png">
-
-	<script src="javascript/script.js"></script>
-</head>
-
-<body>
-	<header>
-		<div id="logo">
-			<h1 lang="en" class="hide">BORA BORA FITNESS CLUB</h1>
-		</div>
-	</header>
-
-	<a class="aiuti" href="#content" aria-label="Vai al contenuto" title="Vai al contenuto" tabindex="1">
-		Salta la navigazione
-	</a>
-
-	<span id="burger-menu" aria-label="Apri il burger menu" title="Apri il burger menu">&#9776;</span>
-
-	<div id="topbar" class="overlay">
-		<span id="closebtn" aria-label="Chiudi il burger menu" title="Chiudi il burger menu"
-			onclick="closeNav()">&times;</span>
-
-		<nav id="menu" class="overlay-content">
-			<ul>
-				<li lang="en"><a href="./" tabindex="2">Home</a></li>
-				<li><a href="abbonati.html" tabindex="3">Abbonati</a></li>
-				<li lang="en"><a href="personal-trainer.html" tabindex="4">Trainers</a></li>
-				<li><a href="attrezzature.html" tabindex="5">Attrezzature</a></li>
-				<li><a href="allenamenti.php" tabindex="6">Allenamenti</a></li>
-				<li><a href="storia.html" tabindex="7">Storia</a></li>
-				<li><a href="galleria.html" tabindex="8">Galleria</a></li>
-				<li id="userIcon" class="hide">
-					<link_menu />
-				</li>
-			</ul>
-		</nav>
-
-		<label aria-label="Passa a modalità notte" title="Passa a modalità notte" id="darkmode-switch" for="checkbox">
+	<head>
+		<meta charset="utf-8" />
+		<title>Area personale <admin /> - Bora Bora Fitness Club</title>
+		<meta name="keywords"
+			content="area personale, dati personali, gestione utenti, detagli abbonamento, ultimo accesso, schede, allenamento, seguite, create, bora bora, fitness, club" />
+		<meta name="description"
+			content="Area personale in cui visualizzare e modificare le proprie informazioni, abbonamenti e allenamenti" />
+		<meta name="author" content="Adnan Latif Gazi, Alberto Lazari, Marco Andrea Limongelli, Francesco Protopapa" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" media="screen" href="style.css" />
+		<link rel="stylesheet" media="screen and (max-width:768px), only screen and (max-width:768px)" href="tablet.css" />
+		<link rel="stylesheet" media="screen and (max-width:600px), only screen and (max-width:600px)" href="mobile.css" />
+		<link rel="stylesheet" media="print" href="print.css" type="text/css" />
+		<noscript>
+			<link rel="stylesheet" media="screen" href="noscript.css" />
+		</noscript>
+		<link rel="shortcut icon" type="image/png" href="immagini/logo/island.png">
+		<script src="javascript/script.js"></script>
+	</head>
+	<body>
+		<header>
+			<div id="logo">
+				<h1 lang="en" class="hide">BORA BORA FITNESS CLUB</h1>
+			</div>
+		</header>
+		<a class="aiuti" href="#content" aria-label="Vai al contenuto" title="Vai al contenuto" tabindex="1">
+		Salta la navigazione</a>
+		<span id="burger-menu" aria-label="Apri il burger menu" title="Apri il burger menu">&#9776;</span>
+		<div id="topbar" class="overlay">
+			<span id="closebtn" aria-label="Chiudi il burger menu" title="Chiudi il burger menu"
+				onclick="closeNav()">&times;</span>
+			<nav id="menu" class="overlay-content">
+				<ul>
+					<li lang="en"><a href="./" tabindex="2">Home</a></li>
+					<li><a href="abbonati.html" tabindex="3">Abbonati</a></li>
+					<li lang="en"><a href="personal-trainer.html" tabindex="4">Trainers</a></li>
+					<li><a href="attrezzature.html" tabindex="5">Attrezzature</a></li>
+					<li><a href="allenamenti.php" tabindex="6">Allenamenti</a></li>
+					<li><a href="storia.html" tabindex="7">Storia</a></li>
+					<li><a href="galleria.html" tabindex="8">Galleria</a></li>
+					<li id="userIcon" class="hide">
+						<link_menu />
+					</li>
+				</ul>
+			</nav>
+			<label aria-label="Passa a modalità notte" title="Passa a modalità notte" id="darkmode-switch" for="checkbox">
 			<input type="checkbox" id="checkbox" tabindex="9" />
 			<span class="slider round"></span>
-		</label>
-	</div>
-
-	<nav id="breadcrumb" aria-label="Breadcrumb">
-		<p>Ti trovi in: <a href="./" lang="en">Home</a> &gt;&gt;
-			<breadcrumb />
-		</p>
-	</nav>
-
-	<div id="content">
-		<div id="titolo">
-			<h1>
-				<username /> - Area personale
-				<admin />
-			</h1>
-			<logout />
+			</label>
 		</div>
-
-		<div id="<widget />">
-			<div id="dati_personali_widget" class="dati_personali widget">
-				<h2>Dati personali</h2>
-
-				<dati_personali />
+		<nav id="breadcrumb" aria-label="Breadcrumb">
+			<p>Ti trovi in: <a href="./" lang="en">Home</a> &gt;&gt; <breadcrumb /></p>
+		</nav>
+		<div id="content">
+			<div id="titolo">
+				<h1><username /> - Area personale <admin /></h1>
+				<logout />
 			</div>
-
-			<div id="dettagli_abbonamento" class="dati_personali widget">
-				<h2>Dettagli abbonamento</h2>
-
-				<dettagli_abbonamento />
+			<div id="<widget />">
+				<div id="dati_personali_widget" class="dati_personali widget">
+					<h2>Dati personali</h2>
+					<dati_personali />
+				</div>
+				<div id="dettagli_abbonamento" class="dati_personali widget">
+					<h2>Dettagli abbonamento</h2>
+					<dettagli_abbonamento />
+				</div>
+				<div id="ultimo-ingresso" class="widget">
+					<h2>Ultimo accesso</h2>
+					<dl class="dl_inline">
+						<dt>Data</dt>
+						<dd><data_ingresso /></dd>
+						<dt>Ora</dt>
+						<dd><ora_ingresso /></dd>
+					</dl>
+				</div>
+				<gestione_utenti />
 			</div>
-
-			<div id="ultimo-ingresso" class="widget">
-				<h2>Ultimo accesso</h2>
-				<dl class="dl_inline">
-					<dt>Data</dt>
-					<dd>
-						<data_ingresso />
-					</dd>
-
-					<dt>Ora</dt>
-					<dd>
-						<ora_ingresso />
-					</dd>
-				</dl>
-			</div>
-
-			<gestione_utenti />
-		</div>
-
-		<div id="schede_allenamento">
-			<h2>Schede allenamento</h2>
-
-			<div id="schede_seguite">
-				<h3>Schede seguite</h3>
-				<allenamenti_seguiti />
-			</div>
-
-			<div id="schede_create">
-				<h3>Schede create</h3>
-				<allenamenti_creati />
+			<div id="schede_allenamento">
+				<h2>Schede allenamento</h2>
+				<div id="schede_seguite">
+					<h3>Schede seguite</h3>
+					<allenamenti_seguiti />
+				</div>
+				<div id="schede_create">
+					<h3>Schede create</h3>
+					<allenamenti_creati />
+				</div>
 			</div>
 		</div>
-	</div>
-
-	<a id="tornaSu" aria-label="Torna su" title="Torna su" href="#">Torna su</a>
-
-	<footer>
-		<h2 lang="en">BORA BORA FITNESS CLUB</h2>
-
-		<address>BP 502 Vaitape - 98730 - Bora Bora, Polinesia Francese</address>
-
-		<a href="tel:+68940603300" aria-label="Il nostro numero di telefono" title="Il nostro numero di telefono"
-			target="_blank"><img class="social" src="immagini/logo/phone.png" alt="logo telefono" /></a>
-		<a href="mailto:boraborafitnessclub@gmail.com" aria-label="La nostra email" title="La nostra email"
-			target="_blank"><img class="social" src="immagini/logo/gmail.png" alt="logo gmail" /></a>
-		<a href="https://www.instagram.com/" aria-label="La nostra pagina Instagram" title="La nostra pagina Instagram"
-			target="_blank"><img class="social" src="immagini/logo/instagram.png" alt="logo instagram" /></a>
-		<a href="https://www.facebook.com/" aria-label="La nostra pagina Facebook" title="La nostra pagina Facebook"
-			target="_blank"><img class="social" src="immagini/logo/facebook.png" alt="logo facebook" /></a>
-
-		<p lang="en">All rights reserved, &#169; copyright 2022</p>
-
-
-		<img src="immagini/logo/html5.png" class="imgValidCode" alt="HTML valido">
-		<img src="immagini/logo/css.png" class="imgValidCode" alt="CSS valido">
-
-		<p>Creato da Adnan Latif Gazi, Alberto Lazari, Marco Andrea Limongelli, Francesco Protopapa</p>
-
-	</footer>
-</body>
-
+		<a id="tornaSu" aria-label="Torna su" title="Torna su" href="#">Torna su</a>
+		<footer>
+			<h2 lang="en">BORA BORA FITNESS CLUB</h2>
+			<address>BP 502 Vaitape - 98730 - Bora Bora, Polinesia Francese</address>
+			<a href="tel:+68940603300" aria-label="Il nostro numero di telefono" title="Il nostro numero di telefono"
+				target="_blank"><img class="social" src="immagini/logo/phone.png" alt="logo telefono" /></a>
+			<a href="mailto:boraborafitnessclub@gmail.com" aria-label="La nostra email" title="La nostra email"
+				target="_blank"><img class="social" src="immagini/logo/gmail.png" alt="logo gmail" /></a>
+			<a href="https://www.instagram.com/" aria-label="La nostra pagina Instagram" title="La nostra pagina Instagram"
+				target="_blank"><img class="social" src="immagini/logo/instagram.png" alt="logo instagram" /></a>
+			<a href="https://www.facebook.com/" aria-label="La nostra pagina Facebook" title="La nostra pagina Facebook"
+				target="_blank"><img class="social" src="immagini/logo/facebook.png" alt="logo facebook" /></a>
+			<p lang="en">All rights reserved, &#169; copyright 2022</p>
+			<img src="immagini/logo/html5.png" class="imgValidCode" alt="HTML valido">
+			<img src="immagini/logo/css.png" class="imgValidCode" alt="CSS valido">
+			<p>Creato da Adnan Latif Gazi, Alberto Lazari, Marco Andrea Limongelli, Francesco Protopapa</p>
+		</footer>
+	</body>
 </html>
