@@ -163,7 +163,19 @@ small {
 
 #content p.notification {
 	color: var(--colore-successo);
+}
+
+#deleted {
 	flex-basis: 95%;
+}
+
+#content p.followNotification {
+	color: var(--colore-link-da-visitare);
+}
+
+#content p.follow {
+	color: var(--colore-successo);
+	flex-basis: 100%;
 }
 
 /*==================== MENU ====================*/
@@ -1400,15 +1412,6 @@ div div .gallery {
 #content .bottoni-allenamenti ul {
 	margin: 0em;
 	margin-right: 0.5em;
-}
-
-#content .allenamento-avviso {
-	text-align: center;
-	color: var(--colore-testo-principale);
-	background-color: var(--colore-background-menu);
-	padding: 0.5em 3%;
-	border-radius: 2em;
-	margin: 0.5em 0.2em;
 }
 
 #content .bottoni-allenamenti form {

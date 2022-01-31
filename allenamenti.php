@@ -46,7 +46,7 @@
 		$queryPagineResult = $connessione->doReadQuery("SELECT COUNT(*) AS numeroAllenamenti FROM allenamento");
 		$content = "";
 		if ($precedente) {
-			$content .= "<p class='notification'>Allenamento eliminato!</p>";
+			$content .= "<p id='deleted' class='notification'>Allenamento eliminato!</p>";
 			$_SESSION['precedente'] = false;
 		}
 		$copyContent = $content;
@@ -90,7 +90,7 @@
 						</li>
 					</ul>";
 				$content .= "
-					<form action='allenamenti.php?pagina=" . $pagina . "#' method='post'>
+					<form action='allenamenti.php?pagina=" . $pagina . "' method='post'>
 						<input type='hidden' name='id' value='" . $row['id'] . "' />
 						<button name='elimina' class='eliminaAllenamentoButton'>Elimina allenamento</button>
 					</form>
@@ -99,19 +99,19 @@
 				if ($connessione->doReadQuery("SELECT COUNT(*) AS isFollowing FROM utente_allenamento WHERE id_allenamento = ? AND username_utente = ?", "is", $row['id'], $utente)[0]['isFollowing'] == 0) {
 					$content .= "
 					</ul>
-					<form action='allenamenti.php?pagina=" . $pagina . "#" . $attuale . "' method='post'>
+					<form action='allenamenti.php?pagina=" . $pagina . "#" . $row['id'] . "' method='post'>
 						<input type='hidden' name='id' value='" . $row['id'] . "' />
 						<button name='segui' value='seguire'>Segui</button>
 					</form>
 				</div>";
 					if ($row['id'] == $attuale) {
 						$_SESSION['attuale'] = 0;
-						$content .= "<p class='notification'>Hai smesso di seguire l'allenamento!</p>";
+						$content .= "<p class='followNotification'>Hai smesso di seguire l'allenamento!</p>";
 					}
 				} else {
 					$content .= "
 					</ul>
-					<form action='allenamenti.php?pagina=" . $pagina . "#" . $attuale . "' method='post'>
+					<form action='allenamenti.php?pagina=" . $pagina . "#" . $row['id'] . "' method='post'>
 						<input type='hidden' name='id' value='" . $row['id'] . "' />
 						<button name='segui' value='nonSeguire'>Smetti di seguire</button>
 					</form>
@@ -119,7 +119,7 @@
 					
 					if ($row['id'] == $attuale) {
 						$_SESSION['attuale'] = 0;
-						$content .= "<p class='notification'>Hai iniziato a seguire l'allenamento!</p>";
+						$content .= "<p class='followNotification'>Hai iniziato a seguire l'allenamento!</p>";
 					}
 				}
 			}
@@ -128,12 +128,12 @@
 		}
 		$connessione->closeConnection();
 		if ($content == $copyContent) {
-			$content .= "<p class='notification'>Sembra che non ci siano allenamenti!</p>";
+			$content .= "<p class='alert'>Sembra che non ci siano allenamenti!</p>";
 		}
 		$_SESSION['numeroPagine'] = ceil($queryPagineResult[0]['numeroAllenamenti'] / $numeroAllenamentiPerPagina);
 		$numeroPagine = $_SESSION['numeroPagine'];
 	} else {
-		$content = "<p class='notification'>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
+		$content = "<p class='alert'>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
 	}
 
 	$offset = 2;

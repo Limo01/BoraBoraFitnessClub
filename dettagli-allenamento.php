@@ -70,14 +70,14 @@
 
 						if ($id == $changes) {
 							$_SESSION['changes'] = false;
-							$content .= "<p class='allenamento-avviso'>Hai smesso di seguire l'allenamento!</p>";
+							$content .= "<p class='follow'>Hai smesso di seguire l'allenamento!</p>";
 						}
 					} else {
 						$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "&url=" . $referer . "' method='post'><button name='segui' value='nonSeguire'>Smetti di seguire</button></form>";
 
 						if ($id == $changes) {
 							$_SESSION['changes'] = false;
-							$content .= "<p class='allenamento-avviso'>Hai iniziato a seguire l'allenamento!</p>";
+							$content .= "<p class='follow'>Hai iniziato a seguire l'allenamento!</p>";
 						}
 					}
 				}
@@ -111,17 +111,17 @@
             	
 				$content .= "</div>";
 			} elseif ($changes) {
-				$content .= "<h2 id='titolo-dettagli-allenamento'>Allenamento eliminato</h2><p class='allenamento-avviso'>Allenamento eliminato!</p>";
+				$content .= "<h2 id='titolo-dettagli-allenamento'>Allenamento eliminato</h2><p class='notification'>Allenamento eliminato!</p>";
 				$_SESSION['changes'] = false;
 			} else {
-				$content .= "<h2 id='titolo-dettagli-allenamento'>Allenamento inesistente</h2><p class='allenamento-avviso'>Sembra che questo allenamento non esista!</p>";
+				$content .= "<h2 id='titolo-dettagli-allenamento'>Allenamento inesistente</h2><p class='alert'>Sembra che questo allenamento non esista!</p>";
 			}
 			$connessione->closeConnection();
 		} else {
-			$content .= "<h2 id='titolo-dettagli-allenamento'>Errore dei nostri sistemi</h2><p class='allenamento-avviso'>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
+			$content .= "<h2 id='titolo-dettagli-allenamento'>Errore dei nostri sistemi</h2><p class='alert'>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
 		}
 	} else {
-		$content .= "<h2 id='titolo-dettagli-allenamento'>Nessun allenamento</h2><p class='allenamento-avviso'>Nessun allenamento indicato!</p>";
+		$content .= "<h2 id='titolo-dettagli-allenamento'>Nessun allenamento</h2><p class='alert'>Nessun allenamento indicato!</p>";
 	}
 
 	$strtbtn = "";
