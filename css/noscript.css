@@ -28,14 +28,14 @@
 		display: block;
 	}
 
+	#userIcon #currentLink{
+		background-image: var(--icona-autenticazione-current);
+	}
+
 	#currentLink{
 		background-color: var(--colore-testo-principale);
 		color: var(--colore-testo-contrasto-sfondi);
 		display: inline-block;
-	}
-
-	#currentLink::before {
-  		content: none;
 	}
 
 	#breadcrumb{
