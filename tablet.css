@@ -3,6 +3,14 @@ h1.hide {
 	margin: 0 3em;
 }
 
+#content h1 {
+	font-size: 3em;
+}
+
+#content h2 {
+	font-size: 2em;
+}
+
 #logo {
 	padding: 0;
 }
