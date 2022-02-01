@@ -136,8 +136,7 @@
 				$abbonamentiOptions .= "<option value='" . $abbonamento . ($abbonamentoCorrente == $abbonamento ? "' selected='selected'" : "'") . ">" . $abbonamento . "</option>";
 			}
 
-			$form = '<form action="php/modifica-abbonamento.php?update=<update />&usr=<username /> " method="post">';
-			$dettagliAbbonamento .= str_replace("<update />", $update, $form . file_get_contents("html/dettagli_abbonamento_update.html"));
+			$dettagliAbbonamento .= str_replace("<update />", $update, file_get_contents("html/dettagli_abbonamento_update.html"));
 
 			$annulla = '<a href="visualizza-utente.php?' . ($update == 0 ? 'update=1&' : '') . 'usr=<username />#dettagli_abbonamento">Annulla</a>';
 			$dettagliAbbonamento = str_replace("<annulla />", $annulla, $dettagliAbbonamento);

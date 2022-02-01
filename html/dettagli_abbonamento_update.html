@@ -1,16 +1,23 @@
-<label for="abbonamento">Abbonamento attivo</label>
-<select name="abbonamento" id="abbonamento" size="1">
-	<abbonamenti />
-</select>
+<form action="php/modifica-abbonamento.php?update=<update />&usr=<username /> " method="post">
+	<fieldset>
+		<legend>
+			<h2>Dettagli abbonamento</h2>
+		</legend>
 
-<label for="scadenza">Scadenza</label>
-<input type="date" name="scadenza" id="scadenza" value="<scadenza_abbonamento />" min="<data_oggi />" required>
-<p id="errore_scadenza" role="alert" class="errore_form"></p>
+		<label for="abbonamento">Abbonamento attivo</label>
+		<select name="abbonamento" id="abbonamento" size="1">
+			<abbonamenti />
+		</select>
 
-<label for="entrate">Entrate singole disponibili</label>
-<input type="number" name="entrate" id="entrate" min="0" max="2147483647" value="<entrate />" required>
-<p id="errore_entrate" role="alert" class="errore_form"></p>
+		<label for="scadenza">Scadenza</label>
+		<input type="date" name="scadenza" id="scadenza" value="<scadenza_abbonamento />" min="<data_oggi />" required>
+		<p id="errore_scadenza" role="alert" class="errore_form"></p>
 
-<button>Conferma modifica</button>
+		<label for="entrate">Entrate singole disponibili</label>
+		<input type="number" name="entrate" id="entrate" min="0" max="2147483647" value="<entrate />" required>
+		<p id="errore_entrate" role="alert" class="errore_form"></p>
+
+		<button>Conferma modifica</button>
+	</fieldset>
 </form>
 <annulla />
