@@ -166,7 +166,7 @@
 	function replaceSchedeAllenamento($schedeSeguite, $schedeCreate, $admin, $paginaHTML) {
 		//Riempimento dati schede seguite
 		if($schedeSeguite == null){
-			$paginaHTML = str_replace("<allenamenti_seguiti />", "<p>Nessuna scheda allenamento seguita</p>", $paginaHTML);
+			$paginaHTML = str_replace("<allenamenti_seguiti />", "<p>Sembra che tu non segua nessuna scheda...</p>", $paginaHTML);
 		}
 		else{
 			$output = createDisplayAllenamenti($schedeSeguite, $admin);
@@ -175,7 +175,7 @@
 
 		//Riempimento dati schede create
 		if($schedeCreate == null){
-			$paginaHTML = str_replace("<allenamenti_creati />", "<p>Nessun allenamento creato</p>", $paginaHTML);
+			$paginaHTML = str_replace("<allenamenti_creati />", "<p>Sembra che tu non abbia ancora creato un tuo allenamento...</p>", $paginaHTML);
 		}
 		else{
 			$output = createDisplayAllenamenti($schedeCreate, $admin);
