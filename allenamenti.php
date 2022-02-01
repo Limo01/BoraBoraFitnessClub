@@ -4,22 +4,18 @@
 	require_once "php/db.php";
 	use DB\DBAccess;
 	
-	if (!isset($_SESSION['numeroPagine'])) {
-		$_SESSION['numeroPagine'] = 1;
+	if (!isset($_SESSION['followAllenamento'])) {
+		$_SESSION['followAllenamento'] = 0;
 	}
 	
-	if (!isset($_SESSION['attuale'])) {
-		$_SESSION['attuale'] = 0;
-	}
-	
-	if (!isset($_SESSION['precedente'])) {
-		$_SESSION['precedente'] = false;
+	if (!isset($_SESSION['deleted'])) {
+		$_SESSION['deleted'] = false;
 	}
 	
 	$pagina = isset($_GET['pagina'])? $_GET['pagina'] : 1;
-	$numeroPagine = $_SESSION['numeroPagine'];
-	$attuale = $_SESSION['attuale'];
-	$precedente = $_SESSION['precedente'];
+	$numeroPagine = 1;
+	$followAllenamento = $_SESSION['followAllenamento'];
+	$deleted = $_SESSION['deleted'];
 	
 	$tipoUtente = 2;
 	$utente = "";
@@ -44,13 +40,13 @@
 				$connessione->doWriteQuery("DELETE FROM utente_allenamento WHERE id_allenamento = ?", "i", $id);
 			}
 			
-			$_SESSION['attuale'] = $id;
+			$_SESSION['followAllenamento'] = $id;
 			header('Location: allenamenti.php?pagina=' . $pagina);
 			return;
 		} elseif (isset($_POST['elimina'])) {
 			
 			$connessione->doWriteQuery("DELETE FROM allenamento WHERE id = ?", "i", $_POST['id']);
-			$_SESSION['precedente'] = true;
+			$_SESSION['deleted'] = true;
 			header('Location: allenamenti.php?pagina=' . $pagina);
 			return;
 		}
@@ -63,9 +59,9 @@
 		
 		$queryPagineResult = $connessione->doReadQuery("SELECT COUNT(*) AS numeroAllenamenti FROM allenamento");		
 		
-		if ($precedente) {
+		if ($deleted) {
 			$content .= "<p id='deleted' class='notification'>Allenamento eliminato!</p>";
-			$_SESSION['precedente'] = false;
+			$_SESSION['deleted'] = false;
 		}
 		
 		$copyContent = $content;
@@ -135,8 +131,8 @@
 						<button name='segui' value='seguire'>Segui</button>
 					</form>";
 					
-					if ($row['id'] == $attuale) {
-						$_SESSION['attuale'] = 0;
+					if ($row['id'] == $followAllenamento) {
+						$_SESSION['followAllenamento'] = 0;
 						$content .= "<p class='followNotification'>Hai smesso di seguire l'allenamento!</p>";
 					}
 				} else {
@@ -147,8 +143,8 @@
 						<button name='segui' value='nonSeguire'>Smetti di seguire</button>
 					</form>";
 					
-					if ($row['id'] == $attuale) {
-						$_SESSION['attuale'] = 0;
+					if ($row['id'] == $followAllenamento) {
+						$_SESSION['followAllenamento'] = 0;
 						$content .= "<p class='followNotification'>Hai iniziato a seguire l'allenamento!</p>";
 					}
 				}
@@ -163,8 +159,7 @@
 			$content .= "<p class='alert'>Sembra che non ci siano allenamenti!</p>";
 		}
 		
-		$_SESSION['numeroPagine'] = ceil($queryPagineResult[0]['numeroAllenamenti'] / $numeroAllenamentiPerPagina);
-		$numeroPagine = $_SESSION['numeroPagine'];
+		$numeroPagine = ceil($queryPagineResult[0]['numeroAllenamenti'] / $numeroAllenamentiPerPagina);
 	} else {
 		$content = "<p class='alert'>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
 	}

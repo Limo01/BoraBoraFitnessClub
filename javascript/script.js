@@ -173,7 +173,7 @@ function check_validity_scadenza(e) {
 	disableScadenza();
 	var errore = document.getElementById("errore_scadenza");
 
-	if(!e.target.checkValidity()){
+	if (!e.target.checkValidity()) {
 		errore.innerHTML= "La data inserita non è in un formato corretto.";
 	}
 	else {
@@ -184,6 +184,21 @@ function check_validity_scadenza(e) {
 		else
 			errore.innerHTML = "";
 	}
+}
+
+function check_validity_entrate(e) {
+	var errore = document.getElementById("errore_entrate");
+
+	if (!e.target.checkValidity()) {
+		var entrate_input = e.target.value;
+		
+		if (entrate_input < 0)
+			errore.innerHTML = "Non è possibile inserire un numero negativo di entrate.";
+		else if (entrate_input > 2147483647)
+			errore.innerHTML = "Il numero inserito di entrate è superiore al massimo consentito.";
+	}
+	else
+		errore.innerHTML = "";
 }
 
 /*Funzione per aggiungere gli eventi blur nella registrazione*/
@@ -217,6 +232,9 @@ function addOnBlurEventInput(){
 	
 	if (document.getElementById("scadenza") != null)
 		document.getElementById("scadenza").addEventListener("blur", check_validity_scadenza);
+	
+	if (document.getElementById("entrate") != null)
+		document.getElementById("entrate").addEventListener("blur", check_validity_entrate);
 }
 
 /*Funzioni per il burger menu*/

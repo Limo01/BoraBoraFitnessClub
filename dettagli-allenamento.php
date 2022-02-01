@@ -19,11 +19,11 @@
 			$referer .= "#" . $id;
 		}
 		
-		if (!isset($_SESSION['changes'])) {
-			$_SESSION['changes'] = false;
+		if (!isset($_SESSION['followChange'])) {
+			$_SESSION['followChange'] = false;
 		}
 		
-		$changes = $_SESSION['changes'];
+		$followChange = $_SESSION['followChange'];
 		
 		$connessione = new DBAccess();
 		$connessioneOK = $connessione->openDBConnection();
@@ -45,12 +45,12 @@
 					$connessione->doWriteQuery("DELETE FROM utente_allenamento WHERE id_allenamento = ?", "i", $id);
 				}
 				
-				$_SESSION['changes'] = true;
+				$_SESSION['followChange'] = true;
 				header('Location: dettagli-allenamento.php?id=' . $id . '&nomeBreadcrumb=' . $nomeBreadcrumb . '&url=' . $referer);
 				return;
 			} elseif (isset($_POST['elimina'])) {
 				$connessione->doWriteQuery("DELETE FROM allenamento WHERE id = ?", "i", $id);
-				$_SESSION['changes'] = true;
+				$_SESSION['followChange'] = true;
 				header('Location: dettagli-allenamento.php?id=' . $id . '&nomeBreadcrumb=' . $nomeBreadcrumb . '&url=' . $referer);
 				return;
 			}
@@ -94,15 +94,15 @@
 					if ($connessione->doReadQuery("SELECT COUNT(*) AS isFollowing FROM utente_allenamento WHERE id_allenamento = ? AND username_utente = ?", "is", $id, $utente)[0]['isFollowing'] == 0) {
 						$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "&url=" . $referer . "' method='post'><button name='segui' value='seguire'>Segui</button></form>";
 
-						if ($id == $changes) {
-							$_SESSION['changes'] = false;
+						if ($id == $followChange) {
+							$_SESSION['followChange'] = false;
 							$content .= "<p class='follow'>Hai smesso di seguire l'allenamento!</p>";
 						}
 					} else {
 						$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "&url=" . $referer . "' method='post'><button name='segui' value='nonSeguire'>Smetti di seguire</button></form>";
 
-						if ($id == $changes) {
-							$_SESSION['changes'] = false;
+						if ($id == $followChange) {
+							$_SESSION['followChange'] = false;
 							$content .= "<p class='follow'>Hai iniziato a seguire l'allenamento!</p>";
 						}
 					}
@@ -142,9 +142,9 @@
             	}
             	
 				$content .= "</div>";
-			} elseif ($changes) {
+			} elseif ($followChange) {
 				$content .= "<h2 id='titolo-dettagli-allenamento'>Allenamento eliminato</h2><p class='notification'>Allenamento eliminato!</p>";
-				$_SESSION['changes'] = false;
+				$_SESSION['followChange'] = false;
 			} else {
 				$content .= "<h2 id='titolo-dettagli-allenamento'>Allenamento inesistente</h2><p class='alert'>Sembra che questo allenamento non esista!</p>";
 			}
