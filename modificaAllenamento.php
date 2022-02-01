@@ -18,6 +18,8 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
 			//form aggiungi esercizio
 			$aggiungiEsercizio = 
 			"<form id=\"inserimentoEsercizio\" action=\"php/generatoreScheda.php?id=". $_GET["id"] ."\" method=\"post\">
+				<fieldset>
+				<legend><h3>Aggiungi un esercizio</h3></legend>
 				<label id=\"nomeEsercizioL\">Nome</label>
 				<input id=\"nomeEsercizioI\" type=\"text\" name=\"nomeEsercizio\" required>
 
@@ -38,15 +40,16 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
 				<input id=\"ripetizioniEsercizioI\" type=\"number\" name=\"ripetizioniEsercizio\" min=\"0\" value=\"0\">
 				
 				<button id=\"buttonAddEsercizio\" name=\"aggiungiEsercizioSubmit\">Aggiungi</button>
+				</fieldset>
 			</form>";
 			$paginaHTML = str_replace("<insertEsercizio />",$aggiungiEsercizio,$paginaHTML);
 
 			//form elimina esercizio
-			$optionEsercizio = "<form id=\"inserimentoForm\" action=\"php/generatoreScheda.php?id=".$_GET["id"]."\" method=\"post\"><label>Seleziona esercizio da eliminare</label><select name=\"esercizioScheda\">";
+			$optionEsercizio = "<form id=\"inserimentoForm\" action=\"php/generatoreScheda.php?id=".$_GET["id"]."\" method=\"post\"><fieldset><legend><h3>Elimina un esercizio</h3></legend><label>Seleziona esercizio da eliminare</label><select name=\"esercizioScheda\">";
 			foreach($eserciziQuery as $row){
 				$optionEsercizio .= "<option value=\"" . $row["nome"] . "\">" . $row["nome"] . "</option>";
 			}
-			$optionEsercizio .= "</select><button id=\"buttonDelEsercizio\" name=\"eliminaEsercizioSubmit\">Elimina</button></form>";
+			$optionEsercizio .= "</select><button id=\"buttonDelEsercizio\" name=\"eliminaEsercizioSubmit\">Elimina</button></fieldset></form>";
 			if($eserciziQuery != null) {
 				$paginaHTML = str_replace("<deleteEsercizio />",$optionEsercizio,$paginaHTML);
 			} else {

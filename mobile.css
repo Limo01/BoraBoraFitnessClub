@@ -25,6 +25,8 @@ h1.hide {
 	background-position: top;
 	margin-top: 0;
 	transition: none;
+	height: 3em;
+	margin: 0;
 }
 
 h1.hide:hover {
@@ -181,7 +183,7 @@ footer {
 }
 
 /*============= FORM ESERCIZIO =============*/
-#inserimentoEsercizio {
+#inserimentoEsercizio fieldset{
 	grid-template-columns: 33% 33% 33%;
 	grid-template-areas:
 		"a a a"

@@ -28,36 +28,40 @@
 		<div id="logo">
 			<h1 lang="en" class="hide">BORA BORA FITNESS CLUB</h1>
 		</div>
-	</header>
-	<a class="aiuti" href="#content" aria-label="Vai al contenuto" title="Vai al contenuto" tabindex="1">
-		Salta la navigazione</a>
-	<span id="burger-menu" aria-label="Apri il burger menu" title="Apri il burger menu">&#9776;</span>
-	<div id="topbar" class="overlay">
-		<span id="closebtn" aria-label="Chiudi il burger menu" title="Chiudi il burger menu">&times;</span>
-		<nav id="menu" class="overlay-content">
-			<ul>
-				<li lang="en"><a href="./" tabindex="2">Home</a></li>
-				<li><a href="abbonati.html" tabindex="3">Abbonati</a></li>
-				<li lang="en"><a href="personal-trainer.html" tabindex="4">Trainers</a></li>
-				<li><a href="attrezzature.html" tabindex="5">Attrezzature</a></li>
-				<li><a href="allenamenti.php" tabindex="6">Allenamenti</a></li>
-				<li><a href="storia.html" tabindex="7">Storia</a></li>
-				<li><a href="galleria.html" tabindex="8">Galleria</a></li>
-				<li id="userIcon" class="hide">
-					<link_menu />
-				</li>
-			</ul>
+
+		<a class="aiuti" href="#content" aria-label="Vai al contenuto" title="Vai al contenuto" tabindex="1">
+			Salta la navigazione</a>
+		<span id="burger-menu" aria-label="Apri il burger menu" title="Apri il burger menu">&#9776;</span>
+		<div id="topbar" class="overlay">
+			<span id="closebtn" aria-label="Chiudi il burger menu" title="Chiudi il burger menu">&times;</span>
+			<nav id="menu" class="overlay-content">
+				<ul>
+					<li lang="en"><a href="./" tabindex="2">Home</a></li>
+					<li><a href="abbonati.html" tabindex="3">Abbonati</a></li>
+					<li lang="en"><a href="personal-trainer.html" tabindex="4">Trainers</a></li>
+					<li><a href="attrezzature.html" tabindex="5">Attrezzature</a></li>
+					<li><a href="allenamenti.php" tabindex="6">Allenamenti</a></li>
+					<li><a href="storia.html" tabindex="7">Storia</a></li>
+					<li><a href="galleria.html" tabindex="8">Galleria</a></li>
+					<li id="userIcon" class="hide">
+						<link_menu />
+					</li>
+				</ul>
+			</nav>
+			<label aria-label="Passa a modalità notte" title="Passa a modalità notte" id="darkmode-switch"
+				for="checkbox">
+				<input type="checkbox" id="checkbox" tabindex="9" />
+				<span class="slider round"></span>
+			</label>
+		</div>
+
+		<nav id="breadcrumb" aria-label="Breadcrumb">
+			<p>Ti trovi in: <a href="./" lang="en">Home</a> &gt;&gt;
+				<breadcrumb />
+			</p>
 		</nav>
-		<label aria-label="Passa a modalità notte" title="Passa a modalità notte" id="darkmode-switch" for="checkbox">
-			<input type="checkbox" id="checkbox" tabindex="9" />
-			<span class="slider round"></span>
-		</label>
-	</div>
-	<nav id="breadcrumb" aria-label="Breadcrumb">
-		<p>Ti trovi in: <a href="./" lang="en">Home</a> &gt;&gt;
-			<breadcrumb />
-		</p>
-	</nav>
+	</header>
+
 	<div id="content">
 		<div id="titolo">
 			<h1>
@@ -71,7 +75,6 @@
 				<dati_personali />
 			</div>
 			<div id="dettagli_abbonamento" class="dati_personali widget">
-				<h2>Dettagli abbonamento</h2>
 				<dettagli_abbonamento />
 			</div>
 			<div id="ultimo-ingresso" class="widget">
