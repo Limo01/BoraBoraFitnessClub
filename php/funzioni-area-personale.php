@@ -83,8 +83,9 @@
 			if($formError){
 				$personalData .= "<p id='errore_form' class='alert'>Si è verificato un errore nella procedura, oppure i dati inseriti non sono validi.</p>";
 			}
-			$form = '<form action="php/modifica_dati_personali.php?update=<update />" method="post">';
-			$personalData .= str_replace("<update />", $update, $form . file_get_contents("html/dati_personali_update.html"));
+			$formAction = "php/modifica_dati_personali.php?update=<update />";
+			$personalData .= str_replace("<form_action />", $formAction, file_get_contents("html/dati_personali_update.html"));
+			$personalData = str_replace("<update />", $update, $personalData);
 			
 			if ($admin) {
 				$personalData = str_replace("<today_min16anni />", "", $personalData);

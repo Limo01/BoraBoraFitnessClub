@@ -97,8 +97,9 @@
 			if($formError == 1){
 				$personalData .= "<p id=\"errore_form\" class='alert'>Si è verificato un errore nella procedura, oppure i dati inseriti non sono validi.</p>";
 			}
-			$form = '<form action="php/modifica_dati_personali.php?update=<update />&usr=<username />" method="post">';
-			$personalData .= str_replace("<update />", $update, $form . file_get_contents("html/dati_personali_update.html"));
+			$formAction = "php/modifica_dati_personali.php?update=<update />&usr=<username />";
+			$personalData .= str_replace("<form_action />", $formAction, file_get_contents("html/dati_personali_update.html"));
+			$personalData = str_replace("<update />", $update, $personalData);
 			
 			$personalData = str_replace("<today_min16anni />", "", $personalData);
 			$personalData = str_replace("<today_max110anni />", "", $personalData);
@@ -135,8 +136,7 @@
 				$abbonamentiOptions .= "<option value='" . $abbonamento . ($abbonamentoCorrente == $abbonamento ? "' selected='selected'" : "'") . ">" . $abbonamento . "</option>";
 			}
 
-			$form = '<form action="php/modifica-abbonamento.php?update=<update />&usr=<username /> " method="post">';
-			$dettagliAbbonamento .= str_replace("<update />", $update, $form . file_get_contents("html/dettagli_abbonamento_update.html"));
+			$dettagliAbbonamento .= str_replace("<update />", $update, file_get_contents("html/dettagli_abbonamento_update.html"));
 
 			$annulla = '<a href="visualizza-utente.php?' . ($update == 0 ? 'update=1&' : '') . 'usr=<username />#dettagli_abbonamento">Annulla</a>';
 			$dettagliAbbonamento = str_replace("<annulla />", $annulla, $dettagliAbbonamento);
