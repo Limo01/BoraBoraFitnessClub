@@ -171,6 +171,7 @@ small {
 
 #content p.followNotification {
 	color: var(--colore-link-da-visitare);
+	margin-left: 0;
 }
 
 #content p.follow {
