@@ -1,76 +1,105 @@
 <?php
 	session_start();
+	
 	require_once "php/db.php";
 	use DB\DBAccess;
+	
 	if (!isset($_SESSION['numeroPagine'])) {
 		$_SESSION['numeroPagine'] = 1;
 	}
+	
 	if (!isset($_SESSION['attuale'])) {
 		$_SESSION['attuale'] = 0;
 	}
+	
 	if (!isset($_SESSION['precedente'])) {
 		$_SESSION['precedente'] = false;
 	}
+	
 	$pagina = isset($_GET['pagina'])? $_GET['pagina'] : 1;
 	$numeroPagine = $_SESSION['numeroPagine'];
 	$attuale = $_SESSION['attuale'];
 	$precedente = $_SESSION['precedente'];
+	
 	$tipoUtente = 2;
 	$utente = "";
+	
 	$connessione = new DBAccess();
 	$connessioneOK = $connessione->openDBConnection();
+	
 	if ($connessioneOK) {
+		
 		if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]){ // cliente = 0, admin = 1
 			$tipoUtente = $_SESSION["isAdmin"];
 			$utente = $_SESSION['username'];
 		}
+		
 		if (isset($_POST['segui'])) {
+			
 			$id = $_POST['id'];
+			
 			if ($_POST['segui'] == "seguire") {
 				$connessione->doWriteQuery("INSERT INTO utente_allenamento(username_utente, id_allenamento) VALUES (?, ?)", "si", $utente, $id);
 			} else {
 				$connessione->doWriteQuery("DELETE FROM utente_allenamento WHERE id_allenamento = ?", "i", $id);
 			}
+			
 			$_SESSION['attuale'] = $id;
 			header('Location: allenamenti.php?pagina=' . $pagina);
 			return;
 		} elseif (isset($_POST['elimina'])) {
+			
 			$connessione->doWriteQuery("DELETE FROM allenamento WHERE id = ?", "i", $_POST['id']);
 			$_SESSION['precedente'] = true;
 			header('Location: allenamenti.php?pagina=' . $pagina);
 			return;
 		}
+		
 		$numeroAllenamentiPerPagina = 6;
 		$startRow = $pagina * $numeroAllenamentiPerPagina - $numeroAllenamentiPerPagina;
-		$queryAllenamentiResult = $connessione->doReadQuery("SELECT allenamento.id, allenamento.nome, descrizione, username_utente, data_creazione, Followers, CONCAT(personal_trainer.nome, ' ', cognome) AS trainer FROM allenamento LEFT JOIN (SELECT id_allenamento AS id, COUNT(id_allenamento) as Followers FROM utente_allenamento GROUP BY id_allenamento) AS TabellaFollowers USING(id) LEFT JOIN personal_trainer on allenamento.id_personal_trainer = personal_trainer.id ORDER BY Followers DESC LIMIT ?, ?", "ii", $startRow, $numeroAllenamentiPerPagina);
-		$queryPagineResult = $connessione->doReadQuery("SELECT COUNT(*) AS numeroAllenamenti FROM allenamento");
 		$content = "";
+
+		$queryAllenamentiResult = $connessione->doReadQuery("SELECT allenamento.id, allenamento.nome, descrizione, username_utente, data_creazione, Followers, CONCAT(personal_trainer.nome, ' ', cognome) AS trainer FROM allenamento LEFT JOIN (SELECT id_allenamento AS id, COUNT(id_allenamento) as Followers FROM utente_allenamento GROUP BY id_allenamento) AS TabellaFollowers USING(id) LEFT JOIN personal_trainer on allenamento.id_personal_trainer = personal_trainer.id ORDER BY Followers DESC LIMIT ?, ?", "ii", $startRow, $numeroAllenamentiPerPagina);
+		
+		$queryPagineResult = $connessione->doReadQuery("SELECT COUNT(*) AS numeroAllenamenti FROM allenamento");		
+		
 		if ($precedente) {
 			$content .= "<p id='deleted' class='notification'>Allenamento eliminato!</p>";
 			$_SESSION['precedente'] = false;
 		}
+		
 		$copyContent = $content;
+		
 		foreach ($queryAllenamentiResult as $row) {
+			
 			$queryDettaglioAllenamentoResult = $connessione->doReadQuery("SELECT nome, descrizione, peso, serie, ripetizioni, durata FROM esercizio WHERE id_allenamento = ?", "i", $row['id']);
+			
 			$numeroEsercizi = count($queryDettaglioAllenamentoResult);
 			$content .= '
 				<article id="' . $row['id'] . '">
 					<h3>' . $row['nome'] . '</h3>
 					<p>' . $row['descrizione'] . '</p>
 					<p>Questo allenamento comprende ' . $numeroEsercizi . ' esercizi';
+			
 			if ($numeroEsercizi == 1) {
 				$content .= 'o';
 			}
+			
 			if($numeroEsercizi > 0){
 				$content .= ', tra cui esercizi come ' . $queryDettaglioAllenamentoResult[0]['nome'];
 			}
+			
 			if ($numeroEsercizi > 1) {
+				
 				$j = 1;
+				
 				for (; $j <= $numeroEsercizi - 3 && $j <= 3; $j++) {
 					$content .= ', ' . $queryDettaglioAllenamentoResult[$j]['nome'];
 				}
+				
 				$content .= ' e ' . $queryDettaglioAllenamentoResult[$j]['nome'];
 			}
+			
 			$content .= '.</p>
 				<ul>
 					<li>Di ' . $row['username_utente'] . '</li>' . ($row['trainer'] == null ? ' ' : '<li>Creato da ' . $row['trainer'] . '</li>') . '
@@ -93,17 +122,19 @@
 					<form action='allenamenti.php?pagina=" . $pagina . "' method='post'>
 						<input type='hidden' name='id' value='" . $row['id'] . "' />
 						<button name='elimina' class='eliminaAllenamentoButton'>Elimina allenamento</button>
-					</form>
-				</div>";
-			} elseif ($tipoUtente == 0) {
+					</form>";
+			} 
+
+			if ($tipoUtente == 1 || ($tipoUtente == 0 && $row['username_utente'] != $utente)) {
+				
 				if ($connessione->doReadQuery("SELECT COUNT(*) AS isFollowing FROM utente_allenamento WHERE id_allenamento = ? AND username_utente = ?", "is", $row['id'], $utente)[0]['isFollowing'] == 0) {
 					$content .= "
 					</ul>
 					<form action='allenamenti.php?pagina=" . $pagina . "#" . $row['id'] . "' method='post'>
 						<input type='hidden' name='id' value='" . $row['id'] . "' />
 						<button name='segui' value='seguire'>Segui</button>
-					</form>
-				</div>";
+					</form>";
+					
 					if ($row['id'] == $attuale) {
 						$_SESSION['attuale'] = 0;
 						$content .= "<p class='followNotification'>Hai smesso di seguire l'allenamento!</p>";
@@ -114,8 +145,7 @@
 					<form action='allenamenti.php?pagina=" . $pagina . "#" . $row['id'] . "' method='post'>
 						<input type='hidden' name='id' value='" . $row['id'] . "' />
 						<button name='segui' value='nonSeguire'>Smetti di seguire</button>
-					</form>
-				</div>";
+					</form>";
 					
 					if ($row['id'] == $attuale) {
 						$_SESSION['attuale'] = 0;
@@ -124,12 +154,15 @@
 				}
 			}
 
-			$content .= "</article>";
+			$content .= "</div></article>";
 		}
+		
 		$connessione->closeConnection();
+		
 		if ($content == $copyContent) {
 			$content .= "<p class='alert'>Sembra che non ci siano allenamenti!</p>";
 		}
+		
 		$_SESSION['numeroPagine'] = ceil($queryPagineResult[0]['numeroAllenamenti'] / $numeroAllenamentiPerPagina);
 		$numeroPagine = $_SESSION['numeroPagine'];
 	} else {
@@ -149,7 +182,9 @@
 				<a href='allenamenti.php?pagina=" . $i . "'>" . $i . "</a>
 			</li>";
 	}
+	
 	for ($i = $vIntSx; $i < $pagina; $i++) {
+		
 		if ($spacerSx) {
 			$contentPagine .= "
 				<li id='fine-pagine-iniziali'>
@@ -163,15 +198,19 @@
 				</li>";
 		}
 	}
+	
 	$contentPagine .= "<li id='currentPage'>" . $pagina . "</li>";
+	
 	for ($i = $pagina + 1; $i < $vIntDx; $i++) {
 	   	$contentPagine .= "<li><a href='allenamenti.php?pagina=" . $i . "'>" . $i . "</a></li>";
 	}
+	
 	if ($spacerDx) {
 		$contentPagine .= "<li id='inizio-pagine-finali'><a href='allenamenti.php?pagina=" . $vIntDx . "'>" . $vIntDx . "</a></li>";
 	} elseif ($pagina < $vIntDx) {
 		$contentPagine .= "<li><a href='allenamenti.php?pagina=" . $vIntDx . "'>" . $vIntDx . "</a></li>";
 	}
+	
 	for ($i = ($vIntDx >= ($numeroPagine - $offset) ? $vIntDx : $numeroPagine - $offset) + 1; $i <= $numeroPagine; $i++) {
 	   	$contentPagine .= "<li><a href='allenamenti.php?pagina=" . $i . "'>" . $i . "</a></li>";
 	}

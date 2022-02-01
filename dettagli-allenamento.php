@@ -24,6 +24,7 @@
 		}
 		
 		$changes = $_SESSION['changes'];
+		
 		$connessione = new DBAccess();
 		$connessioneOK = $connessione->openDBConnection();
 		
@@ -84,8 +85,11 @@
 				
 				if ($tipoUtente == 1 || ($tipoUtente == 0 && $queryOverviewAllenamentoResult[0]['username_utente'] == $utente)) {
 					$content .= "<ul><li><a href='modificaAllenamento.php?id=" . $id . "'>Modifica allenamento</a></li></ul>";
-					$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "&url=" . $referer . "' method='post'><button name='elimina'>Elimina allenamento</button></form>";
-				} elseif ($tipoUtente == 0) {
+					$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "&url=" . $referer . "' method='post'><button name='elimina' 
+						class='eliminaAllenamentoButton'>Elimina allenamento</button></form>";
+				} 
+
+				if ($tipoUtente == 1 || ($tipoUtente == 0 && $row['username_utente'] != $utente)) {
 					
 					if ($connessione->doReadQuery("SELECT COUNT(*) AS isFollowing FROM utente_allenamento WHERE id_allenamento = ? AND username_utente = ?", "is", $id, $utente)[0]['isFollowing'] == 0) {
 						$content .= "<form action='dettagli-allenamento.php?id=" . $id . "&nomeBreadcrumb=" . $nomeBreadcrumb . "&url=" . $referer . "' method='post'><button name='segui' value='seguire'>Segui</button></form>";
