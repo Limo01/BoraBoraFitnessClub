@@ -25,7 +25,7 @@
 		//Messaggio di abbonamento già presente
 		$messaggio = "";
 		if($data_scadenza_abbonamento != null){
-			$messaggio = "<p>Ti ricordiamo che hai già un abbonamento attivo in scandenza il giorno " . $data_scadenza_abbonamento . ". Se compri un nuovo abbonamento la validità del precedente decadrà e il nuovo abbonamento sarà attivo immediatamente.</p>";
+			$messaggio = "<p>Ti ricordiamo che hai già un abbonamento attivo in scadenza il giorno " . $data_scadenza_abbonamento . ". Se compri un nuovo abbonamento la validità del precedente decadrà e il nuovo abbonamento sarà attivo immediatamente.</p>";
 		} 
 
 		$paginaHTML = str_replace("<messaggio_abbonamento_presente />", $messaggio, $paginaHTML);

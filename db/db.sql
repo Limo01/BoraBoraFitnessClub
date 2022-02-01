@@ -171,7 +171,7 @@ values ('admin', '1'),
 insert into allenamento(nome, descrizione, username_utente, data_creazione, id_personal_trainer)
 values ('Brucia grassi', 'Principalmente esercizi cardio per bruciare grassi e dimagrire', 'admin', '2021-12-28', null),
 	   ('Massa muscolare', 'Tutti gli esercizi per mettere su muscoli VELOCEMENTE!', 'admin', '2021-11-28', 1),
-	   ('Allenamento per ritornare in forma', 'In un mese si può ritornare in forma seguendo gli esericizi con il giusto ritmo', 'user', '2021-12-27', null),
+	   ('Allenamento per ritornare in forma', 'In un mese si può ritornare in forma seguendo gli esercizi con il giusto ritmo', 'user', '2021-12-27', null),
 	   ('Gambe e spalle', 'Principalmente gambe, ma anche spalle nel finale di allenamento', 'user', '2021-11-27', 2),
 	   ('Ingrassamento','Questo allenamento è l''ideale se il tuo obiettivo è quello di perdere massa muscolare e mettere su massa grassa','user','2021-12-21',1);
 

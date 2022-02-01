@@ -83,7 +83,7 @@
 					$msg .= "Per acquistare un abbonamento devi prima effettuare l'autenticazione.";
 					break;
 			}
-			$msg .= ' Una volta effettuato il <span lang="en">login</span> o la registrazione verrai reindirizzato alla pagina che desiseri</p>';
+			$msg .= ' Una volta effettuato il <span lang="en">login</span> o la registrazione verrai reindirizzato alla pagina che desideri</p>';
 			$paginaHTML = str_replace("<messaggioRedirect />", $msg, $paginaHTML);
 		} else {
 			$paginaHTML = str_replace("<messaggioRedirect />", 

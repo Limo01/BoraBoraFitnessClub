@@ -13,7 +13,7 @@
 			$widget = "widget_area_personale";
 		}
 
-		$paginaHTML = str_replace("<logout />", "<a href='php/logout.php' id=\"logOut\">Logout</a>", $paginaHTML);
+		$paginaHTML = str_replace("<logout />", "<a href='php/logout.php' id=\"logOut\" lang=\"en\">Logout</a>", $paginaHTML);
 		$paginaHTML = str_replace("<breadcrumb />", $breadcrumb, $paginaHTML);
 		$paginaHTML = str_replace("<admin />", $admin, $paginaHTML);
 		$paginaHTML = str_replace("<widget />", $widget, $paginaHTML);
