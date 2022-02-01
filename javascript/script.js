@@ -1,20 +1,3 @@
-/*Feature Detection*/
-let passiveSupported = false;
-
-try {
-	const options = {
-		get passive() {
-			passiveSupported = true;
-			return false;
-		},
-	};
-
-	window.addEventListener("test", null, options);
-	window.removeEventListener("test", null, options);
-} catch (err) {
-	passiveSupported = false;
-}
-
 /*Funzioni per darkmode*/
 function switchTheme(e) {
 	if (e.target.checked) {
@@ -319,7 +302,7 @@ window.onload = function () {
 		disableScadenza();
 };
 
-//Torna su
+/*Funzione per il torna su*/
 window.addEventListener(
 	"scroll",
 	function () {
@@ -333,5 +316,4 @@ window.addEventListener(
 			tornaSu.style.display = "none";
 		}
 	},
-	passiveSupported ? { passive: true } : false
 );
