@@ -1506,6 +1506,10 @@ div div .gallery {
 	font-size: 1.5em;
 }
 
+.eliminaAllenamentoButton {
+	margin-right: 0.5em;
+}
+
 /*==================== TORNA SU ====================*/
 #tornaSu {
 	position: fixed;

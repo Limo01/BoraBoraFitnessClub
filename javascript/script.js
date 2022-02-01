@@ -152,12 +152,15 @@ function check_validity_data_nascita(e){
 	}
 }
 
-function disableScadenza(e) {
-	var abbonamentoSel = e.target.options[e.target.selectedIndex].value;
+function disableScadenza() {
+	abbonamento = document.getElementById("abbonamento");
+	var errore = document.getElementById("errore_scadenza");
+	var abbonamentoSel = abbonamento.options[abbonamento.selectedIndex].value;
 	var scadenza = document.getElementById("scadenza");
 	if (abbonamentoSel == "") {
 		if (!scadenza.getAttribute("disabled")) {
 			scadenza.setAttribute("disabled", "disabled");
+			errore.innerHTML = "";
 		}
 	}
 	else {
@@ -167,7 +170,20 @@ function disableScadenza(e) {
 }
 
 function check_validity_scadenza(e) {
+	disableScadenza();
 	var errore = document.getElementById("errore_scadenza");
+
+	if(!e.target.checkValidity()){
+		errore.innerHTML= "La data inserita non è in un formato corretto.";
+	}
+	else {
+		var data_input= new Date(e.target.value);
+		if (data_input <= new Date()) {
+			errore.innerHTML = "La data di scadenza deve essere una data futura.";
+		}
+		else
+			errore.innerHTML = "";
+	}
 }
 
 /*Funzione per aggiungere gli eventi blur nella registrazione*/
@@ -278,6 +294,8 @@ window.onload = function () {
 		}
 	}
 	
+	if (document.getElementById("scadenza") != null)
+		disableScadenza();
 };
 
 //Torna su
