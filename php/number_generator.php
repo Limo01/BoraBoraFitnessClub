@@ -1,4 +1,7 @@
 <?php
+	if(!isset($_GET['n']))
+		die("Non sono stati forniti i parametri necessari");
+
 	$n = $_GET['n'];
 
 	if (rand(0,1) == 0) {
