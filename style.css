@@ -1404,7 +1404,7 @@ div div .gallery {
 #content #specifiche-utente-dettaglio-allenamento li,
 #content .bottoni-allenamenti ul li {
 	padding: 0.5em 1em;
-	margin: 0.5em 0.2em;
+	margin: 0.5em 0.2em 0;
 	border-radius: 2em;
 	font-size: 1.3em;
 	list-style-type: none;
@@ -1430,6 +1430,7 @@ div div .gallery {
 
 #content .bottoni-allenamenti form {
 	margin: 0;
+	margin-top: 0.5em;
 }
 
 .bottoni-allenamenti {
