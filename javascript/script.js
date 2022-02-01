@@ -164,6 +164,9 @@ function disableScadenza() {
 		}
 	}
 	else {
+		if (!scadenza.getAttribute("required"))
+			scadenza.setAttribute("required", "required");
+
 		if (scadenza.getAttribute("disabled") == "disabled")
 			scadenza.removeAttribute("disabled");
 	}
