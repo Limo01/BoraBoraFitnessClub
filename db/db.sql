@@ -131,7 +131,7 @@ insert into utente(username, password, nome, cognome, email, data_nascita, badge
 	('borabora21', '$2y$10$DaFZLrsgzeh5XQjsWgGbh.dZ/65MUhL5x6AOxtQlwdO7HofdxGw12', 'Alessandro', 'Sperduti', 'k2@s.s', '2000-01-01', 'BID61f006108cd73', '0', '1234567890', NULL, NULL, NULL, '0'),
 	('goku12', '$2y$10$DaFZLrsgzeh5XQjsWgGbh.dZ/65MUhL5x6AOxtQlwdO7HofdxGw12', 'Silvia', 'Crafa', 'k2@s.s', '2000-01-01', 'BID61f006108cd83', '0', '1234567890', NULL, NULL, NULL, '0'),
 	('milly', '$2y$10$DaFZLrsgzeh5XQjsWgGbh.dZ/65MUhL5x6AOxtQlwdO7HofdxGw12', 'Emilia', 'Maietti', 'k2@s.s', '2000-01-01', 'BID61f006108cd93', '0', '1234567890', NULL, NULL, NULL, '0'),
-	('dopato21', '$2y$10$DaFZLrsgzeh5XQjsWgGbh.dZ/65MUhL5x6AOxtQlwdO7HofdxGw12', 'Paolo', 'Baldan', 'k2@s.s', '2000-01-01', 'BID61f006108cd03', '0', '1234567890', NULL, NULL, NULL, '0'),
+	('mrolympia', '$2y$10$DaFZLrsgzeh5XQjsWgGbh.dZ/65MUhL5x6AOxtQlwdO7HofdxGw12', 'Paolo', 'Baldan', 'k2@s.s', '2000-01-01', 'BID61f006108cd03', '0', '1234567890', NULL, NULL, NULL, '0'),
 	('biker121', '$2y$10$DaFZLrsgzeh5XQjsWgGbh.dZ/65MUhL5x6AOxtQlwdO7HofdxGw12', 'Francesco', 'Ranzato', 'k2@s.s', '2000-01-01', 'BID61f006108cd43', '0', '1234567890', NULL, NULL, NULL, '0');
 
 insert into accesso(username_utente, dataora_entrata, dataora_uscita)
