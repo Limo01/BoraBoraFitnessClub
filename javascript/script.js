@@ -152,8 +152,9 @@ function check_validity_data_nascita(e){
 	}
 }
 
-function disableScadenza(e) {
-	var abbonamentoSel = e.target.options[e.target.selectedIndex].value;
+function disableScadenza() {
+	abbonamento = document.getElementById("abbonamento");
+	var abbonamentoSel = abbonamento.options[abbonamento.selectedIndex].value;
 	var scadenza = document.getElementById("scadenza");
 	if (abbonamentoSel == "") {
 		if (!scadenza.getAttribute("disabled")) {
@@ -167,7 +168,28 @@ function disableScadenza(e) {
 }
 
 function check_validity_scadenza(e) {
+	disableScadenza();
 	var errore = document.getElementById("errore_scadenza");
+
+	if(!e.target.checkValidity()){
+		spanErrore.innerHTML= "La data di nascita non è in un formato corretto.";
+		var data_input= new Date(e.target.value);
+
+		if(data_input > new Date().setFullYear(new Date().getFullYear() - 16)){
+			if(data_input > new Date()){
+				spanErrore.innerHTML+= " Non pensiamo proprio che tu venga dal futuro!";
+			}
+			else{
+				spanErrore.innerHTML = "Ti ricordiamo che devi avere minimo 16 anni!";
+			}
+		}
+		else if(data_input < new Date().setFullYear(new Date().getFullYear() - 120)){
+			spanErrore.innerHTML+= " Secondo <span lang='en'>Wikipedia</span> non esistono persone con più di 120 anni!";
+		}
+	}
+	else {
+		spanErrore.innerHTML="";
+	}
 }
 
 /*Funzione per aggiungere gli eventi blur nella registrazione*/
@@ -278,6 +300,8 @@ window.onload = function () {
 		}
 	}
 	
+	if (document.getElementById("scadenza") != null)
+		disableScadenza();
 };
 
 //Torna su
