@@ -19,7 +19,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
 			$aggiungiEsercizio = 
 			"<form id=\"inserimentoEsercizio\" action=\"php/generatoreScheda.php?id=". $_GET["id"] ."\" method=\"post\">
 				<fieldset>
-				<legend><h2>Aggiungi un esercizio</h2></legend>
+				<legend><h3>Aggiungi un esercizio</h3></legend>
 				<label id=\"nomeEsercizioL\">Nome</label>
 				<input id=\"nomeEsercizioI\" type=\"text\" name=\"nomeEsercizio\" required>
 
