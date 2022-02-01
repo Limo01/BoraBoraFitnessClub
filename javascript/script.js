@@ -252,6 +252,11 @@ function closeNav() {
 	});
 }
 
+function initBurgerMenu(){
+	document.getElementById("burger-menu").addEventListener("click", openNav);
+	document.getElementById("closebtn").addEventListener("click", closeNav);
+}
+
 /*Funzione per il contatore di persone nella home*/
 function initCounter(){
 	if(document.getElementById("contatorePersone") == null)
@@ -273,6 +278,7 @@ function initCounter(){
 }
 
 window.onload = function () {
+	initBurgerMenu();
 	initDarkMode();
 	addOnBlurEventInput();
 	initCounter();
@@ -281,9 +287,6 @@ window.onload = function () {
 
 	//per il menu a comparsa
 	window.sessionStorage.setItem("menuDisplay", "no");
-
-	document.getElementById("burger-menu").addEventListener("click", openNav);
-	document.getElementById("closebtn").addEventListener("click", closebtn);
 
 	//per evitare che i link alle ancore siano in parte coperti dal menu
 	if(window.location.hash && window.innerWidth > 768){
