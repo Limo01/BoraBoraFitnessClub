@@ -147,6 +147,9 @@ function disableScadenza() {
 		}
 	}
 	else {
+		if (!scadenza.getAttribute("required"))
+			scadenza.setAttribute("required", "required");
+
 		if (scadenza.getAttribute("disabled") == "disabled")
 			scadenza.removeAttribute("disabled");
 	}
@@ -294,7 +297,7 @@ window.onload = function () {
 		var id = document.getElementById(window.location.hash.substring(1));
 		if(id != null){
 			var top = id.offsetTop;
-    		window.scrollTo(0, top-56); 
+    		window.scrollTo(0, top-50); 
 		}
 	}
 	
@@ -315,5 +318,19 @@ window.addEventListener(
 		} else {
 			tornaSu.style.display = "none";
 		}
-	},
+	}
+);
+
+//scroll dopo link interno alla pagina
+window.addEventListener(
+	"hashchange",
+	function () {
+		if(window.location.hash && window.innerWidth > 768){
+			var id = document.getElementById(window.location.hash.substring(1));
+			if(id != null){
+				var top = id.offsetTop;
+				window.scrollTo(0, top-50); 
+			}
+		}
+	}
 );

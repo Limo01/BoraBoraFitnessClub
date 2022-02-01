@@ -192,6 +192,7 @@ small {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
+	background-color: #bfb394; /* per degradazione elegante */
 	background-color: var(--colore-background-menu);
 	border-radius: 0 0 10px 10px;
 }
@@ -229,6 +230,7 @@ small {
 
 #userIcon a,
 #userIcon a:hover {
+	background-image: url("immagini/logo/user.png"); /*per degradazione elegante */
 	background-image: var(--icona-autenticazione);
 	background-repeat: no-repeat;
 	background-position: center;
@@ -236,6 +238,7 @@ small {
 }
 
 #userIcon span {
+	background-image: url("immagini/logo/user.png"); /*per degradazione elegante */
 	background-image: var(--icona-autenticazione-current);
 	background-repeat: no-repeat;
 	background-position: center;
