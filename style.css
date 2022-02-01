@@ -56,8 +56,7 @@ body {
 	background-size: cover;
 }
 
-header,
-#breadcrumb {
+header {
 	background-color: var(--colore-sfondo-div);
 	color: var(--colore-testo-principale);
 	text-align: center;
@@ -89,7 +88,6 @@ h1.hide:hover {
 
 #breadcrumb {
 	font-size: 1.2em;
-	background-color: var(--colore-sfondo-div);
 	padding-top: 1em;
 	padding-bottom: 0.5em;
 }
@@ -1612,7 +1610,7 @@ fieldset {
 }
 
 /*==================== FORM INSERIMENTO ESERCIZIO ====================*/
-#inserimentoEsercizio fieldset{
+#inserimentoEsercizio fieldset {
 	display: grid;
 	grid-template-columns: 75% 25%;
 	grid-gap: 0.5em;
