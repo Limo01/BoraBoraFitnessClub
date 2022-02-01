@@ -1608,7 +1608,7 @@ fieldset {
 }
 
 /*==================== FORM INSERIMENTO ESERCIZIO ====================*/
-#inserimentoEsercizio {
+#inserimentoEsercizio fieldset{
 	display: grid;
 	grid-template-columns: 75% 25%;
 	grid-gap: 0.5em;
