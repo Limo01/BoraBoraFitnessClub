@@ -152,6 +152,24 @@ function check_validity_data_nascita(e){
 	}
 }
 
+function disableScadenza(e) {
+	var abbonamentoSel = e.target.options[e.target.selectedIndex].value;
+	var scadenza = document.getElementById("scadenza");
+	if (abbonamentoSel == "") {
+		if (!scadenza.getAttribute("disabled")) {
+			scadenza.setAttribute("disabled", "disabled");
+		}
+	}
+	else {
+		if (scadenza.getAttribute("disabled") == "disabled")
+			scadenza.removeAttribute("disabled");
+	}
+}
+
+function check_validity_scadenza(e) {
+	var errore = document.getElementById("errore_scadenza");
+}
+
 /*Funzione per aggiungere gli eventi blur nella registrazione*/
 function addOnBlurEventInput(){
 	if(document.getElementById("nome")!=null)
@@ -177,6 +195,12 @@ function addOnBlurEventInput(){
 
 	if(document.getElementById("telefono")!=null)
 		document.getElementById("telefono").addEventListener("blur", check_validity_telefono);
+	
+	if (document.getElementById("abbonamento") != null)
+		document.getElementById("abbonamento").addEventListener("blur", disableScadenza);
+	
+	if (document.getElementById("scadenza") != null)
+		document.getElementById("scadenza").addEventListener("blur", check_validity_scadenza);
 }
 
 /*Funzioni per il burger menu*/
