@@ -295,6 +295,16 @@ function initCounter(){
 	}, 8000);
 }
 
+function scrollMenu(){
+	if(window.location.hash && window.innerWidth > 768){
+		var id = document.getElementById(window.location.hash.substring(1));
+		if(id != null){
+			var top = id.offsetTop;
+    		window.scrollTo(0, top-50); 
+		}
+	}
+}
+
 window.onload = function () {
 	initBurgerMenu();
 	initDarkMode();
@@ -307,13 +317,7 @@ window.onload = function () {
 	window.sessionStorage.setItem("menuDisplay", "no");
 
 	//per evitare che i link alle ancore siano in parte coperti dal menu
-	if(window.location.hash && window.innerWidth > 768){
-		var id = document.getElementById(window.location.hash.substring(1));
-		if(id != null){
-			var top = id.offsetTop;
-    		window.scrollTo(0, top-50); 
-		}
-	}
+	scrollMenu();
 	
 	if (document.getElementById("scadenza") != null)
 		disableScadenza();
