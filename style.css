@@ -432,6 +432,11 @@ small {
 	font-weight: bold;
 }
 
+#content input:disabled {
+	color: grey;
+	border: 2px solid grey;
+}
+
 #content dt {
 	font-weight: bold;
 }

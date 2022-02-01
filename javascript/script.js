@@ -152,6 +152,40 @@ function check_validity_data_nascita(e){
 	}
 }
 
+function disableScadenza() {
+	abbonamento = document.getElementById("abbonamento");
+	var errore = document.getElementById("errore_scadenza");
+	var abbonamentoSel = abbonamento.options[abbonamento.selectedIndex].value;
+	var scadenza = document.getElementById("scadenza");
+	if (abbonamentoSel == "") {
+		if (!scadenza.getAttribute("disabled")) {
+			scadenza.setAttribute("disabled", "disabled");
+			errore.innerHTML = "";
+		}
+	}
+	else {
+		if (scadenza.getAttribute("disabled") == "disabled")
+			scadenza.removeAttribute("disabled");
+	}
+}
+
+function check_validity_scadenza(e) {
+	disableScadenza();
+	var errore = document.getElementById("errore_scadenza");
+
+	if(!e.target.checkValidity()){
+		errore.innerHTML= "La data inserita non è in un formato corretto.";
+	}
+	else {
+		var data_input= new Date(e.target.value);
+		if (data_input <= new Date()) {
+			errore.innerHTML = "La data di scadenza deve essere una data futura.";
+		}
+		else
+			errore.innerHTML = "";
+	}
+}
+
 /*Funzione per aggiungere gli eventi blur nella registrazione*/
 function addOnBlurEventInput(){
 	if(document.getElementById("nome")!=null)
@@ -177,6 +211,12 @@ function addOnBlurEventInput(){
 
 	if(document.getElementById("telefono")!=null)
 		document.getElementById("telefono").addEventListener("blur", check_validity_telefono);
+	
+	if (document.getElementById("abbonamento") != null)
+		document.getElementById("abbonamento").addEventListener("blur", disableScadenza);
+	
+	if (document.getElementById("scadenza") != null)
+		document.getElementById("scadenza").addEventListener("blur", check_validity_scadenza);
 }
 
 /*Funzioni per il burger menu*/
@@ -254,6 +294,8 @@ window.onload = function () {
 		}
 	}
 	
+	if (document.getElementById("scadenza") != null)
+		disableScadenza();
 };
 
 //Torna su

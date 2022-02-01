@@ -21,11 +21,8 @@ header h1 {
 }
 
 h1.hide {
-	font-size: 2em;
 	background-image: url("immagini/titolo-mobile.png");
 	background-position: top;
-	text-indent: unset;
-	height: 1em;
 	margin-top: 0;
 	transition: none;
 }

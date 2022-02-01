@@ -142,6 +142,7 @@
 			$dettagliAbbonamento = str_replace("<annulla />", $annulla, $dettagliAbbonamento);
 
 			$dettagliAbbonamento = str_replace("<abbonamenti />", $abbonamentiOptions, $dettagliAbbonamento);
+			$dettagliAbbonamento = str_replace("<data_oggi />", date("Y-m-d"), $dettagliAbbonamento);
 		}
 		$paginaHTML = str_replace("<dettagli_abbonamento />", $dettagliAbbonamento, $paginaHTML);
 		$paginaHTML = str_replace("<username />", $user, $paginaHTML);
