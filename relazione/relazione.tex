@@ -44,7 +44,7 @@
 		\end{tabular}
 	\end{center}
 
-	\begin{table}
+	\begin{table}[H]
 		\centering
 		\begin{tabular}{|l|l|l|}
 			\hline
@@ -85,7 +85,7 @@
 
 	\section{Progettazione}
 	\subsection{Struttura del sito}
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.3]{immagini/mappa_sito.drawio.png}
 		\caption{Mappa che illustra la struttura del sito.}
@@ -100,7 +100,7 @@
 	\end{itemize}
 	Un altro accorgimento utilizzato per ridurre il disorientamento è mettere a disposizione l'utilizzo dei collegamenti ipertestuali solamente agli utenti autenticati (lucchetto grigio nella mappa, il lucchetto rosso specifica che l'utente deve anche essere un admin), che si assume abbiano una conoscenza più approfondita del sito e possano beneficiare dall'utilizzo di una struttura più complessa. Nella mappa infatti si può notare che, rimuovendo i collegamenti contrassegnati da un lucchetto, la gerarchia del sito è molto semplice: tutte le pagine sono accessibili direttamente dal menù, perché sono al primo livello, tranne la pagina dei dettagli di un allenamento.
 	\subsubsection{Header} \label{header}
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.35]{immagini/header.png}
 		\caption{Header}
@@ -143,13 +143,12 @@
 		\item icone per esibire la conformità agli standard W3C (HTML 5.0 e CSS);
 		\item informazioni sui creatori del sito.
 	\end{itemize}
-	\pagebreak
 	
 	\subsubsection{Database}
 	Il sito è stato pensato per offrire tutte le maggiori funzionalità che un utente di una palestra potrebbe aver bisogno. Ciò comprende la possibilità di gestire i propri dati e quelli relativi alle proprie attività di palestra, come accessi, abbonamenti e allenamenti. Ne consegue un database moderatamente composto in cui è stato posto particolare attenzione all'efficienza: essa risulta essere decomposta fino alla forma normale di Boyce-Codd, e di conseguenza anche tutte le forme normali precedenti. Non vi è quindi alcun problema di ridondanza dati, e ciò contribuisce ad alleviare il problema del peso di un database articolato e sperabilmente utilizzato da un gran numero di utenti in futuro.
 
 	\paragraph{Schema concettuale}
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.6]{immagini/schemaER.png}
 		\caption{Schema concettuale del database.}
