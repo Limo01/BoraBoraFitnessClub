@@ -154,6 +154,8 @@
 		\caption{Schema concettuale del database.}
 	\end{figure}
 
+	Il sito non implementa le funzionalità per modificare le tabelle Abbonamento, Accesso e Personal trainer: queste vengono solo usate solo per visualizzarne i dati. Queste tabelle infatti vengono raramente modificate e in più il progetto originale del sito non prevede di implementare operazioni che richiedano di scrivere al loro interno. In particolare, in una situazione reale, la tabella Accesso sarebbe collegata ad un tornello all'ingresso della palestra, che aggiunge tuple alla tabella in base agli accessi dei clienti con i loro badge. Essendo che non disponiamo del tornello, questa tabella non cambia il suo contenuto.
+
 	\paragraph{Schema logico}
 	\texttt{{\bf abbonamento} (nome, prezzo)\\
 		{\bf utente} (username, password, nome, cognome, email, data\_nascita, badge, entrate, numero\_telefono, nome\_abbonamento, data\_inizio, data\_fine, is\_admin)\\
