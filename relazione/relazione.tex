@@ -35,15 +35,18 @@
 \begin{document}
 	\maketitle
 
-	\begin{center}
+	\begin{table}[H]
+		\centering
 		\begin{tabular}{c|l l}
 			\textbf{Componenti}	& Adnan Latif Gazi			& 1224442\\
 								& Alberto Lazari			& 1216747\\
 								& Marco Andrea Limongelli	& 1225415\\
 								& Francesco Protopapa		& 1221598\\
 		\end{tabular}
-	\end{center}
+	\end{table}
 
+
+	
 	\begin{table}[H]
 		\centering
 		\begin{tabular}{|l|l|l|}
@@ -207,14 +210,14 @@
 		\item Strumenti per sviluppatore Chrome
 		\item Strumenti per sviluppatore Firefox
 		\item Xampp: software utilizzato per creare un web hosting locale che ci ha permesso di testare il sito anche da smartphone e tablet;
-		\item https://webaim.org/resources/contrastchecker/ strumento utilizzato per la verifica del contrasto tra i colori presenti nel nostro sito;
-		\item https://tools.pingdom.com/ strumento utilizzato per calcorare il peso delle pagine del sito.
-		\item https://validator.w3.org per la validazione del codice HTML5
-		\item https://jigsaw.w3.org/css-validator/ per la validazione del codice CSS
+		\item \href{https://webaim.org/resources/contrastchecker/}{https://webaim.org/resources/contrastchecker/} strumento utilizzato per la verifica del contrasto tra i colori presenti nel nostro sito;
+		\item \href{https://tools.pingdom.com/}{https://tools.pingdom.com/} strumento utilizzato per calcorare il peso delle pagine del sito.
+		\item \href{https://validator.w3.org}{https://validator.w3.org} per la validazione del codice HTML5
+		\item \href{https://jigsaw.w3.org/css-validator/}{https://jigsaw.w3.org/css-validator/} per la validazione del codice CSS
 	\end{itemize}
 
 	\section{Accessibilità}
-	Per mantenere un alto livello di accessibilità ci siamo attenuti allo standard WCAG 2.0 (https://www.w3.org/Translations/WCAG20-it/)
+	Per mantenere un alto livello di accessibilità ci siamo attenuti allo standard WCAG 2.0 (\href{https://www.w3.org/Translations/WCAG20-it/}{https://www.w3.org/Translations/WCAG20-it/})
 
 	\subsection{Separazione tra comportamento, struttura e presentazione}
 	Per migliorare l'accessibilità per gli utenti con differenti disabilità e per un miglior posizionamento nei motori di ricerca, abbiamo mantenuto una netta separazione tra comportamento, struttura e presentazione.
@@ -334,7 +337,7 @@
 	\subsection{Tabindex}
 	Per tutte le pagine è stato effettuato un controllo che tutti gli elementi di interazione fossero accessibili anche da tastiera e che l'ordine di selezione degli stessi fosse corretto, ovvero che i tabindex fossero corretti. Per un corretto ed intuitivo funzionamento dei tabindex basterebbe una buona struttura delle pagine, non dovrebbe infatti essere necessario ricorrere a specificare un ordine manuale di tabindex. Per quanto riguarda i link e tutti gli elementi di interazione del contenuto vale questa raccomandazione, mentre per la navigazione del menù si è dovuti ricorrere ad un ordine manuale. L'ordine utilizzato pone al primo posto il link per andare direttamente al contenuto e saltare la navigazione, sfruttato dagli utenti che utilizzano screen reader per evitare la lettura continua del menù. Successivamente si passa alla selezione dei link che compongono il menù, fino al link per la pagina Galleria. Poi viene selezionato il toggle per il cambio dello schema dei colori e, subito dopo, il link per l'area personale. Da quel punto in avanti viene utilizzato l'ordine di selezione automatico. Questo accorgimento si è rivelato necessario a causa della scelta di posizionare il toggle per il cambio dello schema dei colori nella barra del menù di navigazione, prima del link all'area personale.
 
-	\subsection{Presentazione}
+	\section{Presentazione}
 	Per quanto riguarda la presentazione, tramite CSS abbiamo implementato un design fluido e scalabile evitando il più possibile misure fisse, favorendo l'uso di misure relative o percentuali. Inoltre abbiamo utilizzato layout flex e grid che garantiscono una trasformazione elegante nella presentazione nei vari dispositivi. In particolare il layout grid lo abbiamo utilizzato nelle pagine in cui avevamo bisogno di un'interfaccia a griglia e sapevamo di avere un numero fisso di elementi da impaginare, mentre il layout flex lo abbiamo usato quando il numero di elementi da impaginare non era conosciuto a priori e quindi avevamo bisogno di un'impaginazione flessibile. Operare in questo modo, oltre a migliorare l'accessibilità, permette una corretta visualizzazione delle pagine su tutte le tipologie di dispositivi, senza impattare negativamente la navigazione tramite screen reader. Seguendo la tecnica del Responsive Web Design abbiamo prodotto tre fogli di stile differenti, uno per ogni tipologia di dispositivo: desktop, tablet, mobile.
 
 	\subsubsection{Desktop}
