@@ -79,6 +79,7 @@
 	\begin{figure}
 		\centering
 		\includegraphics[scale=0.3]{immagini/mappa_sito.drawio.png}
+		\caption{Mappa che illustra la struttura del sito.}
 	\end{figure}
 	
 	Per la struttura del sito è stato adottato un approccio ibrido: utilizzando come base una struttura gerarchica alla quale sono stati aggiunti degli elementi di ipertesto, soprattutto nelle pagine relative agli allenamenti e nell'area personale, dall'area personale dell'admin a quella di un utente generico e da una qualsiasi area personale ai dettagli di un abbonamento.\\
@@ -89,7 +90,7 @@
 		\item “Dove posso andare?”: per rispondere è stato reso sempre disponibile il menù nella barra superiore (o il burger menù nella modalità tablet e mobile) da cui si può accedere a tutte le pagine del primo livello della gerarchia. Altri possibili collegamenti alle pagine raggiungibili si possono trovare nel resto della pagina sotto forma di collegamento ipertestuale.
 	\end{itemize}
 	Un altro accorgimento utilizzato per ridurre il disorientamento è mettere a disposizione l'utilizzo dei collegamenti ipertestuali solamente agli utenti autenticati (lucchetto grigio nella mappa, il lucchetto rosso specifica che l'utente deve anche essere un admin), che si assume abbiano una conoscenza più approfondita del sito e possano beneficiare dall'utilizzo di una struttura più complessa. Nella mappa infatti si può notare che, rimuovendo i collegamenti contrassegnati da un lucchetto, la gerarchia del sito è molto semplice: tutte le pagine sono accessibili direttamente dal menù, perché sono al primo livello, tranne la pagina dei dettagli di un allenamento.
-	\subsubsection{Header}
+	\subsubsection{Header} \label{header}
 	TODO Immagine???
 	L'header è la prima sezione della pagina, fino al breadcrumb. È composta (nei file HTML) da tutto il contenuto compreso all'interno del tag <header>, tra cui:
 	\begin{itemize}
@@ -99,7 +100,7 @@
 	\end{itemize}
 	Soltanto a livello visivo tramite CSS, ma non a livello di struttura, l'header contiene anche il titolo della pagina, che ne riassume il contenuto. Talvolta può essere corredato da un sottotitolo, che specifica più nel dettaglio i contenuti trattati nella pagina, per aiutare l'utente a rispondere più velocemente e accuratamente alla domanda “Di cosa si tratta?” e incentivarlo a proseguire nella lettura.
 	
-	\subsubsection{Contenuto}
+	\subsubsection{Contenuto} \label{contenuto}
 	Di seguito vengono elencate le pagine che compongono il sito:
 	\begin{itemize}
 		\item \textbf{Home:} è la prima pagina che viene visualizzata quando un utente visita il sito e ha lo scopo di far capire all'utente cosa può fare all'interno del sito. La pagina mostra le informazioni più importanti sulla palestra (come raggiungerci, orari di apertura, ecc.) e presenta una sezione che ha lo scopo di convincere l'utente ad iscriversi ad essa. È inoltre presente un link che porta alle proprie schede di allenamento il quale è una delle prime informazioni che vengono visualizzate nel layout mobile, questo per facilitare la navigazione agli utenti che vogliono consultare la propria scheda di allenamento dal telefono mentre sono in palestra.
@@ -159,7 +160,7 @@
 		utente\_allenamento.username\_utente → utente.username\\
 		utente\_allenamento.id\_allenamento → allenamento.id\\
 		esercizio.id\_allenamento → allenamento.id
-	}
+}
 
 	\subsubsection{Ricerche probabili}
 	Perché possa essere quanto più visibile in un motore di ricerca, il sito deve rispondere a delle query eseguite da utenti che non conoscono il sito e che stanno cercando una palestra, soprattutto a Bora Bora, che abbia degli spazi outdoor. Inoltre deve rispondere a ricerche relative ad allenamenti per la palestra e schede di allenamento, oltre a proposte di abbonamento in palestra. Di seguito vengono riportate le più probabili tra le ricerche possibili a cui dovrebbe rispondere il sito:
@@ -229,7 +230,7 @@
 	Per quanto riguarda la presentazione, tramite CSS abbiamo implementato un design fluido e scalabile evitando il più possibile misure fisse, favorendo l'uso di misure relative o percentuali. Inoltre abbiamo utilizzato layout flex e grid che garantiscono una trasformazione elegante nella presentazione nei vari dispositivi. In particolare il layout grid lo abbiamo utilizzato nelle pagine in cui avevamo bisogno di un'interfaccia a griglia e sapevamo di avere un numero fisso di elementi da impaginare, mentre il layout flex lo abbiamo usato quando il numero di elementi da impaginare non era conosciuto a priori e quindi avevamo bisogno di un'impaginazione flessibile. Operare in questo modo, oltre a migliorare l'accessibilità, permette una corretta visualizzazione delle pagine su tutte le tipologie di dispositivi, senza impattare negativamente la navigazione tramite screen reader. Seguendo la tecnica del Responsive Web Design abbiamo prodotto tre fogli di stile differenti, uno per ogni tipologia di dispositivo: desktop, tablet, mobile.
 
 	\subsubsection{Desktop}
-	Per una descrizione dettagliata dell'header consultare la sezione <inserire codice sezione>, per il contenuto la sezione <inserire codice sezione>.
+	Per una descrizione dettagliata dell'header consultare la sezione \hyperref[header]{Header}, per il contenuto la sezione \hyperref[contenuto]{Contenuto}.
 
 	\subsubsection{Tablet e Mobile}
 	In merito alla visualizzazione tablet e mobile, il menù è nascosto. Per aprire il menù, basta cliccare sul burger menù in alto a sinistra, che è un elemento ormai ben conosciuto da parte degli utenti mobile e tablet. Abbiamo scelto quel posizionamento perché quell'area di schermo è la più guardata quando gli utenti cercano i link alle altre pagine ed inoltre nella maggior parte dei siti web il burger menù è posizionato nell'angolo in alto a sinistra e ciò permette al nostro sito di essere più familiare per l'utente. Per quanto riguarda l'immagine del titolo, nella modalità mobile cambia e viene sostituita da un'immagine più stretta in quanto la stessa immagine utilizzata per la modalità desktop e tablet risultava troppo larga e non ben leggibile. 
