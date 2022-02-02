@@ -301,6 +301,10 @@ function scrollMenu(){
 	}
 }
 
+function printAllenamento(){
+	window.print();
+}
+
 window.onload = function () {
 	initBurgerMenu();
 	initDarkMode();
@@ -320,6 +324,9 @@ window.onload = function () {
 	}
 	if (document.getElementById("lista_utenti") != null) {
 		adjustGestioneUtentiHeight();
+	}
+	if(document.getElementById("stampa-allenamento") != null){
+		document.getElementById("stampa-allenamento").addEventListener("click", printAllenamento);
 	}
 };
 
