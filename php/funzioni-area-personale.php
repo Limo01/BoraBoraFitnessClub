@@ -47,18 +47,16 @@
 			$form =
 				"	<form action='area-personale.php" . ($updatePersonalData ? "?update=1" : "") . "#gestione_utenti' method='post'>
 						<a href='visualizza-utente.php?usr=<username />'><username /></a>
-						<input type='hidden' id='user<number />' name='user<number />' value='<username />' />
+						<input type='hidden' name='user' value='<username />' />
 						<button name='elimina'>Elimina</button>
 					</form>
 				</li>";
 
 			$listaUtentiEnd = str_replace("<username />", $utente, "<li class='utente' id='last_user'>" . $form);
-			$listaUtentiEnd = str_replace("<number />", "_last", $listaUtentiEnd);
 
 			for ($i = 0; $i < count($utenti); ++$i) {
 				$utente = $utenti[$i]["username"];
 				$listaUtenti .= str_replace("<username />", $utente, "<li class='utente'>" . $form);
-				$listaUtenti = str_replace("<number />", $i, $listaUtenti);
 			}
 			$listaUtenti .= $listaUtentiEnd . "</ul>";
 		}
