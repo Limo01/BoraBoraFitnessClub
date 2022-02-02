@@ -117,16 +117,17 @@
 		$paginaHTML = str_replace("<badge />", $datiPersonali["badge"], $paginaHTML);
 		
 		//Dettagli abbonamento
+		$dettagliAbbonamento = "";
 		if (!$updateSubscription) {
 			$button = '<a href="visualizza-utente.php?usr=<username />&update=<update />#dettagli_abbonamento">Modifica</a>';
-			$dettagliAbbonamento = str_replace(
+			$dettagliAbbonamento .= str_replace(
 				"<update />",
 				($update > 0 ? 0 : 2),
 				file_get_contents("html/dettagli_abbonamento.html") . $button
 			);
 		} else {
 			if($formError == 2){
-				$dettagliAbbonamento = "<p id='errore_form' class='alert'>Si è verificato un errore nella procedura, oppure i dati inseriti non sono validi.</p>";
+				$dettagliAbbonamento .= "<p id='errore_form' class='alert'>Si è verificato un errore nella procedura, oppure i dati inseriti non sono validi.</p>";
 			}
 
 			$abbonamentoCorrente = $datiPersonali["nome_abbonamento"];
