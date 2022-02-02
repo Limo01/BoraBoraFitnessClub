@@ -15,6 +15,15 @@
 \usepackage{float}
 \usepackage{bold-extra}
 
+\usepackage{titlesec}
+
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
 \makeindex
 
 \title{
@@ -142,15 +151,14 @@
 	\end{figure}
 
 	\paragraph{Schema logico}
-	\texttt{
-		abbonamento(nome, prezzo)\\
-		{\bf utente}(username, password, nome, cognome, email, data\_nascita, badge, entrate, numero\_telefono, nome\_abbonamento, data\_inizio, data\_fine, is\_admin)\\
-		{\bf accesso}(username\_utente, dataora\_entrata, dataora\_uscita)\\
-		{\bf personal\_trainer}(id, nome, cognome)\\
-		{\bf utente\_personal\_trainer}(username\_utente, id\_personal\_trainer)\\
-		{\bf allenamento}(id, nome, descrizione, username\_utente, data\_creazione, id\_personal\_trainer)\\
-		{\bf utente\_allenamento}(username\_utente, id\_allenamento)\\
-		{\bf esercizio}(id\_allenamento, nome, descrizione, peso, ripetizioni, serie, durata)\\
+	\texttt{{\bf abbonamento} (nome, prezzo)\\
+		{\bf utente} (username, password, nome, cognome, email, data\_nascita, badge, entrate, numero\_telefono, nome\_abbonamento, data\_inizio, data\_fine, is\_admin)\\
+		{\bf accesso} (username\_utente, dataora\_entrata, dataora\_uscita)\\
+		{\bf personal\_trainer} (id, nome, cognome)\\
+		{\bf utente\_personal\_trainer} (username\_utente, id\_personal\_trainer)\\
+		{\bf allenamento} (id, nome, descrizione, username\_utente, data\_creazione, id\_personal\_trainer)\\
+		{\bf utente\_allenamento} (username\_utente, id\_allenamento)\\
+		{\bf esercizio} (id\_allenamento, nome, descrizione, peso, ripetizioni, serie, durata)\\
 		utente.nome\_abbonamento → abbonamento.nome\\
 		accesso.username\_utente → utente.username\\
 		utente\_personal\_trainer.username\_utente → utente.username\\
