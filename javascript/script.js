@@ -29,6 +29,16 @@ function initDarkMode() {
 	}
 }
 
+function adjustGestioneUtentiHeight() {
+	listaUtenti = document.getElementById("lista_utenti");
+	if (document.getElementById("dati_personali_form") != null) {
+		listaUtenti.style.maxHeight = "33em";
+	}
+	else {
+		listaUtenti.style.maxHeight = "11em";
+	}
+}
+
 /*Funzioni di validazione dei campi*/
 function check_validity_nome(e){
 	var pErrore= document.getElementById("errore_nome");
@@ -305,8 +315,12 @@ window.onload = function () {
 	//per evitare che i link alle ancore siano in parte coperti dal menu
 	scrollMenu();
 	
-	if (document.getElementById("scadenza") != null)
+	if (document.getElementById("scadenza") != null) {
 		disableScadenza();
+	}
+	if (document.getElementById("lista_utenti") != null) {
+		adjustGestioneUtentiHeight();
+	}
 };
 
 /*Funzione per il torna su*/

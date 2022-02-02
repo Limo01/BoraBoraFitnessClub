@@ -163,10 +163,15 @@
 			return $output . "</div>";
 	}
 
-	function replaceSchedeAllenamento($schedeSeguite, $schedeCreate, $admin, $paginaHTML) {
+	function replaceSchedeAllenamento($schedeSeguite, $schedeCreate, $admin, $paginaHTML, $visualizzaUtente = false) {
 		//Riempimento dati schede seguite
 		if($schedeSeguite == null){
-			$paginaHTML = str_replace("<allenamenti_seguiti />", "<p>Sembra che tu non segua nessuna scheda...</p>", $paginaHTML);
+			if ($visualizzaUtente) {
+				$messaggio = "<p>Sembra che l'utente non segua nessuna scheda...</p>";
+			} else {
+				$messaggio = "<p>Sembra che tu non segua nessuna scheda...</p>";
+			}
+			$paginaHTML = str_replace("<allenamenti_seguiti />", $messaggio, $paginaHTML);
 		}
 		else{
 			$output = createDisplayAllenamenti($schedeSeguite, $admin);
@@ -175,7 +180,12 @@
 
 		//Riempimento dati schede create
 		if($schedeCreate == null){
-			$paginaHTML = str_replace("<allenamenti_creati />", "<p>Sembra che tu non abbia ancora creato un tuo allenamento...</p>", $paginaHTML);
+			if ($visualizzaUtente) {
+				$messaggio = "<p>Sembra che l'utente non abbia ancora creato un allenamento...</p>";
+			} else {
+				$messaggio = "<p>Sembra che tu non abbia ancora creato un tuo allenamento...</p>";
+			}
+			$paginaHTML = str_replace("<allenamenti_creati />", $messaggio, $paginaHTML);
 		}
 		else{
 			$output = createDisplayAllenamenti($schedeCreate, $admin);

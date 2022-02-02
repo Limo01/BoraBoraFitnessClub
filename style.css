@@ -1128,6 +1128,10 @@ div div .gallery {
 	grid-area: c;
 }
 
+#dati_personali_form legend h2 {
+	margin-bottom: 0;
+}
+
 #schede_seguite,
 #schede_create {
 	text-align: center;
@@ -1265,7 +1269,7 @@ div div .gallery {
 
 #gestione_utenti ul {
 	margin-top: 1em;
-	max-height: 35em;
+	max-height: 11em;
 	border: solid 1px var(--colore-testo-principale);
 	width: 80%;
 	list-style: none;
