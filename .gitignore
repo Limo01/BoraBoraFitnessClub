@@ -19,4 +19,3 @@ sess_*
 **/*.toc
 **/*.pdf
 **/__latexindent*
-db.php

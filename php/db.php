@@ -5,14 +5,10 @@
         private $connection;
 
         public function openDBConnection() {
-            $file = fopen("db.conf", "r") or $file = fopen("../db.conf", "r") or die("Impossibile aprire il file di configurazione del database");
-            
-            $host_db = trim(fgets($file));
-            $username = trim(fgets($file));
-            $password = trim(fgets($file));
-            $database_name = trim(fgets($file));
-            
-            fclose($file);
+            $host_db = "127.0.0.1";
+            $username = "agazi";
+            $password = "HeYool1zai2iePoh";
+            $database_name = "agazi";
 
             if ($password == '""') $password = "";
 
