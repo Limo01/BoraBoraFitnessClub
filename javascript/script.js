@@ -29,6 +29,18 @@ function initDarkMode() {
 	}
 }
 
+function adjustGestioneUtentiHeight() {
+	listaUtenti = document.getElementById("lista_utenti");
+	if (listaUtenti != null) {
+		if (document.getElementById("dati_personali_form") != null) {
+			listaUtenti.style.maxHeight = "33em";
+		}
+		else {
+			listaUtenti.style.maxHeight = "11em";
+		}
+	}
+}
+
 /*Funzioni di validazione dei campi*/
 function check_validity_nome(e){
 	var pErrore= document.getElementById("errore_nome");
@@ -136,22 +148,24 @@ function check_validity_data_nascita(e){
 }
 
 function disableScadenza() {
-	abbonamento = document.getElementById("abbonamento");
-	var errore = document.getElementById("errore_scadenza");
-	var abbonamentoSel = abbonamento.options[abbonamento.selectedIndex].value;
-	var scadenza = document.getElementById("scadenza");
-	if (abbonamentoSel == "") {
-		if (!scadenza.getAttribute("disabled")) {
-			scadenza.setAttribute("disabled", "disabled");
-			errore.innerHTML = "";
+	if (document.getElementById("scadenza") != null) {
+		abbonamento = document.getElementById("abbonamento");
+		var errore = document.getElementById("errore_scadenza");
+		var abbonamentoSel = abbonamento.options[abbonamento.selectedIndex].value;
+		var scadenza = document.getElementById("scadenza");
+		if (abbonamentoSel == "") {
+			if (!scadenza.getAttribute("disabled")) {
+				scadenza.setAttribute("disabled", "disabled");
+				errore.innerHTML = "";
+			}
 		}
-	}
-	else {
-		if (!scadenza.getAttribute("required"))
-			scadenza.setAttribute("required", "required");
+		else {
+			if (!scadenza.getAttribute("required"))
+				scadenza.setAttribute("required", "required");
 
-		if (scadenza.getAttribute("disabled") == "disabled")
-			scadenza.removeAttribute("disabled");
+			if (scadenza.getAttribute("disabled") == "disabled")
+				scadenza.removeAttribute("disabled");
+		}
 	}
 }
 
@@ -305,8 +319,8 @@ window.onload = function () {
 	//per evitare che i link alle ancore siano in parte coperti dal menu
 	scrollMenu();
 	
-	if (document.getElementById("scadenza") != null)
-		disableScadenza();
+	disableScadenza();
+	adjustGestioneUtentiHeight();
 };
 
 /*Funzione per il torna su*/
