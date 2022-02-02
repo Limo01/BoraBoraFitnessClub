@@ -68,7 +68,7 @@ create table utente_personal_trainer(
 
 create table allenamento(
     id int primary key auto_increment, 
-    nome varchar(100) not null,
+    nome varchar(1000) not null,
     descrizione text,
     username_utente varchar(50)
         references utente(username)
@@ -99,7 +99,7 @@ create table esercizio(
         references allenamento(id)
             on delete cascade
             on update cascade,
-    nome varchar(100),
+    nome varchar(500),
     descrizione text,
     peso decimal(5,1) check (peso >= 0),
     ripetizioni int unsigned default 1,

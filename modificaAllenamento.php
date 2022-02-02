@@ -21,7 +21,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
 				<fieldset>
 				<legend><h3>Aggiungi un esercizio</h3></legend>
 				<label id=\"nomeEsercizioL\">Nome</label>
-				<input id=\"nomeEsercizioI\" type=\"text\" name=\"nomeEsercizio\" required>
+				<input id=\"nomeEsercizioI\" type=\"text\" name=\"nomeEsercizio\" required maxlength=\"50\">
 
 				<label id=\"descrizioneEsercizioL\">Descrizione</label>
 				
