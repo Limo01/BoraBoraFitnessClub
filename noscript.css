@@ -11,7 +11,7 @@
 		width: 100%;
 		position: static;
 		margin: 1em 0em;
-		background-color: var(--colore-sfondo-div);
+		background-color: unset;
 		border-radius: 0.5em;
 	}
 

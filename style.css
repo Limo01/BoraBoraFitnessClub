@@ -16,6 +16,8 @@
 	--icona-autenticazione: url("immagini/logo/user.png");
 	--icona-autenticazione-current: url("immagini/logo/user-light.png");
 	--icona-torna-su: url("immagini/torna-su-light.svg");
+	--icona-burger-menu: url("immagini/logo/burger-menu-light.svg");
+	--icona-chiudi-burger-menu: url("immagini/logo/chiudi-menu.svg");
 }
 
 [data-theme="dark"] {
@@ -36,6 +38,8 @@
 	--icona-autenticazione: url("immagini/logo/user-light-darkmode.png");
 	--icona-autenticazione-current: url("immagini/logo/user.png");
 	--icona-torna-su: url("immagini/torna-su-dark.svg");
+	--icona-burger-menu: url("immagini/logo/burger-menu-dark.svg");
+	--icona-chiudi-burger-menu: url("immagini/logo/chiudi-menu.svg");
 }
 
 * {
