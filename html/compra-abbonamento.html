@@ -27,9 +27,11 @@
 
 		<a class="aiuti" href="#content" aria-label="Vai al contenuto" title="Vai al contenuto" tabindex="1">
 			Salta la navigazione</a>
-		<a href="#" class="hide" id="burger-menu" title="Apri il burger menu">Apri il burger menu</a>
+		<a href="#" class="hide" id="burger-menu" title="Apri il burger menu" aria-hidden="true" tabindex="-1">Apri il
+			burger menu</a>
 		<div id="topbar" class="overlay">
-			<a href="#" class="hide" id="closebtn" title="Chiudi il burger menu">Chiudi il burger menu</a>
+			<a href="#" class="hide" id="closebtn" title="Chiudi il burger menu" aria-hidden="true" tabindex="-1">Chiudi
+				il burger menu</a>
 			<nav id="menu" class="overlay-content">
 				<ul>
 					<li lang="en"><a href="./" tabindex="1">Home</a></li>
@@ -43,8 +45,7 @@
 							title="Area personale">Area personale</a></li>
 				</ul>
 			</nav>
-			<label aria-label="Passa a modalità notte" title="Passa a modalità notte" id="darkmode-switch"
-				for="checkbox">
+			<label aria-hidden="true" title="Passa a modalità notte" id="darkmode-switch" for="checkbox">
 				<input type="checkbox" id="checkbox" tabindex="1" />
 				<span class="slider round"></span>
 			</label>
