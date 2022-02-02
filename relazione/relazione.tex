@@ -44,7 +44,7 @@
 		\end{tabular}
 	\end{center}
 
-	\begin{table}
+	\begin{table}[H]
 		\centering
 		\begin{tabular}{|l|l|l|}
 			\hline
@@ -85,7 +85,7 @@
 
 	\section{Progettazione}
 	\subsection{Struttura del sito}
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.3]{immagini/mappa_sito.drawio.png}
 		\caption{Mappa che illustra la struttura del sito.}
@@ -100,7 +100,11 @@
 	\end{itemize}
 	Un altro accorgimento utilizzato per ridurre il disorientamento è mettere a disposizione l'utilizzo dei collegamenti ipertestuali solamente agli utenti autenticati (lucchetto grigio nella mappa, il lucchetto rosso specifica che l'utente deve anche essere un admin), che si assume abbiano una conoscenza più approfondita del sito e possano beneficiare dall'utilizzo di una struttura più complessa. Nella mappa infatti si può notare che, rimuovendo i collegamenti contrassegnati da un lucchetto, la gerarchia del sito è molto semplice: tutte le pagine sono accessibili direttamente dal menù, perché sono al primo livello, tranne la pagina dei dettagli di un allenamento.
 	\subsubsection{Header} \label{header}
-	TODO Immagine???
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.35]{immagini/header.png}
+		\caption{Header}
+	\end{figure}
 	L'header è la prima sezione della pagina, fino al breadcrumb. È composta (nei file HTML) da tutto il contenuto compreso all'interno del tag <header>, tra cui:
 	\begin{itemize}
 		\item il menù di navigazione, sempre disponibile in cima alla pagina nella modalità desktop e nascosto sotto forma di burger menù nel formato tablet e mobile. Permette di accedere comodamente a tutte le pagine nel primo livello della gerarchia, oltre a cambiare lo schema dei colori tra le modalità light e dark. Il toggle per lo schema dei colori non fa parte, a livello di struttura, del menù di navigazione, ma è stato posto lì per semplificarne l'accesso tramite CSS;
@@ -144,11 +148,13 @@
 	Il sito è stato pensato per offrire tutte le maggiori funzionalità che un utente di una palestra potrebbe aver bisogno. Ciò comprende la possibilità di gestire i propri dati e quelli relativi alle proprie attività di palestra, come accessi, abbonamenti e allenamenti. Ne consegue un database moderatamente composto in cui è stato posto particolare attenzione all'efficienza: essa risulta essere decomposta fino alla forma normale di Boyce-Codd, e di conseguenza anche tutte le forme normali precedenti. Non vi è quindi alcun problema di ridondanza dati, e ciò contribuisce ad alleviare il problema del peso di un database articolato e sperabilmente utilizzato da un gran numero di utenti in futuro.
 
 	\paragraph{Schema concettuale}
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
-		%\includegraphics{TODO}
+		\includegraphics[scale=0.6]{immagini/schemaER.png}
 		\caption{Schema concettuale del database.}
 	\end{figure}
+
+	Il sito non implementa le funzionalità per modificare le tabelle Abbonamento, Accesso e Personal trainer: queste vengono solo usate solo per visualizzarne i dati. Queste tabelle infatti vengono raramente modificate e in più il progetto originale del sito non prevede di implementare operazioni che richiedano di scrivere al loro interno. In particolare, in una situazione reale, la tabella Accesso sarebbe collegata ad un tornello all'ingresso della palestra, che aggiunge tuple alla tabella in base agli accessi dei clienti con i loro badge. Essendo che non disponiamo del tornello, questa tabella non cambia il suo contenuto.
 
 	\paragraph{Schema logico}
 	\texttt{{\bf abbonamento} (nome, prezzo)\\
@@ -225,8 +231,102 @@
 
 
 	\subsubsection{Test colori light mode}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.3]{immagini/controllo-colori/light-mode/errore_sfondo-div.png}
+		\caption{Contrasto tra colore degli errori e sfondo del div.}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.3]{immagini/controllo-colori/light-mode/link-da-visitare_background-menu.png}
+		\caption{Contrasto tra colore dei link ancora da visitare e sfondo del menu in modalità desktop.}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.3]{immagini/controllo-colori/light-mode/link-da-visitare_sfondo-article-p.png}
+		\caption{Contrasto tra colore dei link ancora da visitare e colore di sfondo dei link.}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.3]{immagini/controllo-colori/light-mode/successo_sfondo-div.png}
+		\caption{Contrasto tra colore dei messaggi di successo e sfondo del div.}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.35]{immagini/controllo-colori/light-mode/testo-contrasto-sfondi_testo-principale.JPG}
+		\caption{Contrasto tra colore del testo di \#currentLink nel menù e il suo sfondo in modalità desktop.}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.35]{immagini/controllo-colori/light-mode/testo-principale_background-menu.JPG}
+		\caption{Contrasto tra colore dei link del menù e il loro sfondo in modalità desktop.}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.35]{immagini/controllo-colori/light-mode/testo-principale_sfondo-article-p.JPG}
+		\caption{Contrasto tra colore del testo principale e sfondo delle schede degli allenamenti.}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.3]{immagini/controllo-colori/light-mode/testo-principale_sfondo-div.png}
+		\caption{Contrasto tra colore del testo principale e sfondo dei div.}
+	\end{figure}
 
 	\subsubsection{Test colori dark mode}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.3]{immagini/controllo-colori/dark-mode/errore_sfondo-div.png}
+		\caption{Contrasto tra colore degli errori e sfondo del div.}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.3]{immagini/controllo-colori/dark-mode/link-da-visitare_background-menu.png}
+		\caption{Contrasto tra colore dei link ancora da visitare e sfondo del menu in modalità desktop.}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.3]{immagini/controllo-colori/dark-mode/link-da-visitare_sfondo-article-p.png}
+		\caption{Contrasto tra colore dei link ancora da visitare e colore di sfondo dei link.}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.3]{immagini/controllo-colori/dark-mode/successo_sfondo-div.png}
+		\caption{Contrasto tra colore dei messaggi di successo e sfondo del div.}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.35]{immagini/controllo-colori/dark-mode/testo-contrasto-sfondi_testo-principale.JPG}
+		\caption{Contrasto tra colore del testo di \#currentLink nel menù e il suo sfondo in modalità desktop.}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.3]{immagini/controllo-colori/dark-mode/testo-principale_background-menu.png}
+		\caption{Contrasto tra colore dei link del menù e il loro sfondo in modalità desktop.}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.3]{immagini/controllo-colori/dark-mode/testo-principale_sfondo-article-p.png}
+		\caption{Contrasto tra colore del testo principale e sfondo delle schede degli allenamenti.}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.3]{immagini/controllo-colori/dark-mode/testo-principale_sfondo-div.png}
+		\caption{Contrasto tra colore del testo principale e sfondo dei div.}
+	\end{figure}
 
 	\subsection{Noscript}
 	Abbiamo fatto in modo che il documento Javascript definisca tutte delle funzioni di comportamento opzionali e non essenziali, come per esempio la dark-mode e la gestione del burger menù nella modalità mobile e tablet, in modo tale che la disabilitazione di Javascript non comprometta la completa funzionalità del sito, mantenendo così l'accessibilità, garantendo una trasformazione elegante. In particolare, tutti i form presenti nel sito funzionano correttamente anche in assenza di Javascript, segnalando anche gli errori negli input ma solo una volta premuto il tasto invio, prevenendo l'invio di dati invalidi al server. Javascript disabilitato poteva essere un problema per la modalità tablet e per la modalità mobile in quanto la gestione del burger menù è demandata al codice Javascript. Per risolvere il problema in questa tipologia di dispositivi, se Javascript è disabilitato viene visualizzato un altro tipo di menù, garantendo la piena funzionalità del sito web.
@@ -261,6 +361,7 @@
 		\item \textbf{window.addEventListener-hashchange, scrollmenu()}: funzioni utili a evitare che il menù, essendo fisso, copra parte del contenuto a seguito di un link che porta verso un id specifico.
 		\item \textbf{disableScadenza()}: nella modifica dei dati relativi all'abbonamento di un utente da parte di un amministratore, nella pagina Visualizza utente, quando è selezionata la voce “Nessuno” sul campo di selezione dell'abbonamento è necessario che il campo di inserimento della data di scadenza venga disattivato dinamicamente, per evitare che l'amministratore compili inutilmente il campo.
 		\item \textbf{adjustGestioneUtentiHeight()}: è una funzione che viene chiamata quando, nell'area personale, l'admin decide di modificare i suoi dati personali. Serve a regolare automaticamente l'altezza massima della lista degli utenti, in modo da evitare grandi spazi bianchi sotto ai widget. Non è possibile rendere le regolazioni automatiche tramite CSS, perché è necessario impostare un'altezza massima per la lista, in modo da permettere lo scroll.
+		\item \textbf{printAllenamento()}: funzione che viene assegnata all'evento click del bottone "Stampa questo allenamento" presente nella pagina di dettaglio dell'allenamento.
 	\end{itemize}
 	
 	\subsection{PHP}
@@ -324,8 +425,7 @@
 		\item Database;
 		\item Pagine PHP di Allenamenti, Dettagli Allenamenti;
 		\item Funzionalità JavaScript torna su;
-		\item Verifica separazione sito, accessibilità e validazione;
-		\item Capitolo TODO relazione.        
+		\item Verifica separazione sito, accessibilità e validazione.
 	\end{itemize}
 
 	\subsubsection{Alberto Lazari}
@@ -335,8 +435,7 @@
 		\item Pagine PHP di Area personale [Admin] e visualizza-utente.php. Correzioni e refactoring codice della pagina area-personale.php;
 		\item Piccoli elementi di comportamento in JavaScript;
 		\item Verifica divisione sito, accessibilità e validazione;
-		\item Verifica tabindex e aggiustamenti;
-		\item Capitolo TODO relazione.        
+		\item Verifica tabindex e aggiustamenti.
 	\end{itemize}
 
 	\subsubsection{Marco Andrea Limongelli}
@@ -345,8 +444,7 @@
 		\item CSS desktop e mobile;
 		\item Pagine PHP di Area personale, Compra abbonamento e Conferma Acquisto Abbonamento;
 		\item Funzionalità JavaScript Dark Mode, Burger Menù e visualizzazione errori negli input;
-		\item Verifica divisione sito, accessibilità e validazione;
-		\item Capitolo TODO relazione.        
+		\item Verifica divisione sito, accessibilità e validazione.    
 	\end{itemize}
 
 	\subsubsection{Francesco Protopapa}
@@ -355,8 +453,7 @@
 		\item CSS desktop, mobile e stampa
 		\item Pagine PHP di Autenticazione (Accesso e Registrazione), Modifica allenamento e Inserimento allenamento;
 		\item Piccoli elementi di comportamento in JavaScript;
-		\item Verifica divisione sito, accessibilità e validazione;
-		\item Capitolo TODO relazione.        
+		\item Verifica divisione sito, accessibilità e validazione.       
 	\end{itemize}
 
 \end{document}

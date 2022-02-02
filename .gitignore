@@ -15,7 +15,7 @@ sess_*
 **/*.fdb*
 **/*.log
 **/*.out
-**/*.gz
+**/*.synctex*
 **/*.toc
 **/*.pdf
 **/__latexindent*
