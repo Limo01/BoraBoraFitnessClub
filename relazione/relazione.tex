@@ -154,6 +154,8 @@
 		\caption{Schema concettuale del database.}
 	\end{figure}
 
+	Il sito non implementa le funzionalità per modificare le tabelle Abbonamento, Accesso e Personal trainer: queste vengono solo usate solo per visualizzarne i dati. Queste tabelle infatti vengono raramente modificate e in più il progetto originale del sito non prevede di implementare operazioni che richiedano di scrivere al loro interno. In particolare, in una situazione reale, la tabella Accesso sarebbe collegata ad un tornello all'ingresso della palestra, che aggiunge tuple alla tabella in base agli accessi dei clienti con i loro badge. Essendo che non disponiamo del tornello, questa tabella non cambia il suo contenuto.
+
 	\paragraph{Schema logico}
 	\texttt{{\bf abbonamento} (nome, prezzo)\\
 		{\bf utente} (username, password, nome, cognome, email, data\_nascita, badge, entrate, numero\_telefono, nome\_abbonamento, data\_inizio, data\_fine, is\_admin)\\
@@ -229,98 +231,98 @@
 
 
 	\subsubsection{Test colori light mode}
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.3]{immagini/controllo-colori/light-mode/errore_sfondo-div.png}
 		\caption{Contrasto tra colore degli errori e sfondo del div.}
 	\end{figure}
 
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.3]{immagini/controllo-colori/light-mode/link-da-visitare_background-menu.png}
 		\caption{Contrasto tra colore dei link ancora da visitare e sfondo del menu in modalità desktop.}
 	\end{figure}
 
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.3]{immagini/controllo-colori/light-mode/link-da-visitare_sfondo-article-p.png}
 		\caption{Contrasto tra colore dei link ancora da visitare e colore di sfondo dei link.}
 	\end{figure}
 
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.3]{immagini/controllo-colori/light-mode/successo_sfondo-div.png}
 		\caption{Contrasto tra colore dei messaggi di successo e sfondo del div.}
 	\end{figure}
 
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
-		\includegraphics[scale=0.3]{immagini/controllo-colori/light-mode/testo-contrasto-sfondi_testo-principale.JPG}
-		\caption{Contrasto tra colore del testo di #currentLink nel menù e il suo sfondo in modalità desktop.}
+		\includegraphics[scale=0.35]{immagini/controllo-colori/light-mode/testo-contrasto-sfondi_testo-principale.JPG}
+		\caption{Contrasto tra colore del testo di \#currentLink nel menù e il suo sfondo in modalità desktop.}
 	\end{figure}
 
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
-		\includegraphics[scale=0.3]{immagini/controllo-colori/light-mode/testo-principale_background-menu.JPG}
+		\includegraphics[scale=0.35]{immagini/controllo-colori/light-mode/testo-principale_background-menu.JPG}
 		\caption{Contrasto tra colore dei link del menù e il loro sfondo in modalità desktop.}
 	\end{figure}
 
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
-		\includegraphics[scale=0.3]{immagini/controllo-colori/light-mode/testo-principale_sfondo-article-p.JPG}
+		\includegraphics[scale=0.35]{immagini/controllo-colori/light-mode/testo-principale_sfondo-article-p.JPG}
 		\caption{Contrasto tra colore del testo principale e sfondo delle schede degli allenamenti.}
 	\end{figure}
 
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
-		\includegraphics[scale=0.3]{immagini/controllo-colori/light-mode/testo-principale_sfondo-div.JPG}
+		\includegraphics[scale=0.3]{immagini/controllo-colori/light-mode/testo-principale_sfondo-div.png}
 		\caption{Contrasto tra colore del testo principale e sfondo dei div.}
 	\end{figure}
 
 	\subsubsection{Test colori dark mode}
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.3]{immagini/controllo-colori/dark-mode/errore_sfondo-div.png}
 		\caption{Contrasto tra colore degli errori e sfondo del div.}
 	\end{figure}
 
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.3]{immagini/controllo-colori/dark-mode/link-da-visitare_background-menu.png}
 		\caption{Contrasto tra colore dei link ancora da visitare e sfondo del menu in modalità desktop.}
 	\end{figure}
 
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.3]{immagini/controllo-colori/dark-mode/link-da-visitare_sfondo-article-p.png}
 		\caption{Contrasto tra colore dei link ancora da visitare e colore di sfondo dei link.}
 	\end{figure}
 
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.3]{immagini/controllo-colori/dark-mode/successo_sfondo-div.png}
 		\caption{Contrasto tra colore dei messaggi di successo e sfondo del div.}
 	\end{figure}
 
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
-		\includegraphics[scale=0.3]{immagini/controllo-colori/dark-mode/testo-contrasto-sfondi_testo-principale.JPG}
-		\caption{Contrasto tra colore del testo di #currentLink nel menù e il suo sfondo in modalità desktop.}
+		\includegraphics[scale=0.35]{immagini/controllo-colori/dark-mode/testo-contrasto-sfondi_testo-principale.JPG}
+		\caption{Contrasto tra colore del testo di \#currentLink nel menù e il suo sfondo in modalità desktop.}
 	\end{figure}
 
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.3]{immagini/controllo-colori/dark-mode/testo-principale_background-menu.png}
 		\caption{Contrasto tra colore dei link del menù e il loro sfondo in modalità desktop.}
 	\end{figure}
 
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.3]{immagini/controllo-colori/dark-mode/testo-principale_sfondo-article-p.png}
 		\caption{Contrasto tra colore del testo principale e sfondo delle schede degli allenamenti.}
 	\end{figure}
 
-	\begin{figure}
+	\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.3]{immagini/controllo-colori/dark-mode/testo-principale_sfondo-div.png}
 		\caption{Contrasto tra colore del testo principale e sfondo dei div.}
@@ -423,8 +425,7 @@
 		\item Database;
 		\item Pagine PHP di Allenamenti, Dettagli Allenamenti;
 		\item Funzionalità JavaScript torna su;
-		\item Verifica separazione sito, accessibilità e validazione;
-		\item Capitolo TODO relazione.        
+		\item Verifica separazione sito, accessibilità e validazione.
 	\end{itemize}
 
 	\subsubsection{Alberto Lazari}
@@ -434,8 +435,7 @@
 		\item Pagine PHP di Area personale [Admin] e visualizza-utente.php. Correzioni e refactoring codice della pagina area-personale.php;
 		\item Piccoli elementi di comportamento in JavaScript;
 		\item Verifica divisione sito, accessibilità e validazione;
-		\item Verifica tabindex e aggiustamenti;
-		\item Capitolo TODO relazione.        
+		\item Verifica tabindex e aggiustamenti.
 	\end{itemize}
 
 	\subsubsection{Marco Andrea Limongelli}
@@ -444,8 +444,7 @@
 		\item CSS desktop e mobile;
 		\item Pagine PHP di Area personale, Compra abbonamento e Conferma Acquisto Abbonamento;
 		\item Funzionalità JavaScript Dark Mode, Burger Menù e visualizzazione errori negli input;
-		\item Verifica divisione sito, accessibilità e validazione;
-		\item Capitolo TODO relazione.        
+		\item Verifica divisione sito, accessibilità e validazione.    
 	\end{itemize}
 
 	\subsubsection{Francesco Protopapa}
@@ -454,8 +453,7 @@
 		\item CSS desktop, mobile e stampa
 		\item Pagine PHP di Autenticazione (Accesso e Registrazione), Modifica allenamento e Inserimento allenamento;
 		\item Piccoli elementi di comportamento in JavaScript;
-		\item Verifica divisione sito, accessibilità e validazione;
-		\item Capitolo TODO relazione.        
+		\item Verifica divisione sito, accessibilità e validazione.       
 	\end{itemize}
 
 \end{document}
