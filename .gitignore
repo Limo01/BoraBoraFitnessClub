@@ -7,3 +7,15 @@ upload
 connect
 sess_*
 .htaccess
+**/*.fls
+**/*.aux
+**/*.idx
+**/*.ilg
+**/*.ind
+**/*.fdb
+**/*.log
+**/*.out
+**/*.gz
+**/*.toc
+**/*.pdf
+**/__latexindent*
