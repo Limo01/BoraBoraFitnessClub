@@ -112,24 +112,26 @@
 				$content .= "
 						<li>
 							<a href='modificaAllenamento.php?id=" . $row['id'] . "'>Modifica allenamento</a>
-						</li>
-					</ul>";
+						</li>";
 				$content .= "
-					<form action='allenamenti.php?pagina=" . $pagina . "' method='post'>
-						<input type='hidden' name='id' value='" . $row['id'] . "' />
-						<button name='elimina' class='eliminaAllenamentoButton'>Elimina allenamento</button>
-					</form>";
+						<li>
+							<form action='allenamenti.php?pagina=" . $pagina . "' method='post'>
+								<input type='hidden' name='id' value='" . $row['id'] . "' />
+								<button name='elimina' class='eliminaAllenamentoButton'>Elimina allenamento</button>
+							</form>
+						</li>";
 			} 
 
 			if ($tipoUtente == 1 || ($tipoUtente == 0 && $row['username_utente'] != $utente)) {
 				
 				if ($connessione->doReadQuery("SELECT COUNT(*) AS isFollowing FROM utente_allenamento WHERE id_allenamento = ? AND username_utente = ?", "is", $row['id'], $utente)[0]['isFollowing'] == 0) {
 					$content .= "
-					</ul>
-					<form action='allenamenti.php?pagina=" . $pagina . "#" . $row['id'] . "' method='post'>
-						<input type='hidden' name='id' value='" . $row['id'] . "' />
-						<button name='segui' value='seguire'>Segui</button>
-					</form>";
+						<li>
+							<form action='allenamenti.php?pagina=" . $pagina . "#" . $row['id'] . "' method='post'>
+								<input type='hidden' name='id' value='" . $row['id'] . "' />
+								<button name='segui' value='seguire'>Segui</button>
+							</form>
+						</li>";
 					
 					if ($row['id'] == $followAllenamento) {
 						$_SESSION['followAllenamento'] = 0;
@@ -137,11 +139,12 @@
 					}
 				} else {
 					$content .= "
-					</ul>
-					<form action='allenamenti.php?pagina=" . $pagina . "#" . $row['id'] . "' method='post'>
-						<input type='hidden' name='id' value='" . $row['id'] . "' />
-						<button name='segui' value='nonSeguire'>Smetti di seguire</button>
-					</form>";
+						<li>
+							<form action='allenamenti.php?pagina=" . $pagina . "#" . $row['id'] . "' method='post'>
+								<input type='hidden' name='id' value='" . $row['id'] . "' />
+								<button name='segui' value='nonSeguire'>Smetti di seguire</button>
+							</form>
+						</li>";
 					
 					if ($row['id'] == $followAllenamento) {
 						$_SESSION['followAllenamento'] = 0;
@@ -150,7 +153,7 @@
 				}
 			}
 
-			$content .= "</div></article>";
+			$content .= "</ul></div></article>";
 		}
 		
 		$connessione->closeConnection();
