@@ -164,7 +164,7 @@
 		$paginaHTML = replaceUltimoIngresso($ultimoIngresso, $paginaHTML);
 		unset($ultimoIngresso);
 
-		$paginaHTML = replaceSchedeAllenamento($schedeSeguite, $schedeCreate, $admin, $paginaHTML);
+		$paginaHTML = replaceSchedeAllenamento($schedeSeguite, $schedeCreate, $admin, $paginaHTML, true);
 		unset($schedeSeguite, $schedeCreate);
 	} else {
 		$paginaHTML = "<p>I sistemi sono al momento non disponibili, riprova più tardi!</p>";
