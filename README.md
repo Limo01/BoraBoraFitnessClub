@@ -1,5 +1,5 @@
 # BoraBoraFitnessClub
-The goal of this Web Technology project was to create a website for a gym. 
+The goal of this Web Technologies project was to create a website for a gym. 
 <br>
 <br>
 _Note: The website is in italian, so all the following schemas will be in italian_
