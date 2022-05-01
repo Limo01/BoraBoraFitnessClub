@@ -1,0 +1,146 @@
+\documentclass[a4paper]{article}
+\usepackage[italian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{makecell}
+\usepackage[table]{xcolor}
+\usepackage{setspace}
+\usepackage{tabularx} 
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{bold-extra}
+
+\usepackage{titlesec}
+
+\setcounter{secnumdepth}{4}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeindex
+
+\title{
+	\textbf{BORA BORA FITNESS CLUB}\\
+	\large Relazione di progetto del Concorso "Accattivante Accessibile"
+}
+\date{Anno 2022}
+
+\begin{document}
+	\maketitle
+
+	\begin{center}
+		\textbf{\large Gruppo BoraBoraTeam}\\
+	\end{center}
+
+	\begin{table}[H]
+		\centering
+		\textbf{\large Componenti del gruppo}\\
+		\begin{tabular}{l l l}
+			Adnan Latif Gazi		& 1224442	& adnanlatif.gazi@studenti.unipd.it\\
+			Alberto Lazari			& 1216747	& alberto.lazari@studenti.unipd.it\\
+			Marco Andrea Limongelli	& 1225415	& marcoandrea.limongelli@studenti.unipd.it\\
+			Francesco Protopapa		& 1221598	& franceseco.protopapa@studenti.unipd.it\\
+		\end{tabular}
+	\end{table}
+
+	\begin{center}
+		\textbf{\large Referente del gruppo}\\
+		Adnan Latif Gazi
+	\end{center}
+
+	\begin{center}
+		\textbf{\large Informazioni sul sito}\\
+		Indirizzo del sito web \href{http://caa.studenti.math.unipd.it/agazi/}{http://caa.studenti.math.unipd.it/agazi/}\\
+	\end{center}
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|l|l|l|}
+			\hline
+			\textbf{Tipologia di utente}	& \textbf{Username}	& \textbf{Password}\\
+			\hline
+			Utente generico					& user				& user\\
+			\hline
+			Utente amministratore			& admin				& admin\\
+			\hline
+		\end{tabular}
+		\caption{Credenziali degli utenti del sito.}
+	\end{table}
+
+	\pagebreak
+
+	\section{Introduzione}
+	\subsection{Abstract}
+	Il progetto Bora Bora Fitness Club, svolto come finalità del concorso "Accattivante Accessibile" nell'anno accademico 2022, si propone di implementare un sito web per la gestione delle attività relativa ad una palestra. Il nome è ottenuto unendo i titoli dell'isola della polinesia francese di Bora Bora, in cui sorge l'attività, con una classica e indicativa denominazione delle palestre (Fitness Club).\\ 
+	Esistono moltissimi siti relativi a palestre, ma praticamente tutte si limitano alla sola presentazione della propria impresa: Bora Bora Fitness Club invece mette a disposizione degli utilizzatori del sito le funzionalità che risultano essere le più desiderate dai clienti, quali la gestione dei propri allenamenti ed esercizi, interazione con gli allenamenti degli altri utenti, tracciamento delle proprie attività, gestione dei dati personali e abbonamenti.\\
+	Per conseguire lo scopo, la natura del sito è fortemente interattiva, ma unisce anche una sostanziosa parte per la presentazione dell'impresa. Per i visitatori è infatti possibile accedere al proprio account, grazie al quale gestire le proprie attività di palestra. Nonostante ciò l'autenticazione non è obbligatoria: il visitatore ha comunque a disposizione tutte le funzionalità informative.\\
+	Il sito è stato sviluppato con l'intenzione di essere poi pubblicato su Internet, dunque si è data molta importanza alla sua usabilità, rispettando gli standard W3C, la separazione tra struttura, presentazione, comportamento e le regole di accessibilità richieste.
+
+	\subsection{Analisi dell'utenza}
+	Il sito web si rivolge prevalentemente ad un pubblico di abitanti o visitatori dell'isola che intendono allenarsi nella sua unica palestra disponibile. Sebbene in minima parte, viene anche utilizzato dai gestori della palestra e una parte dei clienti degli alberghi convenzionati, che, pagando la quota di iscrizione una tantum alla palestra, hanno libero accesso al Bora Bora Fitness Club fintantoché pernottano nei resort.\\
+	La palestra raccoglie pertanto una clientela relativamente al passo con la tecnologia, principalmente abbiente e solitamente giovane. Il sito risulta essere ottimizzato per la visualizzazione da telefono, in quanto è stato appurato che la maggior parte degli utenti salvino i propri allenamenti nel sito, e una volta arrivati in palestra si allenino seguendo la scheda degli esercizi direttamente dal telefono. Essendo che però potrebbe essere presente una piccola parte della clientela non aggiornata con le ultime tecnologie e non in grado di comprendere o utilizzare le funzionalità più moderne, il sito è stato realizzato garantendo l'usabilità delle sue funzioni a prescindere dal tipo di tecnologia e utente, nonostante diventi meno accattivante se usato con le tecnologie meno recenti.\\
+	L'utenza target del sito si divide in 3 gruppi, una volta che visitano il sito:
+	\begin{itemize}
+		\item \textbf{Admin:} amministra sugli utenti e le loro attività in modo da regolare il corretto funzionamento del sito.
+		\item \textbf{Utente registrato:} usufruisce delle funzionalità di gestione delle proprie attività in modo da godere della più ampia esperienza di palestra.
+		\item \textbf{Utente non registrato:} ricerca informazioni da una panoramica della palestra al fine di valutare il suo interesse per la palestra.
+		
+	\end{itemize}
+
+	\section{Accessibilità}
+	Per mantenere un alto livello di accessibilità ci siamo attenuti allo standard WCAG 2.0 \newline (\href{https://www.w3.org/Translations/WCAG20-it/}{https://www.w3.org/Translations/WCAG20-it/})
+
+	\subsection{Separazione tra comportamento, struttura e presentazione}
+	Per migliorare l'accessibilità per gli utenti con differenti disabilità e per un miglior posizionamento nei motori di ricerca, abbiamo mantenuto una netta separazione tra comportamento, struttura e presentazione.
+	Per quanto riguarda la struttura abbiamo utilizzato documenti HTML5, i quali sono stati stilizzati utilizzando documenti CSS esterni. Per il comportamento invece è stato utilizzato un documento Javascript esterno.
+	Nel codice HTML non abbiamo inserito attributi relativi ad eventi Javascript in modo tale da separare completamente struttura da comportamento. Proprio per questo motivo è il codice Javascript a specificare gli eventi per ogni elemento HTML.
+	Tutto il codice è stato scritto seguendo le raccomandazioni W3C, evitando l'utilizzo di tag e attributi deprecati, accertando la validità tramite l'utilizzo dei validatori.
+
+
+	\subsection{WAI-ARIA}
+	Per garantire l'accessibilità abbiamo deciso di utilizzare la specifica WAI-ARIA prodotta da W3C, che definisce un insieme di attributi HTML addizionali che possono essere applicati ai vari elementi per fornire maggior valore semantico e aumentare l'accessibilità. In particolare abbiamo utilizzato gli aria-label in quelle situazioni in cui non era presente testo, come per esempio il simbolo nel menù contenente il link per andare nell'area personale e nel footer nelle varie immagini utilizzate per le informazioni di contatto. Abbiamo inoltre utilizzato l'attributo aria-label anche sul breadcrumb per indicare che il contenuto di quel tag <nav> indica la posizione dell'utente all'interno del sito. Sempre riguardo alla navigazione, in ogni pagina abbiamo predisposto un link nascosto agli utenti ma visibile agli screen reader per saltare la lettura delle varie voci del menù e andare direttamente al contenuto della pagina. Per migliorare ulteriormente la navigazione, abbiamo predisposto un pulsante torna su che permette di tornare all'inizio della pagina. Per rendere accessibile la pagina dove è presente l'animazione del processo di pagamento, abbiamo inserito a inizio pagina, prima del menù, un <p> invisibile ma leggibile dagli screen reader per avvisare l'utente che utilizza una tecnologia assistiva della processazione del pagamento. Questo era necessario in quanto siccome la pagina effettua un redirect in pochi secondi, questa tipologia di utenti deve essere avvertita velocemente, evitando di rileggere il menù prima di venire a conoscenza di tale messaggio. Per quanto riguarda i form, ovunque ci fossero dei tag <p> predisposti per visualizzare degli errori negli input, abbiamo aggiunto l'attributo role=”alert” per attirare l'attenzione dell'utente che utilizza una tecnologia assistiva. Inoltre, per indicare quali campi fossero obbligatori abbiamo utilizzato l'attributo required di HTML5 che offre qualche funzionalità in più rispetto aria-required in quanto, oltre a garantire l'accessibilità, previene l'invio del form qualora il campo di input sia vuoto, senza l'utilizzo di Javascript.
+
+	\subsection{Colori}
+	I colori principali del sito sono color sabbia per gli sfondi dei <div>, marrone scuro per il testo e altri colori sempre sulle tonalità del marrone per vari elementi delle pagine. Come background abbiamo scelto un'immagine delle spiagge di Bora Bora. All'interno delle nostre pagine siamo stati attenti a non veicolare le informazioni tramite il solo utilizzo del colore, infatti per esempio tutti i link sono segnalati tramite sottolineatura oltre al colore di sfondo. Di seguito vengono riportati i risultati dei test effettuati su tutti i contrasti tra il colore del testo e il colore di sfondo presenti nel sito. In generale tutti i rapporti superano il test WCAG AA (minimo rapporto di 4.5:1 per testo normale e 3:1 per testo grande) ma la maggior parte sono WCAG AAA (minimo rapporto di 7:1 per testo normale e 4.5:1 per testo grande). Essendo i <div> semitrasparenti, nei contrasti dei colori che li utilizzano come colore di background abbiamo considerato la tonalità di colore più svantaggiosa per il contrasto.
+
+	\subsection{Noscript}
+	Abbiamo fatto in modo che il documento Javascript definisca tutte delle funzioni di comportamento opzionali e non essenziali, come per esempio la dark-mode e la gestione del burger menù nella modalità mobile e tablet, in modo tale che la disabilitazione di Javascript non comprometta la completa funzionalità del sito, mantenendo così l'accessibilità, garantendo una trasformazione elegante. In particolare, tutti i form presenti nel sito funzionano correttamente anche in assenza di Javascript, segnalando anche gli errori negli input ma solo una volta premuto il tasto invio, prevenendo l'invio di dati invalidi al server. Javascript disabilitato poteva essere un problema per la modalità tablet e per la modalità mobile in quanto la gestione del burger menù è demandata al codice Javascript. Per risolvere il problema in questa tipologia di dispositivi, se Javascript è disabilitato viene visualizzato un altro tipo di menù, garantendo la piena funzionalità del sito web.
+	
+	\subsection{Tabindex}
+	Per tutte le pagine è stato effettuato un controllo che tutti gli elementi di interazione fossero accessibili anche da tastiera e che l'ordine di selezione degli stessi fosse corretto, ovvero che i tabindex fossero corretti. Per un corretto ed intuitivo funzionamento dei tabindex basterebbe una buona struttura delle pagine, non dovrebbe infatti essere necessario ricorrere a specificare un ordine manuale di tabindex. Per quanto riguarda i link e tutti gli elementi di interazione del contenuto vale questa raccomandazione, mentre per la navigazione del menù si è dovuti ricorrere ad un ordine manuale. L'ordine utilizzato pone al primo posto il link per andare direttamente al contenuto e saltare la navigazione, sfruttato dagli utenti che utilizzano screen reader per evitare la lettura continua del menù. Successivamente si passa alla selezione dei link che compongono il menù, fino al link per la pagina Galleria. Poi viene selezionato il toggle per il cambio dello schema dei colori e, subito dopo, il link per l'area personale. Da quel punto in avanti viene utilizzato l'ordine di selezione automatico. Questo accorgimento si è rivelato necessario a causa della scelta di posizionare il toggle per il cambio dello schema dei colori nella barra del menù di navigazione, prima del link all'area personale.
+
+	\section{Fase di test}
+	\subsection{Validazione}
+	Tutte le pagine html e i file css sono stati sottoposti alla validazione tramite l'uso dei tool descritti nella sezione relativa alla realizzazione.
+	
+	\subsection{Peso}
+	Il peso di ogni pagina del sito è stato calcolato tramite lo strumento descritto nella sezione relativa alla realizzazione. Tutte le pagine eccetto la galleria (3.4 MB) non superano 1 MB di peso, non è stato possibile alleggerire il peso della galleria senza perdita di qualità delle immagini.
+	
+	\subsection{Browser e dispositivi}
+	Il sito è stato testato direttamente sui seguenti sistemi operativi:
+	\begin{itemize}
+		\item Windows 10
+		\item Windows 11
+		\item macOS
+		\item Linux
+		\item Android 11
+		\item IOS 15
+	\end{itemize}
+	Il sito è stato testato direttamente sui seguenti browser:
+	\begin{itemize}
+		\item Chrome v97
+		\item Firefox v96
+		\item Safari v15.2 (i file CSS sono direttamente nella root altrimenti questo browser non riesce ad accedere alle variabili CSS)
+		\item Edge v97
+		\item Opera v83
+		\item Internet explorer 21h1
+		\item Lynx v2.8.9
+	\end{itemize}
+\end{document}

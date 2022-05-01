@@ -718,8 +718,8 @@ footer[class="footer-bottom"] {
 
 #content .personalTrainer .corsiTrainer p {
 	display: inline-block;
-	color: var(--colore-testo-contrasto-sfondi);
-	background-color: var(--colore-testo-principale);
+	color: var(--colore-testo-principale);
+	background-color: var(--colore-sfondo-article-p);
 	padding: 0.5em 1em;
 	border-radius: 2em;
 	margin-bottom: 0.5em;

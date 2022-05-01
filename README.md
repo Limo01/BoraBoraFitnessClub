@@ -4,6 +4,9 @@ The goal of this Web Technologies project was to create a website for a gym.
 <br>
 _Note: The website is in italian, so all the following schemas will be in italian_
 
+## Visit the website ##
+Visit the website on <a href="https://boraborafc.000webhostapp.com/">boraborafc.000webhostapp.com</a>.
+
 ## Sitemap ##
 <img src="relazione/immagini/mappa_sito.png" /><br>
 

@@ -17,5 +17,4 @@ sess_*
 **/*.out
 **/*.synctex*
 **/*.toc
-**/*.pdf
 **/__latexindent*
