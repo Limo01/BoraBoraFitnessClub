@@ -43,7 +43,7 @@ img{
 }
 
 a:after {
-    content: " (http://caa.studenti.math.unipd.it/agazi/" attr(href) ") ";
+    content: " (http://tecweb.studenti.math.unipd.it/agazi/" attr(href) ") ";
 }
 
 a[href^="http"]:after{
